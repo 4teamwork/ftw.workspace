@@ -1,0 +1,5 @@
+Add a Workspace content item
+
+    >>> self.setRoles(['Contributor'])
+    >>> self.folder.invokeFactory('Workspace', 'w1')
+    'w1'

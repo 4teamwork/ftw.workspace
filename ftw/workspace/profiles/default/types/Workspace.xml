@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<object name="Workspace"
+   meta_type="Factory-based Type Information with dynamic views"
+   i18n:domain="ftw.workspace" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">Workspace</property>
+ <property name="description"
+    i18n:translate="">A type for collaborative spaces.</property>
+ <property name="content_icon">folder_icon.gif</property>
+ <property name="content_meta_type">Workspace</property>
+ <property name="product">ftw.workspace</property>
+ <property name="factory">addWorkspace</property>
+ <property name="immediate_view">base_view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="Blog"/>
+  <element value="Buch"/>
+  <element value="Link"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">base_view</property>
+ <property name="view_methods">
+  <element value="base_view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="edit" to="atct_edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${folder_url}/" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Overview" action_id="overview" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Documents" action_id="documents" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}?view=documents"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Event" action_id="events" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}?view=events"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Tasks" action_id="tasks" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}?view=tasks"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Contacts" action_id="contacts" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}`view=contacts" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Info" action_id="info" category="arbeitsraum-tabs"
+    condition_expr="" url_expr="string:${object_url}?view=info"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Folder" action_id="overview-addfolder"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Folder"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Fokus" action_id="overview-addfokus"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Fokus"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Buch" action_id="overview-addbuch"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Buch"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Task" action_id="tasks-addtask"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Task"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Document" action_id="documents-adddocument"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Document"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="add Event" action_id="events-addevent"
+    category="arbeitsraum-types" condition_expr=""
+    url_expr="string:${object_url}/createObject?type_name=Event"
+    visible="True">
+  <permission value="View"/>
+ </action>
+</object>

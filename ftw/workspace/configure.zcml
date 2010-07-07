@@ -1,0 +1,40 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="ftw.workspace">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <!-- <i18n:registerTranslations directory="locales" /> -->
+
+    <!-- <five:implements
+      class="Products.ATContentTypes.interface.folder.IATFolder"
+      /> -->
+
+      <!-- Register the installation GenericSetup extension profile -->
+      <genericsetup:registerProfile
+        name="default"
+        title="ftw.workspace"
+        directory="profiles/default"
+        description="Workspace"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <!-- Include the sub-packages that use their own configure.zcml files. -->
+
+    <!-- <include package=".browser" /> -->
+    <include package=".content" />
+
+
+     
+   <cmf:registerDirectory
+       name="ftw.workspace"/>
+
+	<subscriber handler=".content.workspace.workspace_added" />
+
+
+
+</configure>

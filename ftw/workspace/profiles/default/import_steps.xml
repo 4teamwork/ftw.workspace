@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="ftw.workspace.catalog"
+               version="20080828-01"
+               handler="ftw.workspace.setuphandlers.add_indexes"
+               title="ftw Workspace: index import ">
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

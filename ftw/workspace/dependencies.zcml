@@ -1,0 +1,6 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+    <!-- <include package="collective.js.jqueryui" />
+    <include package="collective.jqhistory" />
+    <include package="ftw.tabbedview" /> -->
+</configure>
