@@ -1,21 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_actions" meta_type="Plone Actions Tool"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <object name="document_actions">
-     
-  <object name="sendto" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title" i18n:translate="">Send this</property>
-   <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:$object_url/ftw_SendTo_form</property>
-   <property name="icon_expr">string:++resource++izug.theme.images/icon_sendto-inv.gif</property>
-   <property name="available_expr"></property>
-   <property name="permissions">
-    <element value="Allow sendto"/>
-   </property>
-   <property name="visible">True</property>
-  </object>
-  
- </object>
  <object name="object_buttons" meta_type="CMF Action Category">
      
   <object name="change_owner" meta_type="CMF Action" i18n:domain="plone">
