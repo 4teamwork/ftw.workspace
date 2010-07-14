@@ -30,7 +30,7 @@ setup(name='ftw.workspace',
       install_requires=[
           'setuptools',
           'ftw.calendarwidget',
-          # 'ftw.tabbedview',
+          'ftw.tabbedview',
           # -*- Extra requirements: -*-
       ],
       tests_require=tests_require,
@@ -38,5 +38,7 @@ setup(name='ftw.workspace',
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
