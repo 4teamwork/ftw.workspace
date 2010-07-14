@@ -1,3 +1,27 @@
+from Acquisition import aq_inner
+from DateTime import DateTime
+from datetime import datetime, timedelta
+
+from ftw.tabbedview.browser.views import views
+from ftw.table import helper
+from ftw.table.interfaces import ITableGenerator
+
+from plone.app.workflow.browser.sharing import SharingView
+from plone.memoize import view
+from plone.memoize.compress import xhtml_compress
+from plone.memoize import ram
+
+from Products.Archetypes.utils import OrderedDict
+from Products.CMFCore.Expression import getExprContext
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
+from Products.Five.browser import BrowserView
+from Products.PythonScripts.standard import url_quote_plus
+
+from time import localtime
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile 
+from zope.component import getMultiAdapter, queryMultiAdapter, queryUtility
+from zope.i18nmessageid import MessageFactory
 from Products.Five.browser import BrowserView
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import queryUtility
@@ -6,7 +30,10 @@ from ftw.tabbedview.browser.views import views
 from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
 from ftw.workspace.browser import helper as workspace_helper
-from ftw.workspace import _
+
+#from ftw.workspace import _
+
+_ = lambda x: x
 
 class GetOwnershipView(BrowserView):
 
@@ -39,7 +66,10 @@ class MyListing(views.BaseListingView):
     
     custom_sort_indexes = {'Products.PluginIndexes.DateIndex.DateIndex': workspace_helper.custom_sort}
     
-    table = ViewPageTemplateFile('table.pt')
+    #table = ViewPageTemplateFile('table.pt')
+    
+    def get_css_classes(self):
+        return 'mylist'
     
     def update(self):
         super(MyListing, self).update()
@@ -64,6 +94,11 @@ class MyListing(views.BaseListingView):
 # overview-tab
 class OverviewTab(BrowserView):
     #TODO: refactor view using viewlets
+    # 
+    # 
+    def get_css_classes(self):
+        return 'mylist'
+        
     def catalog(self, types, depth=2, sort_on = 'modified'):
         return self.context.portal_catalog(portal_type=types,
                                            path=dict(depth=depth,
@@ -124,10 +159,10 @@ class Meetings(MyListing):
 
     columns = (
                ('start', helper.readable_date),
-               ('Title', 'sortable_title', izug_linked),
+               ('Title', 'sortable_title', helper.linked),
                ('getMeeting_type', translate),
-               ('Responsible', 'sortable_responsibility', meeting_responsible),
-               ('', delete_action),
+               ('Responsible', 'sortable_responsibility', workspace_helper.responsible),
+               ('', workspace_helper.delete_action),
               )
 
 class Tasks(MyListing):
@@ -144,7 +179,7 @@ class Tasks(MyListing):
               ('', workspace_helper.delete_action),
               )
 
-class EventsViewCalendar(BaseListingView):
+class EventsViewCalendar(views.BaseListingView):
     types = ['Meeting', ]
 
     #_template = ViewPageTemplateFile('arbeitsraum_view-events-calendar')
@@ -157,7 +192,7 @@ class EventsViewCalendar(BaseListingView):
         self.url_quote_plus = url_quote_plus
 
         self.now = localtime()
-        self.yearmonth = yearmonth = self.getYearAndMonthToDisplay()
+        self.yearmonth = yearmonth = 2010, 7#self.getYearAndMonthToDisplay()
         self.year = year = yearmonth[0]
         self.month = month = yearmonth[1]
 
@@ -167,8 +202,8 @@ class EventsViewCalendar(BaseListingView):
         self.prevMonthYear, self.prevMonthMonth = self.getPreviousMonth(year, month)
         self.nextMonthYear, self.nextMonthMonth = self.getNextMonth(year, month)
 
-        self.monthName = PLMF(self._ts.month_msgid(month),
-                            default=self._ts.month_english(month))
+        self.monthName = 'july'#PLMF(self._ts.month_msgid(month),
+                         #   default=self._ts.month_english(month))
 
     def render(self):
         return xhtml_compress(self._template())

@@ -5,7 +5,7 @@
       <h2 i18n:translate="" tal:content="box/id"></h2>
       <tal:items define="items box/content
                          isString pyhton: items.isInstance(str)">
-        <ul tal:condition="items and not: isString">
+        <ul tal:condition="items">
           <li tal:repeat="item items">
             <img tal:attributes="src item/getIcon"
                  tal:condition="item/getIcon" />

@@ -53,10 +53,6 @@
     visible="True">
   <permission value="View"/>
  </action>
- <action title="Contacts" action_id="contacts" category="arbeitsraum-tabs"
-    condition_expr="" url_expr="string:${object_url}`view=contacts" visible="True">
-  <permission value="View"/>
- </action>
  <action title="Info" action_id="info" category="arbeitsraum-tabs"
     condition_expr="" url_expr="string:${object_url}?view=info"
     visible="True">

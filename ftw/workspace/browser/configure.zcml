@@ -14,13 +14,13 @@
         permission="zope.Public"
         />
 
-    <browser:page
+    <!--><browser:page
         for="Products.ATContentTypes.interface.folder.IATFolder"
         name="arbeitsraeume_view"
         permission="zope.Public"
         class=".views.ArbeitsraeumeView"
         template="tabbed.pt"
-        />
+        />-->
 
     <!-- Different views for the workspace-Tabs   -->
 
@@ -32,17 +32,17 @@
         template="templates/overview.pt"
         />
 
-    <browser:page
+    <!--><browser:page
         for="Products.ATContentTypes.interface.folder.IATFolder"
         name="tabbedview_view-Arbeitsraeume"
         permission="zope.Public"
         class=".views.Arbeitsraeume"
         template="templates/generic.pt"
-        />
+        />-->
 
     <browser:page
       for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="tabbedview_view-Documents"
+      name="tabbedview_view-documents"
       permission="zope.Public"
       class=".views.Documents"
       template="templates/generic.pt"
@@ -50,7 +50,7 @@
 
     <browser:page
       for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="tabbedview_view-Meetings"
+      name="tabbedview_view-meetings"
       permission="zope.Public"
       class=".views.Meetings"
       template="templates/generic.pt"
@@ -58,15 +58,14 @@
 
     <browser:page
       for="..interfaces.IWorkspace"
-      name="tabbedview_view-events-calendar"
+      name="tabbedview_view-events"
       class=".views.EventsViewCalendar"
       permission="zope.Public"
-      template="events_view_calendar.pt"
       />
 
     <browser:page
       for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="tabbedview_view-Tasks"
+      name="tabbedview_view-tasks"
       permission="zope.Public"
       class=".views.Tasks"
       template="templates/generic.pt"

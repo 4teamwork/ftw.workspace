@@ -15,7 +15,6 @@
     <input type="hidden" name="orig_template" tal:attributes="value string:${here/absolute_url}/#${view/view_name}" />
 
     <tal:cond tal:condition="view/contents">
-        <div metal:use-macro="here/batch_macros_search/macros/navigation" tal:condition="request/show" />
         <div tal:content="structure view/render_listing" />
     </tal:cond>
     
