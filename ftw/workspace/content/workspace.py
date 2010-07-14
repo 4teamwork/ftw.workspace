@@ -31,7 +31,6 @@ WorkspaceSchema = folder.ATFolderSchema.copy()
 # they work well with the python bridge properties.
 WorkspaceSchema['title'].storage = atapi.AnnotationStorage()
 WorkspaceSchema['description'].storage = atapi.AnnotationStorage()
-WorkspaceSchema['description'].required = True
 schemata.finalizeATCTSchema(WorkspaceSchema, folderish=True, moveDiscussion=False)
 finalizeWorkspaceSchema(WorkspaceSchema, folderish=True, moveDiscussion=False)
 
