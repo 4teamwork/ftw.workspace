@@ -11,11 +11,8 @@
  <property name="factory">addWorkspace</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
+ <property name="filter_content_types">False</property>
  <property name="allowed_content_types">
-  <element value="Blog"/>
-  <element value="Buch"/>
-  <element value="Link"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">base_view</property>
