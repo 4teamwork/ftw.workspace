@@ -15,14 +15,5 @@
    <property name="visible">True</property>
   </object>
 
-  <object name="workspace_as_pdf" meta_type="CMF Action" i18n:domain="plone">
-    <property name="title" i18n:translate="workspace_as_pdf">workspace_as_pdf</property>
-    <property name="url_expr">string:$object_url/workspace_as_pdf</property>
-	<property name="available_expr">python: object.Type() == 'Workspace'</property>
-    <property name="permissions">
-     <element value="View"/>
-    </property>
-  </object>
-  
  </object>
 </object>
