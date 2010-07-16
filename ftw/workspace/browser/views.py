@@ -85,7 +85,7 @@ class MyListing(views.BaseListingView):
                                   selected=(self.sort_on, self.sort_order),
                                   template = self.table,
                                   auto_count = self.auto_count,
-                                  css_mapping = dict(table='sortable-table')
+                                  css_mapping = dict(table='listing')
                                   )
 
 
@@ -108,24 +108,23 @@ class OverviewTab(BrowserView):
                                            sort_order='reverse')
 
     def boxes(self):
-        items = [[dict(id = 'folders', content=self.folders()),
+        items = [[dict(id = 'folders', content=self.folders(), type_='list'),
                   dict(id = 'blogs', content=self.blogs()),
                   dict(id='description', content=self.description()),],
                   [dict(id ='documents', content=self.documents()),
                   dict(id='recently_modified', content=self.recently_modified()),
                 ]]
-
         return items
 
 
     def folders(self):
         return self.catalog(['Folder', 'Workspace',])
 
-    def boxes(self):
+    def blogs(self):
         return self.catalog(['Blog',])
 
     def description(self):
-        return self.context.getDescription()
+        return self.context.Description()
 
     def documents(self):
         return self.catalog(['File',], sort_on='created',)[:5]
@@ -141,11 +140,11 @@ class Documents(MyListing):
    sort_on = 'modified'
    
    columns = (
+              ('', helper.path_checkbox),
               ('Typ', 'getContentType', workspace_helper.icon),
               ('Title', 'sortable_title', workspace_helper.workspace_files_linked),
               ('modified', helper.readable_date),
               ('Creator', helper.readable_author),
-              ('', workspace_helper.delete_action),
               )
 
 def translate(item, value):

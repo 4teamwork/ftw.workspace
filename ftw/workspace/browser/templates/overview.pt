@@ -1,11 +1,10 @@
-<!--TODO: refactor using viewlets-->
-<tal:block i18n:domain="opengever.tabbedview" tal:define="groups view/boxes">
+<tal:block i18n:domain="ftw.workspace" tal:define="groups view/boxes">
   <div tal:repeat="boxes groups" tal:attributes="class string:boxGroup${repeat/boxes/index}">
     <div tal:repeat="box boxes" class="box" tal:attributes="id string:${box/id}Box">
       <h2 i18n:translate="" tal:content="box/id"></h2>
-      <tal:items define="items box/content
-                         isString pyhton: items.isInstance(str)">
-        <ul tal:condition="items">
+      <tal:items define="items box/content">
+      <div tal:content="python:items"></div>
+        <!--<ul tal:condition="items">
           <li tal:repeat="item items">
             <img tal:attributes="src item/getIcon"
                  tal:condition="item/getIcon" />
@@ -14,7 +13,7 @@
           <li class="moreLink">
             <a tal:attributes="href string:#${box/id}-tab" i18n:translate="">show all</a>
           </li>
-        </ul>
+        </ul>-->
         <span tal:condition="not: items" i18n:translate="no_content" />
       </tal:items>
     </div>
