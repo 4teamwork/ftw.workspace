@@ -70,12 +70,6 @@ class MyListing(views.BaseListingView):
     
     def get_css_classes(self):
         return 'mylist'
-    
-    def update(self):
-        super(MyListing, self).update()
-        self.pagesize = 50
-        #old izug batching still uses b_start instead of self.pagenumber
-        self.pagenumber = int(self.request.get('b_start', 0))/self.pagesize+1
 
     def render_listing(self):
         generator = queryUtility(ITableGenerator, 'ftw.tablegenerator')

@@ -2,18 +2,11 @@
   <form name="tabbedview_form"
         method="post"
         action="folder_object"
-        tal:attributes="action context/absolute_url"
-        tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-        			b_size python:50;
-        			b_size request/b_size | b_size;
-        			b_size python: type(b_size) == type([]) and b_size[-1] or b_size;
-        			b_start python:0;b_start request/b_start | b_start;
-        			b_range python: b_start==0 and 5 or 3;
-        			batch python:Batch(view.contents, int(b_size), int(b_start), orphan=1,pagerange=int(b_range));"
-        >
+        tal:attributes="action context/absolute_url">
         
     <input type="hidden" name="orig_template" tal:attributes="value string:${here/absolute_url}/#${view/view_name}" />
-
+    <div tal:replace="structure view/batching" />
+    
     <tal:cond tal:condition="view/contents">
         <div tal:content="structure view/render_listing" />
     </tal:cond>

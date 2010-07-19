@@ -33,7 +33,7 @@ def workspace_files_linked(item, value):
     if isinstance(value, str):
         value = unicode(value, 'utf-8')
     value = len(value) >= 47 and value[:47] + '...' or value
-    link = u'<a href="%s/view">%s</a>' % (url_method(), value.decode('utf8'))
+    link = u'<a href="%s/view">%s</a>' % (url_method(), value)
     return link
 
 
