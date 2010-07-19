@@ -11,15 +11,13 @@
  <property name="factory">addWorkspace</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
+ <property name="filter_content_types">False</property>
  <property name="allowed_content_types">
-  <element value="Blog"/>
-  <element value="Buch"/>
-  <element value="Link"/>
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">base_view</property>
+ <property name="default_view">tabbed_view</property>
  <property name="view_methods">
+  <element value="tabbed_view"/>
   <element value="base_view"/>
  </property>
  <property name="default_view_fallback">False</property>
@@ -50,47 +48,6 @@
  </action>
  <action title="Tasks" action_id="tasks" category="arbeitsraum-tabs"
     condition_expr="" url_expr="string:${object_url}?view=tasks"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="Info" action_id="info" category="arbeitsraum-tabs"
-    condition_expr="" url_expr="string:${object_url}?view=info"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Folder" action_id="overview-addfolder"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Folder"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Fokus" action_id="overview-addfokus"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Fokus"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Buch" action_id="overview-addbuch"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Buch"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Task" action_id="tasks-addtask"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Task"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Document" action_id="documents-adddocument"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Document"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="add Event" action_id="events-addevent"
-    category="arbeitsraum-types" condition_expr=""
-    url_expr="string:${object_url}/createObject?type_name=Event"
     visible="True">
   <permission value="View"/>
  </action>
