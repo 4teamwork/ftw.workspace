@@ -11,114 +11,30 @@
         for="..interfaces.IWorkspace"
         name="get_owner"
         class=".views.GetOwnershipView"
-        permission="zope.Public"
+        permission="zope2.View"
         />
-
-    <!--><browser:page
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        name="arbeitsraeume_view"
-        permission="zope.Public"
-        class=".views.ArbeitsraeumeView"
-        template="tabbed.pt"
-        />-->
 
     <!-- Different views for the workspace-Tabs   -->
 
     <browser:page
         for="..interfaces.IWorkspace"
         name="tabbedview_view-overview"
-        class=".views.OverviewTab"
-        permission="zope.Public"
-        template="templates/overview.pt"
+        class=".overview.OverviewTab"
+        permission="zope2.View"
         />
-
-    <!--><browser:page
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        name="tabbedview_view-Arbeitsraeume"
-        permission="zope.Public"
-        class=".views.Arbeitsraeume"
-        template="templates/generic.pt"
-        />-->
 
     <browser:page
       for="Products.ATContentTypes.interface.folder.IATFolder"
       name="tabbedview_view-documents"
-      permission="zope.Public"
-      class=".views.Documents"
-      template="templates/generic.pt"
-      />
-
-    <browser:page
-      for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="tabbedview_view-meetings"
-      permission="zope.Public"
-      class=".views.Meetings"
-      template="templates/generic.pt"
+      class=".documents.DocumentsTab"
+      permission="zope2.View"
       />
 
     <browser:page
       for="..interfaces.IWorkspace"
       name="tabbedview_view-events"
-      class=".views.EventsViewCalendar"
-      permission="zope.Public"
+      class=".events.EventsTab"
+      permission="zope2.View"
       />
-
-    <browser:page
-      for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="tabbedview_view-tasks"
-      permission="zope.Public"
-      class=".views.Tasks"
-      template="templates/generic.pt"
-      />
-
-
-    <!-- <browser:page
-        for="..interfaces.IWorkspace"
-        name="arbeitsraum_view-info"
-        class=".views.InfoView"
-        permission="zope.Public"
-        template="info_view.pt"
-        /> -->
-
-    <!-- <browser:resourceDirectory
-        name="izug.arbeitsraum-resources"
-        directory="resources" /> 
-
-    <browser:page
-        for="Products.CMFCore.interfaces._content.IFolderish"
-        name="arbeitsraum_changeview"
-        class=".views.ChangeView"
-        template="change_view.pt"
-        permission="zope.Public"
-        />
-
-    <browser:page
-        for="Products.CMFCore.interfaces._content.IFolderish"
-        name="arbeitsraum_get_aviable_types"
-        class=".views.GetAviableTypes"
-        permission="zope.Public"
-        />
-        
-    <browser:page
-        for="Products.CMFCore.interfaces._content.IFolderish"
-        name="migrate_content_from_zugwebsite"
-        class=".views.MigrateContentFromZugWebsite"
-        permission="zope.Public"
-        />
-
-    <browser:page
-        for="..interfaces.IWorkspace"
-        name="workspace_as_pdf"
-        class=".workspace_as_pdf.WorkspaceAsPDF"
-        permission="zope.Public"
-        />
-
-    <browser:view
-        for="..interfaces.IWorkspace"
-        name="pdflatex_convert_object"
-        class=".workspace_as_pdf.WorkspaceLatexConverter"
-        permission="zope.Public"
-        />
--->
 
 </configure>

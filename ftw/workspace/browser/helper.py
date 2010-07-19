@@ -52,13 +52,6 @@ def delete_action(item, value):
                                       item.portal_url())
 
 
-def custom_sort(list_, index, dir_):
-    reverse = 0
-    if dir_ == 'reverse':
-        reverse = 1
-    return sorted(list_, cmp=lambda x, y: cmp(getattr(x, index), getattr(y, index)), reverse=reverse)
-
-
 def icon(item, value):
     url_method = lambda: '#'
     #item = hasattr(item, 'aq_explicit') and item.aq_explicit or item
