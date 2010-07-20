@@ -1,4 +1,5 @@
 from plone.memoize import ram
+from Products.CMFCore.utils import getToolByName
 
 
 TASK_REVIEW_STATE_ICON = {

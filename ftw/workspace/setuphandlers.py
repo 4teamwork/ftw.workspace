@@ -2,6 +2,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.ZCatalog.Catalog import CatalogError
 from ftw.workspace.config import INDEXES, METADATA
 
+
 def add_indexes(site):
     """Add our indexes to the catalog.
 

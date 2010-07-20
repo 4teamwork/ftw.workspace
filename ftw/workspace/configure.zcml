@@ -10,10 +10,6 @@
 
     <!-- <i18n:registerTranslations directory="locales" /> -->
 
-    <!-- <five:implements
-      class="Products.ATContentTypes.interface.folder.IATFolder"
-      /> -->
-
       <adapter name="ownerid" factory=".indexers.ownerid" />
 
       <!-- Register the installation GenericSetup extension profile -->

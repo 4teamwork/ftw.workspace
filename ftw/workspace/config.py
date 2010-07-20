@@ -4,7 +4,6 @@
 PROJECTNAME = 'ftw.workspace'
 
 ADD_PERMISSIONS = {
-    # -*- extra stuff goes here -*-
     'Workspace': 'ftw.workspace: Add Workspace',
 }
 
