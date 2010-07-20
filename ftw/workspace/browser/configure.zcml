@@ -12,6 +12,7 @@
         for="..interfaces.IWorkspace"
         name="tabbedview_view-overview"
         class=".overview.OverviewTab"
+        template="overview.pt"
         permission="zope2.View"
         />
 

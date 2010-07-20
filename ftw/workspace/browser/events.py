@@ -1,4 +1,4 @@
-from ftw.tabbedview.browser.views import views
+from ftw.tabbedview.browser import listing
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
@@ -9,7 +9,7 @@ from DateTime import DateTime
 from Products.CMFPlone.utils import safe_unicode
 
 
-class EventsTab(views.BaseListingView):
+class EventsTab(listing.BaseListingView):
     types = ['Meeting', ]
 
     template = ViewPageTemplateFile('events.pt')

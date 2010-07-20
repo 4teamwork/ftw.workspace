@@ -1,10 +1,8 @@
 from Products.Five.browser import BrowserView
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class OverviewTab(BrowserView):
-
-    template = ViewPageTemplateFile('overview.pt')
 
     def get_css_classes(self):
         return 'mylist'
