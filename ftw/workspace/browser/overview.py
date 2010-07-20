@@ -4,9 +4,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 class OverviewTab(BrowserView):
 
-    def get_css_classes(self):
-        return 'mylist'
-
     def catalog(self, types, depth=2, sort_on = 'modified'):
         return self.context.portal_catalog(
             portal_type=types,
