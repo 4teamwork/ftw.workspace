@@ -17,4 +17,4 @@ class DocumentsTab(Tab):
                ('Title', 'sortable_title',
                 workspace_helper.workspace_files_linked),
                ('modified', helper.readable_date),
-               ('Creator', helper.readable_author), )
+               ('Creator', 'sortable_creator', helper.readable_author), )
