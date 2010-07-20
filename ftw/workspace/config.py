@@ -8,11 +8,9 @@ ADD_PERMISSIONS = {
     'Workspace': 'ftw.workspace: Add Workspace',
 }
 
-INDEXES = (("getMeeting_type", "KeywordIndex"),
-           ("sortable_creator", "KeywordIndex"),
-           ("sortable_responsibility", "KeywordIndex"),
-           ("getContentType", "KeywordIndex"),
-           # ("get_owner_index", "KeywordIndex"),
+INDEXES = (("sortable_creator", "FieldIndex"),
+           ("getContentType", "FieldIndex"),
+           ("ownerid", "FieldIndex"),
           )
           
 METADATA = ("getMeeting_type",)
