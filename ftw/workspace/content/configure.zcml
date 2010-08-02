@@ -9,10 +9,6 @@
             permission="zope2.View"
             interface="..interfaces.IWorkspace"
             />
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IWorkspace"
-            />
     </class>
 
 
