@@ -15,7 +15,7 @@
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">folder_listing</property>
+ <property name="default_view">tabbed_view</property>
  <property name="view_methods">
   <element value="tabbed_view" />
   <element value="folder_summary_view"/>
@@ -44,5 +44,19 @@
     condition_expr="object/isPrincipiaFolderish" icon_expr="" link_target=""
     url_expr="string:${folder_url}/view" visible="False">
   <permission value="View"/>
+ </action>
+ <action title="Overview" action_id="overview" category="tabbedview-tabs" 
+         condition_expr="" url_expr="string:${object_url}" visible="True">
+     <permission value="View"/>
+ </action>
+ <action title="Documents" action_id="documents" category="tabbedview-tabs" 
+         condition_expr="" url_expr="string:${object_url}?view=documents" 
+         visible="True">
+     <permission value="View"/>
+ </action>
+ <action title="Event" action_id="events" category="tabbedview-tabs" 
+         condition_expr="" url_expr="string:${object_url}?view=events" 
+         visible="True">
+     <permission value="View"/>
  </action>
 </object>

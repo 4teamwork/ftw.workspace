@@ -1,5 +1,4 @@
 from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class OverviewTab(BrowserView):
@@ -24,7 +23,7 @@ class OverviewTab(BrowserView):
         return items
 
     def folders(self):
-        return self.catalog(['Folder', 'Workspace', ])
+        return self.catalog(['Folder', 'Workspace', 'TabbedViewFolder' ])
 
     def blogs(self):
         return self.catalog(['Blog', ])

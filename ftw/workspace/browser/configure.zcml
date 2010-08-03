@@ -9,7 +9,7 @@
     <!-- Different views for the workspace-tabs   -->
 
     <browser:page
-        for="..interfaces.IWorkspace"
+        for="Products.CMFCore.interfaces._content.IFolderish"
         name="tabbedview_view-overview"
         class=".overview.OverviewTab"
         template="overview.pt"
@@ -17,14 +17,14 @@
         />
 
     <browser:page
-      for="Products.ATContentTypes.interface.folder.IATFolder"
+      for="Products.CMFCore.interfaces._content.IFolderish"
       name="tabbedview_view-documents"
       class=".documents.DocumentsTab"
       permission="zope2.View"
       />
 
     <browser:page
-      for="..interfaces.IWorkspace"
+      for="Products.CMFCore.interfaces._content.IFolderish"
       name="tabbedview_view-events"
       class=".events.EventsTab"
       permission="zope2.View"

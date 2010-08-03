@@ -8,6 +8,7 @@ from ftw.workspace.interfaces import IWorkspace
 from Products.Archetypes import atapi
 from Products.Archetypes.interfaces import IObjectInitializedEvent
 from Products.ATContentTypes.content import folder
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.CMFCore.utils import getToolByName
 from zope.component import adapter
 from zope.interface import implements
@@ -16,7 +17,7 @@ from zope.interface import implements
 WorkspaceSchema = folder.ATFolderSchema.copy()
 
 # FIXME: move to egov.workspace?
-finalizeWorkspaceSchema(WorkspaceSchema,
+WorkspaceSchema = finalizeATCTSchema(WorkspaceSchema,
                         folderish=True,
                         moveDiscussion=False)
 
