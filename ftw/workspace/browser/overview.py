@@ -12,15 +12,13 @@ class OverviewTab(BrowserView):
                 sort_on=sort_on,
                 sort_order='reverse')
 
-    def boxes(self):
-        items = [[dict(id = 'folders', content=self.folders(), type_='list'),
-                  dict(id = 'blogs', content=self.blogs()),
-                  dict(id='description', content=self.description()), ],
-                  [dict(id ='documents', content=self.documents()),
-                  dict(id='recently_modified',
-                        content=self.recently_modified()),
-                ]]
-        return items
+    # def boxes(self):
+    #     items = [[dict(id = 'folders', content=self.folders(), type_='list'),
+    #               dict(id='description', content=self.description()), ],
+    #               [dict(id ='documents', content=self.documents()),
+    #               dict(id='recently_modified', content=self.recently_modified()),
+    #             ]]
+    #     return items
 
     def folders(self):
         return self.catalog(['Folder', 'Workspace', 'TabbedViewFolder' ])
