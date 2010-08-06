@@ -1,112 +1,29 @@
+<tal:translation>
+  <form name="tabbedview_form"
+        method="post"
+        action="folder_object"
+        tal:attributes="action context/absolute_url">
+        
+    <input type="hidden" name="orig_template" tal:attributes="value string:${context/absolute_url}/#${view/view_name}" />
+    <div class="ViewChooser">
+        <span id="events" >
+            <b>Liste</b>
+        </span> |
+        <a id="events-calendar">
+            Kalender
+        </a>
+    </div>
+    <br style="clear:both" />
+    <div tal:replace="structure view/batching" tal:condition="view/contents"/>
+    
+    <tal:cond tal:condition="view/contents">
+        <div tal:content="structure view/render_listing" />
+    </tal:cond>
+    
+    <p tal:condition="not: view/contents">
+        Keine Inhalte vorhanden
+    </p>
+ 
+  </form>
 
-<input type="hidden" tal:attributes="value python: ','.join(view.types);" class="visible_types" />
-<div class="ViewChooser">
-    <a id="events" >
-        Liste
-    </a> |
-    <span id="events-calendar">
-        <b>Kalender</b>
-    </span>
-</div>
-<br style="clear:both" />
-
-<div class="eventContent">
-
-<dl class="portlet portletCalendar"
-    i18n:domain="plone"
-    tal:define="portal_url context/@@plone_portal_state/portal_url;
-                query_string view/getQueryString;
-                url_quote_plus nocall:view/url_quote_plus;
-                showPrevMonth view/showPrevMonth;
-                showNextMonth view/showNextMonth;
-                year view/year;">
-
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-        <a href="#" rel="nofollow"
-           title="Previous month"
-           tal:define="prevMonthMonth view/prevMonthMonth;
-                       prevMonthYear view/prevMonthYear"
-           tal:attributes="id python:showPrevMonth and 'calendar-previous' or '';
-                           href python:'?%smonth:int=%d&amp;year:int=%d&amp;orig_query=%s' % (query_string, prevMonthMonth, prevMonthYear, url_quote_plus(query_string)); 
-                           class string:kssCalendarChange kssattr-year-${prevMonthYear} kssattr-month-${prevMonthMonth} calendarPrevious;"
-           tal:condition="showPrevMonth"
-           i18n:attributes="title title_previous_month;">&laquo;</a>
-
-        <span i18n:translate="" tal:omit-tag="">
-            <span i18n:name="monthname"
-                  tal:content="view/monthName"
-                  tal:omit-tag="">monthname</span>
-            <span i18n:name="year"
-                  tal:content="year"
-                  tal:omit-tag="">year</span>
-        </span>
-
-        <a href="#" rel="nofollow"
-           title="Next month"
-           tal:define="nextMonthMonth view/nextMonthMonth;
-                       nextMonthYear view/nextMonthYear"
-           tal:attributes="id python:showNextMonth and 'calendar-next' or '';
-                           href python:'?%smonth:int=%d&amp;year:int=%d&amp;orig_query=%s' % (query_string, nextMonthMonth, nextMonthYear, url_quote_plus(query_string));
-                           class string:kssCalendarChange kssattr-year-${nextMonthYear} kssattr-month-${nextMonthMonth} calendarNext;"
-           tal:condition="showNextMonth"
-           i18n:attributes="title title_next_month;">&raquo;</a>
-        <span class="portletTopRight"></span>
-    </dt>
-
-    <dd class="portletItem">
-        <table class="ploneCalendar"
-               summary="Calendar"
-               i18n:domain="plone"
-               i18n:attributes="summary summary_calendar;">
-            <caption class="hiddenStructure"
-                     tal:content="view/monthName">Month name</caption>
-            <thead>
-                <tr class="weekdays"
-                    ><tal:data tal:repeat="weekday view/getWeekdays"
-                        ><th scope="col"
-                             tal:content="weekday">Su</th
-                    ></tal:data>
-                </tr>
-            </thead>
-            <tbody>
-                <tr tal:repeat="week view/getEventsForCalendar"
-                    ><tal:block repeat="day week"
-                        ><tal:day define="daynumber day/day;"
-                            ><tal:isday condition="daynumber"
-                                ><tal:block define="day_event day/event;
-                                                    is_today day/is_today"
-                                    ><td class="event"
-                                        tal:condition="day_event"
-                                        tal:attributes="class python:is_today and 'todayevent' or 'event'"
-                                       ><strong><a href=""
-                                           tal:attributes="id string:${day/date_string_search};
-                                                           title day/eventstring;"
-                                           tal:content="daynumber">
-                                           31
-                                       </a
-                                    ></strong></td
-                                    ><tal:notdayevent tal:condition="not: day_event"
-                                        ><td tal:condition="python:is_today"
-                                             class="todaynoevent"><strong 
-                                             tal:content="daynumber">31</strong></td
-                                        ><td tal:condition="python:not is_today"
-                                             tal:content="daynumber">31</td
-                                    ></tal:notdayevent
-                                ></tal:block
-                            ></tal:isday
-                            ><tal:notisday condition="not: daynumber"
-                                ><td></td
-                            ></tal:notisday
-                        ></tal:day
-                    ></tal:block>
-                </tr>
-            </tbody>
-
-        </table>
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
-    </dd>
-</dl>
-
-</div>
+</tal:translation>

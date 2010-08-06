@@ -6,6 +6,14 @@
     <include package="plone.app.contentmenu" />
 
 
+    <browser:page
+         for="*"
+         name="workspaces_view"
+         class=".workspaces.WorkspacesView"
+         permission="zope2.View"
+         allowed_attributes="listing"
+         />
+
     <!-- Different views for the workspace-tabs   -->
 
     <browser:page
@@ -15,6 +23,13 @@
         template="overview.pt"
         permission="zope2.View"
         />
+
+    <browser:page
+      for="Products.CMFCore.interfaces._content.IFolderish"
+      name="tabbedview_view-workspaces"
+      class=".workspaces.WorkspacesTab"
+      permission="zope2.View"
+      />
 
     <browser:page
       for="Products.CMFCore.interfaces._content.IFolderish"
@@ -29,5 +44,12 @@
       class=".events.EventsTab"
       permission="zope2.View"
       />
+      
+      <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-events-calendar"
+        class=".events.EventsCalendarTab"
+        permission="zope2.View"
+        />
 
 </configure>

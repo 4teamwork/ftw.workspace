@@ -7,12 +7,28 @@ from time import localtime
 from plone.memoize.compress import xhtml_compress
 from DateTime import DateTime
 from Products.CMFPlone.utils import safe_unicode
+from ftw.table import helper
 
 
 class EventsTab(listing.BaseListingView):
     types = ['Meeting', ]
 
+    sort_on = 'start'
+    sort_order = 'reverse'
+    
+    columns = (('', helper.path_checkbox),
+               ('start', helper.readable_date),
+               ('Title', 'sortable_title', helper.linked),
+               ('getMeeting_type'),
+               ('Creator', 'sortable_creator', helper.readable_author), )
+
     template = ViewPageTemplateFile('events.pt')
+
+
+class EventsCalendarTab(listing.BaseListingView):
+    types = ['Meeting', ]
+
+    template = ViewPageTemplateFile('eventscalendar.pt')
 
     def __init__(self, context, request):
 

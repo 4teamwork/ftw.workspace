@@ -14,6 +14,7 @@
     <!-- <i18n:registerTranslations directory="locales" /> -->
 
       <adapter name="ownerid" factory=".indexers.ownerid" />
+      <adapter name="sortable_creator" factory=".indexers.sortable_creator" />
 
       <!-- Register the installation GenericSetup extension profile -->
       <genericsetup:registerProfile
