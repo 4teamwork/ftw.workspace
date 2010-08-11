@@ -11,7 +11,7 @@
 
     <five:registerPackage package="." initialize=".initialize" />
 
-    <!-- <i18n:registerTranslations directory="locales" /> -->
+    <i18n:registerTranslations directory="locales" />
 
       <adapter name="ownerid" factory=".indexers.ownerid" />
       <adapter name="sortable_creator" factory=".indexers.sortable_creator" />
