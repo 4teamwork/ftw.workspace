@@ -15,7 +15,7 @@ class EventsTab(listing.BaseListingView):
 
     sort_on = 'start'
     sort_order = 'reverse'
-    
+
     columns = (('', helper.path_checkbox),
                ('start', helper.readable_date),
                ('Title', 'sortable_title', helper.linked),
@@ -40,21 +40,23 @@ class EventsCalendarTab(listing.BaseListingView):
         self.url_quote_plus = url_quote_plus
 
         self.now = localtime()
-        self.yearmonth = yearmonth = 2010, 7#self.getYearAndMonthToDisplay()
+        self.yearmonth = yearmonth = 2010, 7  # self.getYearAndMonthToDisplay()
         self.year = year = yearmonth[0]
         self.month = month = yearmonth[1]
 
-        self.showPrevMonth = yearmonth > (self.now[0]-1, self.now[1])
-        self.showNextMonth = yearmonth < (self.now[0]+1, self.now[1])
+        self.showPrevMonth = yearmonth > (self.now[0] - 1, self.now[1])
+        self.showNextMonth = yearmonth < (self.now[0] + 1, self.now[1])
 
         (self.prevMonthYear,
-        self.prevMonthMonth) = self.getPreviousMonth(year, month)
+         self.prevMonthMonth) = self.getPreviousMonth(year, month)
 
         (self.nextMonthYear,
-        self.nextMonthMonth) = self.getNextMonth(year, month)
+         self.nextMonthMonth) = self.getNextMonth(year, month)
 
-        self.monthName = 'july'#PLMF(self._ts.month_msgid(month),
-                         #   default=self._ts.month_english(month))
+        self.monthName = 'july'
+        # PLMF(self._ts.month_msgid(month),
+        #   default=self._ts.month_english(month))
+
     def render(self):
         return xhtml_compress(self._template())
 
@@ -63,9 +65,9 @@ class EventsCalendarTab(listing.BaseListingView):
         year = self.year
         month = self.month
         weeks = self.calendar.getEventsForCalendar(
-                    month,
-                    year,
-                    path='/'.join(context.getPhysicalPath()))
+            month,
+            year,
+            path='/'.join(context.getPhysicalPath()))
 
         for week in weeks:
             for day in week:
@@ -76,39 +78,39 @@ class EventsCalendarTab(listing.BaseListingView):
                 if day['event']:
                     cur_date = DateTime(year, month, daynumber)
                     localized_date = [self._ts.ulocalized_time(
-                                        cur_date,
-                                        context=context,
-                                        request=self.request)]
+                            cur_date,
+                            context=context,
+                            request=self.request)]
                     day['eventstring'] = '\n'.join(
-                                        localized_date +
-                                        [self.getEventString(e)
-                                            for e in day['eventslist']])
+                        localized_date +
+                        [self.getEventString(e)
+                         for e in day['eventslist']])
                     day['date_string'] = '%s-%s-%s' % (year, month, daynumber)
                     day['date_string_search'] = '%s-%s-%s' % (
                         year,
                         (len(
-                            str(month)) ==1 and \
-                            '0%s' % month or \
-                            month), daynumber)
+                                str(month)) == 1 and \
+                             '0%s' % month or \
+                             month), daynumber)
 
         return weeks
 
     def getEventString(self, event):
         start = event['start'] and \
-                                ':'.join(event['start'].split(':')[:2]) or ''
+            ':'.join(event['start'].split(':')[:2]) or ''
         end = event['end'] and ':'.join(event['end'].split(':')[:2]) or ''
         title = safe_unicode(event['title']) or u'event'
 
         if start and end:
             eventstring = "%s-%s %s" % (start, end, title)
-        elif start: # can assume not event['end']
+        elif start:  # can assume not event['end']
             eventstring = "%s - %s" % (start, title)
-        elif event['end']: # can assume not event['start']
+        elif event['end']:  # can assume not event['start']
             eventstring = "%s - %s" % (title, end)
-        else: # can assume not event['start'] and not event['end']
+        else:  # can assume not event['start'] and not event['end']
             eventstring = title
 
-        return '<p>'+eventstring+'</p>'
+        return '<p>' + eventstring + '</p>'
 
     def getYearAndMonthToDisplay(self):
         session = None
@@ -144,17 +146,17 @@ class EventsCalendarTab(listing.BaseListingView):
             return year, month
 
     def getPreviousMonth(self, year, month):
-        if month==0 or month==1:
+        if month == 0 or month == 1:
             month, year = 12, year - 1
         else:
-            month-=1
+            month -= 1
         return (year, month)
 
     def getNextMonth(self, year, month):
-        if month==12:
+        if month == 12:
             month, year = 1, year + 1
         else:
-            month+=1
+            month += 1
         return (year, month)
 
     def getWeekdays(self):
@@ -163,8 +165,8 @@ class EventsCalendarTab(listing.BaseListingView):
         # list of ordered weekdays as numbers
         for day in self.calendar.getDayNumbers():
             weekdays.append(self._ts.weekday_english(
-                                    day,
-                                    format='a'))
+                    day,
+                    format='a'))
 
         return weekdays
 
@@ -173,18 +175,18 @@ class EventsCalendarTab(listing.BaseListingView):
         month and year equals today, otherwise False.
 
         """
-        return self.now[2]==day and self.now[1]==self.month and \
-             self.now[0]==self.year
+        return self.now[2] == day and self.now[1] == self.month and \
+            self.now[0] == self.year
 
     def getReviewStateString(self):
         states = self.calendar.getCalendarStates()
         return ''.join(map(lambda x: 'review_state=%s&amp;' % \
-                        self.url_quote_plus(x), states))
+                               self.url_quote_plus(x), states))
 
     def getQueryString(self):
         request = self.request
         query_string = request.get('orig_query',
-                                 request.get('QUERY_STRING', None))
+                                   request.get('QUERY_STRING', None))
         if len(query_string) == 0:
             query_string = ''
         else:
