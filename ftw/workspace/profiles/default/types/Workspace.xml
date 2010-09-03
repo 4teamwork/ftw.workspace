@@ -4,7 +4,7 @@
     i18n:domain="ftw.workspace">
     <property name="title" i18n:translate="">Workspace</property>
     <property name="description" i18n:translate="">A type for collaborative spaces.</property>
-    <property name="content_icon">folder_icon.gif</property>
+    <property name="content_icon">icon_objekt_arbeitsraum.gif</property>
     <property name="content_meta_type">Workspace</property>
     <property name="product">ftw.workspace</property>
     <property name="factory">addWorkspace</property>

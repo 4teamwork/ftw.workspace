@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-08-11 09:53+0000\n"
+"POT-Creation-Date: 2010-08-12 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,10 @@ msgstr "Beschreibung"
 #: ./ftw/workspace/browser/overview.pt:19
 msgid "Documents"
 msgstr "Dokumente"
+
+#: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
+msgid "Folder"
+msgstr "Ordner"
 
 #: ./ftw/workspace/browser/overview.pt:5
 msgid "Folders"
