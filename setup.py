@@ -31,6 +31,7 @@ setup(name='ftw.workspace',
           'setuptools',
           'ftw.calendarwidget',
           'ftw.tabbedview',
+          'plone.principalsource',
           # -*- Extra requirements: -*-
       ],
       tests_require=tests_require,

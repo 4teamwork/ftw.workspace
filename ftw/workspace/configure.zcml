@@ -13,11 +13,11 @@
 
     <i18n:registerTranslations directory="locales" />
 
-      <adapter name="ownerid" factory=".indexers.ownerid" />
-      <adapter name="sortable_creator" factory=".indexers.sortable_creator" />
+    <adapter name="ownerid" factory=".indexers.ownerid" />
+    <adapter name="sortable_creator" factory=".indexers.sortable_creator" />
 
-      <!-- Register the installation GenericSetup extension profile -->
-      <genericsetup:registerProfile
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
         name="default"
         title="ftw.workspace"
         directory="profiles/default"
@@ -29,8 +29,11 @@
     <include package=".browser" />
     <include package=".content" />
 
-	<subscriber handler=".content.workspace.workspace_added" />
+    <subscriber handler=".content.workspace.workspace_added" />
 
-
+    <utility component=".vocabularies.AssignableUsersVocabularyFactory"
+             name="assignable_users"
+             provides="zope.schema.interfaces.IVocabularyFactory"
+             />
 
 </configure>
