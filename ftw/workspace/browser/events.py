@@ -1,13 +1,14 @@
-from ftw.tabbedview.browser import listing
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
-from Products.PythonScripts.standard import url_quote_plus
-from time import localtime
-from plone.memoize.compress import xhtml_compress
 from DateTime import DateTime
+from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
+from Products.PythonScripts.standard import url_quote_plus
+from ftw.tabbedview.browser import listing
 from ftw.table import helper
+from ftw.workspace import _
+from plone.memoize.compress import xhtml_compress
+from time import localtime
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 
 class EventsTab(listing.BaseListingView):
@@ -19,7 +20,12 @@ class EventsTab(listing.BaseListingView):
     columns = (('', helper.path_checkbox),
                ('start', helper.readable_date),
                ('Title', 'sortable_title', helper.linked),
-               ('getMeeting_type', helper.translated_string('ftw.workspace')),
+
+               {'column': 'getMeeting_type',
+                'column_title': _(u'label_eventstab_type',
+                                  default=u'Type'),
+                'transform': helper.translated_string('ftw.workspace')},
+
                ('Creator', 'sortable_creator', helper.readable_author), )
 
     template = ViewPageTemplateFile('events.pt')

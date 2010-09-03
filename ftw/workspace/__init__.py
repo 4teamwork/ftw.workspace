@@ -12,6 +12,7 @@ from Products.CMFCore import utils as core_util
 # like _(u"message") will then be extracted by i18n tools for translation.
 
 arbeitsraumMessageFactory = MessageFactory('ftw.workspace')
+_ = arbeitsraumMessageFactory
 ploneMessageFactory = MessageFactory('plone')
 
 def initialize(context):
