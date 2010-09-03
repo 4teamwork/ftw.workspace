@@ -9,6 +9,10 @@ from ftw.workspace import _
 from plone.memoize.compress import xhtml_compress
 from time import localtime
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.i18nmessageid import MessageFactory
+
+
+plone_locales_mf = MessageFactory('plonelocales')
 
 
 class EventsTab(listing.BaseListingView):
@@ -46,7 +50,7 @@ class EventsCalendarTab(listing.BaseListingView):
         self.url_quote_plus = url_quote_plus
 
         self.now = localtime()
-        self.yearmonth = yearmonth = 2010, 7  # self.getYearAndMonthToDisplay()
+        self.yearmonth = yearmonth = self.getYearAndMonthToDisplay()
         self.year = year = yearmonth[0]
         self.month = month = yearmonth[1]
 
@@ -59,9 +63,8 @@ class EventsCalendarTab(listing.BaseListingView):
         (self.nextMonthYear,
          self.nextMonthMonth) = self.getNextMonth(year, month)
 
-        self.monthName = 'july'
-        # PLMF(self._ts.month_msgid(month),
-        #   default=self._ts.month_english(month))
+        self.monthName = plone_locales_mf(self._ts.month_msgid(month),
+                                          default=self._ts.month_english(month))
 
     def render(self):
         return xhtml_compress(self._template())
@@ -94,10 +97,8 @@ class EventsCalendarTab(listing.BaseListingView):
                     day['date_string'] = '%s-%s-%s' % (year, month, daynumber)
                     day['date_string_search'] = '%s-%s-%s' % (
                         year,
-                        (len(
-                                str(month)) == 1 and \
-                             '0%s' % month or \
-                             month), daynumber)
+                        str(month).rjust(2, '0'),
+                        str(daynumber).rjust(2, '0'))
 
         return weeks
 
@@ -149,7 +150,7 @@ class EventsCalendarTab(listing.BaseListingView):
             session.set('calendar_month', month)
 
         # Finally return the results
-            return year, month
+        return year, month
 
     def getPreviousMonth(self, year, month):
         if month == 0 or month == 1:
@@ -170,10 +171,11 @@ class EventsCalendarTab(listing.BaseListingView):
         weekdays = []
         # list of ordered weekdays as numbers
         for day in self.calendar.getDayNumbers():
-            weekdays.append(self._ts.weekday_english(
-                    day,
-                    format='a'))
-
+            weekdays.append(
+                plone_locales_mf(
+                    self._ts.day_msgid(day).decode('utf-8'),
+                    default=self._ts.weekday_english(
+                        day).decode('utf-8')))
         return weekdays
 
     def isToday(self, day):

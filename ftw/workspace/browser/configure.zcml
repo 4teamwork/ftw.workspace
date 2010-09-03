@@ -3,53 +3,57 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ftw.workspace">
 
-  <include package="plone.app.contentmenu" />
+    <include package="plone.app.contentmenu" />
 
+    <!-- resource directory -->
+    <browser:resourceDirectory
+        name="ftw.workspace-resources"
+        directory="resources" />
 
-  <browser:page
-      for="*"
-      name="workspaces_view"
-      class=".workspaces.WorkspacesView"
-      permission="zope2.View"
-      allowed_attributes="listing"
-      />
+    <browser:page
+        for="*"
+        name="workspaces_view"
+        class=".workspaces.WorkspacesView"
+        permission="zope2.View"
+        allowed_attributes="listing"
+        />
 
-  <!-- Different views for the workspace-tabs   -->
+    <!-- Different views for the workspace-tabs   -->
 
-  <browser:page
-      for="Products.CMFCore.interfaces._content.IFolderish"
-      name="tabbedview_view-overview"
-      class=".overview.OverviewTab"
-      template="overview.pt"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-overview"
+        class=".overview.OverviewTab"
+        template="overview.pt"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces._content.IFolderish"
-      name="tabbedview_view-workspaces"
-      class=".workspaces.WorkspacesTab"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-workspaces"
+        class=".workspaces.WorkspacesTab"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces._content.IFolderish"
-      name="tabbedview_view-documents"
-      class=".documents.DocumentsTab"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-documents"
+        class=".documents.DocumentsTab"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces._content.IFolderish"
-      name="tabbedview_view-events"
-      class=".events.EventsTab"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-events"
+        class=".events.EventsTab"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces._content.IFolderish"
-      name="tabbedview_view-events-calendar"
-      class=".events.EventsCalendarTab"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-events-calendar"
+        class=".events.EventsCalendarTab"
+        permission="zope2.View"
+        />
 
 </configure>
