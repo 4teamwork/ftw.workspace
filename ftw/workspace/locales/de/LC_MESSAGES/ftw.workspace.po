@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-08-12 11:08+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2010-09-03 09:48+0000\n"
+"PO-Revision-Date: 2010-09-03 11:48+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,15 @@ msgstr "Ordner"
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
 msgstr "Arbeitsraum"
+
+msgid "event"
+msgstr "Termin"
+
+msgid "meeting"
+msgstr "Sitzung"
+
+msgid "poll"
+msgstr "Umfrage"
 
 #: ./ftw/workspace/browser/overview.pt:28
 msgid "recently modified"

@@ -11,7 +11,7 @@ from ftw.table import helper
 
 
 class EventsTab(listing.BaseListingView):
-    types = ['Meeting', ]
+    types = ['Meeting', 'Poodle']
 
     sort_on = 'start'
     sort_order = 'reverse'
@@ -19,7 +19,7 @@ class EventsTab(listing.BaseListingView):
     columns = (('', helper.path_checkbox),
                ('start', helper.readable_date),
                ('Title', 'sortable_title', helper.linked),
-               ('getMeeting_type'),
+               ('getMeeting_type', helper.translated_string('ftw.workspace')),
                ('Creator', 'sortable_creator', helper.readable_author), )
 
     template = ViewPageTemplateFile('events.pt')

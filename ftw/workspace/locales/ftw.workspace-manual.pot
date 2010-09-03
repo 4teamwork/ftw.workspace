@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-09-03 09:48+0000\n"
+"POT-Creation-Date: 2010-08-12 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.workspace\n"
 
-#: ./ftw/workspace/profiles/default/types/Workspace.xml
-msgid "A type for collaborative spaces."
-msgstr ""
-
-#: ./ftw/workspace/browser/overview.pt:13
-msgid "Description"
-msgstr ""
-
-#: ./ftw/workspace/browser/overview.pt:19
-msgid "Documents"
-msgstr ""
-
-#: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
-msgid "Folder"
-msgstr ""
-
-#: ./ftw/workspace/browser/overview.pt:5
-msgid "Folders"
-msgstr ""
-
-#: ./ftw/workspace/profiles/default/types/Workspace.xml
-msgid "Workspace"
-msgstr ""
-
 msgid "event"
 msgstr ""
 
@@ -49,8 +25,3 @@ msgstr ""
 
 msgid "poll"
 msgstr ""
-
-#: ./ftw/workspace/browser/overview.pt:28
-msgid "recently modified"
-msgstr ""
-
