@@ -21,7 +21,9 @@ class OverviewTab(BrowserView):
     #     return items
 
     def folders(self):
-        return self.catalog(['Folder', 'Workspace', 'TabbedViewFolder' ])
+        return self.catalog(
+            ['Folder', 'Workspace', 'TabbedViewFolder' ],
+            sort_on = 'created')[:-1]
 
     def blogs(self):
         return self.catalog(['Blog', ])
