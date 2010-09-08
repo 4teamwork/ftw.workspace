@@ -5,7 +5,7 @@ from ftw.workspace.browser import helper as workspace_helper
 
 class DocumentsTab(Tab):
 
-    types = 'File'
+    types = ['File', 'Document']
 
     sort_on = 'modified'
 
