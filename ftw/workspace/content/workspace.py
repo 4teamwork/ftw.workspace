@@ -46,4 +46,7 @@ class Workspace(folder.ATFolder):
 
     security = ClassSecurityInfo()
 
+    def canSetDefaultPage(self):
+        return False
+
 atapi.registerType(Workspace, PROJECTNAME)
