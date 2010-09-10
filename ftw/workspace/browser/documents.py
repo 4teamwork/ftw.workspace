@@ -11,6 +11,6 @@ class DocumentsTab(Tab):
 
     columns = (('', helper.path_checkbox),
                ('Typ', 'getContentType', workspace_helper.icon),
-               ('Title', 'sortable_title', helper.linked),
+               ('Title', 'sortable_title', helper.linked_without_icon),
                ('modified', helper.readable_date),
                ('Creator', 'sortable_creator', helper.readable_author), )

@@ -1,5 +1,7 @@
-from plone.memoize import ram
 from Products.CMFCore.utils import getToolByName
+from plone.memoize import ram
+from zope.app.component.hooks import getSite
+import os.path
 
 
 TASK_REVIEW_STATE_ICON = {
@@ -48,9 +50,10 @@ def delete_action(item, value):
     <a href="%s/delete_confirmation?came_from=%s" class="arbeitsraum_delete_item">
     <img src="%s/++resource++izug.theme.images/icon_funktion_entfernen.gif" />
     </a>
-    """ % (url_method(), "%s#%s-tab"%(item.REQUEST.get('HTTP_REFERER'),
-                                      item.REQUEST.get('view_name')),
-                                      item.portal_url())
+    """ % (url_method(),
+           "%s#%s-tab" % (item.REQUEST.get('HTTP_REFERER'),
+                        item.REQUEST.get('view_name')),
+           item.portal_url())
 
 
 def icon(item, value):
@@ -68,13 +71,21 @@ def icon(item, value):
     has_file = size > 0
     # use a icon
     img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
+
     # link it with either the download (usually "file" field) or with
     # the content default view
+    href = url_method()
     if has_file:
-        link = u'<a href="%s/at_download/file">%s</a>' % (url_method(), img)
-    else:
-        link = u'<a href="%s/view">%s</a>' % (url_method(), img)
-    return link
+        href = os.path.join(href, 'at_download', 'file')
+    elif hasattr(item, 'portal_type'):
+        # do we need to add /view ?
+        props = getToolByName(getSite(), 'portal_properties')
+        types_using_view = props.get('site_properties').getProperty(
+            'typesUseViewActionInListings')
+        if item.portal_type in types_using_view:
+            href = os.path.join(href, 'view')
+
+    return u'<a href="%s">%s</a>' % (href.decode('utf8'), img)
 
 
 @ram.cache(lambda m, i, author: author)
