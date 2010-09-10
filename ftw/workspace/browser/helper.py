@@ -60,8 +60,20 @@ def icon(item, value):
         url_method = item.getURL
     elif hasattr(item, 'absolute_url'):
         url_method = item.absolute_url
+    # lazy file check
+    try:
+        size = float(item.getObjSize.split(' ', 1)[0])
+    except (AttributeError, ValueError):
+        size = 0
+    has_file = size > 0
+    # use a icon
     img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
-    link = u'<a href="%s/at_download">%s</a>' % (url_method(), img)
+    # link it with either the download (usually "file" field) or with
+    # the content default view
+    if has_file:
+        link = u'<a href="%s/at_download/file">%s</a>' % (url_method(), img)
+    else:
+        link = u'<a href="%s/view">%s</a>' % (url_method(), img)
     return link
 
 
