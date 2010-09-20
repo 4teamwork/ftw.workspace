@@ -1,37 +1,41 @@
 <tal:block i18n:domain="ftw.workspace">
-    <div class="overview-left-column">
+  <div class="overview-left-column">
 
-        <div class="box" tal:condition="view/folders">
-            <h2 i18n:translate="">Folders</h2>
-            <ul>
-                <li tal:repeat="folder view/folders">
-                    <a tal:attributes="href folder/getURL" tal:content="folder/Title" />
-                </li>
-            </ul>
-        </div>
-        <div class="box">
-            <h2 i18n:translate="">Description</h2>
-            <span tal:content="context/Description"></span>
-        </div>
+    <div class="box" tal:condition="view/folders">
+      <h2 i18n:translate="">Folders</h2>
+      <ul>
+        <li tal:repeat="folder view/folders">
+          <a tal:attributes="href folder/getURL" tal:content="folder/Title" />
+        </li>
+      </ul>
     </div>
-    <div class="overview-right-column">
-        <div class="box" tal:condition="view/documents">
-            <h2 i18n:translate="">Documents</h2>
-            <ul>
-                <li tal:repeat="document view/documents">
-                    <a tal:attributes="href document/getURL" tal:content="document/Title" />
-                </li>
-            </ul>
-        </div>
-        
-        <div class="box" tal:condition="view/recently_modified">
-            <h2 i18n:translate="">recently modified</h2>
-            <ul>
-                <li tal:repeat="item view/recently_modified">
-                    <span tal:content="python: item.modified.strftime('%d.%m.%Y %H:%M')"/>
-                    <a tal:attributes="href item/getURL" tal:content="item/Title" />
-                </li>
-            </ul>
-        </div>
+
+    <div class="box">
+      <h2 i18n:translate="">Description</h2>
+      <span tal:content="context/Description"></span>
     </div>
+
+  </div>
+  <div class="overview-right-column">
+
+    <div class="box" tal:condition="view/documents">
+      <h2 i18n:translate="">Documents</h2>
+      <ul>
+        <li tal:repeat="document view/documents">
+          <a tal:attributes="href document/getURL" tal:content="document/Title" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="box" tal:condition="view/recently_modified">
+      <h2 i18n:translate="">recently modified</h2>
+      <ul>
+        <li tal:repeat="item view/recently_modified">
+          <span tal:content="python: item.modified.strftime('%d.%m.%Y %H:%M')"/>
+          <a tal:attributes="href item/getURL" tal:content="item/Title" />
+        </li>
+      </ul>
+    </div>
+
+  </div>
 </tal:block>
