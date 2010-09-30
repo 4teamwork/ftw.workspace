@@ -1,5 +1,5 @@
 from Products.Five.browser import BrowserView
-
+from ftw.workspace.browser import helper as workspace_helper
 
 class OverviewTab(BrowserView):
 
@@ -12,10 +12,16 @@ class OverviewTab(BrowserView):
             sort_order='reverse')
 
     def folders(self):
-        return self.catalog(
+        # import pdb; pdb.set_trace( )
+        subfolders = []
+        all_folders = self.catalog(
             ['Folder', 'Workspace', 'TabbedViewFolder'],
             sort_on='created')[:-1]
-
+        for item in all_folders:
+            folderObject = item.getObject()
+            if folderObject.getParentNode() == self.context:
+                subfolders.append(item)
+        return subfolders
     def blogs(self):
         return self.catalog(['Blog', ])
 
@@ -23,9 +29,12 @@ class OverviewTab(BrowserView):
         return self.context.Description()
 
     def documents(self):
-        return self.catalog(['File', ], sort_on='created')[:5]
+        # import pdb; pdb.set_trace( )
+        return self.catalog(['Document', ], sort_on='created')[:5]
 
     def recently_modified(self):
-        return self.catalog(['File', 'Folder',
+        return self.catalog(['Document', 'Folder',
                              'Workspace', 'Event', ],
                             sort_on='created')[:5]
+    def get_icon(self, document):
+        return workspace_helper.icon(document, "")
