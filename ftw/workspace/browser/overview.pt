@@ -6,7 +6,7 @@
             <ul>
                 <li tal:repeat="folder view/folders">
                     <span tal:replace="structure python: view.get_icon(folder)" />
-                    <a tal:attributes="href folder/getURL" tal:content="folder/Title" />
+                    <a class="rollover" tal:attributes="href folder/getURL;title python: view.get_description(folder)" tal:content="folder/Title" />
                 </li>
             </ul>
         </div>
@@ -16,12 +16,12 @@
         </div>
     </div>
     <div class="overview-right-column">
-        <div class="box" tal:condition="view/documents">
+        <div class="box" tal:condition="view/files">
             <h2 i18n:translate="">Documents</h2>
             <ul>
-                <li tal:repeat="document view/documents">
-                    <span tal:replace="structure python: view.get_icon(document)" />
-                    <a tal:attributes="href document/getURL" tal:content="document/Title" />
+                <li tal:repeat="file view/files">
+                    <span tal:replace="structure python: view.get_icon(file)" />
+                    <a class="rollover" tal:attributes="href string: ${file/getURL}/view;title python: view.get_description(file)" tal:content="file/Title" />
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
                 <li tal:repeat="item view/recently_modified">
                     <span tal:content="python: item.modified.strftime('%d.%m.%Y %H:%M')"/>
                     <span tal:replace="structure python: view.get_icon(item)" />
-                    <a tal:attributes="href item/getURL" tal:content="item/Title" />
+                    <a class="rollover" tal:attributes="href item/getURL; title python: view.get_description(item)" tal:content="item/Title" />
                 </li>
             </ul>
         </div>

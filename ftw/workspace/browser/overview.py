@@ -28,9 +28,9 @@ class OverviewTab(BrowserView):
     def description(self):
         return self.context.Description()
 
-    def documents(self):
+    def files(self):
         # import pdb; pdb.set_trace( )
-        return self.catalog(['Document', ], sort_on='created')[:5]
+        return self.catalog(['File', ], sort_on='created')[:5]
 
     def recently_modified(self):
         return self.catalog(['Document', 'Folder',
@@ -38,3 +38,5 @@ class OverviewTab(BrowserView):
                             sort_on='created')[:5]
     def get_icon(self, document):
         return workspace_helper.icon(document, "")
+    def get_description(self, file):
+        return file.getObject().Description()
