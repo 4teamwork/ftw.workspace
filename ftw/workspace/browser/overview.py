@@ -17,7 +17,7 @@ class OverviewTab(BrowserView):
         folderobjects = []
         all_folders = self.catalog(
             ['Folder', 'Workspace', 'TabbedViewFolder'], depth=1,
-            sort_on = 'sortable_title', sort_order = '')
+            sort_on = 'getObjPositionInParent', sort_order = '')
         return all_folders
 
     def blogs(self):
