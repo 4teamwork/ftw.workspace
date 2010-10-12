@@ -14,7 +14,7 @@ msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
-msgstr "Ein Typ für kooperative Räume"
+msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
 
 #: ./ftw/workspace/browser/overview.pt:14
 msgid "Description"
