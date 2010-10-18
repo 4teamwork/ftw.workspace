@@ -23,7 +23,7 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        <a href="#" rel="nofollow"
+        <a id="calendar-previous" class="kssCalendarChange kssattr-year-2010 kssattr-month-9 calendarPrevious" href="#" rel="nofollow"
            title="Previous month"
            tal:define="prevMonthMonth view/prevMonthMonth;
                        prevMonthYear view/prevMonthYear"
@@ -76,7 +76,7 @@
                             ><tal:isday condition="daynumber"
                                 ><tal:block define="day_event day/event;
                                                     is_today day/is_today"
-                                    ><td class="event"
+                                    ><td class="todayevent"
                                         tal:condition="day_event"
                                         tal:attributes="class python:is_today and 'todayevent' or 'event'"
                                        ><strong><a href=""
@@ -88,8 +88,8 @@
                                     ></strong></td
                                     ><tal:notdayevent tal:condition="not: day_event"
                                         ><td tal:condition="python:is_today"
-                                             class="todaynoevent"><strong 
-                                             tal:content="daynumber">31</strong></td
+                                             class="todaynoevent"><span 
+                                             tal:content="daynumber">31</span></td
                                         ><td tal:condition="python:not is_today"
                                              tal:content="daynumber">31</td
                                     ></tal:notdayevent

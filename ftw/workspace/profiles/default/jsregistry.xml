@@ -10,15 +10,4 @@
         enabled="on"
         inline="False"
         />
-
-
-    <javascript
-        id="++resource++ftw.workspace-resources/jquery.tooltip.min.js"
-        expression=""
-        cacheable="True"
-        compression="safe"
-        cookable="True"
-        enabled="on"
-        inline="False"
-        />
 </object>

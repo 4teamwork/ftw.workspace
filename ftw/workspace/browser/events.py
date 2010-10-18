@@ -99,7 +99,6 @@ class EventsCalendarTab(listing.BaseListingView):
                         year,
                         str(month).rjust(2, '0'),
                         str(daynumber).rjust(2, '0'))
-
         return weeks
 
     def getEventString(self, event):
