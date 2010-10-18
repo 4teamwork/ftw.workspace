@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-09-03 14:56+0000\n"
+"POT-Creation-Date: 2010-10-12 11:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "A type for collaborative spaces."
 msgstr ""
 
-#: ./ftw/workspace/browser/overview.pt:13
+#: ./ftw/workspace/browser/overview.pt:14
 msgid "Description"
 msgstr ""
 
-#: ./ftw/workspace/browser/overview.pt:19
+#: ./ftw/workspace/browser/overview.pt:20
 msgid "Documents"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr ""
 msgid "poll"
 msgstr ""
 
-#: ./ftw/workspace/browser/overview.pt:28
+#: ./ftw/workspace/browser/overview.pt:30
 msgid "recently modified"
 msgstr ""
 
