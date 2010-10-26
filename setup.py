@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = open('ftw/workspace/version.txt').read().strip()
 
 tests_require = [
     'zope.testing',
