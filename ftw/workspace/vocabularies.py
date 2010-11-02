@@ -22,9 +22,17 @@ class PrincipalVocabulary(SimpleVocabulary):
 
         for id in self.userids:
             user = acl_users.getUserById(id)
+            catalog = getToolByName(portal, 'portal_catalog')
+            brains = catalog(dict(UID=id))
             if user is not None:
                 fullname = user.getProperty('fullname', id)
                 yield self.createTerm(id, str(id), fullname)
+            elif len(brains):
+                brain = brains[0]
+                yield self.createTerm(
+                    brain.UID,
+                    brain.UID,
+                    "%s (Kontakt)" % brain.Title)
 
 
 class AssignableUsersVocabulary(object):
@@ -35,13 +43,19 @@ class AssignableUsersVocabulary(object):
 
     def __call__(self, context):
         workspace = find_workspace(context)
-        
+        catalog = getToolByName(context, 'portal_catalog')
+        query = dict(
+            portal_type='Contact',
+            path='/'.join(workspace.getPhysicalPath()),
+            sort_on = 'sortable_title')
         if not workspace:
             return getUtility(IVocabularyFactory,
                               name='plone.principalsource.Users',
                               context=context)(context)
-
-        return PrincipalVocabulary(dict(workspace.get_local_roles()).keys())
+        result = dict(workspace.get_local_roles()).keys()
+        for brain in catalog(query):
+            result.append(brain.UID)
+        return PrincipalVocabulary(result)
 
 
 AssignableUsersVocabularyFactory = AssignableUsersVocabulary()
