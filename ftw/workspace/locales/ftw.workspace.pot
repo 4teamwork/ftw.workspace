@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-10-12 11:51+0000\n"
+"POT-Creation-Date: 2010-11-02 17:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
+msgstr ""
+
+msgid "Contacts"
 msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:14
@@ -39,6 +42,9 @@ msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
+msgstr ""
+
+msgid "contacts"
 msgstr ""
 
 msgid "event"

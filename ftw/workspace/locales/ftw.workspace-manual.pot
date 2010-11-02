@@ -25,3 +25,9 @@ msgstr ""
 
 msgid "poll"
 msgstr ""
+
+msgid "contacts"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
