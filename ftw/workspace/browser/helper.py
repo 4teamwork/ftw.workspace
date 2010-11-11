@@ -58,17 +58,22 @@ def delete_action(item, value):
 
 def icon(item, value):
     url_method = lambda: '#'
+    props = getToolByName(getSite(), 'portal_properties')
+    item_type = item.portal_type
+    ftw_worspace = props.get('ftw.workspace_properties', None)
+    if not ftw_worspace:
+        # fallback
+        direct_downloadable_types = ['File',]
+    else:
+        direct_downloadable_types = ftw_worspace.getProperty(
+            'direct_downloadable_types',
+            ['File',])
     #item = hasattr(item, 'aq_explicit') and item.aq_explicit or item
     if hasattr(item, 'getURL'):
         url_method = item.getURL
     elif hasattr(item, 'absolute_url'):
         url_method = item.absolute_url
-    # lazy file check
-    try:
-        size = float(item.getObjSize.split(' ', 1)[0])
-    except (AttributeError, ValueError):
-        size = 0
-    has_file = size > 0
+    has_file = item_type in direct_downloadable_types
     # use a icon
     img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
 
@@ -79,10 +84,10 @@ def icon(item, value):
         href = os.path.join(href, 'at_download', 'file')
     elif hasattr(item, 'portal_type'):
         # do we need to add /view ?
-        props = getToolByName(getSite(), 'portal_properties')
+        
         types_using_view = props.get('site_properties').getProperty(
             'typesUseViewActionInListings')
-        if item.portal_type in types_using_view:
+        if item_type in types_using_view:
             href = os.path.join(href, 'view')
 
     return u'<a href="%s">%s</a>' % (href.decode('utf8'), img)
