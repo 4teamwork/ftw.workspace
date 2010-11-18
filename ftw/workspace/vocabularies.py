@@ -44,14 +44,14 @@ class AssignableUsersVocabulary(object):
     def __call__(self, context):
         workspace = find_workspace(context)
         catalog = getToolByName(context, 'portal_catalog')
-        query = dict(
-            portal_type='Contact',
-            path='/'.join(workspace.getPhysicalPath()),
-            sort_on = 'sortable_title')
         if not workspace:
             return getUtility(IVocabularyFactory,
                               name='plone.principalsource.Users',
                               context=context)(context)
+        query = dict(
+            portal_type='Contact',
+            path='/'.join(workspace.getPhysicalPath()),
+            sort_on = 'sortable_title')
         result = dict(workspace.get_local_roles()).keys()
         for brain in catalog(query):
             result.append(brain.UID)
