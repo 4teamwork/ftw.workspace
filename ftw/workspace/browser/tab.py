@@ -1,7 +1,7 @@
 from ftw.tabbedview.browser import listing
 
 
-class Tab(listing.BaseListingView):
+class Tab(listing.CatalogListingView):
     """Base view class for workspace tabs.
 
     See ftw.tabbedview.browser.views.BaseListingView for attributes and

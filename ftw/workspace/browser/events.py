@@ -15,7 +15,7 @@ from zope.i18nmessageid import MessageFactory
 plone_locales_mf = MessageFactory('plonelocales')
 
 
-class EventsTab(listing.BaseListingView):
+class EventsTab(listing.CatalogListingView):
     types = ['Meeting', 'Poodle']
 
     sort_on = 'start'
@@ -35,7 +35,7 @@ class EventsTab(listing.BaseListingView):
     template = ViewPageTemplateFile('events.pt')
 
 
-class EventsCalendarTab(listing.BaseListingView):
+class EventsCalendarTab(listing.CatalogListingView):
     types = ['Meeting', ]
 
     template = ViewPageTemplateFile('eventscalendar.pt')
