@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-02 17:44+0000\n"
+"POT-Creation-Date: 2010-11-23 10:48+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgid "A type for collaborative spaces."
 msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
 
 msgid "Contacts"
-msgstr "Kontakt (Brot)"
+msgstr "Kontakte"
 
 #: ./ftw/workspace/browser/overview.pt:14
 msgid "Description"
@@ -39,14 +39,46 @@ msgstr "Ordner"
 msgid "Workspace"
 msgstr "Arbeitsraum"
 
+#. Default: "Creator"
+#: ./ftw/workspace/browser/documents.py:25
+msgid "column_creator"
+msgstr "Ersteller"
+
+#. Default: "modified"
+#: ./ftw/workspace/browser/documents.py:22
+msgid "column_modified"
+msgstr "Bearbeitet"
+
+#. Default: "Title"
+#: ./ftw/workspace/browser/documents.py:18
+msgid "column_title"
+msgstr "Titel"
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/documents.py:15
+msgid "column_type"
+msgstr "Typ"
+
 msgid "contacts"
-msgstr "smal contactbrot"
+msgstr "Kontakte"
 
 msgid "event"
 msgstr "Termin"
 
+#: ./ftw/workspace/browser/events.py:44
+msgid "label_eventstab_creator"
+msgstr "Ersteller"
+
+#: ./ftw/workspace/browser/events.py:27
+msgid "label_eventstab_start"
+msgstr "Beginn"
+
+#: ./ftw/workspace/browser/events.py:32
+msgid "label_eventstab_title"
+msgstr "Titel"
+
 #. Default: "Type"
-#: ./ftw/workspace/browser/events.py:29
+#: ./ftw/workspace/browser/events.py:37
 msgid "label_eventstab_type"
 msgstr "Typ"
 
