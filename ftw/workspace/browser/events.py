@@ -22,15 +22,27 @@ class EventsTab(listing.CatalogListingView):
     sort_order = 'reverse'
 
     columns = (('', helper.path_checkbox),
-               ('start', helper.readable_date),
-               ('Title', 'sortable_title', helper.linked),
+               {'column': 'start',
+                'column_index': 'start',
+                'column_title': _(u'label_eventstab_start'),
+                'transform': helper.readable_date},
+
+               {'column': 'Title',
+                'column_index': 'sortable_title',
+                'column_title': _(u'label_eventstab_title'),
+                'transform': helper.linked},
+
 
                {'column': 'getMeeting_type',
                 'column_title': _(u'label_eventstab_type',
                                   default=u'Type'),
                 'transform': helper.translated_string('ftw.workspace')},
 
-               ('Creator', 'sortable_creator', helper.readable_author), )
+
+                {'column': 'Creator',
+                 'column_index': 'sortable_creator',
+                 'column_title': _(u'label_eventstab_creator'),
+                 'transform': helper.readable_author},)
 
     template = ViewPageTemplateFile('events.pt')
 
@@ -65,8 +77,9 @@ class EventsCalendarTab(listing.CatalogListingView):
         (self.nextMonthYear,
          self.nextMonthMonth) = self.getNextMonth(year, month)
 
-        self.monthName = plone_locales_mf(self._ts.month_msgid(month),
-                                          default=self._ts.month_english(month))
+        self.monthName = plone_locales_mf(
+            self._ts.month_msgid(month),
+            default=self._ts.month_english(month))
 
     def render(self):
         return xhtml_compress(self._template())
