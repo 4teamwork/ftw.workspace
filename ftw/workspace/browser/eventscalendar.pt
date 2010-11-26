@@ -78,8 +78,7 @@
                                                     is_today day/is_today"
                                     ><td class="todayevent"
                                         tal:condition="day_event"
-                                        tal:attributes="class python:is_today and 'todayevent' or 'event'"
-                                       ><strong><a href=""
+                                        tal:attributes="class python:is_today and                                   'todayevent' or 'event'"><strong><a  href=""
                                            tal:attributes="id string:${day/date_string_search};
                                                            title day/eventstring;"
                                            tal:content="daynumber">

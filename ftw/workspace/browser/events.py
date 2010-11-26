@@ -36,11 +36,13 @@ class EventsTab(listing.CatalogListingView):
 
 
 class EventsCalendarTab(listing.CatalogListingView):
-    types = ['Meeting', ]
+    types = ['Meeting']
 
     template = ViewPageTemplateFile('eventscalendar.pt')
 
     def __init__(self, context, request):
+
+        super(EventsCalendarTab, self).__init__(context, request)
 
         context = aq_inner(context)
         self.context = context

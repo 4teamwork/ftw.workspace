@@ -31,23 +31,14 @@ jq(function() {
        'reload',
        function(e, o) {
 
-         // /* rollover description */
-         // jq('a.rollover').tooltip(
-         //   {showURL: false,
-         //    track: true,
-         //    fade: 250,
-         //    top:100,
-         //    left:-200
-         //   });
-         // 
-          /*calendar tooltip*/
-         jq('td.event a, td.todayevent a').tooltip(
-             {showURL: false,
-              track: true,
-              fade: 250,
-              top:100,
-              left:-200
-              });
+      /*calendar tooltip*/
+             jq('td.event a, td.todayevent a').tooltip(
+                 {showURL: false,
+                  track: true,
+                  fade: 250,
+                  top:20,
+                  left:15
+                  });
            });
 
    });
