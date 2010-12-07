@@ -21,7 +21,7 @@ class EventsTab(listing.CatalogListingView):
     sort_on = 'start'
     sort_order = 'reverse'
 
-    columns = (('', helper.path_checkbox),
+    columns = (#('', helper.path_checkbox),
                {'column': 'start',
                 'column_index': 'start',
                 'column_title': _(u'label_eventstab_start'),

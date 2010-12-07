@@ -10,7 +10,7 @@ class DocumentsTab(Tab):
 
     sort_on = 'modified'
 
-    columns = (('', helper.path_checkbox),
+    columns = (#('', helper.path_checkbox),
                {'column':'getContentType',
                 'column_title': _(u'column_type', default=u'Type'),
                 'transform': workspace_helper.icon},

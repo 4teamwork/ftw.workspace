@@ -2,8 +2,11 @@ Changelog
 =========
 
 
-1.3
+1.2.1
 ---
+* Removed checkboxes in documents and events listing.
+  [07.12.2010, mathias.leimgruber]
+
 * Implement membersonly param. for assignable_users vocab. 
   [02.12.2010, mathias.leimgruber]
 
