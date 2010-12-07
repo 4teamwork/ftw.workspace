@@ -32,9 +32,9 @@ def finalizeWorkspaceSchema(schema, folderish=False,
     if 'effectiveDate' in schema:
         schema.changeSchemataForField('effectiveDate', 'default')
         schema['effectiveDate'].widget.visible = -1
-    if 'effectiveDate' in schema:
+    if 'expirationDate' in schema:
         schema.changeSchemataForField('expirationDate', 'default')
-        schema['expirationDate'].widget.visible = -1
+        schema['expirationDate'].write_permission = ManagePortal
     if 'creation_date' in schema:
         schema.changeSchemataForField('creation_date', 'settings')
     if 'modification_date' in schema:
@@ -43,7 +43,7 @@ def finalizeWorkspaceSchema(schema, folderish=False,
     # Ownership
     if 'creators' in schema:
         schema.changeSchemataForField('creators', 'settings')
-        schema['creators'].widget.visible = -1
+        schema['creators'].write_permission = ManagePortal
     if 'contributors' in schema:
         schema.changeSchemataForField('contributors', 'settings')
         schema['contributors'].widget.visible = -1
