@@ -6,7 +6,7 @@ class OverviewTab(BrowserView):
 
     def catalog(self,
         types=[],
-        depth=2,
+        depth=-1,
         sort_on='modified',
         sort_order='reverse'):
 

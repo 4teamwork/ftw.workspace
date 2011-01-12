@@ -4,7 +4,8 @@ Changelog
 
 1.2.2
 -----
-
+* Set depth in catalog query to -1 (means everything). 
+  [12.01.2011, mathias.leimgruber]
 
 1.2.1
 -----
