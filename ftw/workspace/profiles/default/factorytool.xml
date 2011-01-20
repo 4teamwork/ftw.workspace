@@ -2,5 +2,6 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
   <factorytypes>
     <type portal_type="Workspace" />
+    <type portal_type="TabbedViewFolder" />
   </factorytypes>
 </object>

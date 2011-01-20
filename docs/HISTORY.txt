@@ -4,6 +4,9 @@ Changelog
 
 1.2.2
 -----
+* Added TabbedViewFolder for portal_factory
+  [20.01.2011, mathias.leimgruber]
+  
 * Set depth in catalog query to -1 (means everything). 
   [12.01.2011, mathias.leimgruber]
 
