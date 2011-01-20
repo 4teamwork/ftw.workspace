@@ -4,6 +4,9 @@ Changelog
 
 1.2.2
 -----
+* Permission check for assignable_users
+  [20.01.2011, mathias.leimgruber]
+
 * Added TabbedViewFolder for portal_factory
   [20.01.2011, mathias.leimgruber]
   

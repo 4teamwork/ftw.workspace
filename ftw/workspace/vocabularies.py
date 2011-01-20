@@ -44,11 +44,22 @@ class AssignableUsersVocabulary(object):
     def __call__(self, context, membersonly=False):
         workspace = find_workspace(context)
         catalog = getToolByName(context, 'portal_catalog')
+        mtool = getToolByName(context, 'portal_membership')
+        users = getUtility(
+            IVocabularyFactory,
+            name='plone.principalsource.Users',
+            context=context)(context)
+
         if not workspace:
-            return getUtility(IVocabularyFactory,
-                              name='plone.principalsource.Users',
-                              context=context)(context)
-        result = dict(workspace.get_local_roles()).keys()
+            return users
+
+        result = []
+        for user in users:
+            userid = user.token
+            member = mtool.getMemberById(userid)
+            if 'Reader' in member.getRolesInContext(context):
+                result.append(userid)
+
         if not membersonly:
             query = dict(
                 portal_type='Contact',
