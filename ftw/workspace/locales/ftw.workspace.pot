@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-23 10:48+0000\n"
+"POT-Creation-Date: 2011-01-24 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,12 +45,17 @@ msgid "Workspace"
 msgstr ""
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:25
+#: ./ftw/workspace/browser/documents.py:28
 msgid "column_creator"
 msgstr ""
 
-#. Default: "modified"
+#. Default: "date"
 #: ./ftw/workspace/browser/documents.py:22
+msgid "column_date"
+msgstr ""
+
+#. Default: "modified"
+#: ./ftw/workspace/browser/documents.py:25
 msgid "column_modified"
 msgstr ""
 
