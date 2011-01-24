@@ -4,6 +4,10 @@ Changelog
 
 1.2.2
 -----
+* Added date column
+  [24.01.2011, mathias.leimgruber]
+
+
 * Permission check for assignable_users
   [20.01.2011, mathias.leimgruber]
 
