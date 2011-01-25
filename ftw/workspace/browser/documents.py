@@ -8,7 +8,9 @@ class DocumentsTab(Tab):
 
     types = ['File', 'Document']
 
-    sort_on = 'modified'
+    sort_on = 'effective'
+
+    sort_reverse = True
 
     columns = (#('', helper.path_checkbox),
                {'column':'getContentType',
@@ -18,13 +20,14 @@ class DocumentsTab(Tab):
                 'collumn_title': _(u'column_title', default=u'Title'),
                 'sort_index':'sortable_title',
                 'transform': helper.linked_without_icon},
-               {'column':'date',
+               {'column':'effective',
                 'column_title': _(u'column_date', default=u'date'),
-                'transform': helper.readable_date},
-               {'column':'modified',
-                'column_title': _(u'column_modified', default=u'modified'),
                 'transform': helper.readable_date},
                {'column':'Creator',
                 'column_title': _(u'column_creator', default=u'Creator'),
                 'sort_index':'sortable_creator',
-                'transform': helper.readable_author}, )
+                'transform': helper.readable_author},
+               {'column':'modified',
+                'column_title': _(u'column_modified', default=u'modified'),
+                'transform': helper.readable_date},
+               )
