@@ -2,7 +2,9 @@
 """
 
 from AccessControl import ClassSecurityInfo
+from ftw.workspace import _
 from ftw.workspace.config import PROJECTNAME
+from ftw.workspace.config import TINYMCE_ALLOWED_BUTTONS
 from ftw.workspace.content.schemata import finalizeWorkspaceSchema
 from ftw.workspace.interfaces import IWorkspace
 from Products.Archetypes import atapi
@@ -13,7 +15,24 @@ from zope.component import adapter
 from zope.interface import implements
 
 
-WorkspaceSchema = folder.ATFolderSchema.copy()
+WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
+    atapi.TextField('text',
+        searchable = True,
+        required = False,
+        allowable_content_types=('text/html',),
+        default_content_type = 'text/html',
+        validators = ('isTidyHtmlWithCleanup',),
+        default_output_type = 'text/x-html-safe',
+        default_input_type = 'text/html',
+        storage = atapi.AnnotationStorage(),
+        widget = atapi.RichWidget(
+            label = _(u"label_text", default=u"Text"),
+            description = _(u"help_text", default=u""),
+            rows=15,
+            allow_buttons=TINYMCE_ALLOWED_BUTTONS,
+        ),
+    ),
+))
 
 # FIXME: move to egov.workspace?
 finalizeWorkspaceSchema(WorkspaceSchema,

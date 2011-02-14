@@ -13,6 +13,7 @@
         <div class="box">
             <h2 i18n:translate="">Description</h2>
             <span tal:content="context/Description"></span>
+            <span tal:content="structure context/getText" />
         </div>
     </div>
     <div class="overview-right-column">
