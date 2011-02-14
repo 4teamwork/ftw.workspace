@@ -17,6 +17,11 @@
     <div tal:replace="structure view/batching" tal:condition="view/contents"/>
     
     <tal:cond tal:condition="view/contents">
+        <b>Exportieren:</b>
+        <a tal:attributes="href string:${context/absolute_url}/ics_view">
+            <img src="icon_export_ical.png" />
+            iCal
+        </a>
         <div tal:content="structure view/render_listing" />
     </tal:cond>
     
