@@ -5,6 +5,9 @@ Changelog
 1.2.4
 -----
 
+* Removed views from TabbedViewFolder
+  [16.02.2011, ttschanz]
+
 
 1.2.3
 -----
@@ -21,8 +24,8 @@ Changelog
 
 * Added TabbedViewFolder for portal_factory
   [20.01.2011, mathias.leimgruber]
-  
-* Set depth in catalog query to -1 (means everything). 
+
+* Set depth in catalog query to -1 (means everything).
   [12.01.2011, mathias.leimgruber]
 
 1.2.1
@@ -30,7 +33,7 @@ Changelog
 * Removed checkboxes in documents and events listing.
   [07.12.2010, mathias.leimgruber]
 
-* Implement membersonly param. for assignable_users vocab. 
+* Implement membersonly param. for assignable_users vocab.
   [02.12.2010, mathias.leimgruber]
 
 1.2

@@ -19,11 +19,6 @@
  <property name="default_view">tabbed_view</property>
  <property name="view_methods">
   <element value="tabbed_view" />
-  <element value="folder_summary_view"/>
-  <element value="folder_full_view"/>
-  <element value="folder_tabular_view"/>
-  <element value="atct_album_view"/>
-  <element value="folder_listing"/>
  </property>
  <property name="default_view_fallback">False</property>
  <alias from="(Default)" to="(dynamic view)"/>
@@ -46,17 +41,17 @@
     url_expr="string:${folder_url}/view" visible="False">
   <permission value="View"/>
  </action>
- <action title="Overview" action_id="overview" category="tabbedview-tabs" 
+ <action title="Overview" action_id="overview" category="tabbedview-tabs"
          condition_expr="" url_expr="string:${object_url}" visible="True">
      <permission value="View"/>
  </action>
- <action title="Documents" action_id="documents" category="tabbedview-tabs" 
-         condition_expr="" url_expr="string:${object_url}?view=documents" 
+ <action title="Documents" action_id="documents" category="tabbedview-tabs"
+         condition_expr="" url_expr="string:${object_url}?view=documents"
          visible="True">
      <permission value="View"/>
  </action>
- <action title="Event" action_id="events" category="tabbedview-tabs" 
-         condition_expr="" url_expr="string:${object_url}?view=events" 
+ <action title="Event" action_id="events" category="tabbedview-tabs"
+         condition_expr="" url_expr="string:${object_url}?view=events"
          visible="True">
      <permission value="View"/>
  </action>
