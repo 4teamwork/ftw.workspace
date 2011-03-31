@@ -4,7 +4,8 @@ Changelog
 
 1.2.5
 -----
-
+* Fix description and text format. 
+  [31.03.2011, mathias.leimgruber]
 
 1.2.4
 -----

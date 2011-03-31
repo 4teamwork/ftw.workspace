@@ -12,8 +12,8 @@
         </div>
         <div class="box">
             <h2 i18n:translate="">Description</h2>
-            <span tal:content="context/Description"></span>
-            <span tal:content="structure context/getText | nothing"></span>
+            <p><b tal:content="context/aq_explicit/Description"></b></p>
+            <span tal:content="structure context/aq_explicit/getText | nothing"></span>
         </div>
     </div>
     <div class="overview-right-column">
