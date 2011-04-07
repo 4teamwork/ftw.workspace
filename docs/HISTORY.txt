@@ -5,6 +5,9 @@ Changelog
 1.2.6
 -----
 
+* Fixed arguments for bin/test in test-plone-4.0.x.cfg
+  [lgraf]
+
 
 1.2.5
 -----
