@@ -5,6 +5,10 @@ Changelog
 1.2.6
 -----
 
+* Totally refactored assignable_users. 
+  Now it only uses local roles and inherited roles. 
+  Groups are also supported
+  [03.05.2011, mathias.leimgruber]
 
 1.2.5
 -----

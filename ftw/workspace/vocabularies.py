@@ -1,7 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from ftw.workspace.utils import find_workspace
 from zope.app.component.hooks import getSite
-from zope.component import getUtility
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
@@ -44,21 +43,40 @@ class AssignableUsersVocabulary(object):
     def __call__(self, context, membersonly=False):
         workspace = find_workspace(context)
         catalog = getToolByName(context, 'portal_catalog')
-        mtool = getToolByName(context, 'portal_membership')
-        users = getUtility(
-            IVocabularyFactory,
-            name='plone.principalsource.Users',
-            context=context)(context)
+        gtool = getToolByName(context, 'portal_groups')
+        # users = getUtility(
+        #     IVocabularyFactory,
+        #     name='plone.principalsource.Users',
+        #     context=context)(context)
 
+        
+        
         if not workspace:
-            return users
+            workspace = self.context
+            
+        # Create a list of user depending on local roles and inherited
+        # roles. Also read out users from groups
+        users = set([])
+        groups = set([])
+        userroles = workspace.acl_users._getLocalRolesForDisplay(workspace)
+        # Use dict's to auto. prevent duplicated entries
+        for user, roles, role_type, name in userroles:
+            if role_type == u'user' and u'Reader' in roles:
+                users.add(user)
+            elif role_type == u'group' and u'Reader' in roles:
+                groups.add(user)
+                
+        # Go throught groups an add their containing users to the user list
+        for groupid in groups:
+            group = gtool.getGroupById(groupid)
+            if group:
+                members = set(group.getGroupMemberIds())
+            else:
+                continue
+            # Put together
+            users = users.union(members)
 
-        result = []
-        for user in users:
-            userid = user.token
-            member = mtool.getMemberById(userid)
-            if 'Reader' in member.getRolesInContext(context):
-                result.append(userid)
+        result = users
 
         if not membersonly:
             query = dict(
@@ -67,7 +85,7 @@ class AssignableUsersVocabulary(object):
                 sort_on = 'sortable_title')
 
             for brain in catalog(query):
-                result.append(brain.UID)
+                result.add(brain.UID)
         return PrincipalVocabulary(result)
 
 
