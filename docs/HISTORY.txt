@@ -10,6 +10,9 @@ Changelog
   Groups are also supported
   [03.05.2011, mathias.leimgruber]
 
+* Fixed arguments for bin/test in test-plone-4.0.x.cfg
+  [lgraf]
+
 1.2.5
 -----
 * Fix description and text format. 
