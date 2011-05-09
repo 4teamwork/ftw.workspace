@@ -42,7 +42,7 @@ msgstr "Arbeitsraum"
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:28
 msgid "column_creator"
-msgstr "Ersteller"
+msgstr "Hinzugefügt durch"
 
 #. Default: "date"
 #: ./ftw/workspace/browser/documents.py:22

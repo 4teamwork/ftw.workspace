@@ -5,6 +5,8 @@ Changelog
 1.2.7
 -----
 
+* Renamed Creater from 'Ersteller' to 'Hinzugefügt durch'
+  [09.05.2011, elio.schmutz]
 
 1.2.6
 -----
