@@ -72,7 +72,7 @@ msgstr "Termin"
 
 #: ./ftw/workspace/browser/events.py:44
 msgid "label_eventstab_creator"
-msgstr "Ersteller"
+msgstr "Hinzugefügt durch"
 
 #: ./ftw/workspace/browser/events.py:27
 msgid "label_eventstab_start"
