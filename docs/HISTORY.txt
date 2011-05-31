@@ -8,7 +8,7 @@ Changelog
 * Removed documents listing from overview. 
   [31.05.2011, mathias.leimgruber]
 
-* Renamed Creater from 'Ersteller' to 'Hinzugefügt durch'
+* Renamed Creater from 'Ersteller' to 'Hinzugefuegt durch'
   [09.05.2011, elio.schmutz]
 
 1.2.6
