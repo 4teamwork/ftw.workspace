@@ -17,16 +17,6 @@
         </div>
     </div>
     <div class="overview-right-column">
-        <div class="box" tal:condition="view/files">
-            <h2 i18n:translate="">Documents</h2>
-            <ul>
-                <li tal:repeat="file view/files">
-                    <span tal:replace="structure python: view.get_icon(file)" />
-                    <a class="rollover" tal:attributes="href string:${file/getURL}/view;title python: view.get_description(file)" tal:content="file/Title" />
-                </li>
-            </ul>
-        </div>
-
         <div class="box" tal:condition="view/recently_modified">
             <h2 i18n:translate="">recently modified</h2>
             <ul>

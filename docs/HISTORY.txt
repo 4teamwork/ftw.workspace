@@ -5,6 +5,9 @@ Changelog
 1.2.7
 -----
 
+* Removed documents listing from overview. 
+  [31.05.2011, mathias.leimgruber]
+
 * Renamed Creater from 'Ersteller' to 'Hinzugefügt durch'
   [09.05.2011, elio.schmutz]
 
