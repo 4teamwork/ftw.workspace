@@ -17,7 +17,7 @@ class DocumentsTab(Tab):
                 'column_title': _(u'column_type', default=u'Type'),
                 'transform': workspace_helper.icon},
                {'column':'Title',
-                'collumn_title': _(u'column_title', default=u'Title'),
+                'column_title': _(u'column_title', default=u'Title'),
                 'sort_index':'sortable_title',
                 'transform': helper.linked_without_icon},
                {'column':'effective',
