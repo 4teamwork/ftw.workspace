@@ -13,7 +13,7 @@ INDEXES = (("sortable_creator", "FieldIndex"),
           )
           
 METADATA = ("getMeeting_type",)
-TINYMCE_ALLOWED_BUTTONS = (
+DEFAULT_TINYMCE_ALLOWED_BUTTONS = (
     'bg-basicmarkup',
     'bold-button',
     'italic-button',

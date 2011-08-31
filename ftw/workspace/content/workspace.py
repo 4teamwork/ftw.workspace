@@ -4,7 +4,6 @@
 from AccessControl import ClassSecurityInfo
 from ftw.workspace import _
 from ftw.workspace.config import PROJECTNAME
-from ftw.workspace.config import TINYMCE_ALLOWED_BUTTONS
 from ftw.workspace.content.schemata import finalizeWorkspaceSchema
 from ftw.workspace.interfaces import IWorkspace
 from Products.Archetypes import atapi
@@ -13,6 +12,7 @@ from Products.ATContentTypes.content import folder
 from Products.CMFCore.utils import getToolByName
 from zope.component import adapter
 from zope.interface import implements
+from ftw.workspace.utils import get_tinymce_buttons
 
 
 WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
@@ -29,7 +29,7 @@ WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label = _(u"label_text", default=u"Text"),
             description = _(u"help_text", default=u""),
             rows=15,
-            allow_buttons=TINYMCE_ALLOWED_BUTTONS,
+            allow_buttons=get_tinymce_buttons,
         ),
     ),
 ))

@@ -12,4 +12,10 @@
     </class>
 
 
+    <include package="archetypes.schemaextender" />
+             
+    <adapter factory=".folder_extender.FolderExtender"
+             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+             name="extend_folder_wit_textfield"/>
+
 </configure>

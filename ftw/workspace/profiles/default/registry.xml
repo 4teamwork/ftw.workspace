@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<registry>
+    <record name="ftw.workspace.allow_buttons">
+        <field type="plone.registry.field.List">
+            <title>Workspace allowed buttons on TextField</title>
+            <description>Defines which buttons are displayed</description>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>
+            <element>bg-basicmarkup</element>
+            <element>bold-button</element>
+            <element>italic-button</element>
+            <element>list-ol-addbutton</element>
+            <element>list-ul-addbutton</element>
+            <element>definitionlist</element>
+            <element>linklibdrawer-button</element>
+            <element>removelink-button</element>
+        </value>
+    </record>
+    <record name="ftw.workspace.showtextfieldonfolder">
+        <field type="plone.registry.field.Bool">
+            <title>Show TextField also on folder (tabbedviewfolder)</title>
+        </field>
+        <value>False</value>
+    </record>
+</registry>

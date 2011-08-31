@@ -1,0 +1,56 @@
+from archetypes.schemaextender.field import ExtensionField
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+from ftw.workspace import _
+from ftw.workspace.utils import find_workspace
+from ftw.workspace.utils import get_tinymce_buttons
+from plone.registry.interfaces import IRegistry
+from Products.Archetypes.public import TextField, RichWidget
+from Products.ATContentTypes.content.folder import ATFolder
+from zope.component import adapts
+from zope.component import getUtility
+from zope.interface import implements
+
+
+class folderTextField(ExtensionField, TextField):
+    """
+    """
+
+
+class FolderExtender(object):
+    adapts(ATFolder)
+    implements(IOrderableSchemaExtender)
+
+    fields = [folderTextField('text',
+        searchable = True,
+        required = False,
+        allowable_content_types=('text/html', ),
+        default_content_type = 'text/html',
+        validators = ('isTidyHtmlWithCleanup', ),
+        default_output_type = 'text/x-html-safe',
+        default_input_type = 'text/html',
+        widget = RichWidget(
+            label = _(u"label_text", default=u"Text"),
+            description = _(u"help_text", default=u""),
+            rows=15,
+            allow_buttons=get_tinymce_buttons, )), ]
+
+    def __init__(self, context):
+        self.context = context
+
+    def getFields(self):
+
+        # self.context must AQ wrapped
+        if not getattr(self.context, 'aq_parent', None):
+            return []
+
+        registry = getUtility(IRegistry)
+        show = False
+        if 'ftw.workspace.showtextfieldonfolder' in registry:
+            show = registry['ftw.workspace.showtextfieldonfolder']
+
+        if find_workspace(self.context) and show:
+            return self.fields
+        return []
+
+    def getOrder(self, original):
+        return original
