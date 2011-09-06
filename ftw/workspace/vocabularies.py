@@ -52,7 +52,7 @@ class AssignableUsersVocabulary(object):
         
         
         if not workspace:
-            workspace = self.context
+            workspace = context
             
         # Create a list of user depending on local roles and inherited
         # roles. Also read out users from groups
