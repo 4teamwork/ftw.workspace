@@ -1,41 +1,29 @@
-import unittest
+from ftw.workspace.testing import FTW_WORKSPACE_INTEGRATION_TESTING
 import doctest
+import unittest2 as unittest
+from plone.testing import layered
 
-from Testing import ZopeTestCase
-from Products.PloneTestCase import ptc
-from ftw.workspace.tests import layer
+TESTFILES = (
+    #'workspace.txt',
+    'assignable_users_vocab.txt',
+    )
 
-MODULENAMES = [
-]
 
-TESTFILES = [
-    'workspace.txt',
-]
-
-OPTIONFLAGS = (doctest.NORMALIZE_WHITESPACE|
-               doctest.ELLIPSIS|
+OPTIONFLAGS = (doctest.NORMALIZE_WHITESPACE |
+               doctest.ELLIPSIS |
                doctest.REPORT_NDIFF)
 
 
 def test_suite():
 
     suite = unittest.TestSuite()
-    
+
     for testfile in TESTFILES:
-        fdfs = ZopeTestCase.FunctionalDocFileSuite(
-            testfile,
-            optionflags=OPTIONFLAGS,
-            test_class=ptc.FunctionalTestCase,)
-        fdfs.layer = layer.layer
-        suite.addTest(fdfs)    
-    
-    for module in MODULENAMES:
-        fdts = ZopeTestCase.FunctionalDocTestSuite(
-            module,
-            optionflags=OPTIONFLAGS,
-            test_class=ptc.FunctionalTestCase)
-        fdts.layer = layer.layer
-        suite.addTest(fdts)
+        suite.addTests([
+              layered(doctest.DocFileSuite(testfile,
+                                           optionflags=OPTIONFLAGS),
+                      layer=FTW_WORKSPACE_INTEGRATION_TESTING),
+          ])
 
     return suite
 

@@ -4,8 +4,7 @@ import os
 version = open('ftw/workspace/version.txt').read().strip()
 
 tests_require = [
-    'zope.testing',
-    'collective.testcaselayer',
+    'plone.app.testing',
 ]
 
 

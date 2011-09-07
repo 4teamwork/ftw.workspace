@@ -1,0 +1,86 @@
+Setup a small site structure (without workspace)
+
+    >>> from plone.app.testing import login
+    >>> from plone.app.testing import setRoles
+    >>> from plone.app.testing import TEST_USER_NAME
+    >>> from zope import schema, component
+
+    >>> portal = layer['portal']
+    >>> factory = component.queryUtility(
+    ...    schema.interfaces.IVocabularyFactory,
+    ...    name='assignable_users')
+
+
+    >>> login(portal, TEST_USER_NAME)
+    >>> setRoles(portal, TEST_USER_NAME, ['Manager'])
+    >>> portal.invokeFactory('Folder', 'f1')
+    'f1'
+    >>> portal.f1.invokeFactory('Folder', 'f11')
+    'f11'
+    >>> portal.f1.invokeFactory('Folder', 'f12')
+    'f12'
+    >>> portal.f1.invokeFactory('Folder', 'f13')
+    'f13'
+    >>> portal.f1.f13.invokeFactory('Folder', 'f131')
+    'f131'
+
+Create a File at the bottom
+    >>> portal.f1.f13.f131.invokeFactory('File', 'file1')
+    'file1'
+
+Some permission
+    >>> portal.f1.manage_setLocalRoles('member1', ('Reader', ))
+    >>> portal.f1.reindexObjectSecurity()
+    >>> portal.f1.get_local_roles_for_userid('member1')
+    ('Reader',)
+    >>> portal.f1.f13.f131.manage_setLocalRoles('member2', ('Reader', ))
+    >>> portal.f1.f13.f131.reindexObjectSecurity()
+    >>> portal.f1.f13.f131.get_local_roles_for_userid('member2')
+    ('Reader',)
+    >>> portal.f1.f13.manage_setLocalRoles('group1', ('Reader', ))
+    >>> portal.f1.f13.reindexObjectSecurity()
+    >>> portal.f1.f13.get_local_roles_for_userid('group1')
+    ('Reader',)
+
+
+Check the result of the vocab
+    >>> factory(portal.f1)
+    <ftw.workspace.vocabularies.PrincipalVocabulary ...>
+    >>> 'member1' in factory(portal.f1).userids
+    True
+    >>> 'member1' in factory(portal.f1.f12).userids
+    True
+    >>> 'member1' in factory(portal.f1.f13).userids
+    True
+    >>> 'member1' in factory(portal.f1.f13.f131).userids
+    True
+    >>> 'member2' in factory(portal.f1.f13.f131).userids
+    True
+    >>> 'member1' in factory(portal.f1.f13.f131.file1).userids
+    True
+    >>> 'member2' in factory(portal.f1.f13.f131.file1).userids
+    True
+
+Crosscheck, member2 should no appear in f13
+    >>> 'member2' in factory(portal.f1.f13).userids
+    False
+
+Member3 is in group1, so member3 should also appear in the user list on file1
+    >>> 'member3' in factory(portal.f1.f13.f131.file1).userids
+    True
+
+But not in f1 nor f12
+    >>> 'member3' in factory(portal.f1).userids
+    False
+    >>> 'member3' in factory(portal.f1.f12).userids
+    False
+
+Stop acquisition - test user
+    >>> portal.f1.f12.__ac_local_roles_block__ = True
+    >>> 'member1' in factory(portal.f1.f12).userids
+    False
+
+Stop acquisition - test group members
+    >>> portal.f1.f13.f131.__ac_local_roles_block__ = True
+    >>> 'member1' in factory(portal.f1.f13.f131).userids
+    False

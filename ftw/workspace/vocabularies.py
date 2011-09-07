@@ -1,3 +1,4 @@
+from Acquisition import aq_parent, aq_base
 from Products.CMFCore.utils import getToolByName
 from ftw.workspace.utils import find_workspace
 from zope.app.component.hooks import getSite
@@ -49,23 +50,36 @@ class AssignableUsersVocabulary(object):
         #     name='plone.principalsource.Users',
         #     context=context)(context)
 
-        
-        
         if not workspace:
             workspace = context
-            
+
         # Create a list of user depending on local roles and inherited
         # roles. Also read out users from groups
         users = set([])
         groups = set([])
-        userroles = workspace.acl_users._getLocalRolesForDisplay(workspace)
-        # Use dict's to auto. prevent duplicated entries
-        for user, roles, role_type, name in userroles:
-            if role_type == u'user' and u'Reader' in roles:
-                users.add(user)
-            elif role_type == u'group' and u'Reader' in roles:
-                groups.add(user)
-                
+
+        # Walk upwards until reach portal root or role acquire check fails
+        portal = workspace.portal_url.getPortalObject()
+        cont = True
+        while cont:
+            if context == portal:
+                break
+
+            userroles = portal.acl_users._getLocalRolesForDisplay(context)
+            # Use dict's to auto. prevent duplicated entries
+            for user, roles, role_type, name in userroles:
+                if role_type == u'user' and u'Reader' in roles:
+                    if user not in users:
+                        users.add(user)
+                elif role_type == u'group' and u'Reader' in roles:
+                    if user not in groups:
+                        groups.add(user)
+
+            if getattr(aq_base(workspace), '__ac_local_roles_block__', None):
+                cont = False
+            else:
+                context = aq_parent(context)
+
         # Go throught groups an add their containing users to the user list
         for groupid in groups:
             group = gtool.getGroupById(groupid)
