@@ -2,8 +2,10 @@ Setup a small site structure (without workspace)
 
     >>> from plone.app.testing import login
     >>> from plone.app.testing import setRoles
+    >>> from plone.app.testing import TEST_USER_ID
     >>> from plone.app.testing import TEST_USER_NAME
     >>> from zope import schema, component
+
 
     >>> portal = layer['portal']
     >>> factory = component.queryUtility(
@@ -11,8 +13,8 @@ Setup a small site structure (without workspace)
     ...    name='assignable_users')
 
 
-    >>> login(portal, TEST_USER_NAME)
-    >>> setRoles(portal, TEST_USER_NAME, ['Manager'])
+    >>> setRoles(portal, TEST_USER_ID, ['Manager'])
+
     >>> portal.invokeFactory('Folder', 'f1')
     'f1'
     >>> portal.f1.invokeFactory('Folder', 'f11')
