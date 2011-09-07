@@ -7,7 +7,7 @@ Changelog
 * Extend assingable_users vocab - also show interited users. 
   [07.09.2011, mathias.leimgruber]
 
-* Added assingable_users vocab tests
+* Added assingable_users vocab tests using plone.app.testing
   [07.09.2011, mathias.leimgruber]
 
 1.3
