@@ -75,7 +75,7 @@ class AssignableUsersVocabulary(object):
                     if user not in groups:
                         groups.add(user)
 
-            if getattr(aq_base(workspace), '__ac_local_roles_block__', None):
+            if getattr(aq_base(context), '__ac_local_roles_block__', None):
                 cont = False
             else:
                 context = aq_parent(context)
