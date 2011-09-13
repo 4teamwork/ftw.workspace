@@ -4,7 +4,8 @@ Changelog
 
 1.3.3
 -----
-
+* Fix folder extender^, if registry is no available. 
+  [13.09.2011, mathias.leimgruber]
 
 1.3.2
 -----
