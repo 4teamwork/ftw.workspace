@@ -7,7 +7,7 @@ from plone.registry.interfaces import IRegistry
 from Products.Archetypes.public import TextField, RichWidget
 from Products.ATContentTypes.content.folder import ATFolder
 from zope.component import adapts
-from zope.component import getUtility
+from zope.component import queryUtility
 from zope.interface import implements
 
 
@@ -43,7 +43,9 @@ class FolderExtender(object):
         if not getattr(self.context, 'aq_parent', None):
             return []
 
-        registry = getUtility(IRegistry)
+        registry = queryUtility(IRegistry)
+        if not registry:
+            return []
         show = False
         if 'ftw.workspace.showtextfieldonfolder' in registry:
             show = registry['ftw.workspace.showtextfieldonfolder']
