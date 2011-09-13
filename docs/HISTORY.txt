@@ -2,6 +2,10 @@ Changelog
 =========
 
 
+1.3.4
+-----
+
+
 1.3.3
 -----
 * Fix folder extender^, if registry is no available. 
