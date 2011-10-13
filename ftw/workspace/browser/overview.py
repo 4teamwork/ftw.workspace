@@ -1,8 +1,48 @@
-from Products.Five.browser import BrowserView
-from ftw.workspace.browser import helper as workspace_helper
+from ftw.workspace import _
+from ftw.workspace.browser import helper
+from ftw.table import helper as table_helper
+from ftw.tabbedview.browser import listing
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 
-class OverviewTab(BrowserView):
+class OverviewTab(listing.CatalogListingView):
+
+    overview_template = ViewPageTemplateFile("overview.pt")
+    sort_on = 'modified'
+    sort_reverse = True
+    columns = (#('', helper.path_checkbox),
+               {'column': 'Title',
+                'column_index': 'sortable_title',
+                'column_title': _(u'label_eventstab_title'),
+                'transform': table_helper.linked},
+
+               {'column': 'modified',
+                'column_title': _(u'column_modified',
+                                  default=u'modified'),
+                'transform': table_helper.readable_date},
+
+                {'column': 'Creator',
+                 'column_index': 'sortable_creator',
+                 'column_title': _(u'label_eventstab_creator'),
+                 'transform': helper.readable_author},)
+    
+    
+    
+    def update(self):
+        self.load_request_parameters()
+        if self.filter_text != '':
+            self.show_search_results = True
+            super(OverviewTab, self).update()
+
+        else:
+            self.show_search_results = False
+            
+
+    def template(self):
+        if self.show_search_results:
+            return super(OverviewTab, self).template()
+        else:
+            return self.overview_template()
 
     def catalog(self,
         types=[],
@@ -37,7 +77,7 @@ class OverviewTab(BrowserView):
         return self.catalog()[:5]
 
     def get_icon(self, document):
-        return workspace_helper.icon(document, "")
+        return helper.icon(document, "")
 
     def get_description(self, file):
         return file.getObject().Description()

@@ -5,6 +5,7 @@ version = open('ftw/workspace/version.txt').read().strip()
 
 tests_require = [
     'plone.app.testing',
+    'plone.mocktestcase',
 ]
 
 
