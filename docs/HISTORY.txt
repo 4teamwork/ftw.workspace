@@ -2,115 +2,117 @@ Changelog
 =========
 
 
-1.3.4
------
+1.3.4 (unreleased)
+------------------
 
 
-1.3.3
------
-* Fix folder extender^, if registry is no available. 
-  [13.09.2011, mathias.leimgruber]
+1.3.3 (2011-09-13)
+------------------
 
-1.3.2
------
+- Fix folder extender^, if registry is no available.
+  [mathias.leimgruber]
 
-* Fix a bug in assignable_users in workspaces. 
-  [09.09.2011, mathias.leimgruber]
 
-1.3.1
------
+1.3.2 (2011-09-09)
+------------------
 
-* Extend assingable_users vocab - also show interited users. 
-  [07.09.2011, mathias.leimgruber]
+- Fix a bug in assignable_users in workspaces.
+  [mathias.leimgruber]
 
-* Added assingable_users vocab tests using plone.app.testing
-  [07.09.2011, mathias.leimgruber]
 
-1.3
----
+1.3.1 (2011-09-08)
+------------------
 
-* Add new features:
-  * TabbevViewFolder now also has a textfield. 
-  * Toolbar of Textfield is configurable, throught plone registry. 
-  [31.08.2011, mathias.leimgruber]
+- Extend assingable_users vocab - also show interited users.
+  [mathias.leimgruber]
+
+- Added assingable_users vocab tests using plone.app.testing
+  [mathias.leimgruber]
+
+
+1.3 (2011-08-31)
+----------------
+
+- Add new features:
+  TabbevViewFolder now also has a textfield.
+  Toolbar of Textfield is configurable, throught plone registry.
+  [mathias.leimgruber]
+
 
 1.2.7
 -----
 
-* Removed documents listing from overview. 
-  [31.05.2011, mathias.leimgruber]
+- Removed documents listing from overview.
+  [mathias.leimgruber]
 
-* Renamed Creater from 'Ersteller' to 'Hinzugefuegt durch'
-  [09.05.2011, elio.schmutz]
 
 1.2.6
 -----
 
-* Totally refactored assignable_users. 
-  Now it only uses local roles and inherited roles. 
+- Totally refactored assignable_users.
+  Now it only uses local roles and inherited roles.
   Groups are also supported
-  [03.05.2011, mathias.leimgruber]
+  [mathias.leimgruber]
 
-* Fixed arguments for bin/test in test-plone-4.0.x.cfg
+- Fixed arguments for bin/test in test-plone-4.0.x.cfg
   [lgraf]
 
 1.2.5
 -----
-* Fix description and text format. 
-  [31.03.2011, mathias.leimgruber]
+
+- Fix description and text format.
+  [mathias.leimgruber]
 
 1.2.4
 -----
 
-* Removed views from TabbedViewFolder
-  [16.02.2011, ttschanz]
-
-
-1.2.3
------
-
+- Removed views from TabbedViewFolder
+  [ttschanz]
 
 1.2.2
 -----
-* Added date column
-  [24.01.2011, mathias.leimgruber]
 
+- Added date column
+  [mathias.leimgruber]
 
-* Permission check for assignable_users
-  [20.01.2011, mathias.leimgruber]
+- Permission check for assignable_users
+  [mathias.leimgruber]
 
-* Added TabbedViewFolder for portal_factory
-  [20.01.2011, mathias.leimgruber]
+- Added TabbedViewFolder for portal_factory
+  [mathias.leimgruber]
 
-* Set depth in catalog query to -1 (means everything).
-  [12.01.2011, mathias.leimgruber]
+- Set depth in catalog query to -1 (means everything).
+  [mathias.leimgruber]
+
 
 1.2.1
 -----
-* Removed checkboxes in documents and events listing.
-  [07.12.2010, mathias.leimgruber]
 
-* Implement membersonly param. for assignable_users vocab.
-  [02.12.2010, mathias.leimgruber]
+- Removed checkboxes in documents and events listing.
+  [mathias.leimgruber]
+
+- Implement membersonly param. for assignable_users vocab.
+  [mathias.leimgruber]
+
 
 1.2
 ---
 
-* Removed dependency to ftw.calendarwidget, it seems not to be needed
+- Removed dependency to ftw.calendarwidget, it seems not to be needed
   [jbaumann]
 
-* New ftw.table implemented
-  [23.11.2010, mathias.leimgruber]
+- New ftw.table implemented
+  [mathias.leimgruber]
 
 
 1.1
 ---
 
-* fix icon helper function (url generation)
-  [11.11.2010, mathias.leimgruber]
+- fix icon helper function (url generation)
+  [mathias.leimgruber]
 
 
-1.0dev (unreleased)
--------------------
+1.0
+---
 
 - Initial release
