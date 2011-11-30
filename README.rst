@@ -9,7 +9,7 @@ The folder has a tabbed view with the tabs:
 - **Documents**: Lists files recursively
 - **Events**: Lists events (see ``ftw.meeting``_) and a calendar view.
 
-The ``@@workspaces_view`` lists all workspace within an area.
+The ``@@workspaces_view`` lists all workspaces recursively.
 
 
 Usage
