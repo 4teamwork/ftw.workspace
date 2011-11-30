@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = open('ftw/workspace/version.txt').read().strip()
+version = '1.3.4dev'
 
 tests_require = [
     'plone.app.testing',
