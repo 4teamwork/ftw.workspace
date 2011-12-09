@@ -32,7 +32,7 @@ Links
 - Main github project repository: https://github.com/4teamwork/ftw.workspace
 - Issue tracker: https://github.com/4teamwork/ftw.workspace/issues
 - Package on pypi: http://pypi.python.org/pypi/ftw.workspace
-- Continous integration: https://jenkins.4teamwork.ch/job/ftw.workspace/
+- Continuous integration: https://jenkins.4teamwork.ch/job/ftw.workspace/
 
 
 Maintainer
