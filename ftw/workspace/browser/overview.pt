@@ -1,5 +1,5 @@
-<tal:block i18n:domain="ftw.workspace">
-    <div class="overview-left-column">
+<div class="row" i18n:domain="ftw.workspace">
+    <div class="overview-left-column cell position-0 width-1:2">
 
         <div class="box" tal:condition="view/folders">
             <h2 i18n:translate="">Folders</h2>
@@ -16,7 +16,7 @@
             <span tal:content="structure context/aq_explicit/getText | nothing"></span>
         </div>
     </div>
-    <div class="overview-right-column">
+    <div class="overview-right-column cell position-8 width-1:2">
         <div class="box" tal:condition="view/recently_modified">
             <h2 i18n:translate="">recently modified</h2>
             <ul>
@@ -30,4 +30,4 @@
             </ul>
         </div>
     </div>
-</tal:block>
+</div>
