@@ -4,7 +4,7 @@
    i18n:domain="ftw.workspace" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Folder</property>
  <property name="description" i18n:translate=""></property>
- <property name="icon_expr"></property>
+    <property name="content_icon">++resource++ftw.workspace-resources/icon_object_folder.gif</property>
  <property name="content_meta_type">ATFolder</property>
  <property name="product">ATContentTypes</property>
  <property name="factory">addATFolder</property>
