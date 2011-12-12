@@ -48,7 +48,7 @@ def delete_action(item, value):
         url_method = item.absolute_url
     return """
     <a href="%s/delete_confirmation?came_from=%s" class="arbeitsraum_delete_item">
-    <img src="%s/++resource++izug.theme.images/icon_funktion_entfernen.gif" />
+    <img src="%s/++resource++ftw.workspace-resources/icon_funktion_entfernen.gif" />
     </a>
     """ % (url_method(),
            "%s#%s-tab" % (item.REQUEST.get('HTTP_REFERER'),
