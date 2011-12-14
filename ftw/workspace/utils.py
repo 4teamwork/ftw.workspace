@@ -6,6 +6,8 @@ from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
 
+_marker = object()
+
 
 def find_workspace(context):
     """Walks up and returns the next parent workspace (IWorkspace) or
@@ -27,29 +29,43 @@ def find_workspace(context):
             obj = parent
 
 
-class TinyMCEConfigurator(object):
+class TinyMCEAllowedButtonsConfigurator(object):
     """
     The TinyMCE RichWidget expects the button configuration attributes to be a iterable
     object.
 
     The configuration is stored in the registry, so we need to do a little workaround.
-
-    1) Use property: this is required since TinyMCE does not call the configured object.
-    2) Use yield: the method (get_tinymce_buttons) is called immediately on zope
-    start. When using yield the method is executed when the widget is rendered and not
-    on startup.
     """
 
-    @property
-    def get_tinymce_buttons(self):
-        """Get tinymce buttons from registry"""
+    def __init__(self):
+        self._data = _marker
+
+    def __iter__(self):
+        """This is a iterator, so it returns itself.
+        """
+        return self
+
+    def next(self):
+        """Iterate over the result of `load_data`. When the end is reached, raise
+        StopIteration as defined for iterable objects. But when starting iteration
+        again, retrieve the configuration and start again at the beginning.
+        """
+        if self._data is _marker:
+            self._data = list(self.load_data())
+
+        if len(self._data) > 0:
+            return self._data.pop(0)
+
+        else:
+            self._data = _marker
+            raise StopIteration()
+
+    def load_data(self):
         registry = getUtility(IRegistry)
         if 'ftw.workspace.allow_buttons' in registry:
             allow_buttons = registry['ftw.workspace.allow_buttons']
             if allow_buttons:
-                for btn in allow_buttons:
-                    yield btn
+                return allow_buttons
 
         # Fallback
-        for btn in DEFAULT_TINYMCE_ALLOWED_BUTTONS:
-            yield btn
+        return DEFAULT_TINYMCE_ALLOWED_BUTTONS
