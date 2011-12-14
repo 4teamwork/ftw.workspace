@@ -12,7 +12,7 @@ from Products.ATContentTypes.content import folder
 from Products.CMFCore.utils import getToolByName
 from zope.component import adapter
 from zope.interface import implements
-from ftw.workspace.utils import get_tinymce_buttons
+from ftw.workspace.utils import TinyMCEConfigurator
 
 
 WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
@@ -29,7 +29,7 @@ WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label = _(u"label_text", default=u"Text"),
             description = _(u"help_text", default=u""),
             rows=15,
-            allow_buttons=get_tinymce_buttons,
+            allow_buttons=TinyMCEConfigurator().get_tinymce_buttons,
         ),
     ),
 ))

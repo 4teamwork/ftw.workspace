@@ -27,12 +27,29 @@ def find_workspace(context):
             obj = parent
 
 
-def get_tinymce_buttons():
-    """Get tinymce buttons from registry"""
-    registry = getUtility(IRegistry)
-    if 'ftw.workspace.allow_buttons' in registry:
-        allow_buttons = registry['ftw.workspace.allow_buttons']
-        if allow_buttons:
-            return allow_buttons
-    # Fallback
-    return DEFAULT_TINYMCE_ALLOWED_BUTTONS
+class TinyMCEConfigurator(object):
+    """
+    The TinyMCE RichWidget expects the button configuration attributes to be a iterable
+    object.
+
+    The configuration is stored in the registry, so we need to do a little workaround.
+
+    1) Use property: this is required since TinyMCE does not call the configured object.
+    2) Use yield: the method (get_tinymce_buttons) is called immediately on zope
+    start. When using yield the method is executed when the widget is rendered and not
+    on startup.
+    """
+
+    @property
+    def get_tinymce_buttons(self):
+        """Get tinymce buttons from registry"""
+        registry = getUtility(IRegistry)
+        if 'ftw.workspace.allow_buttons' in registry:
+            allow_buttons = registry['ftw.workspace.allow_buttons']
+            if allow_buttons:
+                for btn in allow_buttons:
+                    yield btn
+
+        # Fallback
+        for btn in DEFAULT_TINYMCE_ALLOWED_BUTTONS:
+            yield btn

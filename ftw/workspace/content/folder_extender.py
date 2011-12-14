@@ -2,7 +2,7 @@ from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from ftw.workspace import _
 from ftw.workspace.utils import find_workspace
-from ftw.workspace.utils import get_tinymce_buttons
+from ftw.workspace.utils import TinyMCEConfigurator
 from plone.registry.interfaces import IRegistry
 from Products.Archetypes.public import TextField, RichWidget
 from Products.ATContentTypes.content.folder import ATFolder
@@ -32,7 +32,7 @@ class FolderExtender(object):
             label = _(u"label_text", default=u"Text"),
             description = _(u"help_text", default=u""),
             rows=15,
-            allow_buttons=get_tinymce_buttons, )), ]
+            allow_buttons=TinyMCEConfigurator().get_tinymce_buttons, )), ]
 
     def __init__(self, context):
         self.context = context
