@@ -5,7 +5,8 @@ Changelog
 1.3.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- added rst to MANIFEST.in
+  [mathias.leimgruber]	
 
 
 1.3.4 (2011-12-15)
