@@ -4,8 +4,9 @@ from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
 from plone.testing import z2
 from zope.configuration import xmlconfig
-
-
+from plone.testing.z2 import FUNCTIONAL_TESTING
+from plone.testing import Layer
+from plone.testing import zca
 USERS = [
     {'user': 'member1', 'roles': ('Member', 'Reader')},
     {'user': 'member2', 'roles': ('Member', 'Reader')},
@@ -19,11 +20,15 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import ftw.workspace
+        import zope.traversing
         xmlconfig.file(
             'configure.zcml',
             ftw.workspace,
             context=configurationContext)
-
+        xmlconfig.file(
+            'configure.zcml',
+            zope.traversing,
+            context=configurationContext)
         # installProduct() is *only* necessary for packages outside
         # the Products.* namespace which are also declared as Zope 2 products,
         # using <five:registerPackage /> in ZCML.
@@ -32,7 +37,6 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
-
         # Add role for vocab testing
         portal._addRole('Reader')
 
@@ -50,3 +54,23 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 FTW_WORKSPACE_FIXTURE = FtwWorkspaceLayer()
 FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_WORKSPACE_FIXTURE, ), name="FtwWorkspace:Integration")
+
+
+class BasicMockOverviewLayer(Layer):
+
+    defaultBases = (FUNCTIONAL_TESTING, )
+
+    def setUp(self):
+        self['configurationContext'] = context = \
+            zca.stackConfigurationContext(self.get('configurationContext'))
+        import zope.traversing
+        xmlconfig.file(
+            'configure.zcml',
+            zope.traversing,
+            context=context)
+        # import ftw.workspace
+        # xmlconfig.file(
+        #     'configure.zcml',
+        #     ftw.workspace,
+        #     context=context)
+OVERVIEW_LAYER = BasicMockOverviewLayer()

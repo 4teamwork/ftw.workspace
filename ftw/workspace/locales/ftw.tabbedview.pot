@@ -1,71 +1,47 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-15 07:36+0000\n"
-"PO-Revision-Date: 2010-09-03 12:06+0200\n"
+"POT-Creation-Date: 2011-12-15 07:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
-
-#: ./ftw/workspace/profiles/default/types/Workspace.xml
-msgid "A type for collaborative spaces."
-msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
-
-msgid "Contacts"
-msgstr "Kontakte"
-
-#: ./ftw/workspace/browser/overview.pt:14
-msgid "Description"
-msgstr "Beschreibung"
-
-#: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
-msgid "Folder"
-msgstr "Ordner"
-
-#: ./ftw/workspace/browser/overview.pt:5
-msgid "Folders"
-msgstr "Ordner"
-
-#: ./ftw/workspace/profiles/default/types/Workspace.xml
-msgid "Workspace"
-msgstr "Arbeitsraum"
+"Domain: ftw.tabbedview\n"
 
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:27
 msgid "column_creator"
-msgstr "Hinzugefügt durch"
+msgstr ""
 
 #. Default: "date"
 #: ./ftw/workspace/browser/documents.py:24
 msgid "column_date"
-msgstr "Datum"
+msgstr ""
 
 #. Default: "modified"
 #: ./ftw/workspace/browser/documents.py:31
 #: ./ftw/workspace/browser/overview.py:20
 msgid "column_modified"
-msgstr "Bearbeitet"
+msgstr ""
 
 #. Default: "Title"
 #: ./ftw/workspace/browser/documents.py:20
 msgid "column_title"
-msgstr "Titel"
+msgstr ""
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/documents.py:17
 msgid "column_type"
-msgstr "Typ"
-
-msgid "contacts"
-msgstr "Kontakte"
-
-msgid "event"
-msgstr "Termin"
+msgstr ""
 
 #: ./ftw/workspace/content/folder_extender.py:33
 #: ./ftw/workspace/content/workspace.py:30
@@ -75,21 +51,21 @@ msgstr ""
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:26
 msgid "label_eventstab_creator"
-msgstr "Hinzugefügt durch"
+msgstr ""
 
 #: ./ftw/workspace/browser/events.py:27
 msgid "label_eventstab_start"
-msgstr "Beginn"
+msgstr ""
 
 #: ./ftw/workspace/browser/events.py:32
 #: ./ftw/workspace/browser/overview.py:16
 msgid "label_eventstab_title"
-msgstr "Titel"
+msgstr ""
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/events.py:37
 msgid "label_eventstab_type"
-msgstr "Typ"
+msgstr ""
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
@@ -97,14 +73,6 @@ msgstr "Typ"
 msgid "label_text"
 msgstr ""
 
-msgid "meeting"
-msgstr "Sitzung"
-
-msgid "poll"
-msgstr "Umfrage"
-
-#: ./ftw/workspace/browser/overview.pt:21
-msgid "recently modified"
-msgstr "Kürzlich verändert"
-
+msgid "workspaces"
+msgstr ""
 

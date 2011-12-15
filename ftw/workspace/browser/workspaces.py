@@ -1,8 +1,6 @@
 from ftw.tabbedview.browser.tabbed import TabbedView
 from ftw.table import helper
-from ftw.workspace.browser import helper as workspace_helper
 from tab import Tab
-
 
 
 class WorkspacesView(TabbedView):
@@ -10,18 +8,18 @@ class WorkspacesView(TabbedView):
 
     def get_tabs(self):
         return [{'id':'workspaces', 'class':''},
-                {'id':'documents','class':''},
-                {'id':'events','class':''},
+                {'id':'documents', 'class':''},
+                {'id':'events', 'class':''},
                ]
 
 
 class WorkspacesTab(Tab):
 
-   types = 'Workspace'
+    types = 'Workspace'
 
-   sort_on = 'sortable_title'
+    sort_on = 'sortable_title'
 
-   columns = (('', helper.path_checkbox),
-              ('Title', 'sortable_title', helper.linked),
-              ('modified', helper.readable_date),
-              ('Creator', 'sortable_creator', helper.readable_author), )
+    columns = (('', helper.path_checkbox),
+               ('Title', 'sortable_title', helper.linked),
+               ('modified', helper.readable_date),
+               ('Creator', 'sortable_creator', helper.readable_author), )
