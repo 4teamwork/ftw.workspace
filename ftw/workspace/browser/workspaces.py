@@ -1,6 +1,7 @@
 from ftw.tabbedview.browser.tabbed import TabbedView
 from ftw.table import helper
 from tab import Tab
+from ftw.workspace import _
 
 
 class WorkspacesView(TabbedView):
@@ -19,7 +20,15 @@ class WorkspacesTab(Tab):
 
     sort_on = 'sortable_title'
 
-    columns = (('', helper.path_checkbox),
-               ('Title', 'sortable_title', helper.linked),
-               ('modified', helper.readable_date),
-               ('Creator', 'sortable_creator', helper.readable_author), )
+    columns = (
+        {'column': 'Title',
+         'column_title': _(u'column_title', default=u'Title'),
+         'sort_index': 'sortable_title',
+         'transform': helper.linked},
+        {'column': 'modified',
+         'column_title': _(u'column_modified', default=u'modified'),
+         'transform': helper.readable_date},
+         {'column': 'Creator',
+          'column_title': _(u'column_creator', default=u'Creator'),
+          'sort_index': 'sortable_creator',
+          'transform': helper.readable_author}, )
