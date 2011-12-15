@@ -33,6 +33,7 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         # the Products.* namespace which are also declared as Zope 2 products,
         # using <five:registerPackage /> in ZCML.
         z2.installProduct(app, 'ftw.workspace')
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
@@ -56,11 +57,12 @@ FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
 
 
 class BasicMockOverviewLayer(Layer):
-    
+
     defaultBases = (FUNCTIONAL_TESTING, )
-    
+
     def setUp(self):
-        self['configurationContext'] = context = zca.stackConfigurationContext(self.get('configurationContext'))
+        self['configurationContext'] = context = \
+            zca.stackConfigurationContext(self.get('configurationContext'))
         import zope.traversing
         xmlconfig.file(
             'configure.zcml',
@@ -71,7 +73,4 @@ class BasicMockOverviewLayer(Layer):
         #     'configure.zcml',
         #     ftw.workspace,
         #     context=context)
-
-
-OVERVIEW_LAYER = BasicMockOverviewLayer()        
-        
+OVERVIEW_LAYER = BasicMockOverviewLayer()

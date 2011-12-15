@@ -24,10 +24,8 @@ class OverviewTab(listing.CatalogListingView):
                 {'column': 'Creator',
                  'column_index': 'sortable_creator',
                  'column_title': _(u'label_eventstab_creator'),
-                 'transform': helper.readable_author},)
-    
-    
-    
+                 'transform': helper.readable_author}, )
+
     def update(self):
         self.load_request_parameters()
         if self.filter_text != '':
@@ -36,7 +34,6 @@ class OverviewTab(listing.CatalogListingView):
 
         else:
             self.show_search_results = False
-            
 
     def template(self):
         if self.show_search_results:
@@ -44,11 +41,8 @@ class OverviewTab(listing.CatalogListingView):
         else:
             return self.overview_template()
 
-    def catalog(self,
-        types=[],
-        depth=-1,
-        sort_on='modified',
-        sort_order='reverse'):
+    def catalog(self, types=[], depth=-1, sort_on='modified',
+                sort_order='reverse'):
 
         query = dict(
             path = dict(
