@@ -145,5 +145,4 @@ class TestOverview(MockTestCase):
         self.assertEqual(self.overview.show_search_results, True)
         testhtml = ''
         template = self.overview.template()
-        import pdb; pdb.set_trace( )
         self.assertEqual(testhtml in template, True)
