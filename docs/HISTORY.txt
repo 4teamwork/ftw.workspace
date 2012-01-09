@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.3.7 (unreleased)
+1.3.7 (2012-01-09)
 ------------------
 
 - Automatically assign "Administrator" role the creator of a workspace.
