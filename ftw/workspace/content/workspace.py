@@ -19,9 +19,9 @@ WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.TextField('text',
         searchable = True,
         required = False,
-        allowable_content_types=('text/html',),
+        allowable_content_types=('text/html', ),
         default_content_type = 'text/html',
-        validators = ('isTidyHtmlWithCleanup',),
+        validators = ('isTidyHtmlWithCleanup', ),
         default_output_type = 'text/x-html-safe',
         default_input_type = 'text/html',
         storage = atapi.AnnotationStorage(),
@@ -53,7 +53,9 @@ def workspace_added(object_, event):
     # if his/her id already has local roles
     if current_user in object_.__ac_local_roles__:
         object_.__ac_local_roles__[current_user] += ['Contributor',
-                                                    'Editor', 'Reader']
+                                                    'Editor',
+                                                    'Reader',
+                                                    'Administrator']
 
 
 class Workspace(folder.ATFolder):
