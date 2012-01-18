@@ -17,8 +17,10 @@ class WorkspacesView(TabbedView):
 class WorkspacesTab(Tab):
 
     types = 'Workspace'
-
     sort_on = 'sortable_title'
+    show_selects = False
+    show_menu = False
+
 
     columns = (
         {'column': 'Title',

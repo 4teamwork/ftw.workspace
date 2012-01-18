@@ -12,8 +12,67 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#. Default: "Creator"
+#: ./ftw/workspace/browser/documents.py:27
+msgid "column_creator"
+msgstr ""
+
+#. Default: "date"
+#: ./ftw/workspace/browser/documents.py:24
+msgid "column_date"
+msgstr ""
+
+#. Default: "modified"
+#: ./ftw/workspace/browser/documents.py:31
+#: ./ftw/workspace/browser/overview.py:20
+msgid "column_modified"
+msgstr ""
+
+#. Default: "Title"
+#: ./ftw/workspace/browser/documents.py:20
+msgid "column_title"
+msgstr ""
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/documents.py:17
+msgid "column_type"
+msgstr ""
+
+#: ./ftw/workspace/content/folder_extender.py:33
+#: ./ftw/workspace/content/workspace.py:30
+msgid "help_text"
+msgstr ""
+
+#: ./ftw/workspace/browser/events.py:44
+#: ./ftw/workspace/browser/overview.py:26
+msgid "label_eventstab_creator"
+msgstr ""
+
+#: ./ftw/workspace/browser/events.py:27
+msgid "label_eventstab_start"
+msgstr ""
+
+#: ./ftw/workspace/browser/events.py:32
+#: ./ftw/workspace/browser/overview.py:16
+msgid "label_eventstab_title"
+msgstr ""
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/events.py:37
+msgid "label_eventstab_type"
+msgstr ""
+
+#. Default: "Text"
+#: ./ftw/workspace/content/folder_extender.py:32
+#: ./ftw/workspace/content/workspace.py:29
+msgid "label_text"
+msgstr ""
 
 msgid "workspaces"
 msgstr "Arbeitsräume"
 
+msgid "documents"
+msgstr "Dokumente"
 
+msgid "events"
+msgstr "Termine"

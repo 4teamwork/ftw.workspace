@@ -10,6 +10,9 @@ class DocumentsTab(Tab):
 
     sort_on = 'effective'
 
+    show_selects = False
+    show_menu = False
+
     sort_reverse = True
 
     columns = (#('', helper.path_checkbox),
