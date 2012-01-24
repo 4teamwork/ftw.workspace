@@ -2,7 +2,7 @@ from ftw.workspace import _
 from ftw.workspace.browser import helper
 from ftw.table import helper as table_helper
 from ftw.tabbedview.browser import listing
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class OverviewTab(listing.CatalogListingView):

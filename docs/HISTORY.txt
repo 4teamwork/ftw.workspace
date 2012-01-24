@@ -5,7 +5,10 @@ Changelog
 1.3.8 (unreleased)
 ------------------
 
-- Do not show menus and selctions on workspaces and documents tab. 
+- User ViewPageTemplateFile from Products.Five for Plone 4.0 compatibility.
+  [mathias.leimgruber]
+
+- Do not show menus and selctions on workspaces and documents tab.
   [mathias.leimgruber]
 
 

@@ -8,7 +8,7 @@ from ftw.table import helper
 from ftw.workspace import _
 from plone.memoize.compress import xhtml_compress
 from time import localtime
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.i18nmessageid import MessageFactory
 
 
