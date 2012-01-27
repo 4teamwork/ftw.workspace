@@ -38,6 +38,7 @@ setup(name='ftw.workspace',
       install_requires=[
         'setuptools',
         'ftw.tabbedview',
+        'ftw.calendar',
         'plone.principalsource',
         # -*- Extra requirements: -*-
         ],

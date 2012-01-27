@@ -3,5 +3,6 @@
   <version>1</version>
   <dependencies>
         <dependency>profile-ftw.tabbedview:default</dependency>
+        <dependency>profile-ftw.calendar:default</dependency>
   </dependencies>
 </metadata>
