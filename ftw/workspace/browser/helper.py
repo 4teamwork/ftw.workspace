@@ -59,6 +59,7 @@ def delete_action(item, value):
 def icon(item, value):
     url_method = lambda: '#'
     props = getToolByName(getSite(), 'portal_properties')
+    plone_utils = getToolByName(getSite(), 'plone_utils')
     item_type = item.portal_type
     ftw_worspace = props.get('ftw.workspace_properties', None)
     if not ftw_worspace:
@@ -76,6 +77,11 @@ def icon(item, value):
     has_file = item_type in direct_downloadable_types
     # use a icon
     img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
+
+    # wrap a class around the image (for sprites)
+    img_class = plone_utils.normalizeString(
+        'contenttype-%s' % item.portal_type)
+    img = u'<span class="type-icon %s">%s</span>' % (img_class, img)
 
     # link it with either the download (usually "file" field) or with
     # the content default view
