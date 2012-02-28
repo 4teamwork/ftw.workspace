@@ -14,17 +14,16 @@
             <input type="hidden" name="orig_template" tal:attributes="value string:${context/absolute_url}/#${view/view_name}" />
             <div class="ViewChooser">
                 <span id="events" >
-                    <b>Liste</b>
+                    <b i18n:translate="events_pill_list">List</b>
                     </span> |
-                    <a id="events-calendar">
-                        Kalender
-                    </a>
+                    <a id="events-calendar"
+                       i18n:translate="events_pill_calendar">Calendar</a>
             </div>
             <br style="clear:both" />
             <div tal:replace="structure view/batching" tal:condition="view/contents"/>
 
             <tal:cond tal:condition="view/contents">
-                <b>Exportieren:</b>
+                <b i18n:translate="events_export">Export:</b>
                 <a tal:attributes="href string:${context/absolute_url}/ics_view">
                     <img src="icon_export_ical.png" />
                     iCal
@@ -32,8 +31,10 @@
                 <div tal:content="structure view/render_listing" />
             </tal:cond>
 
-            <p tal:condition="not: view/contents">
-                Keine Inhalte vorhanden
+            <p tal:condition="not: view/contents"
+               i18n:domain="ftw.tabbedview"
+               i18n:translate="label_no_contents">
+                No contents
             </p>
 
         </form>

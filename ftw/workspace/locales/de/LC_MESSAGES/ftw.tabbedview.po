@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2011-12-15 07:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: 2012-02-28 11:13+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -15,28 +15,28 @@ msgstr ""
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:27
 msgid "column_creator"
-msgstr ""
+msgstr "Ersteller"
 
 #. Default: "date"
 #: ./ftw/workspace/browser/documents.py:24
 msgid "column_date"
-msgstr ""
+msgstr "Datum"
 
 #. Default: "modified"
 #: ./ftw/workspace/browser/documents.py:31
 #: ./ftw/workspace/browser/overview.py:20
 msgid "column_modified"
-msgstr ""
+msgstr "Bearbeitet"
 
 #. Default: "Title"
 #: ./ftw/workspace/browser/documents.py:20
 msgid "column_title"
-msgstr ""
+msgstr "Titel"
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/documents.py:17
 msgid "column_type"
-msgstr ""
+msgstr "Typ"
 
 #: ./ftw/workspace/content/folder_extender.py:33
 #: ./ftw/workspace/content/workspace.py:30
@@ -46,27 +46,27 @@ msgstr ""
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:26
 msgid "label_eventstab_creator"
-msgstr ""
+msgstr "Ersteller"
 
 #: ./ftw/workspace/browser/events.py:27
 msgid "label_eventstab_start"
-msgstr ""
+msgstr "Start"
 
 #: ./ftw/workspace/browser/events.py:32
 #: ./ftw/workspace/browser/overview.py:16
 msgid "label_eventstab_title"
-msgstr ""
+msgstr "Titel"
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/events.py:37
 msgid "label_eventstab_type"
-msgstr ""
+msgstr "Typ"
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
 #: ./ftw/workspace/content/workspace.py:29
 msgid "label_text"
-msgstr ""
+msgstr "Text"
 
 msgid "workspaces"
 msgstr "Arbeitsräume"
