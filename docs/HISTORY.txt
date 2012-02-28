@@ -14,9 +14,6 @@ Changelog
 - Use userid instead of username in assignable_users vocabulary.
   [mathias.leimgruber]
 
-- Wrap a class around the icon helper (for sprites).
-  [Julian Infanger]
-
 - Use ftw.calendar to display the events calendar.
   [Julian Infanger]
 

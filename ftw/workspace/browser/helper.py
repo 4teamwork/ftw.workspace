@@ -78,11 +78,6 @@ def icon(item, value):
     # use a icon
     img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
 
-    # wrap a class around the image (for sprites)
-    img_class = plone_utils.normalizeString(
-        'contenttype-%s' % item.portal_type)
-    img = u'<span class="typeIcon %s">%s</span>' % (img_class, img)
-
     # link it with either the download (usually "file" field) or with
     # the content default view
     href = url_method()
