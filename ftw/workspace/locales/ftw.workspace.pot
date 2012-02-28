@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-28 10:12+0000\n"
+"POT-Creation-Date: 2012-02-28 13:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,17 +76,17 @@ msgid "event"
 msgstr ""
 
 #. Default: "Export:"
-#: ./ftw/workspace/browser/events.pt:26
+#: ./ftw/workspace/browser/events.pt:38
 msgid "events_export"
 msgstr ""
 
 #. Default: "Calendar"
-#: ./ftw/workspace/browser/events.pt:19
+#: ./ftw/workspace/browser/events.pt:16
 msgid "events_pill_calendar"
 msgstr ""
 
 #. Default: "List"
-#: ./ftw/workspace/browser/events.pt:17
+#: ./ftw/workspace/browser/events.pt:14
 msgid "events_pill_list"
 msgstr ""
 
@@ -95,22 +95,22 @@ msgstr ""
 msgid "help_text"
 msgstr ""
 
-#: ./ftw/workspace/browser/events.py:39
+#: ./ftw/workspace/browser/events.py:42
 #: ./ftw/workspace/browser/overview.py:26
 msgid "label_eventstab_creator"
 msgstr ""
 
-#: ./ftw/workspace/browser/events.py:22
+#: ./ftw/workspace/browser/events.py:25
 msgid "label_eventstab_start"
 msgstr ""
 
-#: ./ftw/workspace/browser/events.py:27
+#: ./ftw/workspace/browser/events.py:30
 #: ./ftw/workspace/browser/overview.py:16
 msgid "label_eventstab_title"
 msgstr ""
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/events.py:32
+#: ./ftw/workspace/browser/events.py:35
 msgid "label_eventstab_type"
 msgstr ""
 

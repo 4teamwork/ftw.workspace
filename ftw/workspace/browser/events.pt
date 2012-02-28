@@ -9,7 +9,7 @@
         <div tal:omit-tag="python: view.extjs_enabled" class="tab_container">
 
             <tal:START_CUSTOM_______________________________________ />
-            <div class="ViewChooser">
+            <div class="ViewChooser" i18n:domain="ftw.workspace">
                 <span id="events" >
                     <b i18n:translate="events_pill_list">List</b>
                     </span> |
@@ -35,7 +35,8 @@
                 <span tal:replace="structure context/@@authenticator/authenticator"/>
 
                 <tal:START_CUSTOM_______________________________________ />
-                <b i18n:translate="events_export">Export:</b>
+                <b i18n:domain="ftw.workspace"
+                   i18n:translate="events_export">Export:</b>
                 <a tal:attributes="href string:${context/absolute_url}/ics_view">
                     <img src="icon_export_ical.png" />
                     iCal
