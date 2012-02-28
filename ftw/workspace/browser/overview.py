@@ -26,17 +26,8 @@ class OverviewTab(listing.CatalogListingView):
                  'column_title': _(u'label_eventstab_creator'),
                  'transform': helper.readable_author}, )
 
-    def update(self):
-        self.load_request_parameters()
-        if self.filter_text != '':
-            self.show_search_results = True
-            super(OverviewTab, self).update()
-
-        else:
-            self.show_search_results = False
-
     def template(self):
-        if self.show_search_results:
+        if self.filter_text != '':
             return super(OverviewTab, self).template()
         else:
             return self.overview_template()
