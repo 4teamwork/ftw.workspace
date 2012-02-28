@@ -3,15 +3,12 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     tal:omit-tag="python: True"
-    i18n:domain="ftw.workspace">
+    i18n:domain="ftw.tabbedview">
 
-    <tal:translation>
-        <form name="tabbedview_form"
-              method="post"
-              action="folder_object"
-              tal:attributes="action context/absolute_url">
+    <tal:has_contents tal:condition="view/contents">
+        <div tal:omit-tag="python: view.extjs_enabled" class="tab_container">
 
-            <input type="hidden" name="orig_template" tal:attributes="value string:${context/absolute_url}/#${view/view_name}" />
+            <tal:START_CUSTOM_______________________________________ />
             <div class="ViewChooser">
                 <span id="events" >
                     <b i18n:translate="events_pill_list">List</b>
@@ -19,26 +16,65 @@
                     <a id="events-calendar"
                        i18n:translate="events_pill_calendar">Calendar</a>
             </div>
-            <br style="clear:both" />
-            <div tal:replace="structure view/batching" tal:condition="view/contents"/>
+            <tal:END_CUSTOM_______________________________________ />
 
-            <tal:cond tal:condition="view/contents">
+            <tal:extjs condition="view/extjs_enabled">
+                <div id="selection_container" class="ftwtable"><!--iefix--></div>
+                <div id="batching_container" class="ftwtable"><!--iefix--></div>
+            </tal:extjs>
+            <tal:html condition="not:view/extjs_enabled">
+                <div tal:replace="structure view/batching" />
+                <div tal:replace="structure view/selection" />
+            </tal:html>
+
+            <form name="tabbedview_form"
+                  method="post"
+                  action="folder_object"
+                  tal:attributes="action context/absolute_url">
+                <input type="hidden" name="orig_template" tal:attributes="value string:${context/absolute_url}/#${view/view_name}" />
+                <span tal:replace="structure context/@@authenticator/authenticator"/>
+
+                <tal:START_CUSTOM_______________________________________ />
                 <b i18n:translate="events_export">Export:</b>
                 <a tal:attributes="href string:${context/absolute_url}/ics_view">
                     <img src="icon_export_ical.png" />
                     iCal
                 </a>
-                <div tal:content="structure view/render_listing" />
-            </tal:cond>
+                <tal:END_CUSTOM_______________________________________ />
 
-            <p tal:condition="not: view/contents"
-               i18n:domain="ftw.tabbedview"
-               i18n:translate="label_no_contents">
-                No contents
-            </p>
+                <tal:extjs condition="view/extjs_enabled">
+                    <div id="listing_container"
+                         class="ftwtable +extjs tab_container"><!--iefix--></div>
+                    <div id="menu_container" class="ftwtable"><!--iefix--></div>
+                </tal:extjs>
 
-        </form>
+                <tal:html condition="not:view/extjs_enabled">
+                    <div id="listing_container">
+                        <div tal:content="structure view/render_listing" />
+                    </div>
+                    <div tal:replace="structure view/menu" />
+                </tal:html>
 
-    </tal:translation>
+            </form>
+
+        </div>
+    </tal:has_contents>
+
+    <tal:extjs condition="view/extjs_enabled">
+        <p style="display:none"
+           id="message_no_contents"
+           i18n:translate="label_no_contents">
+            No contents
+        </p>
+    </tal:extjs>
+
+    <tal:html condition="not:view/extjs_enabled">
+        <p tal:condition="not:view/contents"
+           id="message_no_contents"
+           i18n:translate="label_no_contents">
+            No contents
+        </p>
+    </tal:html>
+
 
 </html>
