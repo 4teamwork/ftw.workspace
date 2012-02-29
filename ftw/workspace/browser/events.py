@@ -34,7 +34,7 @@ class EventsTab(listing.CatalogListingView):
                {'column': 'getMeeting_type',
                 'column_title': _(u'label_eventstab_type',
                                   default=u'Type'),
-                'transform': helper.translated_string('ftw.workspace')},
+                'transform': helper.translated_string('ftw.meeting')},
 
 
                 {'column': 'Creator',
