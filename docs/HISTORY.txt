@@ -5,6 +5,9 @@ Changelog
 1.3.9 (unreleased)
 ------------------
 
+- Icon helper should not return a image if no icon is defined for this type.
+  [Julian Infanger]
+
 - Display "reset table configuration" in documents and events listing tabs.
   [jone]
 

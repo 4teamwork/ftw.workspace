@@ -57,9 +57,10 @@ def delete_action(item, value):
 
 
 def icon(item, value):
+    if not item.getIcon:
+        return ''
     url_method = lambda: '#'
     props = getToolByName(getSite(), 'portal_properties')
-    plone_utils = getToolByName(getSite(), 'plone_utils')
     item_type = item.portal_type
     ftw_worspace = props.get('ftw.workspace_properties', None)
     if not ftw_worspace:
