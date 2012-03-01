@@ -5,6 +5,9 @@ Changelog
 1.3.9 (unreleased)
 ------------------
 
+- Set sort_index of meeting title to sortable_title.
+  [Julian Infanger]
+
 - Icon helper should not return a image if no icon is defined for this type.
   [Julian Infanger]
 

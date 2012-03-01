@@ -28,6 +28,7 @@ class EventsTab(listing.CatalogListingView):
                {'column': 'Title',
                 'column_index': 'sortable_title',
                 'column_title': _(u'label_eventstab_title'),
+                'sort_index': 'sortable_title',
                 'transform': helper.linked},
 
 
