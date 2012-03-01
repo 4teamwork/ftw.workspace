@@ -5,6 +5,9 @@ Changelog
 1.3.9 (unreleased)
 ------------------
 
+- List default plone Event in events tab too.
+  [jone]
+
 - Get portal_url in helpers with getToolByName, so there is no error if the
   items are solr flares.
   [Julian Infanger]

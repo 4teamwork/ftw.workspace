@@ -11,7 +11,7 @@ plone_locales_mf = MessageFactory('plonelocales')
 
 
 class EventsTab(listing.CatalogListingView):
-    types = ['Meeting', 'Poodle']
+    types = ['Meeting', 'Poodle', 'Event']
 
     sort_on = 'start'
     sort_order = 'reverse'
