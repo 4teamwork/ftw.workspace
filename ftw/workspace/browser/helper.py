@@ -101,11 +101,12 @@ def icon(item, value):
 @ram.cache(lambda m, i, author: author)
 def readable_author(item, author):
     #TODO: terribly inefficient. Make some HelperCommons or something
-    portal_url = getToolByName(getSite(), 'portal_url')
+    site = getSite()
+    portal_url = getToolByName(site, 'portal_url')
     if not author:
         return '-'
     name = author
-    user = item.acl_users.getUserById(author)
+    user = site.acl_users.getUserById(author)
     url = None
     if user is not None:
         name = user.getProperty('fullname', author)
