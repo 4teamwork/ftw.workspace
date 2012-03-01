@@ -42,6 +42,7 @@ def workspace_files_linked(item, value):
 
 def delete_action(item, value):
     url_method = lambda: '#'
+    portal_url = getToolByName(getSite(), 'portal_url')
     if hasattr(item, 'getURL'):
         url_method = item.getURL
     elif hasattr(item, 'absolute_url'):
@@ -53,7 +54,7 @@ def delete_action(item, value):
     """ % (url_method(),
            "%s#%s-tab" % (item.REQUEST.get('HTTP_REFERER'),
                         item.REQUEST.get('view_name')),
-           item.portal_url())
+           portal_url())
 
 
 def icon(item, value):
@@ -86,7 +87,7 @@ def icon(item, value):
         href = os.path.join(href, 'at_download', 'file')
     elif hasattr(item, 'portal_type'):
         # do we need to add /view ?
-        
+
         types_using_view = props.get('site_properties').getProperty(
             'typesUseViewActionInListings')
         if item_type in types_using_view:

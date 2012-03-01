@@ -5,6 +5,10 @@ Changelog
 1.3.9 (unreleased)
 ------------------
 
+- Get portal_url in helpers with getToolByName, so there is no error if the
+  items are solr flares.
+  [Julian Infanger]
+
 - Set sort_index of meeting title to sortable_title.
   [Julian Infanger]
 
