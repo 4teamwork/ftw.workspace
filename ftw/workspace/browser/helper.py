@@ -61,7 +61,9 @@ def icon(item, value):
     if not item.getIcon:
         return ''
     url_method = lambda: '#'
-    props = getToolByName(getSite(), 'portal_properties')
+    site = getSite()
+    props = getToolByName(site, 'portal_properties')
+    portal_url = getToolByName(site, 'portal_url')
     item_type = item.portal_type
     ftw_worspace = props.get('ftw.workspace_properties', None)
     if not ftw_worspace:
@@ -78,7 +80,7 @@ def icon(item, value):
         url_method = item.absolute_url
     has_file = item_type in direct_downloadable_types
     # use a icon
-    img = u'<img src="%s/%s"/>' % (item.portal_url(), item.getIcon)
+    img = u'<img src="%s/%s"/>' % (portal_url(), item.getIcon)
 
     # link it with either the download (usually "file" field) or with
     # the content default view
@@ -99,6 +101,7 @@ def icon(item, value):
 @ram.cache(lambda m, i, author: author)
 def readable_author(item, author):
     #TODO: terribly inefficient. Make some HelperCommons or something
+    portal_url = getToolByName(getSite(), 'portal_url')
     if not author:
         return '-'
     name = author
@@ -111,7 +114,7 @@ def readable_author(item, author):
     if user is None:
         url, name = find_contact_object(item, author)
     if url is None:
-        url = "%s/author/%s" % (item.portal_url(), author)
+        url = "%s/author/%s" % (portal_url(), author)
     return '<a href="%s">%s</a>' % (url, name)
 
 
@@ -133,8 +136,9 @@ def responsible(item, value):
 
 
 def review_state(item, value):
+    portal_url = getToolByName(getSite(), 'portal_url')
     icon = TASK_REVIEW_STATE_ICON.get(item.review_state,
                                       TASK_REVIEW_STATE_DEFAULT_ICON)
     return """
     <img src="%s/++resource++izug.theme.images/%s" width="16" height="16"/>
-    """ % (item.portal_url(), icon)
+    """ % (portal_url(), icon)
