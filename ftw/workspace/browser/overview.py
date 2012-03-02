@@ -61,7 +61,7 @@ class OverviewTab(listing.CatalogListingView):
         return self.catalog(['File', ], sort_on='created')[:5]
 
     def recently_modified(self):
-        return self.catalog()[:5]
+        return self.catalog()[:10]
 
     def get_icon(self, document):
         return helper.icon(document, "")

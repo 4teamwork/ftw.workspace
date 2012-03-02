@@ -12,6 +12,9 @@ Changelog
   items are solr flares.
   [Julian Infanger]
 
+- Show 10 items on recently modified listing.
+  [mathias.leimgruber]
+
 - Set sort_index of meeting title to sortable_title.
   [Julian Infanger]
 
