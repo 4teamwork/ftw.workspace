@@ -16,7 +16,8 @@ class DocumentsTab(Tab):
     sort_reverse = True
 
     columns = (#('', helper.path_checkbox),
-               {'column':'getContentType',
+               {'column':'getIcon',
+                'sort_index': 'getContentType',
                 'column_title': _(u'column_type', default=u'Type'),
                 'transform': workspace_helper.icon},
                {'column':'Title',
