@@ -7,7 +7,7 @@ The folder has a tabbed view with the tabs:
 
 - **Overview**: Shows recently modified contents within this workspace and the structure (subfolders)
 - **Documents**: Lists files recursively
-- **Events**: Lists events (see ``ftw.meeting``_) and a calendar view.
+- **Events**: Lists events (see ``ftw.meeting``) and a calendar view.
 
 The ``@@workspaces_view`` lists all workspaces recursively.
 
