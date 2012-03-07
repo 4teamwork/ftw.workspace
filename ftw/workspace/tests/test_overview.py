@@ -1,8 +1,8 @@
 from ftw.testing import MockTestCase
-from mocker import Mocker
-from mocker import ANY
 from ftw.workspace.browser.overview import OverviewTab
 from ftw.workspace.testing import OVERVIEW_LAYER
+from mocker import ANY
+from mocker import Mocker
 
 
 class TestOverview(MockTestCase):

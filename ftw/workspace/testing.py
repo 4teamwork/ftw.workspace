@@ -9,7 +9,6 @@ from plone.registry.interfaces import IRegistry
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
-from plone.testing.z2 import FUNCTIONAL_TESTING
 from zope.component import provideAdapter
 from zope.component import provideUtility
 from zope.configuration import xmlconfig
@@ -67,9 +66,9 @@ FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
 
 class BasicMockOverviewLayer(Layer):
 
-    defaultBases = (FUNCTIONAL_TESTING, )
+    defaultBases = (zca.ZCML_DIRECTIVES,)
 
-    def setUp(self):
+    def testSetUp(self):
         self['configurationContext'] = context = \
             zca.stackConfigurationContext(self.get('configurationContext'))
 
@@ -98,5 +97,8 @@ class BasicMockOverviewLayer(Layer):
 
         import ftw.dictstorage
         xmlconfig.file('configure.zcml', ftw.dictstorage, context=context)
+
+    def testTearDown(self):
+        del self['configurationContext']
 
 OVERVIEW_LAYER = BasicMockOverviewLayer()
