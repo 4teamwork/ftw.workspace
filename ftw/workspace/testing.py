@@ -1,12 +1,21 @@
+from ftw.tabbedview.interfaces import IGridStateStorageKeyGenerator
+from ftw.tabbedview.interfaces import ITabbedView
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import IntegrationTesting
-from plone.testing import z2
-from zope.configuration import xmlconfig
-from plone.testing.z2 import FUNCTIONAL_TESTING
+from plone.registry import Registry
+from plone.registry.interfaces import IRegistry
 from plone.testing import Layer
+from plone.testing import z2
 from plone.testing import zca
+from plone.testing.z2 import FUNCTIONAL_TESTING
+from zope.component import provideAdapter
+from zope.component import provideUtility
+from zope.configuration import xmlconfig
+from zope.interface import Interface
+
+
 USERS = [
     {'user': 'member1', 'roles': ('Member', 'Reader')},
     {'user': 'member2', 'roles': ('Member', 'Reader')},
@@ -63,14 +72,31 @@ class BasicMockOverviewLayer(Layer):
     def setUp(self):
         self['configurationContext'] = context = \
             zca.stackConfigurationContext(self.get('configurationContext'))
+
         import zope.traversing
-        xmlconfig.file(
-            'configure.zcml',
-            zope.traversing,
-            context=context)
-        # import ftw.workspace
-        # xmlconfig.file(
-        #     'configure.zcml',
-        #     ftw.workspace,
-        #     context=context)
+        xmlconfig.file('configure.zcml', zope.traversing, context=context)
+
+        import plone.registry
+        xmlconfig.file('configure.zcml', plone.registry, context=context)
+
+        registry = Registry()
+        provideUtility(component=registry, provides=IRegistry)
+        registry.registerInterface(ITabbedView)
+
+        class GridStateKeyGenerator(object):
+            """Stub
+            ftw.tabbedview.statestorage.DefaultGridStateStorageKeyGenerator
+            """
+            def __init__(self, *args):
+                pass
+            def get_key(self):
+                return '1'
+
+        provideAdapter(GridStateKeyGenerator,
+                       (Interface, Interface, Interface),
+                       IGridStateStorageKeyGenerator)
+
+        import ftw.dictstorage
+        xmlconfig.file('configure.zcml', ftw.dictstorage, context=context)
+
 OVERVIEW_LAYER = BasicMockOverviewLayer()

@@ -5,8 +5,8 @@ version = '1.3.10.dev0'
 
 tests_require = [
     'plone.app.testing',
-    'plone.mocktestcase',
-]
+    'ftw.testing',
+    ]
 
 setup(name='ftw.workspace',
       version=version,
