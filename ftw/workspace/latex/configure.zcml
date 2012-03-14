@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ftw.workspace">
+
+    <adapter factory=".layout.WorkspaceLayout"
+             provides="ftw.pdfgenerator.interfaces.ILaTeXLayout" />
+
+</configure>
