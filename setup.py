@@ -6,6 +6,7 @@ version = '1.3.11.dev0'
 tests_require = [
     'plone.app.testing',
     'ftw.testing',
+    'ftw.pdfgenerator',
     ]
 
 setup(name='ftw.workspace',
@@ -44,7 +45,8 @@ setup(name='ftw.workspace',
         ],
 
       tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require=dict(tests=tests_require,
+                          pdf=['ftw.pdfgenerator']),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''
