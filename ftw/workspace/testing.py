@@ -102,3 +102,37 @@ class BasicMockOverviewLayer(Layer):
         del self['configurationContext']
 
 OVERVIEW_LAYER = BasicMockOverviewLayer()
+
+
+class LatexZCMLLayer(Layer):
+    """A layer which only sets up the zcml, but does not start a zope
+    instance.
+    """
+
+    defaultBases = (zca.ZCML_DIRECTIVES,)
+
+    def testSetUp(self):
+        self['configurationContext'] = zca.stackConfigurationContext(
+            self.get('configurationContext'))
+
+        import zope.traversing
+        xmlconfig.file('configure.zcml', zope.traversing,
+                       context=self['configurationContext'])
+
+        import ftw.pdfgenerator.tests
+        xmlconfig.file('test.zcml', ftw.pdfgenerator.tests,
+                       context=self['configurationContext'])
+
+        import ftw.pdfgenerator
+        xmlconfig.file('configure.zcml', ftw.pdfgenerator,
+                       context=self['configurationContext'])
+
+        import ftw.workspace.latex
+        xmlconfig.file('configure.zcml', ftw.workspace.latex,
+                       context=self['configurationContext'])
+
+    def testTearDown(self):
+        del self['configurationContext']
+
+
+LATEX_ZCML_LAYER = LatexZCMLLayer()
