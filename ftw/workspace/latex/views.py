@@ -63,7 +63,7 @@ class WorkspaceDetailsView(MakoLaTeXView):
                 self.context, self.request, self.layout, self),
                                 IWorkspaceDetailsListingProvider)
         providers = [provider for name, provider in providers]
-        providers.sort(lambda p: p.get_sort_key())
+        providers.sort(key=lambda p: p.get_sort_key())
 
         listings = []
 
