@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.4 (unreleased)
+1.4 (2012-03-19)
 ----------------
 
 - Add workspace details PDF view (extras_require "pdf").
