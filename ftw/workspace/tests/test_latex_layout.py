@@ -1,15 +1,13 @@
 from ftw.pdfgenerator.interfaces import IBuilder
 from ftw.pdfgenerator.interfaces import ILaTeXLayout
 from ftw.pdfgenerator.tests import test_customizable_layout
-from ftw.testing import MockTestCase
 from ftw.workspace.interfaces import IWorkspace
 from ftw.workspace.latex.layout import WorkspaceLayout
 from ftw.workspace.testing import LATEX_ZCML_LAYER
 from zope.component import getMultiAdapter
 
 
-class TestWorkspaceLayout(MockTestCase,
-                          test_customizable_layout.TestCustomizableLayout):
+class TestWorkspaceLayout(test_customizable_layout.TestCustomizableLayout):
 
     layout_class = WorkspaceLayout
     layer = LATEX_ZCML_LAYER
