@@ -44,4 +44,14 @@
              provides="zope.schema.interfaces.IVocabularyFactory"
              />
 
+    <class class="Products.ATContentTypes.content.folder.ATFolder">
+        <implements interface="ftw.tabbedview.interfaces.ITabbedviewUploadable" />
+    </class>
+
+    <adapter
+      provides="collective.quickupload.browser.interfaces.IQuickUploadFileFactory"
+      factory=".quick_upload.WorkspaceQuickUploadCapableFileFactory"
+      for="ftw.tabbedview.interfaces.ITabbedviewUploadable"
+	  />
+
 </configure>
