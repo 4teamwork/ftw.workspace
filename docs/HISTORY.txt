@@ -2,10 +2,15 @@ Changelog
 =========
 
 
-1.4.1 (unreleased)
-------------------
+1.5 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Fix quickupload setup.
+ [mathias.leimgruber]
+
+- Implement ftw.tabbedview quickupload functionality
+  into workspace.
+  [phippu]
 
 
 1.4 (2012-03-19)
