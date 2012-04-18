@@ -1,7 +1,6 @@
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from ftw.workspace import _
-from ftw.workspace.utils import find_workspace
 from ftw.workspace.utils import TinyMCEAllowedButtonsConfigurator
 from plone.registry.interfaces import IRegistry
 from Products.Archetypes.public import TextField, RichWidget
@@ -50,7 +49,7 @@ class FolderExtender(object):
         if 'ftw.workspace.showtextfieldonfolder' in registry:
             show = registry['ftw.workspace.showtextfieldonfolder']
 
-        if find_workspace(self.context) and show:
+        if show and self.context == 'TabbedViewFolder':
             return self.fields
         return []
 

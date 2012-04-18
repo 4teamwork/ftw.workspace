@@ -5,7 +5,8 @@ Changelog
 1.5.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Extend only TabbedViewFolders with the additional text field.
+ [mathias.leimgruber]
 
 
 1.5 (2012-04-02)
