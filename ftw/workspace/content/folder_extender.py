@@ -49,7 +49,7 @@ class FolderExtender(object):
         if 'ftw.workspace.showtextfieldonfolder' in registry:
             show = registry['ftw.workspace.showtextfieldonfolder']
 
-        if show and self.context == 'TabbedViewFolder':
+        if show and self.context.portal_type == 'TabbedViewFolder':
             return self.fields
         return []
 
