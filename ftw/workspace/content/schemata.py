@@ -60,7 +60,7 @@ def finalizeWorkspaceSchema(schema, folderish=False,
         schema.changeSchemataForField('nextPreviousEnabled', 'settings')
         schema['nextPreviousEnabled'].widget.visible = -1
 
-    settings_fields = [schema[key] for key in schema.keys() 
+    settings_fields = [schema[key] for key in schema.keys()
                             if schema[key].schemata == 'settings']
     for field in settings_fields:
         field.write_permission = ManagePortal

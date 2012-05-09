@@ -5,21 +5,22 @@ Changelog
 1.5.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Code cleanup (pep8/pylint).
+  [mathias.leimgruber]
 
 
 1.5.1 (2012-04-23)
 ------------------
 
 - Extend only TabbedViewFolders with the additional text field.
- [mathias.leimgruber]
+  [mathias.leimgruber]
 
 
 1.5 (2012-04-02)
 ----------------
 
 - Fix quickupload setup.
- [mathias.leimgruber]
+  [mathias.leimgruber]
 
 - Implement ftw.tabbedview quickupload functionality
   into workspace.

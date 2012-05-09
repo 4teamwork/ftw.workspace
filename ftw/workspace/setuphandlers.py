@@ -14,7 +14,6 @@ def add_indexes(site):
     catalog = getToolByName(context, 'portal_catalog')
     indexes = catalog.indexes()
 
-
     for name, meta_type in INDEXES:
         if name not in indexes:
             catalog.addIndex(name, meta_type)

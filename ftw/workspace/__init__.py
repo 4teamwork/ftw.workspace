@@ -15,6 +15,7 @@ arbeitsraumMessageFactory = MessageFactory('ftw.workspace')
 _ = arbeitsraumMessageFactory
 ploneMessageFactory = MessageFactory('plone')
 
+
 def initialize(context):
     """Initializer called when used as a Zope 2 product.
 
@@ -31,7 +32,7 @@ def initialize(context):
     # course, even if we import the module several times, it is only run
     # once.
 
-    content_types, constructors, ftis = atapi.process_types(
+    content_types, constructors, _ftis = atapi.process_types(
         atapi.listTypes(config.PROJECTNAME),
         config.PROJECTNAME)
 
@@ -43,8 +44,9 @@ def initialize(context):
     # in the GenericSetup profile.
 
     for atype, constructor in zip(content_types, constructors):
-        core_util.ContentInit('%s: %s' % (config.PROJECTNAME, atype.portal_type),
-            content_types      = (atype,),
-            permission         = config.ADD_PERMISSIONS[atype.portal_type],
-            extra_constructors = (constructor,),
+        core_util.ContentInit('%s: %s' % (config.PROJECTNAME,
+                                          atype.portal_type),
+            content_types=(atype, ),
+            permission=config.ADD_PERMISSIONS[atype.portal_type],
+            extra_constructors=(constructor, ),
             ).initialize(context)

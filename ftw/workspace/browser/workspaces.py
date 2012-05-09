@@ -1,6 +1,6 @@
 from ftw.tabbedview.browser.tabbed import TabbedView
 from ftw.table import helper
-from tab import Tab
+from ftw.workspace.browser.tab import Tab
 from ftw.workspace import _
 
 
@@ -20,7 +20,6 @@ class WorkspacesTab(Tab):
     sort_on = 'sortable_title'
     show_selects = False
     show_menu = False
-
 
     columns = (
         {'column': 'Title',

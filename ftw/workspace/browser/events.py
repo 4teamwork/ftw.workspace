@@ -19,7 +19,7 @@ class EventsTab(listing.CatalogListingView):
     show_selects = False
     enabled_actions = major_actions = ['reset_tableconfiguration']
 
-    columns = (#('', helper.path_checkbox),
+    columns = (  #('', helper.path_checkbox),
                {'column': 'start',
                 'column_index': 'start',
                 'column_title': _(u'label_eventstab_start'),
@@ -41,7 +41,7 @@ class EventsTab(listing.CatalogListingView):
                 {'column': 'Creator',
                  'column_index': 'sortable_creator',
                  'column_title': _(u'label_eventstab_creator'),
-                 'transform': helper.readable_author},)
+                 'transform': helper.readable_author}, )
 
     template = ViewPageTemplateFile('events.pt')
 
@@ -50,6 +50,11 @@ class EventsCalendarTab(BrowserView):
 
     template = ViewPageTemplateFile('eventscalendar.pt')
     types = []
+
+    def __init__(self, *args, **kwargs):
+        super(EventsCalendarTab, self).__init__(*args, **kwargs)
+        self.js_config = None
+
     def __call__(self):
         portal = getToolByName(self.context, 'portal_url').getPortalObject()
         self.js_config = portal.unrestrictedTraverse('ftwcalendar_config.js')()

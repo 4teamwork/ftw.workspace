@@ -11,7 +11,7 @@ from zope.interface import implements
 
 
 class folderTextField(ExtensionField, TextField):
-    """
+    """ Extension TextField
     """
 
 
@@ -19,17 +19,18 @@ class FolderExtender(object):
     adapts(ATFolder)
     implements(IOrderableSchemaExtender)
 
-    fields = [folderTextField('text',
-        searchable = True,
-        required = False,
+    fields = [folderTextField(
+        'text',
+        searchable=True,
+        required=False,
         allowable_content_types=('text/html', ),
-        default_content_type = 'text/html',
-        validators = ('isTidyHtmlWithCleanup', ),
-        default_output_type = 'text/x-html-safe',
-        default_input_type = 'text/html',
-        widget = RichWidget(
-            label = _(u"label_text", default=u"Text"),
-            description = _(u"help_text", default=u""),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_output_type='text/x-html-safe',
+        default_input_type='text/html',
+        widget=RichWidget(
+            label=_(u"label_text", default=u"Text"),
+            description=_(u"help_text", default=u""),
             rows=15,
             allow_buttons=TinyMCEAllowedButtonsConfigurator(), )), ]
 

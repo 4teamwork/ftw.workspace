@@ -12,7 +12,7 @@ class OverviewTab(listing.CatalogListingView):
     sort_reverse = True
     enabled_actions = major_actions = ['reset_tableconfiguration']
 
-    columns = (#('', helper.path_checkbox),
+    columns = (  #('', helper.path_checkbox),
                {'column': 'Title',
                 'column_index': 'sortable_title',
                 'column_title': _(u'label_eventstab_title'),
@@ -34,7 +34,7 @@ class OverviewTab(listing.CatalogListingView):
         else:
             return self.overview_template()
 
-    def catalog(self, types=[], depth=-1, sort_on='modified',
+    def catalog(self, types=None, depth=-1, sort_on='modified',
                 sort_order='reverse'):
 
         query = dict(
@@ -51,7 +51,7 @@ class OverviewTab(listing.CatalogListingView):
     def folders(self):
         all_folders = self.catalog(
             ['Folder', 'Workspace', 'TabbedViewFolder'], depth=1,
-            sort_on = 'getObjPositionInParent', sort_order = '')
+            sort_on='getObjPositionInParent', sort_order='')
         return all_folders
 
     def description(self):
@@ -66,5 +66,5 @@ class OverviewTab(listing.CatalogListingView):
     def get_icon(self, document):
         return helper.icon(document, "")
 
-    def get_description(self, file):
-        return file.getObject().Description()
+    def get_description(self, file_):
+        return file_.getObject().Description()

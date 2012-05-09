@@ -16,18 +16,19 @@ from ftw.workspace.utils import TinyMCEAllowedButtonsConfigurator
 
 
 WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
-    atapi.TextField('text',
-        searchable = True,
-        required = False,
+    atapi.TextField(
+        'text',
+        searchable=True,
+        required=False,
         allowable_content_types=('text/html', ),
-        default_content_type = 'text/html',
-        validators = ('isTidyHtmlWithCleanup', ),
-        default_output_type = 'text/x-html-safe',
-        default_input_type = 'text/html',
-        storage = atapi.AnnotationStorage(),
-        widget = atapi.RichWidget(
-            label = _(u"label_text", default=u"Text"),
-            description = _(u"help_text", default=u""),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_output_type='text/x-html-safe',
+        default_input_type='text/html',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.RichWidget(
+            label=_(u"label_text", default=u"Text"),
+            description=_(u"help_text", default=u""),
             rows=15,
             allow_buttons=TinyMCEAllowedButtonsConfigurator(),
         ),

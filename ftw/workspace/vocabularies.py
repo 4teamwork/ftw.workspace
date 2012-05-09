@@ -20,13 +20,13 @@ class PrincipalVocabulary(SimpleVocabulary):
         portal = getSite()
         acl_users = getToolByName(portal, 'acl_users')
 
-        for id in self.userids:
-            user = acl_users.getUserById(id)
+        for id_ in self.userids:
+            user = acl_users.getUserById(id_)
             catalog = getToolByName(portal, 'portal_catalog')
-            brains = catalog(dict(UID=id))
+            brains = catalog(dict(UID=id_))
             if user is not None:
-                fullname = user.getProperty('fullname', id)
-                yield self.createTerm(id, str(id), fullname)
+                fullname = user.getProperty('fullname', id_)
+                yield self.createTerm(id_, str(id_), fullname)
             elif len(brains):
                 brain = brains[0]
                 yield self.createTerm(
@@ -96,7 +96,7 @@ class AssignableUsersVocabulary(object):
             query = dict(
                 portal_type='Contact',
                 path='/'.join(workspace.getPhysicalPath()),
-                sort_on = 'sortable_title')
+                sort_on='sortable_title')
 
             for brain in catalog(query):
                 result.add(brain.UID)

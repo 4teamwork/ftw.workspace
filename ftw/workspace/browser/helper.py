@@ -48,13 +48,12 @@ def delete_action(item, value):
     elif hasattr(item, 'absolute_url'):
         url_method = item.absolute_url
     return """
-    <a href="%s/delete_confirmation?came_from=%s" class="arbeitsraum_delete_item">
-    <img src="%s/++resource++ftw.workspace-resources/icon_funktion_entfernen.gif" />
-    </a>
-    """ % (url_method(),
-           "%s#%s-tab" % (item.REQUEST.get('HTTP_REFERER'),
-                        item.REQUEST.get('view_name')),
-           portal_url())
+<a href="%s/delete_confirmation?came_from=%s" class="arbeitsraum_delete_item">
+<img src="%s/++resource++ftw.workspace-resources/icon_funktion_entfernen.gif"/>
+</a>
+""" % (url_method(),
+       "%s#%s-tab" % (item.REQUEST.get('HTTP_REFERER'),
+                      item.REQUEST.get('view_name')), portal_url())
 
 
 def icon(item, value):
@@ -68,11 +67,11 @@ def icon(item, value):
     ftw_worspace = props.get('ftw.workspace_properties', None)
     if not ftw_worspace:
         # fallback
-        direct_downloadable_types = ['File',]
+        direct_downloadable_types = ['File', ]
     else:
         direct_downloadable_types = ftw_worspace.getProperty(
             'direct_downloadable_types',
-            ['File',])
+            ['File', ])
     #item = hasattr(item, 'aq_explicit') and item.aq_explicit or item
     if hasattr(item, 'getURL'):
         url_method = item.getURL
@@ -119,27 +118,29 @@ def readable_author(item, author):
     return '<a href="%s">%s</a>' % (url, name)
 
 
-def find_contact_object(item, id):
+def find_contact_object(item, id_):
     item = item.getObject()
     current = item.aq_inner.aq_explicit
     while current.aq_parent.Type() in ['Workspace']:
         current = current.aq_parent
-    brains = item.portal_catalog(id=id,
+    brains = item.portal_catalog(id=id_,
                                  Type='Contact',
                                  path='/'.join(current.getPhysicalPath()))
     if len(brains):
         return brains[0].getURL(), brains[0].Title
-    return None, id
+    return None, id_
 
 
 def responsible(item, value):
-    return ','.join([readable_author(item, r) for r in item.getObject().getResponsibility()])
+    return ','.join(
+        [readable_author(item, r)
+            for r in item.getObject().getResponsibility()])
 
 
 def review_state(item, value):
     portal_url = getToolByName(getSite(), 'portal_url')
-    icon = TASK_REVIEW_STATE_ICON.get(item.review_state,
+    state_icon = TASK_REVIEW_STATE_ICON.get(item.review_state,
                                       TASK_REVIEW_STATE_DEFAULT_ICON)
     return """
     <img src="%s/++resource++izug.theme.images/%s" width="16" height="16"/>
-    """ % (portal_url(), icon)
+    """ % (portal_url(), state_icon)

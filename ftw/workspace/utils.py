@@ -31,10 +31,11 @@ def find_workspace(context):
 
 class TinyMCEAllowedButtonsConfigurator(object):
     """
-    The TinyMCE RichWidget expects the button configuration attributes to be a iterable
-    object.
+    The TinyMCE RichWidget expects the button configuration attributes
+    to be a iterable object.
 
-    The configuration is stored in the registry, so we need to do a little workaround.
+    The configuration is stored in the registry, so we need to do a
+    little workaround.
     """
 
     def __init__(self):
@@ -46,9 +47,10 @@ class TinyMCEAllowedButtonsConfigurator(object):
         return self
 
     def next(self):
-        """Iterate over the result of `load_data`. When the end is reached, raise
-        StopIteration as defined for iterable objects. But when starting iteration
-        again, retrieve the configuration and start again at the beginning.
+        """Iterate over the result of `load_data`. When the end is reached,
+        raise StopIteration as defined for iterable objects. But when
+        starting iteration again, retrieve the configuration and start again
+        at the beginning.
         """
         if self._data is _marker:
             self._data = list(self.load_data())

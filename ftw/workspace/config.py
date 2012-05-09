@@ -9,10 +9,9 @@ ADD_PERMISSIONS = {
 
 INDEXES = (("sortable_creator", "FieldIndex"),
            ("getContentType", "FieldIndex"),
-           ("ownerid", "FieldIndex"),
-          )
-          
-METADATA = ("getMeeting_type",)
+           ("ownerid", "FieldIndex"), )
+
+METADATA = ("getMeeting_type", )
 DEFAULT_TINYMCE_ALLOWED_BUTTONS = (
     'bg-basicmarkup',
     'bold-button',
@@ -21,5 +20,4 @@ DEFAULT_TINYMCE_ALLOWED_BUTTONS = (
     'list-ul-addbutton',
     'definitionlist',
     'linklibdrawer-button',
-    'removelink-button',
-)
+    'removelink-button', )

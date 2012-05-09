@@ -1,6 +1,6 @@
 from plone.indexer.decorator import indexer
 from Products.CMFCore.utils import getToolByName
-from interfaces import IWorkspace
+from ftw.workspace.interfaces import IWorkspace
 from Products.ATContentTypes.interfaces.interfaces import IATContentType
 
 
@@ -9,6 +9,7 @@ def ownerid(object_, **kw):
     """indexes the userid of the object owner"""
     userid = object_.getOwner(0).getId()
     return userid and userid or ''
+
 
 @indexer(IATContentType)
 def sortable_creator(object_, **kw):

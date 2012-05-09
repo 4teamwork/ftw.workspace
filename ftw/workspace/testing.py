@@ -66,7 +66,7 @@ FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
 
 class BasicMockOverviewLayer(Layer):
 
-    defaultBases = (zca.ZCML_DIRECTIVES,)
+    defaultBases = (zca.ZCML_DIRECTIVES, )
 
     def testSetUp(self):
         self['configurationContext'] = context = \
@@ -86,8 +86,10 @@ class BasicMockOverviewLayer(Layer):
             """Stub
             ftw.tabbedview.statestorage.DefaultGridStateStorageKeyGenerator
             """
+
             def __init__(self, *args):
                 pass
+
             def get_key(self):
                 return '1'
 
@@ -109,7 +111,7 @@ class LatexZCMLLayer(Layer):
     instance.
     """
 
-    defaultBases = (zca.ZCML_DIRECTIVES,)
+    defaultBases = (zca.ZCML_DIRECTIVES, )
 
     def testSetUp(self):
         self['configurationContext'] = zca.stackConfigurationContext(
