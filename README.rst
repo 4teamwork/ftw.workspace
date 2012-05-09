@@ -32,14 +32,15 @@ Links
 - Main github project repository: https://github.com/4teamwork/ftw.workspace
 - Issue tracker: https://github.com/4teamwork/ftw.workspace/issues
 - Package on pypi: http://pypi.python.org/pypi/ftw.workspace
-- Continuous integration: https://jenkins.4teamwork.ch/job/ftw.workspace/
+- Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.workspace
 
 
-Maintainer
-==========
+Copyright
+---------
 
-This package is produced and maintained by `4teamwork <http://www.4teamwork.ch/>`_ company.
+This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
+``ftw.workspace`` is licensed under GNU General Public License, version 2.
 
 
 .. _ftw.meeting: https://github.com/4teamwork/ftw.meeting
