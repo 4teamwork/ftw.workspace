@@ -11,7 +11,7 @@
             <tal:START_CUSTOM_______________________________________ />
             <div class="ViewChooser" i18n:domain="ftw.workspace">
                 <span id="events" >
-                    <b i18n:translate="events_pill_list" href="#">List</b>
+                    <b i18n:translate="events_pill_list">List</b>
                     </span> |
                     <a id="events-calendar"
                        href="#"
