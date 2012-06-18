@@ -1,7 +1,7 @@
 
 <input type="hidden" tal:attributes="value python: ','.join(view.types);" class="visible_types" />
 <div class="ViewChooser">
-    <a id="events" >
+    <a id="events" href="#">
         Liste
     </a> |
     <span id="events-calendar">
