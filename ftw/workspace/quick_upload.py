@@ -13,7 +13,7 @@ import transaction
 
 
 class WorkspaceQuickUploadCapableFileFactory(object):
-    """Workspace specific Quick upload Adatper"""
+    """Workspace specific Quick upload Adapter"""
 
     def __init__(self, context):
         self.context = aq_inner(context)
