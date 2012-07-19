@@ -19,19 +19,26 @@ class DocumentsTab(Tab):
                {'column': 'getIcon',
                 'sort_index': 'getContentType',
                 'column_title': _(u'column_type', default=u'Type'),
-                'transform': workspace_helper.icon},
+                'transform': workspace_helper.icon,
+                'width': 35},
+
                {'column': 'Title',
                 'column_title': _(u'column_title', default=u'Title'),
                 'sort_index': 'sortable_title',
                 'transform': helper.linked_without_icon},
+
                {'column': 'effective',
                 'column_title': _(u'column_date', default=u'date'),
-                'transform': helper.readable_date},
+                'transform': helper.readable_date,
+                'width': 80},
+
                {'column': 'Creator',
                 'column_title': _(u'column_creator', default=u'Creator'),
                 'sort_index': 'sortable_creator',
                 'transform': helper.readable_author},
+
                {'column': 'modified',
                 'column_title': _(u'column_modified', default=u'modified'),
-                'transform': helper.readable_date},
+                'transform': helper.readable_date,
+                'width': 80},
                )

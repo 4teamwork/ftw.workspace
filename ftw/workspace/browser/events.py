@@ -23,7 +23,8 @@ class EventsTab(listing.CatalogListingView):
                {'column': 'start',
                 'column_index': 'start',
                 'column_title': _(u'label_eventstab_start'),
-                'transform': helper.readable_date},
+                'transform': helper.readable_date,
+                'width': 80},
 
                {'column': 'Title',
                 'column_index': 'sortable_title',
@@ -35,7 +36,8 @@ class EventsTab(listing.CatalogListingView):
                {'column': 'getMeeting_type',
                 'column_title': _(u'label_eventstab_type',
                                   default=u'Type'),
-                'transform': helper.translated_string('ftw.meeting')},
+                'transform': helper.translated_string('ftw.meeting'),
+                'width': 80},
 
 
                 {'column': 'Creator',

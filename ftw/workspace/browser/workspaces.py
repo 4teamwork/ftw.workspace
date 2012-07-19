@@ -19,16 +19,20 @@ class WorkspacesTab(Tab):
     types = 'Workspace'
     sort_on = 'sortable_title'
     show_selects = False
-    show_menu = False
+
+    enabled_actions = major_actions = ['reset_tableconfiguration']
 
     columns = (
         {'column': 'Title',
          'column_title': _(u'column_title', default=u'Title'),
          'sort_index': 'sortable_title',
          'transform': helper.linked},
+
         {'column': 'modified',
          'column_title': _(u'column_modified', default=u'modified'),
-         'transform': helper.readable_date},
+         'transform': helper.readable_date,
+         'width': 80},
+
          {'column': 'Creator',
           'column_title': _(u'column_creator', default=u'Creator'),
           'sort_index': 'sortable_creator',

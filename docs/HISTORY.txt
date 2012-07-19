@@ -5,6 +5,9 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Tabs: define column widths and activate reset table configuration action.
+  [jone]
+
 - ViewChooser-links should have a href attribute.
   [Julian Infanger]
 
