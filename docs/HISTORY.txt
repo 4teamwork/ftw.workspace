@@ -5,7 +5,10 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Tabs: define column widths and activate reset table configuration action.
+- Disable resetting table configuration on tabs: tabbedview does now implement it in a general menu.
+  [jone]
+
+- Tabs: define column widths.
   [jone]
 
 - ViewChooser-links should have a href attribute.

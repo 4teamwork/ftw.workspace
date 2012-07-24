@@ -11,7 +11,7 @@ class DocumentsTab(Tab):
     sort_on = 'effective'
 
     show_selects = False
-    enabled_actions = major_actions = ['reset_tableconfiguration']
+    show_menu = False
 
     sort_reverse = True
 

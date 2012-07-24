@@ -10,7 +10,7 @@ class OverviewTab(listing.CatalogListingView):
     overview_template = ViewPageTemplateFile("overview.pt")
     sort_on = 'modified'
     sort_reverse = True
-    enabled_actions = major_actions = ['reset_tableconfiguration']
+    show_menu = False
 
     columns = (  #('', helper.path_checkbox),
                {'column': 'Title',

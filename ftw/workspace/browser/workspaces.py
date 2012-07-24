@@ -19,8 +19,7 @@ class WorkspacesTab(Tab):
     types = 'Workspace'
     sort_on = 'sortable_title'
     show_selects = False
-
-    enabled_actions = major_actions = ['reset_tableconfiguration']
+    show_menu = False
 
     columns = (
         {'column': 'Title',
