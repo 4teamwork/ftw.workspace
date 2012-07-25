@@ -69,5 +69,8 @@ msgstr "Type"
 msgid "label_text"
 msgstr "Text"
 
+msgid "overview"
+msgstr "Overview"
+
 msgid "workspaces"
 msgstr "Workspaces"
