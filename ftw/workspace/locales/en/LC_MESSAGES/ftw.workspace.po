@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-07-25 07:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftw/workspace/profiles/default/types/Workspace.xml
+msgid "A type for collaborative spaces."
+msgstr "A type for collaborative spaces."
+
+msgid "Contacts"
+msgstr "Contacts"
+
+#: ./ftw/workspace/browser/overview.pt:14
+msgid "Description"
+msgstr "Description"
+
+#: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
+msgid "Folder"
+msgstr "Folder"
+
+#: ./ftw/workspace/browser/overview.pt:5
+msgid "Folders"
+msgstr "Folders"
+
+#: ./ftw/workspace/profiles/default/types/Workspace.xml
+msgid "Workspace"
+msgstr "Workspace"
+
+#. Default: "Creator"
+#: ./ftw/workspace/browser/documents.py:36
+#: ./ftw/workspace/browser/workspaces.py:36
+msgid "column_creator"
+msgstr "Creator"
+
+#. Default: "date"
+#: ./ftw/workspace/browser/documents.py:31
+msgid "column_date"
+msgstr "Date"
+
+#. Default: "modified"
+#: ./ftw/workspace/browser/documents.py:41
+#: ./ftw/workspace/browser/overview.py:22
+#: ./ftw/workspace/browser/workspaces.py:31
+msgid "column_modified"
+msgstr "Modified"
+
+#. Default: "Title"
+#: ./ftw/workspace/browser/documents.py:26
+#: ./ftw/workspace/browser/workspaces.py:26
+msgid "column_title"
+msgstr "Title"
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/documents.py:21
+msgid "column_type"
+msgstr "Type"
+
+msgid "contacts"
+msgstr "Contacts"
+
+msgid "event"
+msgstr "Event"
+
+#. Default: "Export:"
+#: ./ftw/workspace/browser/events.pt:39
+msgid "events_export"
+msgstr "Export:"
+
+#. Default: "Calendar"
+#: ./ftw/workspace/browser/events.pt:16
+msgid "events_pill_calendar"
+msgstr "Calendar"
+
+#. Default: "List"
+#: ./ftw/workspace/browser/events.pt:14
+msgid "events_pill_list"
+msgstr "List"
+
+#: ./ftw/workspace/content/folder_extender.py:33
+#: ./ftw/workspace/content/workspace.py:31
+msgid "help_text"
+msgstr ""
+
+#: ./ftw/workspace/browser/events.py:45
+#: ./ftw/workspace/browser/overview.py:28
+msgid "label_eventstab_creator"
+msgstr "Added by"
+
+#: ./ftw/workspace/browser/events.py:25
+msgid "label_eventstab_start"
+msgstr "Start"
+
+#: ./ftw/workspace/browser/events.py:31
+#: ./ftw/workspace/browser/overview.py:18
+msgid "label_eventstab_title"
+msgstr "Title"
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/events.py:37
+msgid "label_eventstab_type"
+msgstr "Type"
+
+#. Default: "Text"
+#: ./ftw/workspace/content/folder_extender.py:32
+#: ./ftw/workspace/content/workspace.py:30
+msgid "label_text"
+msgstr "Text"
+
+#. Default: "Creator"
+#: ./ftw/workspace/latex/templates/files_listing.pt:27
+msgid "latex_files_creator"
+msgstr "Creator"
+
+#. Default: "Date"
+#: ./ftw/workspace/latex/templates/files_listing.pt:21
+msgid "latex_files_effective"
+msgstr "Date"
+
+#. Default: "Modified"
+#: ./ftw/workspace/latex/templates/files_listing.pt:24
+msgid "latex_files_modified"
+msgstr "Modified"
+
+#. Default: "Title"
+#: ./ftw/workspace/latex/templates/files_listing.pt:18
+msgid "latex_files_title"
+msgstr "Title"
+
+#. Default: "Description"
+#: ./ftw/workspace/latex/views.py:39
+msgid "latex_label_description"
+msgstr "Description"
+
+#. Default: "Files"
+#: ./ftw/workspace/latex/views.py:92
+msgid "latex_label_files"
+msgstr "Files"
+
+#. Default: "Owner"
+#: ./ftw/workspace/latex/views.py:38
+msgid "latex_label_owner"
+msgstr "Owner"
+
+#. Default: "Title"
+#: ./ftw/workspace/latex/views.py:37
+msgid "latex_label_title"
+msgstr "Title"
+
+#. Default: "Workspace"
+#: ./ftw/workspace/latex/views.py:36
+msgid "latex_label_workspace"
+msgstr "Workspace"
+
+#. Default: "Page"
+#: ./ftw/workspace/latex/layout.py:18
+msgid "latex_page"
+msgstr "Page"
+
+#. Default: "Printed"
+#: ./ftw/workspace/latex/layout.py:19
+msgid "latex_printed"
+msgstr "Printed"
+
+msgid "meeting"
+msgstr "Meeting"
+
+msgid "poll"
+msgstr "Poll"
+
+#: ./ftw/workspace/browser/overview.pt:21
+msgid "recently modified"
+msgstr "Recently modified"

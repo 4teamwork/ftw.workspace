@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-12-15 07:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#. Default: "Creator"
+#: ./ftw/workspace/browser/documents.py:27
+msgid "column_creator"
+msgstr "Creator"
+
+#. Default: "date"
+#: ./ftw/workspace/browser/documents.py:24
+msgid "column_date"
+msgstr "Date"
+
+#. Default: "modified"
+#: ./ftw/workspace/browser/documents.py:31
+#: ./ftw/workspace/browser/overview.py:20
+msgid "column_modified"
+msgstr "Modified"
+
+#. Default: "Title"
+#: ./ftw/workspace/browser/documents.py:20
+msgid "column_title"
+msgstr "Title"
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/documents.py:17
+msgid "column_type"
+msgstr "Type"
+
+msgid "documents"
+msgstr "Documents"
+
+msgid "events"
+msgstr "Events"
+
+#: ./ftw/workspace/browser/events.py:44
+#: ./ftw/workspace/browser/overview.py:26
+msgid "label_eventstab_creator"
+msgstr "Creator"
+
+#: ./ftw/workspace/browser/events.py:27
+msgid "label_eventstab_start"
+msgstr "Start"
+
+#: ./ftw/workspace/browser/events.py:32
+#: ./ftw/workspace/browser/overview.py:16
+msgid "label_eventstab_title"
+msgstr "Title"
+
+#. Default: "Type"
+#: ./ftw/workspace/browser/events.py:37
+msgid "label_eventstab_type"
+msgstr "Type"
+
+#. Default: "Text"
+#: ./ftw/workspace/content/folder_extender.py:32
+#: ./ftw/workspace/content/workspace.py:29
+msgid "label_text"
+msgstr "Text"
+
+msgid "workspaces"
+msgstr "Workspaces"

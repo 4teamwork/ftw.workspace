@@ -5,6 +5,9 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Add English translations.
+  [jone]
+
 - Disable resetting table configuration on tabs: tabbedview does now implement it in a general menu.
   [jone]
 
