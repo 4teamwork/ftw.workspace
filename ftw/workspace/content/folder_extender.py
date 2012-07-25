@@ -30,7 +30,6 @@ class FolderExtender(object):
         default_input_type='text/html',
         widget=RichWidget(
             label=_(u"label_text", default=u"Text"),
-            description=_(u"help_text", default=u""),
             rows=15,
             allow_buttons=TinyMCEAllowedButtonsConfigurator(), )), ]
 

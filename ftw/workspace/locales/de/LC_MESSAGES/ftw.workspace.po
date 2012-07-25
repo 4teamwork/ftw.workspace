@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-07-25 07:26+0000\n"
+"POT-Creation-Date: 2012-07-25 07:31+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,11 +84,6 @@ msgstr "Kalender"
 #: ./ftw/workspace/browser/events.pt:14
 msgid "events_pill_list"
 msgstr "Liste"
-
-#: ./ftw/workspace/content/folder_extender.py:33
-#: ./ftw/workspace/content/workspace.py:31
-msgid "help_text"
-msgstr ""
 
 #: ./ftw/workspace/browser/events.py:45
 #: ./ftw/workspace/browser/overview.py:28
