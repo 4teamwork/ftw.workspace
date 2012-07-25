@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-14 14:12+0000\n"
+"POT-Creation-Date: 2012-07-25 07:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,26 +41,26 @@ msgid "Workspace"
 msgstr ""
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:31
-#: ./ftw/workspace/browser/workspaces.py:34
+#: ./ftw/workspace/browser/documents.py:36
+#: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr ""
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:28
+#: ./ftw/workspace/browser/documents.py:31
 msgid "column_date"
 msgstr ""
 
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:35
+#: ./ftw/workspace/browser/documents.py:41
 #: ./ftw/workspace/browser/overview.py:22
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr ""
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:24
-#: ./ftw/workspace/browser/workspaces.py:27
+#: ./ftw/workspace/browser/documents.py:26
+#: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgid "event"
 msgstr ""
 
 #. Default: "Export:"
-#: ./ftw/workspace/browser/events.pt:38
+#: ./ftw/workspace/browser/events.pt:39
 msgid "events_export"
 msgstr ""
 
@@ -91,11 +91,11 @@ msgid "events_pill_list"
 msgstr ""
 
 #: ./ftw/workspace/content/folder_extender.py:33
-#: ./ftw/workspace/content/workspace.py:30
+#: ./ftw/workspace/content/workspace.py:31
 msgid "help_text"
 msgstr ""
 
-#: ./ftw/workspace/browser/events.py:43
+#: ./ftw/workspace/browser/events.py:45
 #: ./ftw/workspace/browser/overview.py:28
 msgid "label_eventstab_creator"
 msgstr ""
@@ -104,19 +104,19 @@ msgstr ""
 msgid "label_eventstab_start"
 msgstr ""
 
-#: ./ftw/workspace/browser/events.py:30
+#: ./ftw/workspace/browser/events.py:31
 #: ./ftw/workspace/browser/overview.py:18
 msgid "label_eventstab_title"
 msgstr ""
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/events.py:36
+#: ./ftw/workspace/browser/events.py:37
 msgid "label_eventstab_type"
 msgstr ""
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
-#: ./ftw/workspace/content/workspace.py:29
+#: ./ftw/workspace/content/workspace.py:30
 msgid "label_text"
 msgstr ""
 
@@ -166,12 +166,12 @@ msgid "latex_label_workspace"
 msgstr ""
 
 #. Default: "Page"
-#: ./ftw/workspace/latex/layout.py:17
+#: ./ftw/workspace/latex/layout.py:18
 msgid "latex_page"
 msgstr ""
 
 #. Default: "Printed"
-#: ./ftw/workspace/latex/layout.py:18
+#: ./ftw/workspace/latex/layout.py:19
 msgid "latex_printed"
 msgstr ""
 

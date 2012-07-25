@@ -38,10 +38,11 @@ msgstr "Titel"
 msgid "column_type"
 msgstr "Typ"
 
-#: ./ftw/workspace/content/folder_extender.py:33
-#: ./ftw/workspace/content/workspace.py:30
-msgid "help_text"
-msgstr ""
+msgid "documents"
+msgstr "Dokumente"
+
+msgid "events"
+msgstr "Termine"
 
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:26
@@ -70,9 +71,3 @@ msgstr "Text"
 
 msgid "workspaces"
 msgstr "Arbeitsräume"
-
-msgid "documents"
-msgstr "Dokumente"
-
-msgid "events"
-msgstr "Termine"
