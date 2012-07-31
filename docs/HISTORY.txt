@@ -5,6 +5,10 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Fix AssignableUsersVocabulary so that it works in portal_factory too.
+  This is important when ticket boxes are used within workspaces.
+  [jone]
+
 - Add tooltip information to titles in documents tab.
   ftw.tooltip configuration not included.
   [jone]

@@ -1,5 +1,6 @@
-from Acquisition import aq_parent, aq_base
+from Acquisition import aq_parent, aq_base, aq_inner
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces.factory import IFactoryTool
 from ftw.workspace.utils import find_workspace
 from zope.app.component.hooks import getSite
 from zope.interface import implements
@@ -64,6 +65,16 @@ class AssignableUsersVocabulary(object):
         while cont:
             if context == portal:
                 break
+
+            if IFactoryTool.providedBy(context):
+                # this is portal_factory - skip it
+                context = aq_parent(aq_inner(context))
+                continue
+
+            if IFactoryTool.providedBy(aq_parent(context)):
+                # this is the 'Ticket Box' temp folder within portal_factory - skip it
+                context = aq_parent(aq_inner(context))
+                continue
 
             userroles = portal.acl_users._getLocalRolesForDisplay(context)
             # Use dict's to auto. prevent duplicated entries
