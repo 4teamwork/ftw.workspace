@@ -23,7 +23,7 @@ class DocumentsTab(Tab):
         {'column': 'Title',
          'column_title': _(u'column_title', default=u'Title'),
          'sort_index': 'sortable_title',
-         'transform': helper.linked_without_icon},
+         'transform': helper.link(icon=False, tooltip=True)},
         {'column': 'effective',
          'column_title': _(u'column_date', default=u'date'),
          'transform': helper.readable_date},

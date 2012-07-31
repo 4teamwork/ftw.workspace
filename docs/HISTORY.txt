@@ -5,7 +5,9 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add tooltip information to titles in documents tab.
+  ftw.tooltip configuration not included.
+  [jone]
 
 
 1.5.2 (2012-05-09)
