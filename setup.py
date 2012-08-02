@@ -41,6 +41,7 @@ setup(name='ftw.workspace',
         'ftw.tabbedview',
         'ftw.calendar',
         'plone.principalsource',
+        'ftw.upgrade',
         # -*- Extra requirements: -*-
         ],
 

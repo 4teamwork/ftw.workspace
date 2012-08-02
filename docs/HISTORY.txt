@@ -5,6 +5,10 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Add own TabbedViewFolder class and disable setting default page.
+  Setting the default page does not make sense for tabbed view folders.
+  [jone]
+
 - Fix AssignableUsersVocabulary so that it works in portal_factory too.
   This is important when ticket boxes are used within workspaces.
   [jone]

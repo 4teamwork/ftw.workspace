@@ -11,9 +11,15 @@
             />
     </class>
 
+    <class class=".folder.TabbedViewFolder">
+        <require
+            permission="zope2.View"
+            interface="..interfaces.ITabbedViewFolder"
+            />
+    </class>
 
     <include package="archetypes.schemaextender" />
-             
+
     <adapter factory=".folder_extender.FolderExtender"
              provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
              name="extend_folder_wit_textfield"/>
