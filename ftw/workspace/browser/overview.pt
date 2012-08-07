@@ -10,10 +10,11 @@
                 </li>
             </ul>
         </div>
-        <div class="box">
-            <h2 i18n:translate="">Description</h2>
-            <p><b tal:content="context/aq_explicit/Description"></b></p>
-            <span tal:content="structure context/aq_explicit/getText | nothing"></span>
+        <div class="box"
+             tal:define="textfield python: context.aq_explicit.Schema().getField('text')">
+            <h2 i18n:translate="" tal:condition="python:context.Description()">Description</h2>
+            <p tal:content="context/aq_explicit/Description"></p>
+            <span tal:condition="textfield" tal:replace="structure python:textfield.get(context)"></span>
         </div>
     </div>
     <div class="overview-right-column cell position-8 width-1:2">
