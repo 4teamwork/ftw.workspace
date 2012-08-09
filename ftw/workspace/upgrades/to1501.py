@@ -2,7 +2,7 @@ from ftw.upgrade import ProgressLogger
 from ftw.upgrade import UpgradeStep
 from ftw.workspace.content.folder import TabbedViewFolder
 import logging
-
+import transaction
 
 LOG = logging.getLogger('ftw.workspace.upgrades')
 
@@ -31,3 +31,4 @@ class UseClasseForFolder(UpgradeStep):
                 obj.__class__ = TabbedViewFolder
 
                 step()
+        transaction.commit()
