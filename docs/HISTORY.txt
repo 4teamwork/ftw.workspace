@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Make DocumentsTab work with document_date.
+  [tschanzt]
+
 - Add English translations.
   [jone]
 
