@@ -14,7 +14,7 @@
              tal:define="textfield python: context.aq_explicit.Schema().getField('text')">
             <h2 i18n:translate="" tal:condition="python:context.Description()">Description</h2>
             <p tal:content="context/aq_explicit/Description"></p>
-            <span tal:condition="textfield" tal:replace="structure python:textfield.get(context)"></span>
+            <span tal:condition="nocall:textfield" tal:replace="structure python:textfield.get(context)"></span>
         </div>
     </div>
     <div class="overview-right-column cell position-8 width-1:2">
@@ -25,7 +25,7 @@
                     <span tal:content="python: item.modified.strftime('%d.%m.%Y %H:%M')"/>
                     <span tal:replace="structure python: view.get_icon(item)" />
                     <a class="rollover"
-                       tal:attributes="href string:${item/getURL}/view; title python: view.get_description(item)" 
+                       tal:attributes="href string:${item/getURL}/view; title python: view.get_description(item)"
                        tal:content="item/Title" />
                 </li>
             </ul>

@@ -41,8 +41,12 @@ class TestOverview(MockTestCase):
         self.expect(self.context.portal_catalog(ANY)).result([])
         self.expect(self.context.aq_explicit).result(self.context)
         self.expect(self.context.__parent__).result(None)
-        self.expect(self.context.Description).result('MOCK ALL THE THINGS')
-        self.expect(self.context.getText).result('THE TEXT')
+        self.expect(self.context.Description).result(
+            lambda: 'MOCK ALL THE THINGS')
+        schema = self.stub()
+        self.expect(self.context.Schema()).result(schema)
+        self.expect(schema.getField('text').get(self.context)).result(
+            'THE TEXT')
 
         self.testcase_mocker = Mocker()
 
