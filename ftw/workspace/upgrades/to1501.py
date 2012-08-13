@@ -2,7 +2,6 @@ from ftw.upgrade import ProgressLogger
 from ftw.upgrade import UpgradeStep
 from ftw.workspace.content.folder import TabbedViewFolder
 import logging
-import transaction
 
 LOG = logging.getLogger('ftw.workspace.upgrades')
 
@@ -27,8 +26,5 @@ class UseClasseForFolder(UpgradeStep):
                             brains) as step:
             for brain in brains:
                 obj = self.portal.unrestrictedTraverse(brain.getPath())
-
-                obj.__class__ = TabbedViewFolder
-
+                self.migrate_class(obj, TabbedViewFolder)
                 step()
-        transaction.commit()
