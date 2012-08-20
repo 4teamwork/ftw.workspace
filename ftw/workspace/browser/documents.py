@@ -27,7 +27,7 @@ class DocumentsTab(Tab):
                 'sort_index': 'sortable_title',
                 'transform': helper.linked_without_icon},
 
-               {'column': 'document_date',
+               {'column': 'documentDate',
                 'column_title': _(u'column_date', default=u'date'),
                 'transform': helper.readable_date,
                 'width': 80},
