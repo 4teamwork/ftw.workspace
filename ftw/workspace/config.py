@@ -5,6 +5,7 @@ PROJECTNAME = 'ftw.workspace'
 
 ADD_PERMISSIONS = {
     'Workspace': 'ftw.workspace: Add Workspace',
+    'TabbedViewFolder': 'ATContentTypes: Add Folder',
 }
 
 INDEXES = (("sortable_creator", "FieldIndex"),

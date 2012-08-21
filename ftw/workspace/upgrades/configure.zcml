@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.workspace">
+
+    <!-- 1 -> 1501 -->
+    <genericsetup:upgradeStep
+        title="Use seperate class for TabbedViewFolder"
+        description=""
+        source="1"
+        destination="1501"
+        handler="ftw.workspace.upgrades.to1501.UseClasseForFolder"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1501"
+        title="ftw.workspace.upgrades.1501: Use seperate class for TabbedViewFolder"
+        description=""
+        directory="profiles/1501"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

@@ -5,6 +5,11 @@ class IWorkspace(Interface):
     """A type for collaborative spaces."""
 
 
+class ITabbedViewFolder(Interface):
+    """Tabbed view folder marker interface.
+    """
+
+
 class IWorkspaceDetailsListingProvider(Interface):
     """A adapter providing a listing (LaTeX) for the workspace details
     PDF.
