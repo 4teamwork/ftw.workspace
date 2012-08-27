@@ -76,6 +76,8 @@ class WorkspaceQuickUploadCapableFileFactory(object):
                     error = IQuickUploadFileSetter(obj).set(
                         data, filename, content_type)
 
+                obj.processForm()
+
             #@TODO : rollback if there has been an error
             transaction.commit()
         finally:

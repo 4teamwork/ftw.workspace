@@ -5,6 +5,10 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Quick upload: run processForm after creating the file.
+  This sets the creation flag to False.
+  [jone]
+
 - Fix display issue with text-field on tabbedviewfolders.
   [mathias.leimgruber]
 
