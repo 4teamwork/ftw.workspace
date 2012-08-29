@@ -5,10 +5,8 @@ Changelog
 1.6 (unreleased)
 ----------------
 
-- change document_date to switchCase.
-  [tschanzt]
 
-- Make DocumentsTab work with document_date.
+- Make DocumentsTab work with documentDate.
   [tschanzt]
 
 - Add English translations.
