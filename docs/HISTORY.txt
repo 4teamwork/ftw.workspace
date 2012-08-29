@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Make DocumentsTab work with documentDate.
+  [tschanzt]
+
 - Quick upload: run processForm after creating the file.
   This sets the creation flag to False.
   [jone]
