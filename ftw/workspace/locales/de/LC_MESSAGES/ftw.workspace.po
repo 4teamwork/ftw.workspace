@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-07-25 07:31+0000\n"
+"POT-Creation-Date: 2012-10-01 14:54+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,12 @@ msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: ./ftw/workspace/browser/overview.pt:14
+#: ./ftw/workspace/browser/overview.pt:15
 msgid "Description"
 msgstr "Beschreibung"
 
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
+#: ./ftw/workspace/upgrades/profiles/1501/types/TabbedViewFolder.xml
 msgid "Folder"
 msgstr "Ordner"
 
@@ -36,31 +37,36 @@ msgid "Workspace"
 msgstr "Arbeitsraum"
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:36
+#: ./ftw/workspace/browser/documents.py:60
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Hinzugefügt durch"
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:31
+#: ./ftw/workspace/browser/documents.py:38
 msgid "column_date"
 msgstr "Datum"
 
+#. Default: "Document date"
+#: ./ftw/workspace/browser/documents.py:44
+msgid "column_document_date"
+msgstr "Dokument Datum"
+
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:41
+#: ./ftw/workspace/browser/documents.py:65
 #: ./ftw/workspace/browser/overview.py:22
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:26
+#: ./ftw/workspace/browser/documents.py:55
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:21
+#: ./ftw/workspace/browser/documents.py:50
 msgid "column_type"
 msgstr "Typ"
 
@@ -171,7 +177,7 @@ msgstr "Sitzung"
 msgid "poll"
 msgstr "Umfrage"
 
-#: ./ftw/workspace/browser/overview.pt:21
+#: ./ftw/workspace/browser/overview.pt:22
 msgid "recently modified"
 msgstr "Kürzlich verändert"
 

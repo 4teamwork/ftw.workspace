@@ -47,7 +47,8 @@ setup(name='ftw.workspace',
 
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
-                          pdf=['ftw.pdfgenerator']),
+                          pdf=['ftw.pdfgenerator',
+                               'ftw.file', ]),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''

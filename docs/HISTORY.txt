@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Show documenDate only if ftw.file is installed.
+  [mathias.leimgruber]
+
 - Make DocumentsTab work with documentDate.
   [tschanzt]
 
