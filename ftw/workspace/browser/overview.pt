@@ -34,5 +34,9 @@
 </div>
 
 <script type="text/javascript" language="javascript">
-    jq('.rollover a').smartTruncation();
+    jq(function(){
+          // TODO: Implement me
+          //jq('.box a.rollover').smartTruncation();
+    });
+
 </script> 
