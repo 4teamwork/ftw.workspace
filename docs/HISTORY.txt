@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Truncate long text on overview.pt.
+  [mathias.leimgruber]
+
 - Show documenDate only if ftw.file is installed.
   [mathias.leimgruber]
 

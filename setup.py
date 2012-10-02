@@ -42,6 +42,7 @@ setup(name='ftw.workspace',
         'ftw.calendar',
         'plone.principalsource',
         'ftw.upgrade',
+        'collective.js.jqsmartTruncation',
         # -*- Extra requirements: -*-
         ],
 

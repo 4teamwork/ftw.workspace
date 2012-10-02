@@ -22,4 +22,17 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+
+    <!-- 1501 -> 1502 -->
+    <genericsetup:upgradeStep
+        title="Install collective.js.jqsmartTruncation (truncate long text on overview.pt)"
+        description=""
+        source="1501"
+        destination="1502"
+        handler="ftw.workspace.upgrades.to1502.InstallSmartTruncation"
+        profile="ftw.workspace:default"
+        />
+
+
+
 </configure>
