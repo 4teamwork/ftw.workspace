@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Hide select-all in overview when filtering contents.
+  [jone]
+
 - Truncate long text on overview.pt.
   [mathias.leimgruber]
 

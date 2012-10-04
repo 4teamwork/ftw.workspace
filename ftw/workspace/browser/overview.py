@@ -11,6 +11,7 @@ class OverviewTab(listing.CatalogListingView):
     sort_on = 'modified'
     sort_reverse = True
     show_menu = False
+    show_selects = False
 
     columns = (  #('', helper.path_checkbox),
                {'column': 'Title',
