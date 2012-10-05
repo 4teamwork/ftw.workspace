@@ -8,9 +8,6 @@ Changelog
 - Hide select-all in overview when filtering contents.
   [jone]
 
-- Truncate long text on overview.pt.
-  [mathias.leimgruber]
-
 - Show documenDate only if ftw.file is installed.
   [mathias.leimgruber]
 

@@ -4,6 +4,5 @@
   <dependencies>
     <dependency>profile-ftw.tabbedview:default</dependency>
     <dependency>profile-ftw.calendar:default</dependency>
-    <dependency>profile-collective.js.jqsmartTruncation:default</dependency>  
   </dependencies>
 </metadata>
