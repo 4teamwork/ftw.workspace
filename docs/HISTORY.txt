@@ -5,6 +5,9 @@ Changelog
 1.6 (unreleased)
 ----------------
 
+- Convert description to plain text, so there is no HTML in tooltip.
+  [Julian Infanger]
+
 - Hide select-all in overview when filtering contents.
   [jone]
 

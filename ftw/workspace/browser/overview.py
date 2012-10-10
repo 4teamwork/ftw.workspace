@@ -2,6 +2,7 @@ from ftw.workspace import _
 from ftw.workspace.browser import helper
 from ftw.table import helper as table_helper
 from ftw.tabbedview.browser import listing
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
@@ -68,4 +69,7 @@ class OverviewTab(listing.CatalogListingView):
         return helper.icon(document, "")
 
     def get_description(self, file_):
-        return file_.getObject().Description()
+        description = file_.getObject().Description()
+        # make sure there is no html in description
+        transforms = getToolByName(self.context, 'portal_transforms')
+        return transforms.convertTo('text/plain', description).getData()
