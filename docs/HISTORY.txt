@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.6 (unreleased)
+1.6 (2012-08-10)
 ----------------
 
 - Convert description to plain text, so there is no HTML in tooltip.
