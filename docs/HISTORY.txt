@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.6.1 (unreleased)
+------------------
+
+- Documents tab: use document date column translation from ftw.file.
+  [jone]
+
+
 1.6 (2012-08-10)
 ----------------
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-01 14:54+0000\n"
+"POT-Creation-Date: 2012-10-10 14:43+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,36 +37,31 @@ msgid "Workspace"
 msgstr "Arbeitsraum"
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:60
+#: ./ftw/workspace/browser/documents.py:62
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Hinzugefügt durch"
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:38
+#: ./ftw/workspace/browser/documents.py:40
 msgid "column_date"
 msgstr "Datum"
 
-#. Default: "Document date"
-#: ./ftw/workspace/browser/documents.py:44
-msgid "column_document_date"
-msgstr "Dokument Datum"
-
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:65
-#: ./ftw/workspace/browser/overview.py:22
+#: ./ftw/workspace/browser/documents.py:67
+#: ./ftw/workspace/browser/overview.py:24
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:55
+#: ./ftw/workspace/browser/documents.py:57
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:50
+#: ./ftw/workspace/browser/documents.py:52
 msgid "column_type"
 msgstr "Typ"
 
@@ -92,7 +87,7 @@ msgid "events_pill_list"
 msgstr "Liste"
 
 #: ./ftw/workspace/browser/events.py:45
-#: ./ftw/workspace/browser/overview.py:28
+#: ./ftw/workspace/browser/overview.py:30
 msgid "label_eventstab_creator"
 msgstr "Hinzugefügt durch"
 
@@ -101,7 +96,7 @@ msgid "label_eventstab_start"
 msgstr "Beginn"
 
 #: ./ftw/workspace/browser/events.py:31
-#: ./ftw/workspace/browser/overview.py:18
+#: ./ftw/workspace/browser/overview.py:20
 msgid "label_eventstab_title"
 msgstr "Titel"
 

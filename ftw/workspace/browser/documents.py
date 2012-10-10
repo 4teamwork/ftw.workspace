@@ -1,16 +1,18 @@
-from ftw.workspace.browser.tab import Tab
 from ftw.table import helper
-from ftw.workspace.browser import helper as workspace_helper
 from ftw.workspace import _
+from ftw.workspace.browser import helper as workspace_helper
+from ftw.workspace.browser.tab import Tab
+from zope.i18nmessageid import MessageFactory
+
 
 import pkg_resources
 try:
     pkg_resources.get_distribution('ftw.file')
 except pkg_resources.DistributionNotFound:
     HAS_FTWFILE = False
-    pass
 else:
     HAS_FTWFILE = True
+    fileMF = MessageFactory('ftw.file')
 
 
 class DocumentsTab(Tab):
@@ -41,8 +43,8 @@ class DocumentsTab(Tab):
         # ftw.file implementation
         if HAS_FTWFILE:
             date_column['column'] = 'documentDate'
-            date_column['column_title'] = _(u'column_document_date',
-                                            default=u'Document date')
+            date_column['column_title'] = fileMF(u'label_document_date',
+                                                 default=u'Document date')
 
         columns = (
             {'column': 'getIcon',
