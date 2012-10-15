@@ -22,4 +22,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1501 -> 1601 -->
+    <genericsetup:upgradeStep
+        title="Hide view action for TabbedViewFolder"
+        description=""
+        source="1501"
+        destination="1601"
+        handler="ftw.workspace.upgrades.to1601.HideAction"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1601"
+        title="ftw.workspace.upgrades.1601: Hide view action for TabbedViewFolder"
+        description=""
+        directory="profiles/1601"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
