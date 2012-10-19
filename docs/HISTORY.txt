@@ -11,6 +11,9 @@ Changelog
 1.6.1 (2012-10-16)
 ------------------
 
+- Hide view action for TabbedViewFolder.
+  [Julian Infanger]
+
 - Documents tab: use document date column translation from ftw.file.
   [jone]
 
