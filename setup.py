@@ -28,7 +28,7 @@ setup(name='ftw.workspace',
       keywords='ftw workspace project folder plone',
       author='4teamwork GmbH',
       author_email='mailto:info@4teamwork.ch',
-      url='https://github.com/4teamwork/ftw.workspace/',
+      url='https://github.com/4teamwork/ftw.workspace',
       license='GPL2',
 
       packages=find_packages(exclude=['ez_setup']),
