@@ -47,7 +47,7 @@
 
 
     <configure zcml:condition="installed collective.quickupload">
-        <class class="Products.ATContentTypes.content.folder.ATFolder">
+        <class class="ftw.workspace.content.folder.TabbedViewFolder">
             <implements interface="ftw.tabbedview.interfaces.ITabbedviewUploadable" />
         </class>
 
