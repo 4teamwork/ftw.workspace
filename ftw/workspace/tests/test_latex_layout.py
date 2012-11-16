@@ -13,6 +13,7 @@ class TestWorkspaceLayout(test_customizable_layout.TestCustomizableLayout):
     layer = LATEX_ZCML_LAYER
 
     def setUp(self):
+        super(test_customizable_layout.TestCustomizableLayout, self).setUp()
         self.context = self.providing_stub(IWorkspace)
         self.builder = self.stub_interface(IBuilder)
         super(TestWorkspaceLayout, self).setUp(context=self.context,

@@ -10,6 +10,7 @@ class TestOverview(MockTestCase):
     layer = OVERVIEW_LAYER
 
     def setUp(self):
+        super(TestOverview, self).setUp()
         self.searchable_text = ''
         self.search_text_in_request = False
 
@@ -75,6 +76,7 @@ class TestOverview(MockTestCase):
     def tearDown(self):
         self.testcase_mocker.verify()
         self.testcase_mocker.restore()
+        super(TestOverview, self).tearDown()
 
     def test_overview(self):
         self.replay()
