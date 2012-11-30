@@ -25,6 +25,8 @@ Setup a small site structure (without workspace)
     'f13'
     >>> portal.f1.f13.invokeFactory('Folder', 'f131')
     'f131'
+    >>> portal.invokeFactory('Folder', 'f2')
+    'f2'
 
 Create a File at the bottom
     >>> portal.f1.f13.f131.invokeFactory('File', 'file1')
@@ -44,6 +46,9 @@ Some permission
     >>> portal.f1.f13.get_local_roles_for_userid('group1')
     ('Reader',)
 
+    >>> portal.f2.manage_setLocalRoles('member1', ('Reader', ))
+    >>> portal.f2.manage_setLocalRoles('member2', ('Reader', ))
+    >>> portal.f2.manage_setLocalRoles('member3', ('Reader', ))
 
 Check the result of the vocab
     >>> factory(portal.f1)
@@ -86,3 +91,7 @@ Stop acquisition - test group members
     >>> portal.f1.f13.f131.__ac_local_roles_block__ = True
     >>> 'member1' in factory(portal.f1.f13.f131).userids
     False
+
+the results should be sortetd on fullname
+    >>> [aa.token for aa in factory(portal.f2)]
+    ['member2', 'member3', 'member1']

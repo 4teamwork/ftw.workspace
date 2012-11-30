@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from ftw.tabbedview.interfaces import IGridStateStorageKeyGenerator
 from ftw.tabbedview.interfaces import ITabbedView
 from plone.app.testing import IntegrationTesting
@@ -14,11 +15,13 @@ from zope.component import provideUtility
 from zope.configuration import xmlconfig
 from zope.interface import Interface
 
-
 USERS = [
-    {'user': 'member1', 'roles': ('Member', 'Reader')},
-    {'user': 'member2', 'roles': ('Member', 'Reader')},
-    {'user': 'member3', 'roles': ('Member', 'Reader')}]
+    {'user': 'member1', 'roles': ('Member', 'Reader'),
+     'fullname': 'BBB MEMBER1'},
+    {'user': 'member2', 'roles': ('Member', 'Reader'),
+     'fullname': 'AAA MEMBER2'},
+    {'user': 'member3', 'roles': ('Member', 'Reader'),
+     'fullname': 'BAA MEMBER3'}]
 
 
 class FtwWorkspaceLayer(PloneSandboxLayer):
@@ -48,11 +51,18 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         # Add role for vocab testing
         portal._addRole('Reader')
 
+        mtool = getToolByName(portal, 'portal_membership')
+
         # Setup some users
         for userinfo in USERS:
             username = userinfo['user']
+
             portal.acl_users.userFolderAddUser(
                 username, 'password', userinfo['roles'], [])
+
+            member = mtool.getMemberById(username)
+            member.setMemberProperties(
+                mapping={"fullname": userinfo['fullname']})
 
         # Setup a group and add member3
         portal.portal_groups.addGroup('group1')
