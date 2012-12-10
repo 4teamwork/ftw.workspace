@@ -5,6 +5,9 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Fix filtering on overview.
+  [jone]
+
 - Implements sorting on fullname for PrincipalVocabulary.
   [phgross]
 

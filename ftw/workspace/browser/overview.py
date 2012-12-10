@@ -16,7 +16,7 @@ class OverviewTab(listing.CatalogListingView):
 
     columns = (  #('', helper.path_checkbox),
                {'column': 'Title',
-                'column_index': 'sortable_title',
+                'sort_index': 'sortable_title',
                 'column_title': _(u'label_eventstab_title'),
                 'transform': table_helper.linked},
 
@@ -26,7 +26,7 @@ class OverviewTab(listing.CatalogListingView):
                 'transform': table_helper.readable_date},
 
                 {'column': 'Creator',
-                 'column_index': 'sortable_creator',
+                 'sort_index': 'sortable_creator',
                  'column_title': _(u'label_eventstab_creator'),
                  'transform': helper.readable_author}, )
 
