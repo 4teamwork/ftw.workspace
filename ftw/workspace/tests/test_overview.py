@@ -97,3 +97,29 @@ class TestOverview(MockTestCase):
         testhtml = ''
         template = self.overview.template()
         self.assertEqual(testhtml in template, True)
+
+    def test_get_description(self):
+        transforms = self.mocker.mock()
+        self.mock_tool(transforms, 'portal_transforms')
+        self.expect(
+            transforms.convertTo('text/plain', 'foo <b>bar</b>').getData()
+            ).result('foo bar')
+
+        brain = self.stub()
+        self.expect(brain.getObject().Description()).result('foo <b>bar</b>')
+
+        self.replay()
+
+        self.assertEqual(self.overview.get_description(brain), 'foo bar')
+
+    def test_get_description__description_is_None(self):
+        transforms = self.mocker.mock()
+        self.mock_tool(transforms, 'portal_transforms')
+        self.expect(transforms.convertTo('text/plain', None)).result(None)
+
+        brain = self.stub()
+        self.expect(brain.getObject().Description()).result(None)
+
+        self.replay()
+
+        self.assertEqual(self.overview.get_description(brain), '')

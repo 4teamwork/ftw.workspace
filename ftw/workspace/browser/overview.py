@@ -72,4 +72,8 @@ class OverviewTab(listing.CatalogListingView):
         description = file_.getObject().Description()
         # make sure there is no html in description
         transforms = getToolByName(self.context, 'portal_transforms')
-        return transforms.convertTo('text/plain', description).getData()
+        result = transforms.convertTo('text/plain', description)
+        if result is None:
+            return ''
+        else:
+            return result.getData()
