@@ -68,7 +68,10 @@ class WorkspaceDetailsView(MakoLaTeXView):
         listings = []
 
         for provider in providers:
-            listings.append((provider.get_title(), provider.get_listing()))
+            title = provider.get_title()
+            latex = provider.get_listing()
+            if latex is not None:
+                listings.append((title, latex))
 
         return listings
 
@@ -93,7 +96,10 @@ class FilesListing(object):
                          context=self.request)
 
     def get_listing(self):
-        return self.view.convert(self.template())
+        if len(self._brains()) == 0:
+            return None
+        else:
+            return self.view.convert(self.template())
 
     def get_items(self):
         """Returns all items to be displayed.

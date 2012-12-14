@@ -5,6 +5,9 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Workspace details PDF: do not show empty listings.
+  [jone]
+
 - Fix error in overview tab when an object has no description.
   [jone]
 
