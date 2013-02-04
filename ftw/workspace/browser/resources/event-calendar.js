@@ -1,4 +1,4 @@
-$(function() {
+jQuery(function($) {
 
      /*calander navigation*/
      $('a.#calendar-previous, a.#calendar-next').live(
