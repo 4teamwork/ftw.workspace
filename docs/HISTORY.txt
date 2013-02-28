@@ -5,6 +5,9 @@ Changelog
 1.6.3 (unreleased)
 ------------------
 
+- Make pdf export work with document_date.
+  [tschanzt]
+
 - Replace jq by $.
   [mathias.leimgruber]
 

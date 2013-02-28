@@ -107,7 +107,7 @@ class FilesListing(object):
         for brain in self._brains():
             yield {'title': brain.Title,
                    'effective': helper.readable_date(
-                        brain, getattr(brain, 'effective')),
+                        brain, getattr(brain, 'documentDate')),
                    'modified': helper.readable_date(
                         brain, getattr(brain, 'modified')),
                    'creator': self.get_creator(brain),
