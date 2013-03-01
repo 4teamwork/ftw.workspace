@@ -34,7 +34,7 @@ WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     ),
 ))
 
-# FIXME: move to egov.workspace?
+
 finalizeWorkspaceSchema(WorkspaceSchema,
                         folderish=True,
                         moveDiscussion=False)

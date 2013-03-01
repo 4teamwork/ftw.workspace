@@ -5,6 +5,9 @@ Changelog
 1.6.3 (unreleased)
 ------------------
 
+- Use finalize schemata also for TabbedViewFolder.
+  [mathias.leimgruber]
+
 - Replace jq by $.
   [mathias.leimgruber]
 
