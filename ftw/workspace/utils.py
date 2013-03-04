@@ -4,10 +4,15 @@ from ftw.workspace.interfaces import IWorkspace
 from ftw.workspace.config import DEFAULT_TINYMCE_ALLOWED_BUTTONS
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
-
+from Products.CMFCore.utils import getToolByName
 
 _marker = object()
 
+
+def has_ftwfile(context):
+    portal_setup = getToolByName(context, 'portal_setup')
+    profile_version = portal_setup.getLastVersionForProfile('ftw.file:default')
+    return profile_version != 'unknown'
 
 def find_workspace(context):
     """Walks up and returns the next parent workspace (IWorkspace) or

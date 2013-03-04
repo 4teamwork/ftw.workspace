@@ -11,6 +11,7 @@ from zope.component import getAdapters
 from zope.i18n import translate
 from zope.interface import Interface
 from zope.interface import implements
+from ftw.workspace.utils import has_ftwfile
 
 
 class WorkspaceDetailsView(MakoLaTeXView):
@@ -104,10 +105,12 @@ class FilesListing(object):
     def get_items(self):
         """Returns all items to be displayed.
         """
+        ftwfile = has_ftwfile(self.context)
         for brain in self._brains():
             yield {'title': brain.Title,
                    'effective': helper.readable_date(
-                        brain, getattr(brain, 'documentDate')),
+                        brain, getattr(
+                        brain, ftwfile and 'documentDate' or 'effective')),
                    'modified': helper.readable_date(
                         brain, getattr(brain, 'modified')),
                    'creator': self.get_creator(brain),

@@ -3,17 +3,14 @@ from ftw.workspace import _
 from ftw.workspace.browser import helper as workspace_helper
 from ftw.workspace.browser.tab import Tab
 from zope.i18nmessageid import MessageFactory
-
+from ftw.workspace.utils import has_ftwfile
 
 import pkg_resources
 try:
     pkg_resources.get_distribution('ftw.file')
-except pkg_resources.DistributionNotFound:
-    HAS_FTWFILE = False
-else:
-    HAS_FTWFILE = True
     fileMF = MessageFactory('ftw.file')
-
+except:
+    pass
 
 class DocumentsTab(Tab):
 
@@ -27,7 +24,7 @@ class DocumentsTab(Tab):
     def __init__(self, context, request):
         super(DocumentsTab, self).__init__(context, request)
         # default implementation
-        if HAS_FTWFILE:
+        if has_ftwfile(self.context):
             # ftw.file implementation
             self.sort_on = 'documentDate'
         else:
@@ -41,7 +38,7 @@ class DocumentsTab(Tab):
                        'transform': helper.readable_date,
                        'width': 100}
         # ftw.file implementation
-        if HAS_FTWFILE:
+        if has_ftwfile(self.context):
             date_column['column'] = 'documentDate'
             date_column['column_title'] = fileMF(u'label_document_date',
                                                  default=u'Document date')
