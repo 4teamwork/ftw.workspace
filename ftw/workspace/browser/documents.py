@@ -4,13 +4,7 @@ from ftw.workspace.browser import helper as workspace_helper
 from ftw.workspace.browser.tab import Tab
 from zope.i18nmessageid import MessageFactory
 from ftw.workspace.utils import has_ftwfile
-
-import pkg_resources
-try:
-    pkg_resources.get_distribution('ftw.file')
-    fileMF = MessageFactory('ftw.file')
-except:
-    pass
+fileMF = MessageFactory('ftw.file')
 
 class DocumentsTab(Tab):
 
