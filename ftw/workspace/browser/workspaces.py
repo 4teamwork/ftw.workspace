@@ -8,10 +8,10 @@ class WorkspacesView(TabbedView):
     """Tabbed workspaces overview"""
 
     def get_tabs(self):
-        return [{'id':'workspaces', 'class':''},
-                {'id':'documents', 'class':''},
-                {'id':'events', 'class':''},
-               ]
+        return [{'id': 'workspaces', 'class': ''},
+                {'id': 'documents', 'class': ''},
+                {'id': 'events', 'class': ''},
+                ]
 
 
 class WorkspacesTab(Tab):
@@ -32,7 +32,7 @@ class WorkspacesTab(Tab):
          'transform': helper.readable_date,
          'width': 80},
 
-         {'column': 'Creator',
-          'column_title': _(u'column_creator', default=u'Creator'),
-          'sort_index': 'sortable_creator',
-          'transform': helper.readable_author}, )
+        {'column': 'Creator',
+         'column_title': _(u'column_creator', default=u'Creator'),
+         'sort_index': 'sortable_creator',
+         'transform': helper.readable_author}, )

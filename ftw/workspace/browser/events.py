@@ -19,8 +19,7 @@ class EventsTab(listing.CatalogListingView):
     show_selects = False
     show_menu = False
 
-    columns = (  #('', helper.path_checkbox),
-               {'column': 'start',
+    columns = ({'column': 'start',
                 'column_index': 'start',
                 'column_title': _(u'label_eventstab_start'),
                 'transform': helper.readable_date,
@@ -40,10 +39,10 @@ class EventsTab(listing.CatalogListingView):
                 'width': 80},
 
 
-                {'column': 'Creator',
-                 'column_index': 'sortable_creator',
-                 'column_title': _(u'label_eventstab_creator'),
-                 'transform': helper.readable_author}, )
+               {'column': 'Creator',
+                'column_index': 'sortable_creator',
+                'column_title': _(u'label_eventstab_creator'),
+                'transform': helper.readable_author}, )
 
     template = ViewPageTemplateFile('events.pt')
 

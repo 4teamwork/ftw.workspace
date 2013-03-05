@@ -33,8 +33,10 @@ class WorkspaceLayout(CustomizableLayout):
             'geometry', options='left=35mm,right=20mm,top=20mm,bottom=25mm',
             append_options=False)
         self.use_package(
-            'hyperref', options='colorlinks=false,breaklinks=true,' + \
-                'linkcolor=black,pdfborder={0 0 0}', append_options=False)
+            'hyperref',
+            options='colorlinks=false,breaklinks=true,'
+            'linkcolor=black,pdfborder={0 0 0}',
+            append_options=False)
 
         self.use_package('helvet')
         self.use_package('titlesec', 'compact')

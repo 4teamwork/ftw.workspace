@@ -76,7 +76,8 @@ class AssignableUsersVocabulary(object):
                 continue
 
             if IFactoryTool.providedBy(aq_parent(context)):
-                # this is the 'Ticket Box' temp folder within portal_factory - skip it
+                # this is the 'Ticket Box' temp folder
+                # within portal_factory - skip it
                 context = aq_parent(aq_inner(context))
                 continue
 

@@ -14,8 +14,7 @@ class OverviewTab(listing.CatalogListingView):
     show_menu = False
     show_selects = False
 
-    columns = (  #('', helper.path_checkbox),
-               {'column': 'Title',
+    columns = ({'column': 'Title',
                 'sort_index': 'sortable_title',
                 'column_title': _(u'label_eventstab_title'),
                 'transform': table_helper.linked},
@@ -25,10 +24,10 @@ class OverviewTab(listing.CatalogListingView):
                                   default=u'modified'),
                 'transform': table_helper.readable_date},
 
-                {'column': 'Creator',
-                 'sort_index': 'sortable_creator',
-                 'column_title': _(u'label_eventstab_creator'),
-                 'transform': helper.readable_author}, )
+               {'column': 'Creator',
+                'sort_index': 'sortable_creator',
+                'column_title': _(u'label_eventstab_creator'),
+                'transform': helper.readable_author}, )
 
     def template(self):
         if self.filter_text != '':
@@ -40,7 +39,7 @@ class OverviewTab(listing.CatalogListingView):
                 sort_order='reverse'):
 
         query = dict(
-            path = dict(
+            path=dict(
                 depth=depth,
                 query='/'.join(self.context.getPhysicalPath())),
             sort_on=sort_on,

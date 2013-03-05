@@ -14,6 +14,7 @@ def has_ftwfile(context):
     profile_version = portal_setup.getLastVersionForProfile('ftw.file:default')
     return profile_version != 'unknown'
 
+
 def find_workspace(context):
     """Walks up and returns the next parent workspace (IWorkspace) or
     returns None if plone site is reached.
