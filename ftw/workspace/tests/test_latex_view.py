@@ -93,6 +93,11 @@ class TestWorkspaceDetailsView(ListingTestBase):
         self.expect(self.context.Description()).result('this is my workspace')
         self.expect(self.context.getText()).result('the long description')
 
+        portal_setup = self.stub()
+        self.expect(portal_setup.getLastVersionForProfile(
+                'ftw.file:default')).result('unknown')
+        self.mock_tool(portal_setup, 'portal_setup')
+
         self.replay()
 
         view = getMultiAdapter((self.context, self.request, self.layout),
@@ -139,12 +144,17 @@ class TestFilesListing(ListingTestBase):
             name='files-listing')
         self.assertEqual(listing.get_title(), 'Files')
 
-    def test_get_items(self):
+    def test_get_items__WITHOUT_FTW_FILE(self):
         self.brains = [
             self.create_dummy(Title='foo',
                               effective=DateTime('05/23/2010'),
                               modified=DateTime('06/10/2010'),
                               Creator='john.doe')]
+
+        portal_setup = self.stub()
+        self.expect(portal_setup.getLastVersionForProfile(
+                'ftw.file:default')).result('unknown')
+        self.mock_tool(portal_setup, 'portal_setup')
 
         self.replay()
         listing = getMultiAdapter(
@@ -158,12 +168,44 @@ class TestFilesListing(ListingTestBase):
                  'modified': '10.06.2010',
                  'creator': 'John Doe'}])
 
+    def test_get_items__FTW_FILE(self):
+        self.brains = [
+            self.create_dummy(Title='foo',
+                              effective=DateTime('05/23/2010'),
+                              modified=DateTime('06/10/2010'),
+                              documentDate=DateTime('06/13/2010'),
+                              Creator='john.doe')]
+
+        portal_setup = self.stub()
+        self.expect(portal_setup.getLastVersionForProfile(
+                'ftw.file:default')).result('1.0')
+        self.mock_tool(portal_setup, 'portal_setup')
+
+        self.replay()
+        listing = getMultiAdapter(
+            (self.context, self.request, self.layout, self.view),
+            IWorkspaceDetailsListingProvider,
+            name='files-listing')
+
+        self.assertEqual(list(listing.get_items()), [
+                {'title': 'foo',
+                 # When ftw.file is there, we use the documentDate as
+                 # effective.
+                 'effective': '13.06.2010',
+                 'modified': '10.06.2010',
+                 'creator': 'John Doe'}])
+
     def test_rendering(self):
         self.brains = [
             self.create_dummy(Title='foo',
                               effective=DateTime('05/23/2010'),
                               modified=DateTime('06/10/2010'),
                               Creator='john.doe')]
+
+        portal_setup = self.stub()
+        self.expect(portal_setup.getLastVersionForProfile(
+                'ftw.file:default')).result('unknown')
+        self.mock_tool(portal_setup, 'portal_setup')
 
         self.replay()
         listing = getMultiAdapter(
