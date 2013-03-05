@@ -8,6 +8,9 @@ Changelog
 - Make pdf export work with document_date.
   [tschanzt]
 
+- Use finalize schemata also for TabbedViewFolder.
+  [mathias.leimgruber]
+
 - Replace jq by $.
   [mathias.leimgruber]
 
