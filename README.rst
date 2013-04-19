@@ -44,3 +44,7 @@ This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 
 .. _ftw.meeting: https://github.com/4teamwork/ftw.meeting
+
+.. image:: https://cruel-carlota.pagodabox.com/58be9c0bedbcc0b1f4df6ac60b428464
+   :alt: githalytics.com
+   :target: http://githalytics.com/4teamwork/ftw.workspace
