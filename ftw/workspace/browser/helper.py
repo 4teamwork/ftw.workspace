@@ -1,6 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from plone.memoize import ram
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 import os.path
 
 

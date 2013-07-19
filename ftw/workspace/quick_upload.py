@@ -7,7 +7,7 @@ from collective.quickupload.interfaces import IQuickUploadFileSetter
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.registry.interfaces import IRegistry
 from zope import component
-from zope.app.container.interfaces import INameChooser
+from zope.container.interfaces import INameChooser
 from zope.component import getUtility
 import transaction
 
