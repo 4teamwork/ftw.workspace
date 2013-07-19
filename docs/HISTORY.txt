@@ -5,7 +5,8 @@ Changelog
 1.6.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add permissionmapping for ftw.lawgiver
+  [elioschmutz]
 
 
 1.6.3 (2013-03-11)
