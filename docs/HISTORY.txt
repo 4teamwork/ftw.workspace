@@ -5,6 +5,9 @@ Changelog
 1.6.4 (unreleased)
 ------------------
 
+- Plone 4.3 compatibility.
+  [jone]
+
 - Add permissionmapping for ftw.lawgiver
   [elioschmutz]
 
