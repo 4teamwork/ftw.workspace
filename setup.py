@@ -7,6 +7,7 @@ tests_require = [
     'plone.app.testing',
     'ftw.testing',
     'ftw.pdfgenerator',
+    'ftw.builder',
     ]
 
 setup(name='ftw.workspace',
