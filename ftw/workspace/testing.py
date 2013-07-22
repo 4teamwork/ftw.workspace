@@ -1,19 +1,13 @@
 from Products.CMFCore.utils import getToolByName
-from ftw.tabbedview.interfaces import IGridStateStorageKeyGenerator
-from ftw.tabbedview.interfaces import ITabbedView
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
-from plone.registry import Registry
-from plone.registry.interfaces import IRegistry
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
-from zope.component import provideAdapter
-from zope.component import provideUtility
 from zope.configuration import xmlconfig
-from zope.interface import Interface
+
 
 USERS = [
     {'user': 'member1', 'roles': ('Member', 'Reader'),
@@ -72,48 +66,6 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 FTW_WORKSPACE_FIXTURE = FtwWorkspaceLayer()
 FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_WORKSPACE_FIXTURE, ), name="FtwWorkspace:Integration")
-
-
-class BasicMockOverviewLayer(Layer):
-
-    defaultBases = (zca.ZCML_DIRECTIVES, )
-
-    def testSetUp(self):
-        self['configurationContext'] = context = \
-            zca.stackConfigurationContext(self.get('configurationContext'))
-
-        import zope.traversing
-        xmlconfig.file('configure.zcml', zope.traversing, context=context)
-
-        import plone.registry
-        xmlconfig.file('configure.zcml', plone.registry, context=context)
-
-        registry = Registry()
-        provideUtility(component=registry, provides=IRegistry)
-        registry.registerInterface(ITabbedView)
-
-        class GridStateKeyGenerator(object):
-            """Stub
-            ftw.tabbedview.statestorage.DefaultGridStateStorageKeyGenerator
-            """
-
-            def __init__(self, *args):
-                pass
-
-            def get_key(self):
-                return '1'
-
-        provideAdapter(GridStateKeyGenerator,
-                       (Interface, Interface, Interface),
-                       IGridStateStorageKeyGenerator)
-
-        import ftw.dictstorage
-        xmlconfig.file('configure.zcml', ftw.dictstorage, context=context)
-
-    def testTearDown(self):
-        del self['configurationContext']
-
-OVERVIEW_LAYER = BasicMockOverviewLayer()
 
 
 class LatexZCMLLayer(Layer):
