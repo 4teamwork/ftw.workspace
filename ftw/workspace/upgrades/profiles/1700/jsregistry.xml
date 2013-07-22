@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+
+    <javascript cacheable="True" compression="safe" cookable="True"
+        enabled="1" expression="" insert-after="++resource++jquery.smartTruncation.js"
+        id="++resource++ftw.workspace-resources/overview_truncate.js" />
+
+</object>

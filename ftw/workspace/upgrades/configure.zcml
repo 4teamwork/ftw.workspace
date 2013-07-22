@@ -41,4 +41,24 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1601 -> 1700 -->
+    <genericsetup:upgradeStep
+        title="Install new features - moved from private repo"
+        description=""
+        source="1601"
+        destination="1700"
+        handler="ftw.workspace.upgrades.to1700.InstallNewFeatures"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1700"
+        title="ftw.workspace.upgrades.1700"
+        description=""
+        directory="profiles/1700"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
 </configure>
