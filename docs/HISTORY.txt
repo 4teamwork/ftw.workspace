@@ -8,7 +8,7 @@ Changelog
 - Plone 4.3 compatibility.
   [jone]
 
-- Move some the following features from a private repo to ftw.workspace.
+- Move the following features from a private repo to ftw.workspace.
 
   - Enable filtering on overview.
   - Truncate long text in recently modified listing.
