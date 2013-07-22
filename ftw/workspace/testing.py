@@ -1,11 +1,16 @@
-from Products.CMFCore.utils import getToolByName
+from ftw.builder.session import BuilderSession
+from ftw.builder.testing import BUILDER_LAYER
+from ftw.builder.testing import set_builder_session_factory
+from ftw.workspace.tests import builders
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
+from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
 
 
@@ -18,9 +23,15 @@ USERS = [
      'fullname': 'BAA MEMBER3'}]
 
 
+def functional_session_factory():
+    sess = BuilderSession()
+    sess.auto_commit = True
+    return sess
+
+
 class FtwWorkspaceLayer(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE, )
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
@@ -66,6 +77,11 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 FTW_WORKSPACE_FIXTURE = FtwWorkspaceLayer()
 FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_WORKSPACE_FIXTURE, ), name="FtwWorkspace:Integration")
+
+FTW_WORKSPACE_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FTW_WORKSPACE_FIXTURE,
+           set_builder_session_factory(functional_session_factory)),
+    name="FtwWorkspace:Functional")
 
 
 class LatexZCMLLayer(Layer):

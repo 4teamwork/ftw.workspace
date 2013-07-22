@@ -8,6 +8,7 @@ tests_require = [
     'ftw.testing',
     'ftw.pdfgenerator',
     'ftw.builder',
+    'pyquery',
     ]
 
 setup(name='ftw.workspace',

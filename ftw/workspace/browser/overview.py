@@ -1,3 +1,4 @@
+from DateTime import DateTime
 from ftw.tabbedview.browser import listing
 from ftw.table import helper as table_helper
 from ftw.workspace import _
@@ -79,9 +80,6 @@ class OverviewTab(listing.CatalogListingView):
     def description(self):
         return self.context.Description()
 
-    def files(self):
-        return self.catalog(['File', ], sort_on='created')[:5]
-
     def recently_modified(self):
         return self.catalog()[:10]
 
@@ -104,18 +102,23 @@ class OverviewTab(listing.CatalogListingView):
             return bool(len(searchable_text))
         return False
 
-    def generate_date(self, item, Now=None):
-        today = datetime.datetime.now().day
-        yesterday = (datetime.datetime.now() - datetime.timedelta(1)).day
-        this_month = datetime.datetime.now().month
-        this_year = datetime.datetime.now().year
-        modified = item.modified
+    def generate_date(self, datetimestring, now=None):
+        if now is None:
+            now = datetime.datetime.now()
+
+        today = now.day
+        yesterday = (now - datetime.timedelta(1)).day
+        this_month = now.month
+        this_year = now.year
+
+        modified = DateTime(datetimestring)
         if modified.month() == this_month and modified.year() == this_year:
             if modified.day() == today:
-                return _(u'label_today', default=u'today',
+                return _(u'label_today', default=u'Today, ${time}',
                          mapping={'time': modified.strftime('%H:%M')})
+
             elif modified.day() == yesterday:
-                return _(u'label_yesterday', u'yesterday',
+                return _(u'label_yesterday', u'Yesterday, ${time}',
                          mapping={'time': modified.strftime('%H:%M')})
             else:
                 return modified.strftime('%d.%m.%Y')

@@ -10,8 +10,12 @@
     <property name="factory">addWorkspace</property>
     <property name="immediate_view">tabbed_view</property>
     <property name="global_allow">True</property>
-    <property name="filter_content_types">False</property>
+    <property name="filter_content_types">True</property>
     <property name="allowed_content_types">
+        <element value="TabbedViewFolder" />
+        <element value="File" />
+        <element value="Event" />
+        <element value="Document" />
     </property>
     <property name="allow_discussion">False</property>
     <property name="default_view">tabbed_view</property>

@@ -110,7 +110,7 @@
                     <table class="listing">
                         <tr tal:repeat="item view/recently_modified">
                             <td class="columnDate">
-                                <span tal:content="python: view.generate_date(item)"/>
+                                <span tal:content="python: view.generate_date(item.modified)"/>
                             </td>
                             <td class="columnData">
                                 <span tal:replace="structure python: view.get_icon(item)" />
