@@ -1,5 +1,8 @@
-from Products.CMFCore.utils import getToolByName
+from datetime import datetime
+from datetime import timedelta
 from plone.memoize import ram
+from Products.Archetypes.utils import OrderedDict
+from Products.CMFCore.utils import getToolByName
 from zope.component.hooks import getSite
 import os.path
 
@@ -144,3 +147,34 @@ def review_state(item, value):
     return """
     <img src="%s/++resource++izug.theme.images/%s" width="16" height="16"/>
     """ % (portal_url(), state_icon)
+
+
+def group_by_date(results):
+    grouped_results = OrderedDict()
+    grouped_results['today'] = []
+    grouped_results['yesterday'] = []
+    grouped_results['this_week'] = []
+    grouped_results['this_month'] = []
+    grouped_results['older'] = []
+
+    today = datetime.today().day
+    yesterday = (datetime.today() - timedelta(1)).day
+    this_week = int(datetime.today().strftime("%V"))  # isoweek
+    this_month = datetime.today().month
+    this_year = datetime.today().year
+
+    for result in results:
+        modified = result.modified
+        if modified.month() == this_month and modified.year() == this_year:
+            if modified.day() == today:
+                grouped_results['today'].append(result)
+            elif modified.day() == yesterday:
+                grouped_results['yesterday'].append(result)
+            elif int(modified.strftime("%V")) == this_week:
+                grouped_results['this_week'].append(result)
+            else:
+                grouped_results['this_month'].append(result)
+        else:
+            grouped_results['older'].append(result)
+    return grouped_results.items()
+

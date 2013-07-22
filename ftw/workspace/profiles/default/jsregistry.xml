@@ -10,4 +10,9 @@
         enabled="on"
         inline="False"
         />
+
+    <javascript cacheable="True" compression="safe" cookable="True"
+        enabled="1" expression="" insert-after="++resource++jquery.smartTruncation.js"
+        id="++resource++ftw.workspace-resources/overview_truncate.js" />
+
 </object>

@@ -1,0 +1,11 @@
+table.listing .columnDate{
+    width: 30%;
+}
+
+table.listing .columnData{
+    width: 70%;
+}
+
+.overview-right-column table.listing .columnData .rollover {
+    display: inline-block;
+}

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.6.4.dev0'
+version = '1.7.0.dev0'
 
 tests_require = [
     'plone.app.testing',
@@ -38,11 +38,12 @@ setup(name='ftw.workspace',
       zip_safe=False,
 
       install_requires=[
-        'setuptools',
-        'ftw.tabbedview',
+        'collective.js.jqsmartTruncation',
         'ftw.calendar',
-        'plone.principalsource',
+        'ftw.tabbedview',
         'ftw.upgrade',
+        'plone.principalsource',
+        'setuptools',
         # -*- Extra requirements: -*-
         ],
 

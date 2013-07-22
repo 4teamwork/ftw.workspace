@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-10 14:43+0000\n"
+"POT-Creation-Date: 2013-07-22 08:53+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,16 +10,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+
+#: ./ftw/workspace/browser/overview.pt:35
+msgid "<span>x</span>"
+msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
 msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
 
-msgid "Contacts"
-msgstr "Kontakte"
+#: ./ftw/workspace/browser/overview.pt:41
+msgid "Creator"
+msgstr "Ersteller"
 
-#: ./ftw/workspace/browser/overview.pt:15
+#: ./ftw/workspace/browser/overview.pt:101
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -28,48 +32,54 @@ msgstr "Beschreibung"
 msgid "Folder"
 msgstr "Ordner"
 
-#: ./ftw/workspace/browser/overview.pt:5
+#: ./ftw/workspace/browser/overview.pt:88
 msgid "Folders"
 msgstr "Ordner"
+
+#: ./ftw/workspace/browser/overview.pt:38
+msgid "Modified"
+msgstr "Änderungsdatum"
+
+#: ./ftw/workspace/browser/overview.pt:35
+msgid "Title"
+msgstr "Title"
+
+#: ./ftw/workspace/browser/overview.pt:32
+msgid "Typ"
+msgstr "Typ"
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
 msgstr "Arbeitsraum"
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:62
+#: ./ftw/workspace/browser/documents.py:56
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Hinzugefügt durch"
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:40
+#: ./ftw/workspace/browser/documents.py:34
 msgid "column_date"
 msgstr "Datum"
 
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:67
-#: ./ftw/workspace/browser/overview.py:24
+#: ./ftw/workspace/browser/documents.py:61
+#: ./ftw/workspace/browser/overview.py:25
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:57
+#: ./ftw/workspace/browser/documents.py:51
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:52
+#: ./ftw/workspace/browser/documents.py:46
 msgid "column_type"
 msgstr "Typ"
-
-msgid "contacts"
-msgstr "Kontakte"
-
-msgid "event"
-msgstr "Termin"
 
 #. Default: "Export:"
 #: ./ftw/workspace/browser/events.pt:39
@@ -86,22 +96,22 @@ msgstr "Kalender"
 msgid "events_pill_list"
 msgstr "Liste"
 
-#: ./ftw/workspace/browser/events.py:45
-#: ./ftw/workspace/browser/overview.py:30
+#: ./ftw/workspace/browser/events.py:44
+#: ./ftw/workspace/browser/overview.py:31
 msgid "label_eventstab_creator"
 msgstr "Hinzugefügt durch"
 
-#: ./ftw/workspace/browser/events.py:25
+#: ./ftw/workspace/browser/events.py:24
 msgid "label_eventstab_start"
 msgstr "Beginn"
 
-#: ./ftw/workspace/browser/events.py:31
-#: ./ftw/workspace/browser/overview.py:20
+#: ./ftw/workspace/browser/events.py:30
+#: ./ftw/workspace/browser/overview.py:21
 msgid "label_eventstab_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/events.py:37
+#: ./ftw/workspace/browser/events.py:36
 msgid "label_eventstab_type"
 msgstr "Typ"
 
@@ -110,6 +120,16 @@ msgstr "Typ"
 #: ./ftw/workspace/content/workspace.py:30
 msgid "label_text"
 msgstr "Text"
+
+#. Default: "today"
+#: ./ftw/workspace/browser/overview.py:115
+msgid "label_today"
+msgstr "Heute, ${time}"
+
+#. Default: "yesterday"
+#: ./ftw/workspace/browser/overview.py:118
+msgid "label_yesterday"
+msgstr "Gestern, ${time}"
 
 #. Default: "Creator"
 #: ./ftw/workspace/latex/templates/files_listing.pt:27
@@ -132,27 +152,27 @@ msgid "latex_files_title"
 msgstr "Titel"
 
 #. Default: "Description"
-#: ./ftw/workspace/latex/views.py:39
+#: ./ftw/workspace/latex/views.py:40
 msgid "latex_label_description"
 msgstr "Beschreibung"
 
 #. Default: "Files"
-#: ./ftw/workspace/latex/views.py:92
+#: ./ftw/workspace/latex/views.py:96
 msgid "latex_label_files"
 msgstr "Dateien"
 
 #. Default: "Owner"
-#: ./ftw/workspace/latex/views.py:38
+#: ./ftw/workspace/latex/views.py:39
 msgid "latex_label_owner"
 msgstr "Verantwortlich"
 
 #. Default: "Title"
-#: ./ftw/workspace/latex/views.py:37
+#: ./ftw/workspace/latex/views.py:38
 msgid "latex_label_title"
 msgstr "Titel"
 
 #. Default: "Workspace"
-#: ./ftw/workspace/latex/views.py:36
+#: ./ftw/workspace/latex/views.py:37
 msgid "latex_label_workspace"
 msgstr "Arbeitsraum"
 
@@ -166,14 +186,7 @@ msgstr "Seite"
 msgid "latex_printed"
 msgstr "Druckdatum"
 
-msgid "meeting"
-msgstr "Sitzung"
-
-msgid "poll"
-msgstr "Umfrage"
-
-#: ./ftw/workspace/browser/overview.pt:22
+#: ./ftw/workspace/browser/overview.pt:109
 msgid "recently modified"
 msgstr "Kürzlich verändert"
-
 

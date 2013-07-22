@@ -2,11 +2,18 @@ Changelog
 =========
 
 
-1.6.4 (unreleased)
+1.7.0 (unreleased)
 ------------------
 
 - Plone 4.3 compatibility.
   [jone]
+
+- Move some the following features from a private repo to ftw.workspace.
+
+  - Enable filtering on overview.
+  - Truncate long text in recently modified listing.
+  - Use 'today + time' and 'yesterday + time' in recently modified listing.
+  [mathias.leimgruber]
 
 - Add permissionmapping for ftw.lawgiver
   [elioschmutz]
