@@ -1,34 +1,144 @@
-<div class="row" i18n:domain="ftw.workspace">
-    <div class="overview-left-column cell position-0 width-1:2">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    tal:omit-tag="python: True"
+    i18n:domain="ftw.workspace">
 
-        <div class="box" tal:condition="view/folders">
-            <h2 i18n:translate="">Folders</h2>
-            <ul>
-                <li tal:repeat="folder view/folders">
-                    <span tal:replace="structure python: view.get_icon(folder)" />
-                    <a class="rollover" tal:attributes="href folder/getURL;title python: view.get_description(folder)" tal:content="folder/Title" />
-                </li>
-            </ul>
-        </div>
-        <div class="box"
-             tal:define="textfield python: context.aq_explicit.Schema().getField('text')">
-            <h2 i18n:translate="" tal:condition="python:context.Description()">Description</h2>
-            <p tal:content="context/aq_explicit/Description"></p>
-            <span tal:condition="nocall:textfield" tal:replace="structure python:textfield.get(context)"></span>
-        </div>
+
+    <div tal:condition="view/show_search_results">
+        <table class="sortable-table invisible listing"  tal:condition="view/contents"
+               tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                           b_size python:10;
+                           b_size request/b_size | b_size;
+                           b_size python: type(b_size) == type([]) and b_size[-1] or b_size;
+                           b_start python:0;b_start request/b_start | b_start;
+                           b_range python: b_start==0 and 5 or 3;
+                           batch python:Batch(view.contents, int(b_size), int(b_start), orphan=1,pagerange=int(b_range));">
+
+            <colgroup>
+                <col width="10%"/>
+                <col width="5%"/>
+                <col width="45%"/>
+                <col width="20%"/>
+                <col width="15%"/>
+                <col width="5%"/>
+            </colgroup>
+
+            <thead style="text-align:left">
+                <tr>
+                    <th></th>
+                    <th id="getContentType" class="sortable">
+                        <span i18n:translate="">Typ</span>
+                    </th>
+                    <th i18n:translate="" id="sortable_title" class="sortable">
+                        <span i18n:translate="">Title</span>
+                    </th>
+                    <th i18n:translate="" id="modified" class="sortable">
+                        <span i18n:translate="">Modified</span>
+                    </th>
+                    <th i18n:translate="" id="sortable_creator" class="sortable">
+                        <span i18n:translate="">Creator</span>
+                    </th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tal:rep tal:repeat="cat batch">
+                    <tr tal:condition="python: len(cat[1]) > 0">
+                        <td i18n:translate=""
+                            tal:content="python: view.translate_readable_date(cat[0])"></td>
+                    </tr>
+                    <tr tal:repeat="brain python: cat[1]">
+                        <td></td>
+                        <td >
+                            <a tal:attributes="href string:${brain/getURL}/at_download/file"
+                               tal:omit-tag="python:brain.getObjSize.lower()=='0 kb'">
+                                <span tal:replace="structure python:view.get_icon(brain)"></span>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a tal:attributes="href string:${brain/getURL}/view; title string:${brain/Description};
+                                               class python:'rollover-description %s' % view.type_class(brain)">
+                                <tal:b tal:content="python: brain['Title']" />
+                            </a>
+                        </td>
+                        <td tal:content="python:view.generate_date(brain)"></td>
+                        <td tal:content="structure python:view.readable_author(brain, brain.Creator)"></td>
+                        <td class="actions">
+                            <a class="arbeitsraum_delete_item"
+                               tal:attributes="href string:${brain/getURL}/delete_confirmation?came_from=${here/absolute_url}">
+                                <span class="function-delete">&nbsp;</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tal:rep>
+            </tbody>
+        </table>
     </div>
-    <div class="overview-right-column cell position-8 width-1:2">
-        <div class="box" tal:condition="view/recently_modified">
-            <h2 i18n:translate="">recently modified</h2>
-            <ul>
-                <li tal:repeat="item view/recently_modified">
-                    <span tal:content="python: item.modified.strftime('%d.%m.%Y %H:%M')"/>
-                    <span tal:replace="structure python: view.get_icon(item)" />
-                    <a class="rollover"
-                       tal:attributes="href string:${item/getURL}/view; title python: view.get_description(item)"
-                       tal:content="item/Title" />
-                </li>
-            </ul>
+
+    <tal:block tal:condition="not: view/show_search_results">
+
+        <div class="row">
+            <div class="overview-left-column cell position-0 width-1:2">
+
+                <div class="box" tal:condition="view/folders">
+                    <h2 i18n:translate="">Folders</h2>
+                    <ul>
+                        <li tal:repeat="folder view/folders">
+                            <span tal:replace="structure python: view.get_icon(folder)" />
+                            <a tal:content="folder/Title"
+                               tal:attributes="href folder/getURL;title python: view.get_description(folder);
+                                               class python:'rollover %s' % view.type_class(folder)" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="textbox"
+                     tal:define="textfield python: context.aq_explicit.Schema().getField('text')">
+                    <h2 i18n:translate="" tal:condition="python:context.Description()">Description</h2>
+                    <p tal:content="context/aq_explicit/Description"></p>
+                    <span tal:condition="textfield" tal:replace="structure python:textfield.get(context)"></span>
+                </div>
+
+            </div>
+            <div class="overview-right-column cell position-8 width-1:2">
+                <div class="box" tal:condition="view/recently_modified">
+                    <h2 i18n:translate="">recently modified</h2>
+                    <table class="listing">
+                        <tr tal:repeat="item view/recently_modified">
+                            <td class="columnDate">
+                                <span tal:content="python: view.generate_date(item.modified)"/>
+                            </td>
+                            <td class="columnData">
+                                <span tal:replace="structure python: view.get_icon(item)" />
+                                <a tal:content="item/Title"
+                                   tal:attributes="href string:${item/getURL}/view; title python: view.get_description(item);
+                                                   class python:'rollover %s' % view.type_class(item)" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    <script type="text/javascript" language="javascript">
+$(function(){
+    if (typeof(_truncate_event_already_registered) !== "undefined" && !_truncate_event_already_registered){
+        jQuery.tabbedview.view_container.bind('reload', function() {
+            if ($('#overview_overview:visible').length === 1){
+                if (typeof(truncate_overview) !== "undefined"){
+                    truncate_overview();
+                    _truncate_event_already_registered = true;
+                }
+            }
+        });
+    }
+});
+    </script>
+
+    </tal:block>
+    <div class="visualClear"><!-- --></div>
+
+</html>

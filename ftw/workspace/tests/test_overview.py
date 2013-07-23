@@ -1,125 +1,164 @@
-from ftw.testing import MockTestCase
-from ftw.workspace.browser.overview import OverviewTab
-from ftw.workspace.testing import OVERVIEW_LAYER
-from mocker import ANY
-from mocker import Mocker
+from DateTime import DateTime
+from datetime import datetime
+from ftw.builder import Builder
+from ftw.builder import create
+from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
+from plone.testing.z2 import Browser
+from pyquery import PyQuery as pq
+from unittest2 import TestCase
 
 
-class TestOverview(MockTestCase):
+class TestOverviewTab(TestCase):
 
-    layer = OVERVIEW_LAYER
+    layer = FTW_WORKSPACE_FUNCTIONAL_TESTING
 
     def setUp(self):
-        super(TestOverview, self).setUp()
-        self.searchable_text = ''
-        self.search_text_in_request = False
+        portal = self.layer['portal']
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+        login(portal, TEST_USER_NAME)
 
-        self.request = self.stub()
-        self.response = self.stub()
-        self.expect(self.request.response).result(self.response)
-        self.expect(self.request.RESPONSE).result(self.response)
+        self.workspace = create(Builder('workspace')
+            .titled('Workspace')
+            .having(description='Description'))
 
-        self.expect(self.response.getHeader("Content-Type")).result('')
-        self.expect(self.response.setHeader("Content-Type", ANY)).result(None)
+        self.browser = Browser(self.layer['app'])
+        self.browser.handleErrors = False
+        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
+            TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
-        self.expect('searchable_text' in self.request).call(
-            lambda: self.search_text_in_request)
-        self.expect(self.request.get('searchable_text')).call(
-            lambda k: self.search_text_in_request and self.searchable_text)
-        self.expect(self.request.get('searchable_text', None)).call(
-            lambda k, d: self.search_text_in_request and self.searchable_text)
+    def test_overview_tab_available(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
-        self.expect(self.request.get('pagenumber', 1)).result(1)
-        self.expect(self.request.debug).result(True)
-        self.expect(self.request.get('sort', ANY)).call(lambda k, d: d)
-        self.expect(self.request.get('dir', ANY)).call(lambda k, d: d)
-        self.expect(self.request.get('groupBy', ANY)).call(lambda k, d: d)
+        self.assertIsNotNone(view, 'Overview tab is no available.')
 
-        self.context = self.stub()
-        self.expect(self.context.portal_type).result('Workspace')
-        self.expect(self.context.absolute_url()).result('http://nohost/plone')
-        self.expect(self.context.getPhysicalPath()).result(['', 'plone'])
-        self.expect(self.context.portal_catalog(ANY)).result([])
-        self.expect(self.context.aq_explicit).result(self.context)
-        self.expect(self.context.__parent__).result(None)
-        self.expect(self.context.Description).result(
-            lambda: 'MOCK ALL THE THINGS')
-        schema = self.stub()
-        self.expect(self.context.Schema()).result(schema)
-        self.expect(schema.getField('text').get(self.context)).result(
-            'THE TEXT')
+    def test_recently_modified_listing_order(self):
+        file1 = create(Builder('file')
+            .within(self.workspace)
+            .titled('Dummy File')
+            .having(modificationDate=DateTime() - 1)
+            .attach_file_containing('DATA', name='dummy.pdf'))
 
-        self.testcase_mocker = Mocker()
+        self.browser.open(
+            '%s/tabbedview_view-overview' % self.workspace.absolute_url())
+        doc = pq(self.browser.contents)
+        listing = doc('.overview-right-column tr')
 
-        self.overview = OverviewTab(self.context, self.request)
-        self.overview._table_source = self.testcase_mocker.mock()
-        self.overview._table_source.search_results(ANY)
-        self.testcase_mocker.result([])
-        self.testcase_mocker.count(0, None)
+        self.assertEquals(2, len(listing),
+            'Expect two entries in recently modified listing')
 
-        self.overview.table_source.build_query()
-        self.testcase_mocker.result('')
-        self.testcase_mocker.count(0, None)
+        self.assertEquals(self.workspace.Title(),
+            doc('a.rollover', listing[0]).text())
 
-        self.overview.table_source.custom_sort()
-        self.testcase_mocker.result('')
-        self.testcase_mocker.count(0, None)
+        self.assertEquals(file1.Title(),
+            doc('a.rollover', listing[1]).text())
 
-        self.overview.__name__
-        self.testcase_mocker.result('tabbedview_view-overview')
-        self.testcase_mocker.count(0, None)
+    def test_overview_description(self):
+        self.browser.open(
+            '%s/tabbedview_view-overview' % self.workspace.absolute_url())
+        doc = pq(self.browser.contents)
 
-        # self.obj = self.testcase_mocker.proxy(self.overview)
+        self.assertIn(self.workspace.Description(),
+            doc('.textbox')[0].text_content(),
+            'Description not found')
 
-        self.testcase_mocker.replay()
+    def test_overview_base_catalog_result(self):
+        file1 = create(Builder('file')
+            .within(self.workspace)
+            .having(modificationDate=DateTime() - 1)
+            .attach_file_containing('DATA', name='dummy.pdf'))
 
-    def tearDown(self):
-        self.testcase_mocker.verify()
-        self.testcase_mocker.restore()
-        super(TestOverview, self).tearDown()
+        file2 = create(Builder('file')
+            .within(self.workspace)
+            .having(modificationDate=DateTime() - 2)
+            .attach_file_containing('DATA', name='dummy.pdf'))
 
-    def test_overview(self):
-        self.replay()
-        self.searchable_text = ''
-        self.search_text_in_request = False
-        self.overview.update()
-        self.assertEqual(self.overview.show_search_results(), False)
-        testhtml = "MOCK ALL THE THINGS"
-        template = self.overview.template()
-        self.assertEqual(testhtml in template, True)
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
-    def test_second_overview(self):
-        self.replay()
-        self.searchable_text = 'Test'
-        self.search_text_in_request = True
-        self.overview.update()
-        self.assertEqual(self.overview.show_search_results(), True)
-        testhtml = ''
-        template = self.overview.template()
-        self.assertEqual(testhtml in template, True)
+        self.assertEquals([self.workspace.id, file1.id, file2.id],
+            [brain.getId for brain in view.catalog()],
+            'Wrong default order')
 
-    def test_get_description(self):
-        transforms = self.mocker.mock()
-        self.mock_tool(transforms, 'portal_transforms')
-        self.expect(
-            transforms.convertTo('text/plain', 'foo <b>bar</b>').getData()
-            ).result('foo bar')
+    def test_display_subfolders(self):
+        folder = create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('SubFolder'))
 
-        brain = self.stub()
-        self.expect(brain.getObject().Description()).result('foo <b>bar</b>')
+        self.browser.open(
+            '%s/tabbedview_view-overview' % self.workspace.absolute_url())
+        doc = pq(self.browser.contents)
+        self.assertEquals(folder.Title(),
+            doc('.overview-left-column .box ul li a.rollover').text())
 
-        self.replay()
+    def test_show_ten_recently_modified_items(self):
+        for i in range(1, 15):
+            create(Builder('file')
+                .within(self.workspace))
 
-        self.assertEqual(self.overview.get_description(brain), 'foo bar')
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
-    def test_get_description__description_is_None(self):
-        transforms = self.mocker.mock()
-        self.mock_tool(transforms, 'portal_transforms')
-        self.expect(transforms.convertTo('text/plain', None)).result(None)
+        self.assertEquals(10, len(view.recently_modified()),
+            'Display only the ten most recent changes')
 
-        brain = self.stub()
-        self.expect(brain.getObject().Description()).result(None)
+    def test_save_description(self):
+        create(Builder('file')
+            .within(self.workspace)
+            .having(description='<b>Bold description</b>')
+            .attach_file_containing('DATA', name='dummy.pdf'))
+        brain = self.workspace.getFolderContents()[0]
 
-        self.replay()
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
-        self.assertEqual(self.overview.get_description(brain), '')
+        self.assertEquals('Bold description', view.get_description(brain))
+
+    def test_overview_show_search_description(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+
+        self.assertFalse(view.show_search_results())
+
+        view.request['searchable_text'] = 'something'
+        self.assertTrue(view.show_search_results())
+
+    def test_overview_type_class_file(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+        create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing('DATA', name='dummy.pdf'))
+        brain = self.workspace.getFolderContents()[0]
+
+        self.assertEquals('', view.type_class(brain))
+
+    def test_overview_type_class_other(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+        create(Builder('document')
+            .within(self.workspace))
+        brain = self.workspace.getFolderContents()[0]
+
+        self.assertEquals('contenttype-document',
+            view.type_class(brain))
+
+    def test_overview_generate_date_today(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+        now = datetime(2013, 6, 3, 11, 0)
+
+        datestring = '2013-06-03 09:00:00'
+        self.assertEquals('label_today', view.generate_date(datestring, now))
+
+    def test_overview_generate_date_yesterday(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+        now = datetime(2013, 6, 3, 11, 0)
+
+        datestring = '2013-06-02 09:00:00'
+        self.assertEquals('label_yesterday',
+            view.generate_date(datestring, now))
+
+    def test_overview_generate_date_older(self):
+        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
+        now = datetime(2013, 6, 3, 11, 0)
+
+        datestring = '2013-03-01 11:00:00'
+        self.assertEquals('01.03.2013', view.generate_date(datestring, now))
