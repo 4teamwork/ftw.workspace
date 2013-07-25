@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+    <record name="ftw.workspace.auto_roles">
+        <field type="plone.registry.field.List">
+            <title>Automatically set roles on workspaces</title>
+            <description>Roles automatically given to owners of workspaces upon creation</description>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>
+            <element>Contributor</element>
+            <element>Editor</element>
+            <element>Reader</element>
+        </value>
+    </record>
+</registry>
