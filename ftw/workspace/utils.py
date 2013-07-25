@@ -6,8 +6,6 @@ from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from Products.CMFCore.utils import getToolByName
 
-_marker = object()
-
 
 def has_ftwfile(context):
     portal_setup = getToolByName(context, 'portal_setup')
@@ -45,7 +43,7 @@ class TinyMCEAllowedButtonsConfigurator(object):
     """
 
     def __init__(self):
-        self._data = _marker
+        self._data = None
 
     def __iter__(self):
         """This is a iterator, so it returns itself.
@@ -58,14 +56,15 @@ class TinyMCEAllowedButtonsConfigurator(object):
         starting iteration again, retrieve the configuration and start again
         at the beginning.
         """
-        if self._data is _marker:
+
+        if self._data is None:
             self._data = list(self.load_data())
 
         if len(self._data) > 0:
             return self._data.pop(0)
 
         else:
-            self._data = _marker
+            self._data = None
             raise StopIteration()
 
     def load_data(self):
