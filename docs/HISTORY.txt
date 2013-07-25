@@ -5,9 +5,7 @@ Changelog
 1.7.0 (unreleased)
 ------------------
 
-- Remove local roles setter event handler.
-  This is event handler is no longer necessary.
-  Workflows should set the delegate roles permissions properly.
+- Make auto-roles, granted to the owner of a workspace, configurable.
   [jone]
 
 - Plone 4.3 compatibility.

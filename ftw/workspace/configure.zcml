@@ -40,6 +40,8 @@
         <include package=".latex" />
     </configure>
 
+    <subscriber handler=".content.workspace.workspace_added" />
+
     <utility component=".vocabularies.AssignableUsersVocabularyFactory"
              name="assignable_users"
              provides="zope.schema.interfaces.IVocabularyFactory"

@@ -60,5 +60,24 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1700 -> 1701 -->
+    <genericsetup:upgradeStep
+        title="Install new auto-role configuration setting"
+        description=""
+        source="1700"
+        destination="1701"
+        handler="ftw.workspace.upgrades.to1701.ImportRegistry"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1701"
+        title="ftw.workspace.upgrades.1701"
+        description=""
+        directory="profiles/1701"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>
