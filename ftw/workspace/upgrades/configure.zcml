@@ -79,5 +79,24 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1701 -> 1702 -->
+    <genericsetup:upgradeStep
+        title="Install Browserlayer"
+        description=""
+        source="1701"
+        destination="1702"
+        handler="ftw.workspace.upgrades.to1702.InstallBrowserLayer"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1702"
+        title="ftw.workspace.upgrades.1702"
+        description=""
+        directory="profiles/1702"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>
