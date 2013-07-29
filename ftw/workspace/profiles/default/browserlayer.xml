@@ -1,0 +1,6 @@
+<layers>
+
+  <layer name="ftw.workspace"
+         interface="ftw.workspace.interfaces.IWorkspaceLayer" />
+
+</layers>

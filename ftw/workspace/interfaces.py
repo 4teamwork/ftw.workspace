@@ -31,3 +31,7 @@ class IWorkspaceDetailsListingProvider(Interface):
         """A integer number which is used for sorting the listings.
         Small numbers are at the top, big numbers at the bottom.
         """
+
+
+class IWorkspaceLayer(Interface):
+    """Request marker interface for ftw.workspace"""
