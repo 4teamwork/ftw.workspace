@@ -58,7 +58,7 @@
         </class>
 
         <adapter
-          provides="collective.quickupload.browser.interfaces.IQuickUploadFileFactory"
+          provides="collective.quickupload.interfaces.IQuickUploadFileFactory"
           factory=".quick_upload.WorkspaceQuickUploadCapableFileFactory"
           for="ftw.tabbedview.interfaces.ITabbedviewUploadable"
           />
