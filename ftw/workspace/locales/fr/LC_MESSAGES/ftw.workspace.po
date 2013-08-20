@@ -22,36 +22,36 @@ msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:41
 msgid "Creator"
-msgstr ""
+msgstr "Créateur"
 
 #: ./ftw/workspace/browser/overview.pt:101
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
 #: ./ftw/workspace/upgrades/profiles/1501/types/TabbedViewFolder.xml
 msgid "Folder"
-msgstr ""
+msgstr "Dossier"
 
 #: ./ftw/workspace/browser/overview.pt:88
 msgid "Folders"
-msgstr ""
+msgstr "Dossiers"
 
 #: ./ftw/workspace/browser/overview.pt:38
 msgid "Modified"
-msgstr ""
+msgstr "Modifié"
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: ./ftw/workspace/browser/overview.pt:32
 msgid "Typ"
-msgstr ""
+msgstr "Type"
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
-msgstr ""
+msgstr "Espace travail"
 
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:56

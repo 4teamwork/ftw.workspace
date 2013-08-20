@@ -15,34 +15,34 @@ msgstr ""
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:27
 msgid "column_creator"
-msgstr ""
+msgstr "Créateur"
 
 #. Default: "date"
 #: ./ftw/workspace/browser/documents.py:24
 msgid "column_date"
-msgstr ""
+msgstr "Date"
 
 #. Default: "modified"
 #: ./ftw/workspace/browser/documents.py:31
 #: ./ftw/workspace/browser/overview.py:20
 msgid "column_modified"
-msgstr ""
+msgstr "Modification"
 
 #. Default: "Title"
 #: ./ftw/workspace/browser/documents.py:20
 msgid "column_title"
-msgstr ""
+msgstr "Titre"
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/documents.py:17
 msgid "column_type"
-msgstr ""
+msgstr "Type"
 
 msgid "documents"
-msgstr ""
+msgstr "Documents"
 
 msgid "events"
-msgstr ""
+msgstr "Événements"
 
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:26
@@ -70,9 +70,9 @@ msgid "label_text"
 msgstr ""
 
 msgid "overview"
-msgstr ""
+msgstr "Sommaire"
 
 msgid "workspaces"
-msgstr ""
+msgstr "Espaces travail"
 
 
