@@ -47,27 +47,27 @@ msgstr "Événements"
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:26
 msgid "label_eventstab_creator"
-msgstr ""
+msgstr "Créateur"
 
 #: ./ftw/workspace/browser/events.py:27
 msgid "label_eventstab_start"
-msgstr ""
+msgstr "Date de début"
 
 #: ./ftw/workspace/browser/events.py:32
 #: ./ftw/workspace/browser/overview.py:16
 msgid "label_eventstab_title"
-msgstr ""
+msgstr "Titre"
 
 #. Default: "Type"
 #: ./ftw/workspace/browser/events.py:37
 msgid "label_eventstab_type"
-msgstr ""
+msgstr "Type"
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
 #: ./ftw/workspace/content/workspace.py:29
 msgid "label_text"
-msgstr ""
+msgstr "Texte"
 
 msgid "overview"
 msgstr "Sommaire"
