@@ -5,6 +5,9 @@ Changelog
 1.7.0 (unreleased)
 ------------------
 
+- Add div-element arount ics export for better css selectors
+  [elio.schmutz]
+
 - Provide a workspace browserlayer.
   [mathias.leimgruber]
 
