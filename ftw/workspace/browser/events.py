@@ -22,7 +22,7 @@ class EventsTab(listing.CatalogListingView):
     columns = ({'column': 'start',
                 'column_index': 'start',
                 'column_title': _(u'label_eventstab_start'),
-                'transform': helper.readable_date,
+                'transform': helper.readable_date_text,
                 'width': 80},
 
                {'column': 'Title',

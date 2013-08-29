@@ -29,7 +29,7 @@ class WorkspacesTab(Tab):
 
         {'column': 'modified',
          'column_title': _(u'column_modified', default=u'modified'),
-         'transform': helper.readable_date,
+         'transform': helper.readable_date_text,
          'width': 80},
 
         {'column': 'Creator',

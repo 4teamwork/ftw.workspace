@@ -5,7 +5,9 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use human date formatting with "today", "yesterday" etc.
+  for tabs "documents", "events" and "workspaces".
+  [jone]
 
 
 1.7.0 (2013-08-28)

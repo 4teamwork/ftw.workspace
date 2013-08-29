@@ -32,7 +32,7 @@ class DocumentsTab(Tab):
         # default implementation
         date_column = {'column': 'effective',
                        'column_title': _(u'column_date', default=u'date'),
-                       'transform': helper.readable_date,
+                       'transform': helper.readable_date_text,
                        'width': 100}
         # ftw.file implementation
         if has_ftwfile(self.context):
@@ -59,7 +59,7 @@ class DocumentsTab(Tab):
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
-             'transform': helper.readable_date,
+             'transform': helper.readable_date_text,
              'width': 80},
         )
         return columns
