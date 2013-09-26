@@ -14,10 +14,10 @@ msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
-msgstr ""
+msgstr "Un espace pour du travail collaboratif"
 
 msgid "Contacts"
-msgstr ""
+msgstr "Contacts"
 
 #: ./ftw/workspace/browser/overview.pt:15
 msgid "Description"
@@ -34,7 +34,7 @@ msgstr "Dossiers"
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
-msgstr "Espace travail"
+msgstr "Espace de travail"
 
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:62
@@ -66,10 +66,10 @@ msgid "column_type"
 msgstr "Type"
 
 msgid "contacts"
-msgstr ""
+msgstr "Contact"
 
 msgid "event"
-msgstr ""
+msgstr "Rendez-vous"
 
 #. Default: "Export:"
 #: ./ftw/workspace/browser/events.pt:39
@@ -89,7 +89,7 @@ msgstr "Liste"
 #: ./ftw/workspace/browser/events.py:45
 #: ./ftw/workspace/browser/overview.py:30
 msgid "label_eventstab_creator"
-msgstr "Créateur"
+msgstr "Ajouté par"
 
 #: ./ftw/workspace/browser/events.py:25
 msgid "label_eventstab_start"
@@ -144,7 +144,7 @@ msgstr "Fichier"
 #. Default: "Owner"
 #: ./ftw/workspace/latex/views.py:38
 msgid "latex_label_owner"
-msgstr "Possesseur"
+msgstr "Responsable"
 
 #. Default: "Title"
 #: ./ftw/workspace/latex/views.py:37
@@ -154,7 +154,7 @@ msgstr "Titre"
 #. Default: "Workspace"
 #: ./ftw/workspace/latex/views.py:36
 msgid "latex_label_workspace"
-msgstr "Espace travail"
+msgstr "Espace de travail"
 
 #. Default: "Page"
 #: ./ftw/workspace/latex/layout.py:18
@@ -167,13 +167,13 @@ msgid "latex_printed"
 msgstr "Imprimé"
 
 msgid "meeting"
-msgstr ""
+msgstr "Rèunion"
 
 msgid "poll"
-msgstr ""
+msgstr "Enquête"
 
 #: ./ftw/workspace/browser/overview.pt:22
 msgid "recently modified"
-msgstr "Modifié"
+msgstr "Modifié récemment"
 
 

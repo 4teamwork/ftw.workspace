@@ -73,6 +73,6 @@ msgid "overview"
 msgstr "Sommaire"
 
 msgid "workspaces"
-msgstr "Espaces travail"
+msgstr "Espaces de travail"
 
 

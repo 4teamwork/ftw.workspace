@@ -13,6 +13,6 @@ msgstr ""
 "Domain: DOMAIN\n"
 
 msgid "Print details (PDF)"
-msgstr ""
+msgstr "Imprimer les détails (PDF)"
 
 
