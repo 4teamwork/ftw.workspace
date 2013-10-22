@@ -4,8 +4,7 @@ from Products.Five.browser import BrowserView
 from zope.component import getUtility
 
 
-class Sublisting(BrowserView):
-
+class Sublisting(BrowserView, ListingHelper):
     """Workspace sublisting"""
 
     def collect(self):
@@ -31,6 +30,6 @@ class Sublisting(BrowserView):
                      objects=objects)
             )
 
-            #result.sort(key=lambda x: x['title'])
+            result.sort(key=lambda x: x['title'])
 
         return result
