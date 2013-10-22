@@ -36,4 +36,14 @@
             <element>Reader</element>
         </value>
     </record>
+    <record name="ftw.workspace.sublisting_types">
+        <field type="plone.registry.field.List">
+            <title>Types listed on workspace overview</title>
+            <description></description>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>
+            <element>TabbedViewFolder</element>
+        </value>
+    </record>
 </registry>
