@@ -1,4 +1,5 @@
 from ftw.workspace import _
+from ftw.workspace.browser.overview import ListingHelper
 from plone.registry.interfaces import IRegistry
 from Products.Five.browser import BrowserView
 from zope.component import getUtility
@@ -18,9 +19,7 @@ class Sublisting(BrowserView, ListingHelper):
             query = {'portal_type': type_,
                      'sort_on': 'sortable_title'}
 
-            objects = self.context.getFolderContents(
-                contentFilter=query,
-                full_objects=True)
+            objects = self.context.getFolderContents(contentFilter=query)
 
             if not objects:
                 continue

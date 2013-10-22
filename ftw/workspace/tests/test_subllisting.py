@@ -6,6 +6,7 @@ from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.registry.interfaces import IRegistry
+from pyquery import PyQuery
 from unittest2 import TestCase
 from zope.component import getUtility
 
@@ -45,8 +46,8 @@ class TestOverviewFolderSublisting(TestCase):
         self.assertEquals('Folder', self.view.collect()[0]['title'])
 
         objects = self.view.collect()[0]['objects']
-        self.assertEquals(0, objects.index(folder1))
-        self.assertEquals(1, objects.index(folder2))
+        self.assertIn(folder1.getId(), [item.getId for item in objects])
+        self.assertIn(folder2.getId(), [item.getId for item in objects])
 
     def test_list_more_types(self):
         registry = getUtility(IRegistry)
@@ -68,6 +69,15 @@ class TestOverviewFolderSublisting(TestCase):
         files = self.view.collect()[0]['objects']
         folders = self.view.collect()[1]['objects']
 
-        self.assertIn(file_, files)
-        self.assertIn(folder, folders)
+        self.assertIn(folder.getId(), [item.getId for item in folders])
+        self.assertIn(file_.getId(), [item.getId for item in files])
 
+    def test_sublisting_renders(self):
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('A folder'))
+
+        doc = PyQuery(self.view())
+
+        self.assertTrue(doc('ul li a'))
+        self.assertTrue(doc('h2'))
