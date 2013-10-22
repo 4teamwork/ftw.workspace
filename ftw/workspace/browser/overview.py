@@ -8,7 +8,32 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 import datetime
 
 
-class OverviewTab(listing.CatalogListingView):
+class ListingHelper(object):
+
+    def get_description(self, file_):
+        description = file_.getObject().Description()
+        # make sure there is no html in description
+        transforms = getToolByName(self.context, 'portal_transforms')
+        result = transforms.convertTo('text/plain', description)
+        if result is None:
+            return ''
+        else:
+            return result.getData()
+
+    def type_class(self, brain):
+        """ Returns the contenttype or mimetype class for sprites.
+        """
+        plone_utils = getToolByName(self.context, 'plone_utils')
+        if not brain.getIcon:
+            return 'contenttype-' + plone_utils.normalizeString(
+                brain.portal_type)
+        return ''
+
+    def get_icon(self, document):
+        return helper.icon(document, "")
+
+
+class OverviewTab(listing.CatalogListingView, ListingHelper):
     """Overview tab for workspace"""
 
     overview_template = ViewPageTemplateFile("overview.pt")
@@ -83,19 +108,6 @@ class OverviewTab(listing.CatalogListingView):
     def recently_modified(self):
         return self.catalog()[:10]
 
-    def get_icon(self, document):
-        return helper.icon(document, "")
-
-    def get_description(self, file_):
-        description = file_.getObject().Description()
-        # make sure there is no html in description
-        transforms = getToolByName(self.context, 'portal_transforms')
-        result = transforms.convertTo('text/plain', description)
-        if result is None:
-            return ''
-        else:
-            return result.getData()
-
     def show_search_results(self):
         if 'searchable_text' in self.request:
             searchable_text = self.request.get('searchable_text')
@@ -130,12 +142,3 @@ class OverviewTab(listing.CatalogListingView):
 
     def readable_author(self, item, author):
         return helper.readable_author(item, author)
-
-    def type_class(self, brain):
-        """ Returns the contenttype or mimetype class for sprites.
-        """
-        plone_utils = getToolByName(self.context, 'plone_utils')
-        if not brain.getIcon:
-            return 'contenttype-' + plone_utils.normalizeString(
-                brain.portal_type)
-        return ''
