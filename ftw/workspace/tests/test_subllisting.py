@@ -1,6 +1,6 @@
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
+from ftw.workspace.testing import FTW_WORKSPACE_INTEGRATION_TESTING
 from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -13,7 +13,7 @@ from zope.component import getUtility
 
 class TestOverviewFolderSublisting(TestCase):
 
-    layer = FTW_WORKSPACE_FUNCTIONAL_TESTING
+    layer = FTW_WORKSPACE_INTEGRATION_TESTING
 
     def setUp(self):
         portal = self.layer['portal']
