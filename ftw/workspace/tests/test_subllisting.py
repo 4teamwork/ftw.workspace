@@ -64,7 +64,7 @@ class TestOverviewFolderSublisting(TestCase):
         self.assertEquals(2, len(self.view.collect()), 'Expect two Folders')
 
         self.assertEquals('File', self.view.collect()[0]['title'])
-        self.assertEquals('TabbedViewFolder', self.view.collect()[1]['title'])
+        self.assertEquals('Folder', self.view.collect()[1]['title'])
 
         files = self.view.collect()[0]['objects']
         folders = self.view.collect()[1]['objects']
@@ -91,3 +91,15 @@ class TestOverviewFolderSublisting(TestCase):
         doc = PyQuery(tab())
 
         self.assertTrue(doc('.box.sublisting li'))
+
+    def test_translate_title(self):
+        self.assertEquals('Folder',
+                          self.view.translated_title('TabbedViewFolder'))
+        self.assertEquals('Page',
+                          self.view.translated_title('Document'))
+        self.assertEquals('File',
+                          self.view.translated_title('File'))
+
+    def test_translate_title_fallback(self):
+        self.assertEquals('Dummy',
+                          self.view.translated_title('Dummy'))
