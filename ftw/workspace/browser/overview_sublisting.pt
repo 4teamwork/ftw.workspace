@@ -1,6 +1,6 @@
 
 <tal:types repeat="types_ view/collect">
-    <div class="box" tal:condition="types_/objects">
+    <div class="box sublisting" tal:condition="types_/objects">
         <h2 tal:content="types_/title">type</h2>
         <ul>
             <li tal:repeat="obj types_/objects">

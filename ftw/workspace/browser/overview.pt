@@ -84,17 +84,7 @@
         <div class="row">
             <div class="overview-left-column cell position-0 width-1:2">
 
-                <div class="box" tal:condition="view/folders">
-                    <h2 i18n:translate="">Folders</h2>
-                    <ul>
-                        <li tal:repeat="folder view/folders">
-                            <span tal:replace="structure python: view.get_icon(folder)" />
-                            <a tal:content="folder/Title"
-                               tal:attributes="href folder/getURL;title python: view.get_description(folder);
-                                               class python:'rollover %s' % view.type_class(folder)" />
-                        </li>
-                    </ul>
-                </div>
+                <div tal:replace="structure view/render_sublisting" />
 
                 <div class="textbox"
                      tal:define="textfield python: context.aq_explicit.Schema().getField('text')">

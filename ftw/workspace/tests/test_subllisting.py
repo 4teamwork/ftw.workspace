@@ -81,3 +81,13 @@ class TestOverviewFolderSublisting(TestCase):
 
         self.assertTrue(doc('ul li a'))
         self.assertTrue(doc('h2'))
+
+    def test_sublisting_renders_in_overview_tab(self):
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('Folder'))
+
+        tab = self.workspace.restrictedTraverse('@@tabbedview_view-overview')
+        doc = PyQuery(tab())
+
+        self.assertTrue(doc('.box.sublisting li'))

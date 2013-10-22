@@ -142,3 +142,6 @@ class OverviewTab(listing.CatalogListingView, ListingHelper):
 
     def readable_author(self, item, author):
         return helper.readable_author(item, author)
+
+    def render_sublisting(self):
+        return self.context.restrictedTraverse('@@overview_sublisting')()
