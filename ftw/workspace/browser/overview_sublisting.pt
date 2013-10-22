@@ -1,0 +1,15 @@
+
+<tal:types repeat="types_ view/collect">
+    <div class="box sublisting" tal:condition="types_/objects">
+        <h2 tal:content="types_/title">type</h2>
+        <ul>
+            <li tal:repeat="obj types_/objects">
+                <span tal:replace="structure python: view.get_icon(obj)" />
+                <a tal:content="obj/Title"
+                   tal:attributes="href obj/absolute_url;
+                                  title python: view.get_description(obj);
+                                   class python:'rollover %s' % view.type_class(obj)" />
+            </li>
+        </ul>
+    </div>
+</tal:types>

@@ -27,6 +27,15 @@
         permission="zope2.View"
         />
 
+    <!-- Sublisting view, used on overview-tab -->
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="overview_sublisting"
+        class=".overview_sublisting.Sublisting"
+        template="overview_sublisting.pt"
+        permission="zope2.View"
+        />
+
     <browser:page
         for="Products.CMFCore.interfaces._content.IFolderish"
         name="tabbedview_view-workspaces"

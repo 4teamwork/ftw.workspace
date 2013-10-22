@@ -1,7 +1,10 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
     i18n_domain="ftw.workspace">
+
+    <include package="ftw.upgrade" file="meta.zcml" />
 
     <!-- 1 -> 1501 -->
     <genericsetup:upgradeStep
@@ -98,5 +101,13 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+
+    <upgrade-step:importProfile
+        title="Update configuration registry"
+        profile="ftw.workspace:default"
+        source="1702"
+        destination="1703"
+        directory="profiles/1703"
+        />
 
 </configure>
