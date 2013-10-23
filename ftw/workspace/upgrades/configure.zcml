@@ -101,7 +101,7 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-
+    <!-- 1702 -> 1703 -->
     <upgrade-step:importProfile
         title="Update configuration registry"
         profile="ftw.workspace:default"
@@ -109,5 +109,16 @@
         destination="1703"
         directory="profiles/1703"
         />
+
+    <!--1703 -> 1704 -->
+    <genericsetup:upgradeStep
+        title="Install ftw.colorbox"
+        description=""
+        source="1703"
+        destination="1704"
+        handler="ftw.workspace.upgrades.to1704.InstallColorbox"
+        profile="ftw.workspace:default"
+        />
+
 
 </configure>
