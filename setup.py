@@ -5,6 +5,7 @@ version = '1.8.2.dev0'
 
 tests_require = [
     'plone.app.testing',
+    'ftw.file',
     'ftw.testing',
     'ftw.pdfgenerator',
     'ftw.builder',

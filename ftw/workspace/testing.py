@@ -37,6 +37,7 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         # Load ZCML
         import ftw.workspace
         import zope.traversing
+        import ftw.file
         xmlconfig.file(
             'configure.zcml',
             ftw.workspace,
@@ -45,14 +46,22 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
             'configure.zcml',
             zope.traversing,
             context=configurationContext)
+
+        xmlconfig.file(
+            'configure.zcml',
+            ftw.file,
+            context=configurationContext)
+
         # installProduct() is *only* necessary for packages outside
         # the Products.* namespace which are also declared as Zope 2 products,
         # using <five:registerPackage /> in ZCML.
         z2.installProduct(app, 'ftw.workspace')
+        z2.installProduct(app, 'ftw.file')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
+        applyProfile(portal, 'ftw.file:default')
         # Add role for vocab testing
         portal._addRole('Reader')
 
