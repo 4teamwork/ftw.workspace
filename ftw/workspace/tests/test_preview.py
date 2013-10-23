@@ -1,13 +1,14 @@
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.workspace.interfaces import IWorkspacePreview
 from ftw.workspace.testing import FTW_WORKSPACE_INTEGRATION_TESTING
 from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from pyquery import PyQuery
 from unittest2 import TestCase
 from zope.component import queryMultiAdapter
-from ftw.workspace.interfaces import IWorkspacePreview
 
 
 class TestPreview(TestCase):
@@ -60,6 +61,29 @@ class TestPreview(TestCase):
             name='gif')
 
         self.assertTrue(
-            adapter.render().startswith(
+            adapter.preview().startswith(
                 '<img src="http://nohost/plone/workspace/image'),
             'Expect an image tag. source should be our image')
+
+    def test_gif_full_url(self):
+        image = create(Builder('image')
+            .within(self.workspace)
+            .with_dummy_content())
+
+        adapter = queryMultiAdapter(
+            (image, image.REQUEST),
+            IWorkspacePreview,
+            name='gif')
+
+        self.assertEquals(image.absolute_url() + '/image_large',
+                         adapter.full_url())
+
+    def test_tab_renders(self):
+        create(Builder('image')
+            .within(self.workspace)
+            .with_dummy_content())
+
+        doc = PyQuery(self.tab())
+
+        self.assertTrue(doc('.previewContainer .colorboxLink img'),
+                            'There should be an image')

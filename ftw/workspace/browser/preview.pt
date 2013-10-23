@@ -1,0 +1,11 @@
+
+
+<div class="previewContainer">
+
+  <tal:loop repeat="preview view/get_previews">
+    <a class="colorboxLink" rel="entry"
+       tal:attributes="href string:${preview/full_url}">
+       <tal:img replace="structure preview/preview" />
+    </a>
+  </tal:loop>
+</div>

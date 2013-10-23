@@ -11,6 +11,9 @@ class PreviewTab(BrowserView):
 
     template = ViewPageTemplateFile('preview.pt')
 
+    def __call__(self):
+        return self.template()
+
     @property
     def _query(self):
         return dict(

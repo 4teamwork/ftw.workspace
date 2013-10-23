@@ -15,6 +15,9 @@ class ImagePreview(object):
         self.image = image
         self.request = request
 
-    def render(self):
+    def preview(self):
         scale = self.image.restrictedTraverse('@@images')
         return scale.scale('image', scale='mini').tag()
+
+    def full_url(self):
+        return '{0}/image_large'.format(self.image.absolute_url())
