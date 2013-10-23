@@ -18,7 +18,6 @@ class IWorkspaceDetailsListingProvider(Interface):
     def __init__(context, request, layout, view):
         """
         """
-
     def get_title():
         """Returns the title of the listing (LaTeX).
         """
@@ -35,3 +34,8 @@ class IWorkspaceDetailsListingProvider(Interface):
 
 class IWorkspaceLayer(Interface):
     """Request marker interface for ftw.workspace"""
+
+
+class IWorkspacePreview(Interface):
+    """Generic preview adapter"""
+
