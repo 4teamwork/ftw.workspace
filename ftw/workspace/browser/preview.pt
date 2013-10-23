@@ -8,4 +8,14 @@
        <tal:img replace="structure preview/preview" />
     </a>
   </tal:loop>
+
+  <script type="text/javascript">
+  $('a.colorboxLink').colorbox(
+    {
+      'photo': true,
+      'current': '{current}/{total}',
+      'maxWidth': '100%',
+      'maxHeight': '100%'
+    });
+  </script>
 </div>
