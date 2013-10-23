@@ -87,3 +87,22 @@ class TestPreview(TestCase):
 
         self.assertTrue(doc('.previewContainer .colorboxLink img'),
                             'There should be an image')
+
+    def test_ftwfile_gif_preview(self):
+        image = ('GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00'
+                '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
+                '\x01\x00\x00\x02\x02D\x01\x00;')
+
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(image))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='gif')
+
+        self.assertTrue(
+            adapter.preview().startswith(
+                '<img src="http://nohost/plone/workspace/file'),
+            'Expect an image tag. source should be our image')

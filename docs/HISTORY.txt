@@ -18,6 +18,10 @@ Changelog
 1.8.0 (2013-10-24)
 ------------------
 
+- Implement image preview for ftw.file.
+  [mathias.leimgruber]
+
+
 - Implement a generic listing on the workspace overview tab.
   [mathias.leimgruber]
 
