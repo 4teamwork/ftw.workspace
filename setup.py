@@ -43,6 +43,7 @@ setup(name='ftw.workspace',
       install_requires=[
         'collective.js.jqsmartTruncation',
         'ftw.calendar',
+        'ftw.colorbox',
         'ftw.tabbedview',
         'ftw.upgrade',
         'plone.principalsource',
