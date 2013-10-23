@@ -4,6 +4,8 @@
 
 
     <adapter factory=".image.ImagePreview" name="gif" />
+    <adapter factory=".image.ImagePreview" name="png" />
+    <adapter factory=".image.ImagePreview" name="jpg" />
 
 
 </configure>
