@@ -120,5 +120,14 @@
         profile="ftw.workspace:default"
         />
 
+    <genericsetup:registerProfile
+        name="1704"
+        title="ftw.workspace.upgrades.1704"
+        description=""
+        directory="profiles/1704"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>

@@ -78,6 +78,18 @@ class TestPreview(TestCase):
         self.assertEquals(image.absolute_url() + '/image_large',
                          adapter.full_url())
 
+    def test_gif_scale_properties(self):
+        image = create(Builder('image')
+            .within(self.workspace)
+            .with_dummy_content())
+
+        adapter = queryMultiAdapter(
+            (image, image.REQUEST),
+            IWorkspacePreview,
+            name='gif')
+
+        self.assertEquals((200, 200), adapter.get_scale_properties())
+
     def test_tab_renders(self):
         create(Builder('image')
             .within(self.workspace)
@@ -106,3 +118,5 @@ class TestPreview(TestCase):
             adapter.preview().startswith(
                 '<img src="http://nohost/plone/workspace/file'),
             'Expect an image tag. source should be our image')
+
+        self.assertEquals((200, 200), adapter.get_scale_properties())

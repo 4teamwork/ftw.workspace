@@ -4,7 +4,10 @@
 
   <tal:loop repeat="preview view/get_previews">
     <a class="colorboxLink" rel="entry"
-       tal:attributes="href string:${preview/full_url}">
+       tal:define="width python: preview.get_scale_properties()[0];
+                   height python: preview.get_scale_properties()[1]"
+       tal:attributes="href string:${preview/full_url};
+                       styles string:width:${width};;height:${height};;">
        <tal:img replace="structure preview/preview" />
     </a>
   </tal:loop>
