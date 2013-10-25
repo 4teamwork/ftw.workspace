@@ -3,6 +3,8 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.workspace">
 
+    <!-- default adapter, if there's no preview available -->
+    <adapter factory=".default.DefaultPreview"/>
 
     <!-- Image preview generation -->
     <adapter factory=".image.ImagePreview" name="gif" />
