@@ -73,4 +73,11 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="previews"
+        class=".preview.LoadPreviews"
+        permission="zope2.View"
+        />
+
 </configure>

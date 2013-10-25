@@ -6,6 +6,7 @@
   padding: 1em;
   position: relative;
   box-shadow: 4px 4px 10px #d3d3d3;
+  text-align: center;
 }
 
 .previewTitle {
@@ -19,8 +20,13 @@
     text-align: center;
     max-height: 3em;
     overflow: hidden;
+    width:inherit;
 }
 
-.previewGroupTitle {
-  clear:both;
+.previewBatchInformation {
+  display: none;
+  height: 0;
+  position: fixed;
+  top:-1000;
+  left:-1000;
 }

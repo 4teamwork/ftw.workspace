@@ -1,5 +1,5 @@
 from ftw.workspace.interfaces import IWorkspacePreview
-from itertools import groupby
+from plone.batching.batch import BaseBatch
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -11,15 +11,37 @@ from ftw.table.helper import readable_date_text
 class PreviewTab(BrowserView):
     """Preview tab for workspace"""
 
-    template = ViewPageTemplateFile('preview.pt')
+    template = ViewPageTemplateFile('preview_tab.pt')
 
     def __call__(self):
         return self.template()
 
-    @property
-    def _query(self):
-        return dict(
+    def previews(self):
+        return self.context.restrictedTraverse('@@previews')()
+
+
+class LoadPreviews(BrowserView):
+
+    template = ViewPageTemplateFile('previews.pt')
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.bsize = 12
+        self.bstart = 0
+
+    def __call__(self, bstart=0):
+        self.bstart = int(bstart)
+
+        return self.template()
+
+    def _query(self, **kwargs):
+        query = dict(
+            sort_on='modified',
             path='/'.join(self.context.getPhysicalPath()))
+
+        query.update(kwargs)
+        return query
 
     def get_extensions(self, contenttype):
         mimetool = getToolByName(self.context, 'mimetypes_registry')
@@ -40,50 +62,31 @@ class PreviewTab(BrowserView):
 
         return mimetype.extensions
 
-    def get_previews(self):
-
-        def groupbymodifieddate(item):
-            return readable_date_text(item, item.modified)
-
-        keys, previews = self.group(keyfunc=groupbymodifieddate)
-
-        return dict(keys=keys,
-                    previews=previews)
-
-    def group(self, keyfunc='modified'):
+    def get_previews(self, **kwargs):
         catalog = getToolByName(self.context, 'portal_catalog')
-        result = catalog(self._query)
+        result = catalog(self._query(**kwargs))
 
-        if not callable(keyfunc):
-            raise TypeError('keyfunc is not a function')
+        batch = BaseBatch(result, self.bsize, start=self.bstart)
+        previews = []
 
-        keys = []
-        groups = []
-        for key, group in groupby(result, key=keyfunc):
+        if self.bstart >= batch.end:
+            return ''
 
-            previews = []
-            for obj in group:
-                adapter = self.get_preview_adapter(obj)
-                if adapter:
-                    previews.append(adapter)
-
-            # Only append items with a preview adapter
-            if previews:
-                groups.append(previews)
-                keys.append(key)
-
-        return keys, groups
-
-    def get_preview_adapter(self, brain):
+        for brain in batch:
             obj = brain.getObject()
 
+            adapter = queryMultiAdapter((obj, obj.REQUEST), IWorkspacePreview)
+
+            # Try to get a specific preview adapter
             for extension in self.get_extensions(obj.getContentType()):
-                adapter = queryMultiAdapter(
+                specific = queryMultiAdapter(
                     (obj, obj.REQUEST),
                     IWorkspacePreview,
                     name=extension)
 
-                if adapter is not None:
-                    return adapter
+                if specific is not None:
+                    adapter = specific
+                    break
 
-            return None
+            previews.append(adapter)
+        return previews

@@ -23,24 +23,26 @@ class TestPreview(TestCase):
         login(portal, TEST_USER_NAME)
 
         self.workspace = create(Builder('workspace'))
-        self.tab = self.workspace.restrictedTraverse(
-            '@@tabbedview_view-preview')
+        self.previews = self.workspace.restrictedTraverse(
+            '@@previews')
 
         portal.portal_types.get(
             'Workspace').allowed_content_types = ('File, Image')
 
     def test_get_extension_no_contenttype(self):
-        self.assertListEqual([], self.tab.get_extensions(None))
+        self.assertListEqual([], self.previews.get_extensions(None))
 
     def test_get_extension_no_mimetype(self):
-        self.assertListEqual([], self.tab.get_extensions('dummy/contenttype'))
+        self.assertListEqual([],
+                             self.previews.get_extensions('dummy/contenttype'))
 
     def test_get_extension_malformed_mimetype(self):
-        self.assertListEqual([], self.tab.get_extensions('dummycontenttype'))
+        self.assertListEqual([],
+                             self.previews.get_extensions('dummycontenttype'))
 
     def test_get_extension_valid_mimetype(self):
         self.assertListEqual(['gif'],
-                             list(self.tab.get_extensions('image/gif')))
+                             list(self.previews.get_extensions('image/gif')))
 
     def test_get_previews(self):
 
@@ -48,12 +50,20 @@ class TestPreview(TestCase):
             .within(self.workspace)
             .with_dummy_content())
 
-        result = self.tab.get_previews()
+        self.assertGreaterEqual(len(self.previews.get_previews()),
+                                1,
+                               'Expect at least one adapter')
 
-        self.assertListEqual(['keys', 'previews'], result.keys())
-        self.assertGreaterEqual(len(['previews']),
-                          1,
-                          'Expect at least one adapter')
+    def test_default_preview(self):
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .with_dummy_content())
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview)
+
+        self.assertIn('default.jpeg', adapter.preview())
 
     def test_gif_preview(self):
         image = create(Builder('image')
@@ -100,7 +110,8 @@ class TestPreview(TestCase):
             .within(self.workspace)
             .with_dummy_content())
 
-        doc = PyQuery(self.tab())
+        doc = PyQuery(self.workspace.restrictedTraverse(
+            '@@tabbedview_view-preview')())
 
         self.assertTrue(doc('.previewContainer .colorboxLink img'),
                             'There should be an image')
