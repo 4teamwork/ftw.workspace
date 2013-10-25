@@ -13,19 +13,19 @@ class ImagePreview(object):
     implements(IWorkspacePreview)
     adapts(IFile, Interface)
 
-    def __init__(self, file_, request):
-        self.file_ = file_
+    def __init__(self, context, request):
+        self.context = context
         self.request = request
 
     def preview(self):
-        scale = self.file_.restrictedTraverse('@@images')
+        scale = self.context.restrictedTraverse('@@images')
         width, height = self.get_scale_properties()
         # scale is not implemented (ex. scale='mini' in ftwfile @@images)
         return scale.scale(
             'file', width=width, height=height, direction='down').tag()
 
     def full_url(self):
-        return '{0}/big_img'.format(self.file_.absolute_url())
+        return '{0}/big_img'.format(self.context.absolute_url())
 
     def get_scale_properties(self):
         sizes = getUtility(IAvailableSizes)()
