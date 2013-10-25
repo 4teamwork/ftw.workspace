@@ -20,3 +20,7 @@
     max-height: 3em;
     overflow: hidden;
 }
+
+.previewGroupTitle {
+  clear:both;
+}

@@ -18,6 +18,9 @@ Changelog
 1.8.0 (2013-10-24)
 ------------------
 
+- Group previews by modification date.
+  [mathias.leimgruber]
+
 - Implement image preview for ftw.file.
   [mathias.leimgruber]
 
