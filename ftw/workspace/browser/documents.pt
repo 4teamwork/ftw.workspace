@@ -15,7 +15,7 @@
                     </span> |
                     <a id="preview"
                        href="#"
-                       i18n:translate="documents_pill_calendar">Preview</a>
+                       i18n:translate="documents_pill_preview">Preview</a>
             </div>
             <tal:END_CUSTOM_______________________________________ />
 

@@ -3,7 +3,7 @@
         Liste
     </a> |
     <span id="events-calendar">
-        <b i18n:translate="preview_pill_list">Preview</b>
+        <b i18n:translate="documents_pill_preview">Preview</b>
     </span>
 </div>
 
