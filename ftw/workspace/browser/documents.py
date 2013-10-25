@@ -11,7 +11,7 @@ fileMF = MessageFactory('ftw.file')
 
 class DocumentsTab(Tab):
 
-    types = ['File', 'Document']
+    types = ['File', 'Document', 'Image']
 
     show_selects = False
     show_menu = False
