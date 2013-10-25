@@ -112,11 +112,11 @@
 
     <!--1703 -> 1704 -->
     <genericsetup:upgradeStep
-        title="Install ftw.colorbox"
+        title="Install/Configure preview implementation"
         description=""
         source="1703"
         destination="1704"
-        handler="ftw.workspace.upgrades.to1704.InstallColorbox"
+        handler="ftw.workspace.upgrades.to1704.InstallPreview"
         profile="ftw.workspace:default"
         />
 
