@@ -46,6 +46,7 @@ setup(name='ftw.workspace',
         'ftw.colorbox',
         'ftw.tabbedview',
         'ftw.upgrade',
+        'plone.namedfile',
         'plone.principalsource',
         'setuptools',
         # -*- Extra requirements: -*-
