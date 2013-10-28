@@ -39,3 +39,14 @@ class IWorkspaceLayer(Interface):
 class IWorkspacePreview(Interface):
     """Generic preview adapter"""
 
+    def __init__(context, request):
+        """Adapts context and request"""
+
+    def preview():
+        """Renders the preview, usually an image"""
+
+    def full_url():
+        """URL of the image showing the large scale"""
+
+    def get_scale_properties():
+        """Returns the scale defined in configuration registry"""
