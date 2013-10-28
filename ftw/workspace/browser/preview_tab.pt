@@ -16,48 +16,11 @@
   <tal:previews replace="structure view/previews" />
 </div>
 
-  <script type="text/javascript">
-  function activateColorbox(){
-    $('a.colorboxLink').colorbox(
-      {
-        'photo': true,
-        'current': '{current}/{total}',
-        'maxWidth': '100%',
-        'maxHeight': '100%'
-      });
-  }
-
-  function loadMoreContent(){
-    var url = $('base').attr('href') + '/previews';
-    var bsize = parseInt($('.previewBatchSize').html());
-    var bstart = parseInt($('.previewBatchStart').html());
-
-    if (bstart === -1){
-      // stop loading more data
-      return
-    }
-    var newbstart = bstart + bsize;
-    $('.previewBatchStart').html(newbstart);
-
-    $.post(url, {'bstart': newbstart}, function(data) {
-
-        if (data !== ''){
-          $('.previewContainer a:last').after(data);
-          activateColorbox();
-        } else {
-          $('.previewBatchStart').html('-1');
-        }
-    });
-  };
-
-  activateColorbox();
-
-  $(window).scroll(function() {
-    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-      if ($('.previewContainer').length !== 0){
-        loadMoreContent();
-      }
+<script type="text/javascript">
+  $(function(){
+    if (typeof(_preview_infinit_scroll_active) === "undefined"){
+      initPreviewInfinitScroll();
+      _preview_infinit_scroll_active = true;
     }
   });
-
-  </script>
+</script>

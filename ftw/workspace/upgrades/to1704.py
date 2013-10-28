@@ -8,4 +8,4 @@ class InstallPreview(UpgradeStep):
 
         self.setup_install_profile(
             'profile-ftw.workspace.upgrades:1704',
-            steps=['propertiestool', 'cssregistry'])
+            steps=['propertiestool', 'cssregistry', 'jsregistry'])
