@@ -5,7 +5,11 @@ Changelog
 1.8.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Group previews by modification date.
+  [mathias.leimgruber]
+
+- Implement image preview for ftw.file.
+  [mathias.leimgruber]
 
 
 1.8.1 (2013-11-01)
@@ -17,13 +21,6 @@ Changelog
 
 1.8.0 (2013-10-24)
 ------------------
-
-- Group previews by modification date.
-  [mathias.leimgruber]
-
-- Implement image preview for ftw.file.
-  [mathias.leimgruber]
-
 
 - Implement a generic listing on the workspace overview tab.
   [mathias.leimgruber]

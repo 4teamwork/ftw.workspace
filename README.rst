@@ -12,6 +12,14 @@ The folder has a tabbed view with the tabs:
 The ``@@workspaces_view`` lists all workspaces recursively.
 
 
+Compatibility
+=============
+
+``ftw.workspace`` Version 2.0.0 and greater only supports Plone 4.3.x
+
+Use ``ftw.workspace`` Version 1.7.x for Plone 4.1 and Plone 4.2.
+
+
 Usage
 =====
 
