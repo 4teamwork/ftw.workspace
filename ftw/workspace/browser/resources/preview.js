@@ -1,4 +1,4 @@
-function activateColorbox(){
+function activatePreviewColorbox(){
   $('a.colorboxLink').colorbox(
   {
     'photo': true,
@@ -8,7 +8,7 @@ function activateColorbox(){
   });
 }
 
-function activateGroups(data){
+function activatePreviewGroups(data){
   var headings = $('.previewGroupTitle', data);
   $.each(headings, function(index, value){
     $value = $(value);
@@ -44,8 +44,8 @@ function loadMoreContent(){
 
     if (data !== ''){
       $('.previewContainer a:last').after(data);
-      activateColorbox();
-      activateGroups($('.previewContainer'));
+      activatePreviewColorbox();
+      activatePreviewGroups($('.previewContainer'));
     } else {
       $('.previewBatchStart').html(-1);
     }
@@ -53,9 +53,6 @@ function loadMoreContent(){
 }
 
 function initPreviewInfinitScroll(){
-  activateColorbox();
-  activateGroups($('.previewContainer'));
-
   $(window).on("scroll", function() {
     $('.previewContainer').addClass('infinitScroll');
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {

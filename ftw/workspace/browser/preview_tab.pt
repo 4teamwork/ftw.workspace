@@ -7,11 +7,6 @@
     </span>
 </div>
 
-
-<div class="previewBatchInformation">
-  <span class="previewBatchStart">0</span>
-  <span class="previewBatchSize">12</span>
-</div>
 <div class="previewContainer">
   <tal:previews replace="structure view/previews" />
 </div>
@@ -23,4 +18,7 @@
       _preview_infinit_scroll_active = true;
     }
   });
+
+  activatePreviewGroups($('.previewContainer'));
+  activatePreviewColorbox();
 </script>

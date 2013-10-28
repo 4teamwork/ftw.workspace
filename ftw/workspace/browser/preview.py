@@ -1,3 +1,5 @@
+from DateTime import DateTime
+from ftw.table.helper import readable_date_text
 from ftw.workspace.interfaces import IWorkspacePreview
 from plone.batching.batch import BaseBatch
 from Products.CMFCore.utils import getToolByName
@@ -38,6 +40,7 @@ class LoadPreviews(BrowserView):
     def _query(self, **kwargs):
         query = dict(
             sort_on='modified',
+            sort_order="descending",
             path='/'.join(self.context.getPhysicalPath()))
 
         query.update(kwargs)
@@ -90,3 +93,14 @@ class LoadPreviews(BrowserView):
 
             previews.append(adapter)
         return previews
+
+    def get_group_information(self, preview_adapter):
+        """Rendered as hidden field per entry"""
+        attr = self._query()['sort_on']
+        context = preview_adapter.context
+
+        value = getattr(context, attr)()
+        if isinstance(value, DateTime):
+            return readable_date_text(context, value)
+        else:
+            return value

@@ -137,39 +137,23 @@ class TestPreview(TestCase):
 
         self.assertEquals((200, 200), adapter.get_scale_properties())
 
-    def test_default_preview_grouped_result(self):
-        image1 = create(Builder('image')
+    def test_default_preview_query(self):
+        query = self.previews._query()
+
+        path = '/'.join(self.workspace.getPhysicalPath())
+        self.assertEquals(path, query['path'])
+
+        self.assertEquals('modified', query['sort_on'])
+        self.assertEquals('descending', query['sort_order'])
+
+    def test_default_get_group_information(self):
+        image = create(Builder('image')
             .within(self.workspace)
             .with_dummy_content())
-        image2 = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
-        image3 = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+        adapter = queryMultiAdapter(
+            (image, image.REQUEST),
+            IWorkspacePreview,
+            name='gif')
 
-        for obj in [image2, image3]:
-            obj.setModificationDate(DateTime('2013-01-01'))
-            obj.reindexObject(idxs='modified')
-
-        def groupbymodifieddate(item):
-            return readable_date_text(item, item.modified)
-
-        keys, groups = self.tab.group(keyfunc=groupbymodifieddate)
-
-        self.assertListEqual(['heute', '01.01.2013'], keys)
-
-        self.assertEquals(1, len(groups[0]), "Expect one items in 1. group")
-        self.assertEquals(2, len(groups[1]), "Expect two items in 2. group")
-
-        self.assertIn(image1.getId(), [x.context.getId() for x in groups[0]])
-
-        self.assertIn(image2.getId(), [x.context.getId() for x in groups[1]])
-        self.assertIn(image2.getId(), [x.context.getId() for x in groups[1]])
-
-    def test_preview_invalid_groupby(self):
-        with self.assertRaises(TypeError):
-            self.tab.group(keyfunc='id')
-
-        with self.assertRaises(TypeError):
-            self.tab.group(keyfunc=None)
+        self.assertEquals('heute',
+                          self.previews.get_group_information(adapter))
