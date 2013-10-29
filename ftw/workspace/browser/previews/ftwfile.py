@@ -20,4 +20,4 @@ class ImagePreview(DefaultPreview):
             'file', width=width, height=height, direction='down').tag()
 
     def full_url(self):
-        return '{0}/big_img'.format(self.context.absolute_url())
+        return '{0}/images/file'.format(self.context.absolute_url())
