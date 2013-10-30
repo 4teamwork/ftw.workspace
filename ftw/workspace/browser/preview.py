@@ -7,7 +7,6 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MimetypesRegistry.common import MimeTypeException
 from zope.component import queryMultiAdapter
-from ftw.table.helper import readable_date_text
 
 
 class PreviewTab(BrowserView):
@@ -41,6 +40,7 @@ class LoadPreviews(BrowserView):
         query = dict(
             sort_on='modified',
             sort_order="descending",
+            portal_type=['File', 'Document', 'Image'],
             path='/'.join(self.context.getPhysicalPath()))
 
         query.update(kwargs)
