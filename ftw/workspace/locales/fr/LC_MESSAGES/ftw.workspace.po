@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-28 15:12+0000\n"
+"POT-Creation-Date: 2013-10-31 15:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,13 +131,11 @@ msgstr "Texte"
 
 #. Default: "Today, ${time}"
 #: ./ftw/workspace/browser/overview.py:129
-#, fuzzy
 msgid "label_today"
 msgstr "Aujourd'hui'"
 
 #. Default: "Yesterday, ${time}"
 #: ./ftw/workspace/browser/overview.py:133
-#, fuzzy
 msgid "label_yesterday"
 msgstr "Hier"
 
@@ -201,7 +199,7 @@ msgid "recently modified"
 msgstr "Modifié"
 
 #. Default: "No Preview"
-#: ./ftw/workspace/browser/previews/default.py:23
+#: ./ftw/workspace/browser/previews/default.py:24
 msgid "text_no_preview"
 msgstr "pas de Présentation"
 
