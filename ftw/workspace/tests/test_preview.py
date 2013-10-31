@@ -88,7 +88,7 @@ class TestPreview(TestCase):
             IWorkspacePreview,
             name='gif')
 
-        self.assertEquals(image.absolute_url() + '/image_large',
+        self.assertEquals(image.absolute_url() + '/images/image',
                          adapter.full_url())
 
     def test_gif_scale_properties(self):

@@ -12,13 +12,20 @@ class ImagePreview(DefaultPreview):
     implements(IWorkspacePreview)
     adapts(IATBlobImage, Interface)
 
+    @property
+    def _primary_field(self):
+        return self.context.getPrimaryField().getName()
+
     def preview(self):
         scale = self.context.restrictedTraverse('@@images')
         width, height = self.get_scale_properties()
-        # scale=workspace_preview would have the same result, but we need the
-        # width/height accessable on the adaper
+
         return scale.scale(
-            'image', width=width, height=height, direction='down').tag()
+            self._primary_field,
+            width=width,
+            height=height,
+            direction='down').tag()
 
     def full_url(self):
-        return '{0}/image_large'.format(self.context.absolute_url())
+        return '{0}/images/{1}'.format(self.context.absolute_url(),
+                                self._primary_field)
