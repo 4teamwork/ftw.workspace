@@ -1,7 +1,5 @@
-from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.table.helper import readable_date_text
 from ftw.workspace.interfaces import IWorkspacePreview
 from ftw.workspace.testing import FTW_WORKSPACE_INTEGRATION_TESTING
 from plone.app.testing import login
@@ -27,7 +25,7 @@ class TestPreview(TestCase):
             '@@previews')
 
         portal.portal_types.get(
-            'Workspace').allowed_content_types = ('File, Image')
+            'Workspace').allowed_content_types = ('File', 'Image')
 
     def test_get_extension_no_contenttype(self):
         self.assertListEqual([], self.previews.get_extensions(None))

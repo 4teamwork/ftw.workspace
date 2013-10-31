@@ -11,13 +11,13 @@ class ITabbedViewFolder(Interface):
 
 
 class IWorkspaceDetailsListingProvider(Interface):
-    """A adapter providing a listing (LaTeX) for the workspace details
-    PDF.
+    """A adapter providing a listing (LaTeX) for the workspace details PDF.
     """
 
     def __init__(context, request, layout, view):
+        """Adapts context, request, layout and view.
         """
-        """
+
     def get_title():
         """Returns the title of the listing (LaTeX).
         """
