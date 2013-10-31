@@ -40,7 +40,7 @@ function loadMoreContent(){
   var newbstart = bstart + bsize;
   $('.previewBatchStart').html(newbstart);
 
-  $.post(url, {'bstart': newbstart}, function(data) {
+  $.get(url, {'bstart': newbstart}, function(data) {
 
     if (data !== ''){
       $('.previewContainer a:last').after(data);
