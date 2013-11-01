@@ -6,7 +6,7 @@
             <li tal:repeat="obj types_/objects">
                 <span tal:replace="structure python: view.get_icon(obj)" />
                 <a tal:content="obj/Title"
-                   tal:attributes="href obj/absolute_url;
+                   tal:attributes="href obj/getURL;
                                   title python: view.get_description(obj);
                                    class python:'rollover %s' % view.type_class(obj)" />
             </li>
