@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.8.1 (unreleased)
+1.8.1 (2013-11-01)
 ------------------
 
 - Fix bad href in overview_sublisting.
