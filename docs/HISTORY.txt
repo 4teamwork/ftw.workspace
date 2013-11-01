@@ -5,7 +5,8 @@ Changelog
 1.8.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix bad href in overview_sublisting.
+  [elioschmutz]
 
 
 1.8.0 (2013-10-24)

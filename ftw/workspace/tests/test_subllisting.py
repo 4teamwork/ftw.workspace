@@ -92,6 +92,16 @@ class TestOverviewFolderSublisting(TestCase):
 
         self.assertTrue(doc('.box.sublisting li'))
 
+    def test_sublisting_listed_objects_are_linked(self):
+        folder = create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('A folder'))
+
+        doc = PyQuery(self.view())
+        href = doc('.box.sublisting a.rollover').attr('href')
+
+        self.assertEquals(folder.absolute_url(), href)
+
     def test_translate_title(self):
         self.assertEquals('Folder',
                           self.view.translated_title('TabbedViewFolder'))
