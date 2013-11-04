@@ -2,8 +2,9 @@ from ftw.table import helper
 from ftw.workspace import _
 from ftw.workspace.browser import helper as workspace_helper
 from ftw.workspace.browser.tab import Tab
-from zope.i18nmessageid import MessageFactory
 from ftw.workspace.utils import has_ftwfile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.i18nmessageid import MessageFactory
 
 
 fileMF = MessageFactory('ftw.file')
@@ -11,12 +12,14 @@ fileMF = MessageFactory('ftw.file')
 
 class DocumentsTab(Tab):
 
-    types = ['File', 'Document']
+    types = ['File', 'Document', 'Image']
 
     show_selects = False
     show_menu = False
 
     sort_reverse = True
+
+    template = ViewPageTemplateFile('documents.pt')
 
     def __init__(self, context, request):
         super(DocumentsTab, self).__init__(context, request)

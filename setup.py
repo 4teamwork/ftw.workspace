@@ -5,6 +5,7 @@ version = '1.8.2.dev0'
 
 tests_require = [
     'plone.app.testing',
+    'ftw.file',
     'ftw.testing',
     'ftw.pdfgenerator',
     'ftw.builder',
@@ -22,8 +23,7 @@ setup(name='ftw.workspace',
 
       classifiers=[
         'Framework :: Plone',
-        'Framework :: Plone :: 4.1',
-        'Framework :: Plone :: 4.2',
+        'Framework :: Plone :: 4.3',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
@@ -42,8 +42,10 @@ setup(name='ftw.workspace',
       install_requires=[
         'collective.js.jqsmartTruncation',
         'ftw.calendar',
+        'ftw.colorbox',
         'ftw.tabbedview',
         'ftw.upgrade',
+        'plone.namedfile',
         'plone.principalsource',
         'setuptools',
         # -*- Extra requirements: -*-

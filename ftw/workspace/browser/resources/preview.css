@@ -1,0 +1,36 @@
+.previewContainer a {
+  border: 1px solid #d3d3d3;
+  display: block;
+  float: left;
+  margin: 0.5em;
+  padding: 1em;
+  position: relative;
+  box-shadow: 4px 4px 10px #d3d3d3;
+  text-align: center;
+}
+
+.previewTitle {
+    display: block;
+    position: absolute;
+    top: 80%;
+    background-color: rgb(238, 238, 238);
+    background-color: rgba(238, 238, 238, 0.7);
+    border-radius: 5px;
+    margin-right: 1em;
+    text-align: center;
+    max-height: 3em;
+    overflow: hidden;
+    width:inherit;
+}
+
+.previewBatchInformation {
+  display: none;
+  height: 0;
+  position: fixed;
+  top:-1000;
+  left:-1000;
+}
+
+.previewGroupTitle {
+  clear:both;
+}

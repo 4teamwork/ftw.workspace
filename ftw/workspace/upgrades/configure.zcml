@@ -101,7 +101,7 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-
+    <!-- 1702 -> 1703 -->
     <upgrade-step:importProfile
         title="Update configuration registry"
         profile="ftw.workspace:default"
@@ -109,5 +109,25 @@
         destination="1703"
         directory="profiles/1703"
         />
+
+    <!--1703 -> 1704 -->
+    <genericsetup:upgradeStep
+        title="Install/Configure preview implementation"
+        description=""
+        source="1703"
+        destination="1704"
+        handler="ftw.workspace.upgrades.to1704.InstallPreview"
+        profile="ftw.workspace:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1704"
+        title="ftw.workspace.upgrades.1704"
+        description=""
+        directory="profiles/1704"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>

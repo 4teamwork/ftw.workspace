@@ -1,0 +1,21 @@
+<div class="previewBatchInformation">
+  <span class="previewBatchStart">0</span>
+  <span class="previewBatchSize" tal:content="view/bsize">12</span>
+</div>
+
+<tal:loop repeat="preview view/get_previews">
+
+  <h3 class="previewGroupTitle"
+      style="display:none;"
+      tal:content="python: view.get_group_information(preview)" />
+  <a class="colorboxLink" rel="entry"
+     tal:define="width python: preview.get_scale_properties()[0];
+                 height python: preview.get_scale_properties()[1]"
+     tal:attributes="href string:${preview/full_url};
+                     title preview/context/pretty_title_or_id;
+                     style string:width:${width}px;;height:${height}px;;">
+     <tal:img replace="structure preview/preview" />
+  <span class="previewTitle" tal:content="preview/context/pretty_title_or_id" />
+  </a>
+
+</tal:loop>

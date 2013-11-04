@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="ftw.workspace">
+
+    <!-- default adapter, if there's no preview available -->
+    <adapter factory=".default.DefaultPreview"/>
+
+    <!-- Image preview generation -->
+    <adapter factory=".image.ImagePreview" name="gif" />
+    <adapter factory=".image.ImagePreview" name="png" />
+    <adapter factory=".image.ImagePreview" name="jpg" />
+
+
+    <!-- Special ftw.file image preview generation -->
+    <configure zcml:condition="installed ftw.file">
+        <adapter factory=".ftwfile.ImagePreview" name="gif" />
+        <adapter factory=".ftwfile.ImagePreview" name="png" />
+        <adapter factory=".ftwfile.ImagePreview" name="jpg" />
+    </configure>
+
+</configure>

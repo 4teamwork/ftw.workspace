@@ -11,12 +11,11 @@ class ITabbedViewFolder(Interface):
 
 
 class IWorkspaceDetailsListingProvider(Interface):
-    """A adapter providing a listing (LaTeX) for the workspace details
-    PDF.
+    """A adapter providing a listing (LaTeX) for the workspace details PDF.
     """
 
     def __init__(context, request, layout, view):
-        """
+        """Adapts context, request, layout and view.
         """
 
     def get_title():
@@ -35,3 +34,19 @@ class IWorkspaceDetailsListingProvider(Interface):
 
 class IWorkspaceLayer(Interface):
     """Request marker interface for ftw.workspace"""
+
+
+class IWorkspacePreview(Interface):
+    """Generic preview adapter"""
+
+    def __init__(context, request):
+        """Adapts context and request"""
+
+    def preview():
+        """Renders the preview, usually an image"""
+
+    def full_url():
+        """URL of the image showing the large scale"""
+
+    def get_scale_properties():
+        """Returns the scale defined in configuration registry"""

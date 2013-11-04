@@ -1,0 +1,24 @@
+<div class="ViewChooser" i18n:domain="ftw.workspace">
+    <a id="documents" href="#" i18n:translate="documents_pill_list">
+        List
+    </a> |
+    <span id="events-calendar">
+        <b i18n:translate="documents_pill_preview">Preview</b>
+    </span>
+</div>
+
+<div class="previewContainer">
+  <tal:previews replace="structure view/previews" />
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    if (typeof(_preview_infinit_scroll_active) === "undefined"){
+      initPreviewInfinitScroll();
+      _preview_infinit_scroll_active = true;
+    }
+  });
+
+  activatePreviewGroups($('.previewContainer'));
+  activatePreviewColorbox();
+</script>
