@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.8.2 (unreleased)
+2.0.0 (2013-11-04)
 ------------------
 
 - Group previews by modification date.
