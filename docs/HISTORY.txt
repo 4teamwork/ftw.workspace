@@ -5,7 +5,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- The preview image should not be bigger than the container.
+  [Julian Infanger]
 
 
 2.0.0 (2013-11-04)
