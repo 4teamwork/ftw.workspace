@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.1 (unreleased)
+2.0.1 (2013-11-15)
 ------------------
 
 - The preview image should not be bigger than the container.
