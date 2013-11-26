@@ -38,3 +38,14 @@ class PptPreview(DefaultPreview):
         portal_url = getToolByName(self.context, 'portal_url')
         return '{0}/++resource++ftw.workspace-resources/ppt.png'.format(
             portal_url())
+
+
+class PptxPreview(DefaultPreview):
+
+    implements(IWorkspacePreview)
+    adapts(IATFile, Interface)
+
+    def full_url(self):
+        portal_url = getToolByName(self.context, 'portal_url')
+        return '{0}/++resource++ftw.workspace-resources/pptx.png'.format(
+            portal_url())
