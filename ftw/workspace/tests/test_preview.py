@@ -61,7 +61,7 @@ class TestPreview(TestCase):
             (file_, file_.REQUEST),
             IWorkspacePreview)
 
-        self.assertIn('default.jpeg', adapter.preview())
+        self.assertIn('default.png', adapter.preview())
 
     def test_gif_preview(self):
         image = create(Builder('image')
