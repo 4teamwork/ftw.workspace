@@ -26,5 +26,6 @@
     <adapter factory=".office.PptPreview" name="ppt" />
     <adapter factory=".office.PptxPreview" name="pptx" />
     <adapter factory=".office.XlsPreview" name="xls" />
+    <adapter factory=".office.XlsxPreview" name="xlsx" />
 
 </configure>
