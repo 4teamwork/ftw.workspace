@@ -16,3 +16,14 @@ class ZipPreview(DefaultPreview):
         portal_url = getToolByName(self.context, 'portal_url')
         return '{0}/++resource++ftw.workspace-resources/zip.png'.format(
             portal_url())
+
+
+class TxtPreview(DefaultPreview):
+
+    implements(IWorkspacePreview)
+    adapts(IATFile, Interface)
+
+    def full_url(self):
+        portal_url = getToolByName(self.context, 'portal_url')
+        return '{0}/++resource++ftw.workspace-resources/txt.png'.format(
+            portal_url())

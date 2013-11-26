@@ -33,5 +33,6 @@
 
     <!-- Misc -->
     <adapter factory=".misc.ZipPreview" name="zip" />
+    <adapter factory=".misc.TxtPreview" name="txt" />
 
 </configure>

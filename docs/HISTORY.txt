@@ -5,6 +5,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Add txt preview adapter (shows just a txt.png).
+  [mathias.leimgruber]
+
 - Add zip preview adapter (shows just a zip.png).
   [mathias.leimgruber]
 

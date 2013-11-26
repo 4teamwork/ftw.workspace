@@ -268,3 +268,17 @@ class TestPreview(TestCase):
             name='zip')
 
         self.assertIn('zip.png', adapter.full_url())
+
+    def test_txt_preview_full_url(self):
+        file_content = open("{0}/data/test.txt".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='txt')
+
+        self.assertIn('txt.png', adapter.full_url())
