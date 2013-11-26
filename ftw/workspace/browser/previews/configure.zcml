@@ -28,4 +28,7 @@
     <adapter factory=".office.XlsPreview" name="xls" />
     <adapter factory=".office.XlsxPreview" name="xlsx" />
 
+    <!-- pdf -->
+    <adapter factory=".office.PdfPreview" name="pdf" />
+
 </configure>

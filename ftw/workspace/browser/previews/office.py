@@ -71,3 +71,14 @@ class XlsxPreview(DefaultPreview):
         portal_url = getToolByName(self.context, 'portal_url')
         return '{0}/++resource++ftw.workspace-resources/xlsx.png'.format(
             portal_url())
+
+
+class PdfPreview(DefaultPreview):
+
+    implements(IWorkspacePreview)
+    adapts(IATFile, Interface)
+
+    def full_url(self):
+        portal_url = getToolByName(self.context, 'portal_url')
+        return '{0}/++resource++ftw.workspace-resources/pdf.png'.format(
+            portal_url())

@@ -240,3 +240,17 @@ class TestPreview(TestCase):
             name='xlsx')
 
         self.assertIn('xlsx.png', adapter.full_url())
+
+    def test_pdf_preview_full_url(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertIn('pdf.png', adapter.full_url())
