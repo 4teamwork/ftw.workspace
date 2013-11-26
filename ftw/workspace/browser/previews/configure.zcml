@@ -23,5 +23,6 @@
     <!-- Office types -->
     <adapter factory=".office.DocPreview" name="doc" />
     <adapter factory=".office.DocXPreview" name="docx" />
+    <adapter factory=".office.PptPreview" name="ppt" />
 
 </configure>

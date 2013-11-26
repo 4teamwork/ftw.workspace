@@ -8,7 +8,6 @@ from Products.ATContentTypes.interfaces.file import IATFile
 
 
 class DocPreview(DefaultPreview):
-    """Default preview"""
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
@@ -20,7 +19,6 @@ class DocPreview(DefaultPreview):
 
 
 class DocXPreview(DefaultPreview):
-    """Default preview"""
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
@@ -28,4 +26,15 @@ class DocXPreview(DefaultPreview):
     def full_url(self):
         portal_url = getToolByName(self.context, 'portal_url')
         return '{0}/++resource++ftw.workspace-resources/docx.png'.format(
+            portal_url())
+
+
+class PptPreview(DefaultPreview):
+
+    implements(IWorkspacePreview)
+    adapts(IATFile, Interface)
+
+    def full_url(self):
+        portal_url = getToolByName(self.context, 'portal_url')
+        return '{0}/++resource++ftw.workspace-resources/ppt.png'.format(
             portal_url())
