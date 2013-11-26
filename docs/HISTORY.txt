@@ -5,7 +5,10 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Add doc preview adapter (shows just an doc.png).
+- Add docx preview adapter (shows just a docx.png).
+  [mathias.leimgruber]
+
+- Add doc preview adapter (shows just a doc.png).
   [mathias.leimgruber]
 
 - Add new fallback image for previews.

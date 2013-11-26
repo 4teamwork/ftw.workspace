@@ -17,3 +17,15 @@ class DocPreview(DefaultPreview):
         portal_url = getToolByName(self.context, 'portal_url')
         return '{0}/++resource++ftw.workspace-resources/doc.png'.format(
             portal_url())
+
+
+class DocXPreview(DefaultPreview):
+    """Default preview"""
+
+    implements(IWorkspacePreview)
+    adapts(IATFile, Interface)
+
+    def full_url(self):
+        portal_url = getToolByName(self.context, 'portal_url')
+        return '{0}/++resource++ftw.workspace-resources/docx.png'.format(
+            portal_url())
