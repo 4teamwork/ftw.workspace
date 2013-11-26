@@ -31,4 +31,7 @@
     <!-- pdf -->
     <adapter factory=".office.PdfPreview" name="pdf" />
 
+    <!-- Misc -->
+    <adapter factory=".misc.ZipPreview" name="zip" />
+
 </configure>

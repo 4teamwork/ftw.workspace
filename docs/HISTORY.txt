@@ -5,6 +5,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Add zip preview adapter (shows just a zip.png).
+  [mathias.leimgruber]
+
 - Add pdf preview adapter (shows just a pdf.png).
   [mathias.leimgruber]
 
