@@ -19,4 +19,20 @@
         <adapter factory=".ftwfile.ImagePreview" name="jpg" />
     </configure>
 
+
+    <!-- Office types -->
+    <adapter factory=".office.DocPreview" name="doc" />
+    <adapter factory=".office.DocXPreview" name="docx" />
+    <adapter factory=".office.PptPreview" name="ppt" />
+    <adapter factory=".office.PptxPreview" name="pptx" />
+    <adapter factory=".office.XlsPreview" name="xls" />
+    <adapter factory=".office.XlsxPreview" name="xlsx" />
+
+    <!-- pdf -->
+    <adapter factory=".office.PdfPreview" name="pdf" />
+
+    <!-- Misc -->
+    <adapter factory=".misc.ZipPreview" name="zip" />
+    <adapter factory=".misc.TxtPreview" name="txt" />
+
 </configure>

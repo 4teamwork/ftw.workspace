@@ -9,6 +9,7 @@ from plone.app.testing import TEST_USER_NAME
 from pyquery import PyQuery
 from unittest2 import TestCase
 from zope.component import queryMultiAdapter
+import os
 
 
 class TestPreview(TestCase):
@@ -61,7 +62,7 @@ class TestPreview(TestCase):
             (file_, file_.REQUEST),
             IWorkspacePreview)
 
-        self.assertIn('default.jpeg', adapter.preview())
+        self.assertIn('default.png', adapter.preview())
 
     def test_gif_preview(self):
         image = create(Builder('image')
@@ -155,3 +156,129 @@ class TestPreview(TestCase):
 
         self.assertEquals('heute',
                           self.previews.get_group_information(adapter))
+
+    def test_doc_preview_full_url(self):
+        file_content = open("{0}/data/test.doc".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='doc')
+
+        self.assertIn('doc.png', adapter.full_url())
+
+    def test_docx_preview_full_url(self):
+        file_content = open("{0}/data/test.docx".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='docx')
+
+        self.assertIn('docx.png', adapter.full_url())
+
+    def test_ppt_preview_full_url(self):
+        file_content = open("{0}/data/test.ppt".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='ppt')
+
+        self.assertIn('ppt.png', adapter.full_url())
+
+    def test_pptx_preview_full_url(self):
+        file_content = open("{0}/data/test.pptx".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pptx')
+
+        self.assertIn('pptx.png', adapter.full_url())
+
+    def test_xls_preview_full_url(self):
+        file_content = open("{0}/data/test.xls".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='xls')
+
+        self.assertIn('xls.png', adapter.full_url())
+
+    def test_xlsx_preview_full_url(self):
+        file_content = open("{0}/data/test.xlsx".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='xlsx')
+
+        self.assertIn('xlsx.png', adapter.full_url())
+
+    def test_pdf_preview_full_url(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertIn('pdf.png', adapter.full_url())
+
+    def test_zip_preview_full_url(self):
+        file_content = open("{0}/data/test.zip".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='zip')
+
+        self.assertIn('zip.png', adapter.full_url())
+
+    def test_txt_preview_full_url(self):
+        file_content = open("{0}/data/test.txt".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='txt')
+
+        self.assertIn('txt.png', adapter.full_url())

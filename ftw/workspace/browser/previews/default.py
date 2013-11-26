@@ -26,7 +26,7 @@ class DefaultPreview(object):
 
     def full_url(self):
         portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/default.jpeg'.format(
+        return '{0}/++resource++ftw.workspace-resources/default.png'.format(
             portal_url())
 
     def get_scale_properties(self):

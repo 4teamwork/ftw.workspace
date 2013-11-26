@@ -5,7 +5,35 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add txt preview adapter (shows just a txt.png).
+  [mathias.leimgruber]
+
+- Add zip preview adapter (shows just a zip.png).
+  [mathias.leimgruber]
+
+- Add pdf preview adapter (shows just a pdf.png).
+  [mathias.leimgruber]
+
+- Add xlsx preview adapter (shows just a xlsx.png).
+  [mathias.leimgruber]
+
+- Add xls preview adapter (shows just a xls.png).
+  [mathias.leimgruber]
+
+- Add pptx preview adapter (shows just a pptx.png).
+  [mathias.leimgruber]
+
+- Add ppt preview adapter (shows just a ppt.png).
+  [mathias.leimgruber]
+
+- Add docx preview adapter (shows just a docx.png).
+  [mathias.leimgruber]
+
+- Add doc preview adapter (shows just a doc.png).
+  [mathias.leimgruber]
+
+- Add new fallback image for previews.
+  [mathias.leimgruber]
 
 
 2.0.1 (2013-11-15)
