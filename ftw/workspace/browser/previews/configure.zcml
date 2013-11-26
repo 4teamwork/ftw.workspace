@@ -19,4 +19,8 @@
         <adapter factory=".ftwfile.ImagePreview" name="jpg" />
     </configure>
 
+
+    <!-- Office types -->
+    <adapter factory=".office.DocPreview" name="doc" />
+
 </configure>

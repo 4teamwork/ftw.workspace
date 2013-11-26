@@ -9,6 +9,7 @@ from plone.app.testing import TEST_USER_NAME
 from pyquery import PyQuery
 from unittest2 import TestCase
 from zope.component import queryMultiAdapter
+import os
 
 
 class TestPreview(TestCase):
@@ -155,3 +156,17 @@ class TestPreview(TestCase):
 
         self.assertEquals('heute',
                           self.previews.get_group_information(adapter))
+
+    def test_doc_preview_full_url(self):
+        file_content = open("{0}/data/test.doc".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='doc')
+
+        self.assertIn('doc.png', adapter.full_url())
