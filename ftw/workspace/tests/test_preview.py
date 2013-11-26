@@ -212,3 +212,17 @@ class TestPreview(TestCase):
             name='pptx')
 
         self.assertIn('pptx.png', adapter.full_url())
+
+    def test_xls_preview_full_url(self):
+        file_content = open("{0}/data/test.xls".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+            .within(self.workspace)
+            .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='xls')
+
+        self.assertIn('xls.png', adapter.full_url())

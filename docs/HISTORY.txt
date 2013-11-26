@@ -5,6 +5,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Add xls preview adapter (shows just a xls.png).
+  [mathias.leimgruber]
+
 - Add pptx preview adapter (shows just a pptx.png).
   [mathias.leimgruber]
 
