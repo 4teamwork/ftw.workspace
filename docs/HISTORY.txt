@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.2 (unreleased)
+2.0.2 (2013-11-28)
 ------------------
 
 - Add txt preview adapter (shows just a txt.png).
