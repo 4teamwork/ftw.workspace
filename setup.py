@@ -4,6 +4,7 @@ import os
 version = '2.0.3.dev0'
 
 tests_require = [
+    'collective.quickupload',
     'plone.app.testing',
     'ftw.file',
     'ftw.testing',

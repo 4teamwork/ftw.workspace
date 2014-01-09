@@ -12,6 +12,16 @@ from zope.component import getUtility
 import transaction
 
 
+def generate_id(name, context):
+    normalizer = component.getUtility(IIDNormalizer)
+    chooser = INameChooser(context)
+
+    normalized = normalizer.normalize(name)
+    normalized = normalized.replace('_', '-').replace(' ', '-').lower()
+
+    return chooser.chooseName(normalized, context)
+
+
 class WorkspaceQuickUploadCapableFileFactory(object):
     """Workspace specific Quick upload Adapter"""
 
@@ -37,12 +47,7 @@ class WorkspaceQuickUploadCapableFileFactory(object):
         if portal_type not in upload_addable and upload_addable:
             portal_type = upload_addable[0]
 
-        normalizer = component.getUtility(IIDNormalizer)
-        chooser = INameChooser(self.context)
-
-        temp = normalizer.normalize(name)
-        newid = chooser.chooseName(temp, context)
-
+        newid = generate_id(name, self.context)
         title = name
 
         # copied from collective.quickupload
