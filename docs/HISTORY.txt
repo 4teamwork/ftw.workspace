@@ -5,7 +5,8 @@ Changelog
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix quick_upload id generator (allow filenames staring with an '_')
+  [mathias.leimgruber]
 
 
 2.0.2 (2013-11-28)

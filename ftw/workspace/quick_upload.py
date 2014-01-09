@@ -17,7 +17,6 @@ def generate_id(name, context):
     chooser = INameChooser(context)
 
     normalized = normalizer.normalize(name)
-    # Replace '_', because chooseName cannot handle names staring with '_'
     normalized = normalized.replace('_', '-').replace(' ', '-').lower()
 
     return chooser.chooseName(normalized, context)
@@ -48,7 +47,8 @@ class WorkspaceQuickUploadCapableFileFactory(object):
         if portal_type not in upload_addable and upload_addable:
             portal_type = upload_addable[0]
 
-        newid = title = generate_id(name, self.context)
+        newid = generate_id(name, self.context)
+        title = name
 
         # copied from collective.quickupload
         upload_lock.acquire()
