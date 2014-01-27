@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-31 15:11+0000\n"
+"POT-Creation-Date: 2014-01-27 15:37+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,11 +13,14 @@ msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "<span>x</span>"
-msgstr ""
+msgstr "<span>x</span>"
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
 msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
+
+msgid "Contacts"
+msgstr "Kontakte"
 
 #: ./ftw/workspace/browser/overview.pt:41
 msgid "Creator"
@@ -77,6 +80,9 @@ msgstr "Titel"
 msgid "column_type"
 msgstr "Typ"
 
+msgid "contacts"
+msgstr "Kontakte"
+
 #. Default: "List"
 #: ./ftw/workspace/browser/documents.pt:14
 #: ./ftw/workspace/browser/preview_tab.pt:2
@@ -88,6 +94,9 @@ msgstr "Liste"
 #: ./ftw/workspace/browser/preview_tab.pt:6
 msgid "documents_pill_preview"
 msgstr "Vorschau"
+
+msgid "event"
+msgstr "Termin"
 
 #. Default: "Export:"
 #: ./ftw/workspace/browser/events.pt:40
@@ -194,6 +203,12 @@ msgstr "Seite"
 msgid "latex_printed"
 msgstr "Druckdatum"
 
+msgid "meeting"
+msgstr "Sitzung"
+
+msgid "poll"
+msgstr "Sitzungsumfrage"
+
 #: ./ftw/workspace/browser/overview.pt:99
 msgid "recently modified"
 msgstr "Kürzlich verändert"
@@ -202,4 +217,3 @@ msgstr "Kürzlich verändert"
 #: ./ftw/workspace/browser/previews/default.py:24
 msgid "text_no_preview"
 msgstr "Keine Vorschau"
-
