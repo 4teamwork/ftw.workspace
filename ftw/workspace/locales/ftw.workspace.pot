@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-31 15:11+0000\n"
+"POT-Creation-Date: 2014-01-27 15:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "A type for collaborative spaces."
+msgstr ""
+
+msgid "Contacts"
 msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:41
@@ -83,6 +86,9 @@ msgstr ""
 msgid "column_type"
 msgstr ""
 
+msgid "contacts"
+msgstr ""
+
 #. Default: "List"
 #: ./ftw/workspace/browser/documents.pt:14
 #: ./ftw/workspace/browser/preview_tab.pt:2
@@ -93,6 +99,9 @@ msgstr ""
 #: ./ftw/workspace/browser/documents.pt:16
 #: ./ftw/workspace/browser/preview_tab.pt:6
 msgid "documents_pill_preview"
+msgstr ""
+
+msgid "event"
 msgstr ""
 
 #. Default: "Export:"
@@ -198,6 +207,12 @@ msgstr ""
 #. Default: "Printed"
 #: ./ftw/workspace/latex/layout.py:19
 msgid "latex_printed"
+msgstr ""
+
+msgid "meeting"
+msgstr ""
+
+msgid "poll"
 msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:99

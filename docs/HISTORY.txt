@@ -5,7 +5,8 @@ Changelog
 2.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update German, French and English translations.
+  [jone]
 
 
 2.0.3 (2014-01-09)
