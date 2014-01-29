@@ -15,11 +15,13 @@ class DocumentsTab(Tab):
     types = ['File', 'Document', 'Image']
 
     show_selects = False
-    show_menu = False
+    show_menu = True
 
     sort_reverse = True
 
     template = ViewPageTemplateFile('documents.pt')
+
+    enabled_actions = ['delete']
 
     def __init__(self, context, request):
         super(DocumentsTab, self).__init__(context, request)
