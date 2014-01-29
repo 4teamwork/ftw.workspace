@@ -44,6 +44,11 @@ class DocumentsTab(Tab):
                                                  default=u'Document date')
 
         columns = (
+            {'column': '',
+             'column_title': '',
+             'transform': helper.path_checkbox,
+             'width': 30},
+
             {'column': 'getIcon',
              'sort_index': 'getContentType',
              'column_title': _(u'column_type', default=u'Type'),
