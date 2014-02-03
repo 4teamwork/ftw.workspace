@@ -80,4 +80,11 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="move_items"
+        class=".move_items.MoveItemsFormView"
+        permission="zope2.CopyOrMove"
+        />
+
 </configure>

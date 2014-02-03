@@ -21,7 +21,7 @@ class DocumentsTab(Tab):
 
     template = ViewPageTemplateFile('documents.pt')
 
-    enabled_actions = ['delete']
+    enabled_actions = ['delete', 'move_items']
 
     def __init__(self, context, request):
         super(DocumentsTab, self).__init__(context, request)
