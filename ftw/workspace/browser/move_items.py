@@ -57,13 +57,15 @@ class MoveItemsForm(form.Form):
 
             for path in source:
 
+                portal = getToolByName(self.context, 'portal_url').getPortalObject()
+
                 # Get source object
-                src_object = self.context.unrestrictedTraverse(
+                src_object = portal.unrestrictedTraverse(
                         path.encode('utf-8'))
 
                 # Get parent object
                 source_container = aq_parent(aq_inner(
-                        self.context.unrestrictedTraverse(
+                        portal.unrestrictedTraverse(
                             path.encode('utf-8'))))
 
                 src_name = src_object.title
