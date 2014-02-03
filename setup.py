@@ -8,6 +8,7 @@ tests_require = [
     'plone.app.testing',
     'ftw.file',
     'ftw.testing',
+    'ftw.testbrowser',
     'ftw.pdfgenerator',
     'ftw.builder',
     'pyquery',
