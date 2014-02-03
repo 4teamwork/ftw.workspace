@@ -1,4 +1,5 @@
 from Acquisition import aq_inner, aq_parent
+from ftw.workspace import _
 from OFS.CopySupport import CopyError, ResourceLockedError
 from plone.formwidget.contenttree import ContentTreeFieldWidget
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -11,20 +12,16 @@ from z3c.form.interfaces import HIDDEN_MODE
 from z3c.relationfield.schema import RelationChoice
 from zope import schema
 from zope.component import provideAdapter
-from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface, Invalid
 from zope.publisher.browser import BrowserView
 import z3c.form
-
-
-_ = MessageFactory("ftw.workspace")
 
 
 class IMoveItemsSchema(Interface):
     destination_folder = RelationChoice(
         title=_('label_destination', default="Destination"),
         description=_('help_destination',
-                      default="Live Search: search the Plone Site"),
+                      default="Select the destination container."),
         source=ObjPathSourceBinder(),
         required=True,
         )
@@ -46,7 +43,7 @@ class MoveItemsForm(form.Form):
         if value:
             self.widgets['request_paths'].value = ';;'.join(value)
 
-    @z3c.form.button.buttonAndHandler(_(u'button_submit',
+    @z3c.form.button.buttonAndHandler(_(u'button_move',
                                         default=u'Move'))
     def handle_submit(self, action):
         data, errors = self.extractData()
