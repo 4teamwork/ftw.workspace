@@ -22,7 +22,9 @@ class IMoveItemsSchema(Interface):
         title=_('label_destination', default="Destination"),
         description=_('help_destination',
                       default="Select the destination container."),
-        source=ObjPathSourceBinder(),
+        source=ObjPathSourceBinder(
+                    is_folderish=True,
+                    navigation_tree_query=None),
         required=True,
         )
     #We Use TextLine here because Tuple and List have no hidden_mode.
