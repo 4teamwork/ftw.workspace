@@ -24,4 +24,13 @@
              provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
              name="extend_folder_wit_textfield"/>
 
+    <include package="ftw.tagging" />
+    <class class=".workspace.Workspace">
+        <implements interface="ftw.tagging.interfaces.tagging.ITagRoot" />
+    </class>
+
+    <class class="plone.app.blob.content.ATBlob">
+        <implements interface="ftw.tagging.interfaces.tagging.ITaggable" />
+    </class>
+
 </configure>
