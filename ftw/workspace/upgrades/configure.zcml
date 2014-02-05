@@ -129,5 +129,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1704 -> 1705 -->
+    <upgrade-step:importProfile
+        title="Remove old calendar js code"
+        profile="ftw.workspace:default"
+        source="1704"
+        destination="1705"
+        directory="profiles/1705"
+        />
+
 
 </configure>

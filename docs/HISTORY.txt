@@ -5,6 +5,9 @@ Changelog
 2.0.4 (unreleased)
 ------------------
 
+- Remove old, no longer used calendar js code.
+  [buchi]
+
 - Update German, French and English translations.
   [jone]
 
