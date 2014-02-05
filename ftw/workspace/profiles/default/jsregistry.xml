@@ -1,16 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
 
-    <javascript
-        id="++resource++ftw.workspace-resources/event-calendar.js"
-        expression="python: object.Type() in ['Workspace', 'TabbedViewFolder']"
-        cacheable="True"
-        compression="safe"
-        cookable="True"
-        enabled="on"
-        inline="False"
-        />
-
     <javascript cacheable="True" compression="safe" cookable="True"
         enabled="1" expression="" insert-after="++resource++jquery.smartTruncation.js"
         id="++resource++ftw.workspace-resources/overview_truncate.js" />
