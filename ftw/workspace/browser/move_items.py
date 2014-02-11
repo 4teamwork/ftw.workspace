@@ -49,52 +49,53 @@ class MoveItemsForm(form.Form):
                                         default=u'Move'))
     def handle_submit(self, action):
         data, errors = self.extractData()
-        if len(errors) == 0:
+        if len(errors):
+            return
 
-            source = data['request_paths'].split(';;')
-            destination = data['destination_folder']
-            failed_objects = []
-            failed_resource_locked_objects = []
-            copied_items = 0
+        source = data['request_paths'].split(';;')
+        destination = data['destination_folder']
+        failed_objects = []
+        failed_resource_locked_objects = []
+        copied_items = 0
 
-            for path in source:
+        for path in source:
 
-                portal = getToolByName(self.context, 'portal_url').getPortalObject()
+            portal = getToolByName(
+                self.context, 'portal_url').getPortalObject()
 
-                # Get source object
-                src_object = portal.unrestrictedTraverse(
-                        path.encode('utf-8'))
+            # Get source object
+            src_object = portal.unrestrictedTraverse(
+                path.encode('utf-8'))
 
-                # Get parent object
-                source_container = aq_parent(aq_inner(
-                        portal.unrestrictedTraverse(
-                            path.encode('utf-8'))))
+            # Get parent object
+            source_container = aq_parent(aq_inner(
+                portal.unrestrictedTraverse(path.encode('utf-8'))))
 
-                src_name = src_object.title
-                src_id = src_object.id
+            src_name = src_object.title
+            src_id = src_object.id
 
-                try:
-                    # Try to cut and paste object
-                    clipboard = source_container.manage_cutObjects(src_id)
-                    destination.manage_pasteObjects(clipboard)
-                    copied_items += 1
+            try:
+                # Try to cut and paste object
+                clipboard = source_container.manage_cutObjects(src_id)
+                destination.manage_pasteObjects(clipboard)
+                copied_items += 1
 
-                except ResourceLockedError:
-                    # The object is locket over webdav
-                    failed_resource_locked_objects.append(src_name)
-                    continue
+            except ResourceLockedError:
+                # The object is locket over webdav
+                failed_resource_locked_objects.append(src_name)
+                continue
 
-                except (ValueError, CopyError):
-                    # Catch exception and add title to a list of failed objects
-                    failed_objects.append(src_name)
-                    continue
+            except (ValueError, CopyError):
+                # Catch exception and add title to a list of failed objects
+                failed_objects.append(src_name)
+                continue
 
-            self.create_statusmessages(
-                copied_items,
-                failed_objects,
-                failed_resource_locked_objects, )
+        self.create_statusmessages(
+            copied_items,
+            failed_objects,
+            failed_resource_locked_objects, )
 
-            self.request.RESPONSE.redirect(destination.absolute_url())
+        self.request.RESPONSE.redirect(destination.absolute_url())
 
     @z3c.form.button.buttonAndHandler(_(u'button_cancel',
                                         default=u'Cancel'))
@@ -105,7 +106,8 @@ class MoveItemsForm(form.Form):
         self,
         copied_items,
         failed_objects,
-        failed_resource_locked_objects, ):
+        failed_resource_locked_objects
+    ):
         """ Create statusmessages with errors and infos af the move-process
         """
         if copied_items:
