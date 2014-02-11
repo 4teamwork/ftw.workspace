@@ -49,6 +49,7 @@ class DocumentsTab(Tab):
             {'column': '',
              'column_title': '',
              'transform': helper.path_checkbox,
+             'sortable': False,
              'width': 30},
 
             {'column': 'getIcon',
