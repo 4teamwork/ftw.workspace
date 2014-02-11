@@ -23,8 +23,8 @@ class IMoveItemsSchema(Interface):
         description=_('help_destination',
                       default="Select the destination container."),
         source=ObjPathSourceBinder(
-                    is_folderish=True,
-                    navigation_tree_query=None),
+            is_folderish=True,
+            navigation_tree_query=None),
         required=True,
         )
     #We Use TextLine here because Tuple and List have no hidden_mode.
@@ -56,7 +56,7 @@ class MoveItemsForm(form.Form):
         destination = data['destination_folder']
         failed_objects = []
         failed_resource_locked_objects = []
-        copied_items = 0
+        moved_items = 0
 
         for path in source:
 
@@ -78,7 +78,7 @@ class MoveItemsForm(form.Form):
                 # Try to cut and paste object
                 clipboard = source_container.manage_cutObjects(src_id)
                 destination.manage_pasteObjects(clipboard)
-                copied_items += 1
+                moved_items += 1
 
             except ResourceLockedError:
                 # The object is locket over webdav
@@ -91,7 +91,7 @@ class MoveItemsForm(form.Form):
                 continue
 
         self.create_statusmessages(
-            copied_items,
+            moved_items,
             failed_objects,
             failed_resource_locked_objects, )
 
@@ -104,29 +104,30 @@ class MoveItemsForm(form.Form):
 
     def create_statusmessages(
         self,
-        copied_items,
+        moved_items,
         failed_objects,
         failed_resource_locked_objects
     ):
         """ Create statusmessages with errors and infos af the move-process
         """
-        if copied_items:
-            msg = _(u'${copied_items} Elements were moved successfully',
-                    mapping=dict(copied_items=copied_items))
+        if moved_items:
+            msg = _(u'${moved_items} Elements were moved successfully',
+                    mapping=dict(moved_items=moved_items))
             IStatusMessage(self.request).addStatusMessage(
                 msg, type='info')
 
         if failed_objects:
-            msg = _(u'Failed to copy following objects: ${failed_objects}',
-                    mapping=dict(failed_objects=','.join(failed_objects)))
+            msg = _(u'Failed to move following objects: ${failed_objects}',
+                    mapping=dict(failed_objects=',<br>'.join(failed_objects)))
             IStatusMessage(self.request).addStatusMessage(
                 msg, type='error')
 
         if failed_resource_locked_objects:
-            msg = _(u'Failed to copy following objects: ${failed_objects}\
-                    . Locked via WebDAV',
-                    mapping=dict(failed_objects=','.join(
-                        failed_resource_locked_objects)))
+            msg = _(
+                u'''Failed to move following objects: ''' +
+                '''${failed_objects}. Locked via WebDAV''',
+                mapping=dict(failed_objects=',<br>'.join(
+                    failed_resource_locked_objects)))
             IStatusMessage(self.request).addStatusMessage(
                 msg, type='error')
 
@@ -192,9 +193,9 @@ class DestinationValidator(validator.SimpleFieldValidator):
         if failed_objects:
             raise NotInContentTypes(
                 _(u"error_NotInContentTypes ${failed_objects}",
-                  default=u"It isn't allowed to add such items there: "
-                           "${failed_objects}", mapping=dict(
-                           failed_objects=', '.join(failed_objects))))
+                  default=u"It isn't allowed to add such items there: " +
+                  "${failed_objects}", mapping=dict(
+                      failed_objects=',<br>'.join(failed_objects))))
 
 validator.WidgetValidatorDiscriminators(
     DestinationValidator, field=IMoveItemsSchema['destination_folder'])

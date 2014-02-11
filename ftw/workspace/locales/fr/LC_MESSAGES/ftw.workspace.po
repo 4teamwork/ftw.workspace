@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-27 15:37+0000\n"
+"POT-Creation-Date: 2014-02-11 12:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,6 +10,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftw/workspace/browser/move_items.py:114
+msgid "${moved_items} Elements were moved successfully"
+msgstr "${moved_items} eléments ont été déplacés avec succès"
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "<span>x</span>"
@@ -30,14 +35,31 @@ msgstr "Créateur"
 msgid "Description"
 msgstr "Description"
 
+#: ./ftw/workspace/browser/move_items.py:120
+msgid "Failed to move following objects: ${failed_objects}"
+msgstr "Impossible de déplacer des objets suivants: ${failed_objects}"
+
+#: ./ftw/workspace/browser/move_items.py:126
+msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
+msgstr "Objets suivants sont verrouillés via WebDAV: ${failed_objects}"
+
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
 #: ./ftw/workspace/upgrades/profiles/1501/types/TabbedViewFolder.xml
 msgid "Folder"
 msgstr "Dossier"
 
+#: ./ftw/workspace/browser/move_items.py:164
+msgid "It isn't allowed to add such items there"
+msgstr "Certains articles ne sont pas autorisés dans le dossier de destination"
+
 #: ./ftw/workspace/browser/overview.pt:38
 msgid "Modified"
 msgstr "Modifié"
+
+#: ./ftw/workspace/profiles/default/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
+msgid "Move Items"
+msgstr "Déplacer des éléments"
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "Title"
@@ -51,32 +73,46 @@ msgstr "Type"
 msgid "Workspace"
 msgstr "Espace travail"
 
+#: ./ftw/workspace/browser/move_items.py:147
+msgid "You have not selected any items"
+msgstr "Vous n'avez pas des éléments sélectionnés"
+
+#. Default: "Cancel"
+#: ./ftw/workspace/browser/move_items.py:100
+msgid "button_cancel"
+msgstr "Annuler"
+
+#. Default: "Move"
+#: ./ftw/workspace/browser/move_items.py:48
+msgid "button_move"
+msgstr "Déplacer"
+
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:59
+#: ./ftw/workspace/browser/documents.py:67
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Créateur"
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:37
+#: ./ftw/workspace/browser/documents.py:39
 msgid "column_date"
 msgstr "Date"
 
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:64
+#: ./ftw/workspace/browser/documents.py:72
 #: ./ftw/workspace/browser/overview.py:51
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Modifié"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:54
+#: ./ftw/workspace/browser/documents.py:62
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Titre"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:49
+#: ./ftw/workspace/browser/documents.py:57
 msgid "column_type"
 msgstr "Type"
 
@@ -95,6 +131,11 @@ msgstr "Liste"
 msgid "documents_pill_preview"
 msgstr "Présentation"
 
+#. Default: "It isn't allowed to add such items there: ${failed_objects}"
+#: ./ftw/workspace/browser/move_items.py:195
+msgid "error_NotInContentTypes ${failed_objects}"
+msgstr "Certains articles ne sont pas autorisés dans le dossier de destination: ${failed_objects}"
+
 msgid "event"
 msgstr "Rendez-vous"
 
@@ -112,6 +153,21 @@ msgstr "Calendrier"
 #: ./ftw/workspace/browser/events.pt:14
 msgid "events_pill_list"
 msgstr "Liste"
+
+#. Default: "Move Items"
+#: ./ftw/workspace/browser/move_items.py:39
+msgid "heading_move_items"
+msgstr "Déplacer les éléments"
+
+#. Default: "Select the destination container."
+#: ./ftw/workspace/browser/move_items.py:23
+msgid "help_destination"
+msgstr "Sélectionner le contenant de destination."
+
+#. Default: "Destination"
+#: ./ftw/workspace/browser/move_items.py:22
+msgid "label_destination"
+msgstr "Destination"
 
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:57
@@ -217,3 +273,5 @@ msgstr "Modifié"
 #: ./ftw/workspace/browser/previews/default.py:24
 msgid "text_no_preview"
 msgstr "pas de Présentation"
+
+
