@@ -2,8 +2,17 @@ Changelog
 =========
 
 
-2.0.4 (unreleased)
+2.0.5 (unreleased)
 ------------------
+
+- Nothing changed yet.
+
+
+2.0.4 (2014-02-05)
+------------------
+
+- Remove old, no longer used calendar js code.
+  [buchi]
 
 - Update German, French and English translations.
   [jone]

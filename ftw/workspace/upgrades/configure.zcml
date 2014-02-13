@@ -131,10 +131,20 @@
 
     <!-- 1704 -> 1705 -->
     <upgrade-step:importProfile
-        title="Install plone.formwidget.contenttree and register folder_buttons"
+        title="Remove old calendar js code"
         profile="ftw.workspace:default"
         source="1704"
         destination="1705"
         directory="profiles/1705"
         />
+
+    <!-- 1705 -> 1706 -->
+    <upgrade-step:importProfile
+        title="Install plone.formwidget.contenttree and register folder_buttons"
+        profile="ftw.workspace:default"
+        source="1705"
+        destination="1706"
+        directory="profiles/1706"
+        />
+
 </configure>
