@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1705</version>
+  <version>1706</version>
   <dependencies>
     <dependency>profile-ftw.tabbedview:default</dependency>
     <dependency>profile-ftw.calendar:default</dependency>
     <dependency>profile-collective.js.jqsmartTruncation:default</dependency>
     <dependency>profile-ftw.colorbox:default</dependency>
+    <dependency>profile-plone.formwidget.contenttree:default</dependency>
   </dependencies>
 </metadata>

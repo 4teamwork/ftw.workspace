@@ -138,5 +138,13 @@
         directory="profiles/1705"
         />
 
+    <!-- 1705 -> 1706 -->
+    <upgrade-step:importProfile
+        title="Install plone.formwidget.contenttree and register folder_buttons"
+        profile="ftw.workspace:default"
+        source="1705"
+        destination="1706"
+        directory="profiles/1706"
+        />
 
 </configure>
