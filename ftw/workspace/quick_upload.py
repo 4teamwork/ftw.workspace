@@ -1,4 +1,5 @@
 from AccessControl import Unauthorized
+from Products.CMFPlone.utils import base_hasattr
 from Acquisition import aq_inner
 from ZODB.POSException import ConflictError
 from collective.quickupload import logger
@@ -81,7 +82,12 @@ class WorkspaceQuickUploadCapableFileFactory(object):
                     error = IQuickUploadFileSetter(obj).set(
                         data, filename, content_type)
 
-                obj.processForm()
+                if base_hasattr(obj, 'processForm'):
+                    # AT: includes reindexing the object.
+                    obj.processForm()
+                else:
+                    # Dexterity
+                    obj.reindexObject()
 
             #@TODO : rollback if there has been an error
             transaction.commit()
