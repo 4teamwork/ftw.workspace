@@ -8,6 +8,10 @@ Changelog
 - Quick upload factory: also reindex dexterity types.
   [jone]
 
+- Add functionality for deleting and moving multiple documents
+  directly from the documents tab of the workspace.
+  [lknoepfel, elioschmutz]
+
 
 2.0.4 (2014-02-05)
 ------------------
