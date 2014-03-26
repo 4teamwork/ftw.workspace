@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<portlets>
+  <assignment
+    type="ftw.tagging.portlet.tagcloud"
+    manager="plone.rightcolumn"
+    category="content_type"
+    key="Workspace">
+    <property name="type_restriction">File</property>
+  </assignment>
+</portlets>

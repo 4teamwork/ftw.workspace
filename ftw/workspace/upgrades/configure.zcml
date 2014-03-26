@@ -147,4 +147,13 @@
         directory="profiles/1706"
         />
 
+    <!-- 1706 -> 1707 -->
+    <upgrade-step:importProfile
+        title="Add tagcloud portlet to workspace."
+        profile="ftw.workspace:default"
+        source="1706"
+        destination="1707"
+        directory="profiles/1707"
+        />
+
 </configure>
