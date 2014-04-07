@@ -7,5 +7,6 @@
     <dependency>profile-collective.js.jqsmartTruncation:default</dependency>
     <dependency>profile-ftw.colorbox:default</dependency>
     <dependency>profile-plone.formwidget.contenttree:default</dependency>
+    <dependency>profile-ftw.tagging:default</dependency>
   </dependencies>
 </metadata>
