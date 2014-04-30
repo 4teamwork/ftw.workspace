@@ -8,6 +8,9 @@ Changelog
 - Hide upload option of text field on Workspace and TabbedViewFolder.
   [mathias.leimgruber]
 
+- Fix misplaced checkbox in documents tab. Reset table configuration.
+  [elioschmutz]
+
 - Use ftw.builder ImageBuilder, remove the ImageBuilder of this package.
   [mathias.leimgruber]
 
