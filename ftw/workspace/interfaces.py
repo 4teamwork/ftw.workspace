@@ -51,5 +51,8 @@ class IWorkspacePreview(Interface):
     def get_scale_properties():
         """Returns the scale defined in configuration registry"""
 
+    def detail_url():
+        """URL of the Object in Plone"""
+
     def download_url():
         """Download url or None if the item can't be downloaded"""
