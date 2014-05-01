@@ -19,9 +19,10 @@ class DefaultPreview(object):
         self.request = request
 
     def preview(self):
-        return '<img height="200px" src="{0}" alt={1} title={1}/>'.format(
+        return '<img height="200px" src="{0}" alt="{1}" title="{1}" download_url="{2}" />'.format(
             self.full_url(),
-            _(u'text_no_preview', default=u'No Preview')
+            _(u'text_no_preview', default=u'No Preview'),
+            self.download_url()
             )
 
     def full_url(self):
@@ -32,3 +33,6 @@ class DefaultPreview(object):
     def get_scale_properties(self):
         sizes = getUtility(IAvailableSizes)()
         return sizes.get('workspace_preview', (200, 200))
+
+    def download_url(self):
+        return "%s/download" % self.context.absolute_url()
