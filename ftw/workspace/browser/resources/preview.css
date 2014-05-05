@@ -39,3 +39,29 @@
 .previewGroupTitle {
   clear:both;
 }
+
+#colorbox button {
+    border: none;
+}
+
+#colorbox {
+    min-width: 400px;
+}
+
+#cboxPrevious, #cboxNext {
+    position: absolute;
+    top: 50%;
+}
+
+#cboxPrevious {
+    left: 0;
+}
+
+#cboxNext {
+    left: inherit;
+    right: 0;
+}
+
+#cboxCurrent {
+    left: 0;
+}
