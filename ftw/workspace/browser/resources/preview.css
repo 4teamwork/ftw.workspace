@@ -40,28 +40,17 @@
   clear:both;
 }
 
-#colorbox button {
-    border: none;
-}
-
 #colorbox {
     min-width: 400px;
 }
 
-#cboxPrevious, #cboxNext {
-    position: absolute;
-    top: 50%;
+#cboxTitle a {
+    float: right;
+    padding: 0 3px;
 }
-
-#cboxPrevious {
-    left: 0;
+#cboxTitle a:first-child {
+    margin-right: 30px;
 }
-
-#cboxNext {
-    left: inherit;
-    right: 0;
-}
-
-#cboxCurrent {
-    left: 0;
+#cboxTitle a:hover {
+    text-decoration: underline;
 }
