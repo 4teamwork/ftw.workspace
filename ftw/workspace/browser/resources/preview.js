@@ -14,12 +14,6 @@ function activatePreviewColorbox(){
   });
 }
 
-function short_name(str, maxLen) {
-    if (str.length < maxLen) return str;
-    part = (maxLen - 3)/2; // minus the three dots
-    return str.substring(0, part)+"..."+str.substring(str.length-part);
-}
-
 function activatePreviewGroups(data){
   var headings = $('.previewGroupTitle', data);
   $.each(headings, function(index, value){
