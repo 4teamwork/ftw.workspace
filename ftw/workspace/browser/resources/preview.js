@@ -9,6 +9,7 @@ function activatePreviewColorbox(){
     'title': function() {
         return $(this).attr('title') +
                'Details'.link($('img',this).attr('detail_url')) +
+               '<span> | </span>' +
                'Download'.link($('img',this).attr('download_url'));
     }
   });
