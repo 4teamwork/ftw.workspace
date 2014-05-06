@@ -15,6 +15,13 @@
     position: relative;
 }
 
+.colorboxLink .detail_link,
+.colorboxLink .download_link {
+    float: left;
+    padding-right: 1em;
+    border: none !important;
+}
+
 .previewContainer img {
   max-width: 100%;
   max-height: 100%;
