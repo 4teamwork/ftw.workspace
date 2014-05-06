@@ -31,6 +31,7 @@ class FolderExtender(object):
         widget=RichWidget(
             label=_(u"label_text", default=u"Text"),
             rows=15,
+            allow_file_upload=False,
             allow_buttons=TinyMCEAllowedButtonsConfigurator(), )), ]
 
     def __init__(self, context):
