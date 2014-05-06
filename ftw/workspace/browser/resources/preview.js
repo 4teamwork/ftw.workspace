@@ -1,6 +1,6 @@
 function activatePreviewColorbox(){
 
-  $('a.colorboxLink').colorbox(
+  $('.colorboxElement').colorbox(
   {
     'photo': true,
     'current': '{current}/{total}',
