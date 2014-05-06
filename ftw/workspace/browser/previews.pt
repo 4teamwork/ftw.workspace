@@ -22,8 +22,10 @@
           </span>
       </a>
       <div>
-          <a tal:attributes="href preview/detail_url">Details</a>
-          <a tal:attributes="href preview/download_url">Download</a>
+          <a tal:attributes="class string:download_link;
+                             href preview/download_url">Download</a>
+          <a tal:attributes="class string:detail_link;
+                             href preview/detail_url">Details</a>
       </div>
   </span>
 
