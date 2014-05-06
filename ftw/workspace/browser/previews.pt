@@ -21,7 +21,7 @@
               <span tal:replace="preview/context/pretty_title_or_id" />
           </span>
       </a>
-      <div>
+      <div class="preview_actions">
           <a tal:attributes="class string:download_link;
                              href preview/download_url">Download</a>
           <a tal:attributes="class string:detail_link;
