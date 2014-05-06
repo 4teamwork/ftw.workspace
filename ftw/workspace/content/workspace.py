@@ -31,6 +31,7 @@ WorkspaceSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         widget=atapi.RichWidget(
             label=_(u"label_text", default=u"Text"),
             rows=15,
+            allow_file_upload=False,
             allow_buttons=TinyMCEAllowedButtonsConfigurator(),
         ),
     ),
