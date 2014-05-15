@@ -56,3 +56,6 @@ class IWorkspacePreview(Interface):
 
     def download_url():
         """Download url or None if the item can't be downloaded"""
+
+    def preview_type():
+        """Supported types so far: html, image"""

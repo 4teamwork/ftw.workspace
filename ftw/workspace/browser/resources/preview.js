@@ -1,6 +1,5 @@
 function activatePreviewColorbox(){
-
-  $('.colorboxElement').colorbox(
+  $('a.colorboxLink.image').colorbox(
   {
     'photo': true,
     'current': '{current}/{total}',
@@ -13,6 +12,15 @@ function activatePreviewColorbox(){
                'Download'.link($('img',this).attr('download_url'));
     }
   });
+
+$('a.colorboxLink.html').colorbox(
+  {
+    'inline': true,
+    'current': '{current}/{total}',
+    'maxWidth': '100%',
+    'maxHeight': '100%'
+  });
+
 }
 
 function activatePreviewGroups(data){

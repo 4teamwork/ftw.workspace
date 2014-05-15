@@ -47,3 +47,6 @@ class DefaultPreview(object):
 
     def download_url(self):
         return "%s/download" % self.context.absolute_url()
+
+    def preview_type(self):
+        return 'image'
