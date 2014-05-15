@@ -13,7 +13,8 @@ HTML = """
 <div class="MeetingPreviewWrapper">
     <h2>{title}</h2>
     <p>Datum: {date}</p>
-    <p>Time: {time}</p>
+    <p>Zeit: {time}</p>
+    <p>Ort: {location}</p>
 </div>
 """
 
@@ -32,8 +33,9 @@ class MeetingPreview(DefaultPreview):
         return HTML.format(
             **{'title': self.context.Title(),
                'date': self.context.start().strftime('%d.%m.%Y'),
-               'time': self.context.start().strftime('%H:%M')+" - " +
-               self.context.end().strftime('%H:%M')})
+               'time': '%s - %s' % (self.context.start().strftime('%H:%M'),
+                                    self.context.end().strftime('%H:%M')),
+               'location': self.context.getLocation()})
 
     def full_url(self):
         return self.context.absolute_url()
@@ -46,4 +48,4 @@ class MeetingPreview(DefaultPreview):
         return 'html'
 
     def download_url(self):
-        return None
+        return '%s/export_ics' % self.context.absolute_url()
