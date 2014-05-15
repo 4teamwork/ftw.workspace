@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-15 15:22+0000\n"
+"POT-Creation-Date: 2014-02-11 12:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,6 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
 
 #: ./ftw/workspace/browser/move_items.py:114
 msgid "${moved_items} Elements were moved successfully"
@@ -29,6 +30,10 @@ msgstr "Contacts"
 #: ./ftw/workspace/browser/overview.pt:41
 msgid "Creator"
 msgstr "Créateur"
+
+#: ./ftw/workspace/browser/overview.pt:91
+msgid "Description"
+msgstr "Description"
 
 #: ./ftw/workspace/browser/move_items.py:120
 msgid "Failed to move following objects: ${failed_objects}"
@@ -52,7 +57,7 @@ msgid "Modified"
 msgstr "Modifié"
 
 #: ./ftw/workspace/profiles/default/actions.xml
-#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
 msgid "Move Items"
 msgstr "Déplacer des éléments"
 
@@ -83,36 +88,48 @@ msgid "button_move"
 msgstr "Déplacer"
 
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:65
+#: ./ftw/workspace/browser/documents.py:67
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Créateur"
 
 #. Default: "date"
-#: ./ftw/workspace/browser/documents.py:37
+#: ./ftw/workspace/browser/documents.py:39
 msgid "column_date"
 msgstr "Date"
 
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:70
+#: ./ftw/workspace/browser/documents.py:72
 #: ./ftw/workspace/browser/overview.py:51
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Modifié"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:60
+#: ./ftw/workspace/browser/documents.py:62
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Titre"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:55
+#: ./ftw/workspace/browser/documents.py:57
 msgid "column_type"
 msgstr "Type"
 
 msgid "contacts"
 msgstr "Contacts"
+
+#. Default: "List"
+#: ./ftw/workspace/browser/documents.pt:14
+#: ./ftw/workspace/browser/preview_tab.pt:2
+msgid "documents_pill_list"
+msgstr "Liste"
+
+#. Default: "Preview"
+#: ./ftw/workspace/browser/documents.pt:16
+#: ./ftw/workspace/browser/preview_tab.pt:6
+msgid "documents_pill_preview"
+msgstr "Présentation"
 
 #. Default: "It isn't allowed to add such items there: ${failed_objects}"
 #: ./ftw/workspace/browser/move_items.py:195
@@ -248,9 +265,12 @@ msgstr "Rendez-vous"
 msgid "poll"
 msgstr "Enquête"
 
+#: ./ftw/workspace/browser/overview.pt:99
+msgid "recently modified"
+msgstr "Modifié"
+
 #. Default: "No Preview"
 #: ./ftw/workspace/browser/previews/default.py:24
-#: ./ftw/workspace/browser/previews/office.py:107
 msgid "text_no_preview"
 msgstr "pas de Présentation"
 

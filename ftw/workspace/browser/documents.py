@@ -19,6 +19,8 @@ class DocumentsTab(Tab):
 
     sort_reverse = True
 
+    template = ViewPageTemplateFile('documents.pt')
+
     enabled_actions = ['delete', 'move_items']
 
     def __init__(self, context, request):
