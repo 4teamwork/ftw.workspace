@@ -19,6 +19,19 @@ function activatePreviewColorbox(){
       current: '{current}/{total}',
       width: '80%',
       height: '80%',
+      html: function(cache){
+        var url = $(cache.el).attr('href');
+
+        var content;
+        $.ajax({
+            url: url,
+            async: false,
+            success: function(data){
+                content = data;
+            },
+        });
+        return $('#content', content).html();
+      },
       title: function() {
           return $(this).attr('title') +
                  'Details'.link($('img',this).attr('detail_url')) +
