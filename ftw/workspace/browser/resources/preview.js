@@ -18,7 +18,13 @@ $('a.colorboxLink.html').colorbox(
     'inline': true,
     'current': '{current}/{total}',
     'maxWidth': '100%',
-    'maxHeight': '100%'
+    'maxHeight': '100%',
+    'title': function() {
+        return $(this).attr('title') +
+               'Details'.link($('img',this).attr('detail_url')) +
+               '<span> | </span>' +
+               'Download'.link($('img',this).attr('download_url'));
+    }
   });
 
 }
