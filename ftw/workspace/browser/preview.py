@@ -12,10 +12,10 @@ from zope.component import queryMultiAdapter
 class PreviewTab(BrowserView):
     """Preview tab for workspace"""
 
-    template = ViewPageTemplateFile('preview_tab.pt')
+    preview_template = ViewPageTemplateFile('preview_tab.pt')
 
     def __call__(self):
-        return self.template()
+        return self.preview_template()
 
     def previews(self):
         return self.context.restrictedTraverse('@@previews')()
