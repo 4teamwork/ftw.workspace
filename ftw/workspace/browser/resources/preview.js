@@ -1,4 +1,3 @@
-jq = $;
 function activatePreviewColorbox(){
   $('a.colorboxLink.image').colorbox(
   {
@@ -30,13 +29,13 @@ function activatePreviewColorbox(){
                 content = data;
             },
         });
-        return $('#content', content).html();
+        return $('<div id="colorboxAjaxContent" />').append($('#content > *', content))[0];
       },
       title: function() {
           return $(this).attr('title') +
-                 'Details'.link($('img',this).attr('detail_url')) +
+                 'Details'.link($('*:first',this).attr('detail_url')) +
                  '<span> | </span>' +
-                 'Download'.link($('img',this).attr('download_url'));
+                 'Download'.link($('*:first',this).attr('download_url'));
       }
   });
 }
