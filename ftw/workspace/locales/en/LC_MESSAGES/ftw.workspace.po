@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-27 15:37+0000\n"
+"POT-Creation-Date: 2014-05-15 15:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,6 +10,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
+
+#: ./ftw/workspace/browser/move_items.py:114
+msgid "${moved_items} Elements were moved successfully"
+msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "<span>x</span>"
@@ -26,18 +30,31 @@ msgstr "Contacts"
 msgid "Creator"
 msgstr "Creator"
 
-#: ./ftw/workspace/browser/overview.pt:91
-msgid "Description"
-msgstr "Description"
+#: ./ftw/workspace/browser/move_items.py:120
+msgid "Failed to move following objects: ${failed_objects}"
+msgstr ""
+
+#: ./ftw/workspace/browser/move_items.py:126
+msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
+msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
 #: ./ftw/workspace/upgrades/profiles/1501/types/TabbedViewFolder.xml
 msgid "Folder"
 msgstr "Folder"
 
+#: ./ftw/workspace/browser/move_items.py:164
+msgid "It isn't allowed to add such items there"
+msgstr ""
+
 #: ./ftw/workspace/browser/overview.pt:38
 msgid "Modified"
 msgstr "Modified"
+
+#: ./ftw/workspace/profiles/default/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
+msgid "Move Items"
+msgstr ""
 
 #: ./ftw/workspace/browser/overview.pt:35
 msgid "Title"
@@ -51,8 +68,22 @@ msgstr "Type"
 msgid "Workspace"
 msgstr "Workspace"
 
+#: ./ftw/workspace/browser/move_items.py:147
+msgid "You have not selected any items"
+msgstr ""
+
+#. Default: "Cancel"
+#: ./ftw/workspace/browser/move_items.py:100
+msgid "button_cancel"
+msgstr ""
+
+#. Default: "Move"
+#: ./ftw/workspace/browser/move_items.py:48
+msgid "button_move"
+msgstr ""
+
 #. Default: "Creator"
-#: ./ftw/workspace/browser/documents.py:59
+#: ./ftw/workspace/browser/documents.py:65
 #: ./ftw/workspace/browser/workspaces.py:36
 msgid "column_creator"
 msgstr "Creator"
@@ -63,37 +94,30 @@ msgid "column_date"
 msgstr "Date"
 
 #. Default: "modified"
-#: ./ftw/workspace/browser/documents.py:64
+#: ./ftw/workspace/browser/documents.py:70
 #: ./ftw/workspace/browser/overview.py:51
 #: ./ftw/workspace/browser/workspaces.py:31
 msgid "column_modified"
 msgstr "Modified"
 
 #. Default: "Title"
-#: ./ftw/workspace/browser/documents.py:54
+#: ./ftw/workspace/browser/documents.py:60
 #: ./ftw/workspace/browser/workspaces.py:26
 msgid "column_title"
 msgstr "Title"
 
 #. Default: "Type"
-#: ./ftw/workspace/browser/documents.py:49
+#: ./ftw/workspace/browser/documents.py:55
 msgid "column_type"
 msgstr "Type"
 
 msgid "contacts"
 msgstr "Contacts"
 
-#. Default: "List"
-#: ./ftw/workspace/browser/documents.pt:14
-#: ./ftw/workspace/browser/preview_tab.pt:2
-msgid "documents_pill_list"
-msgstr "List"
-
-#. Default: "Preview"
-#: ./ftw/workspace/browser/documents.pt:16
-#: ./ftw/workspace/browser/preview_tab.pt:6
-msgid "documents_pill_preview"
-msgstr "Preview"
+#. Default: "It isn't allowed to add such items there: ${failed_objects}"
+#: ./ftw/workspace/browser/move_items.py:195
+msgid "error_NotInContentTypes ${failed_objects}"
+msgstr ""
 
 msgid "event"
 msgstr "Event"
@@ -112,6 +136,21 @@ msgstr "Calendar"
 #: ./ftw/workspace/browser/events.pt:14
 msgid "events_pill_list"
 msgstr "List"
+
+#. Default: "Move Items"
+#: ./ftw/workspace/browser/move_items.py:39
+msgid "heading_move_items"
+msgstr ""
+
+#. Default: "Select the destination container."
+#: ./ftw/workspace/browser/move_items.py:23
+msgid "help_destination"
+msgstr ""
+
+#. Default: "Destination"
+#: ./ftw/workspace/browser/move_items.py:22
+msgid "label_destination"
+msgstr ""
 
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:57
@@ -209,11 +248,10 @@ msgstr "Meeting"
 msgid "poll"
 msgstr "Poll"
 
-#: ./ftw/workspace/browser/overview.pt:99
-msgid "recently modified"
-msgstr "Recently modified"
-
 #. Default: "No Preview"
 #: ./ftw/workspace/browser/previews/default.py:24
+#: ./ftw/workspace/browser/previews/office.py:107
 msgid "text_no_preview"
 msgstr "No preview"
+
+
