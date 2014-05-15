@@ -35,4 +35,7 @@
     <adapter factory=".misc.ZipPreview" name="zip" />
     <adapter factory=".misc.TxtPreview" name="txt" />
 
+    <!-- ftw.meeting Meeting preview -->
+    <adapter factory=".meeting.MeetingPreview" name="meeting" />
+
 </configure>

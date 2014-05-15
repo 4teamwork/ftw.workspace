@@ -50,3 +50,6 @@ class IWorkspacePreview(Interface):
 
     def get_scale_properties():
         """Returns the scale defined in configuration registry"""
+
+    def preview_type():
+        """Supported types so far: html, image"""
