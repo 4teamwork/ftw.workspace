@@ -1,4 +1,5 @@
-.colorboxLink {
+.colorboxLink,
+.colorboxLinkWrapper {
   border: 1px solid #d3d3d3;
   display: block;
   float: left;

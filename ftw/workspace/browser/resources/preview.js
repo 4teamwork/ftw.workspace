@@ -76,7 +76,7 @@ function loadMoreContent(){
   $.get(url, {'bstart': newbstart}, function(data) {
 
     if (data !== ''){
-      $('.previewContainer a:last').after(data);
+      $('.previewContainer .colorboxLinkWrapper:last').after(data);
       activatePreviewColorbox();
       activatePreviewGroups($('.previewContainer'));
     } else {
