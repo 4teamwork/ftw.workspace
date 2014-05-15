@@ -8,7 +8,7 @@
   <h3 class="previewGroupTitle"
       style="display:none;"
       tal:content="python: view.get_group_information(preview)" />
-  <span class="colorboxLink">
+  <span class="colorboxLinkWrapper">
       <a tal:define="width python: preview.get_scale_properties()[0];
                      height python: preview.get_scale_properties()[1]"
          tal:attributes="class python: view.get_css_klasses(preview);
