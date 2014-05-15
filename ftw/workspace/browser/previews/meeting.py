@@ -11,7 +11,9 @@ from zope.interface import Interface
 
 HTML = """
 <div class="MeetingPreviewWrapper">
-    <h2> {title}</h2>
+    <h2>{title}</h2>
+    <p>Datum: {date}</p>
+    <p>Time: {time}</p>
 </div>
 """
 
@@ -27,11 +29,11 @@ class MeetingPreview(DefaultPreview):
         self.request = request
 
     def preview(self):
-        return HTML.format(**{'title': self.context.Title()})
-        return '<img height="200px" src="{0}" alt={1} title={1}/>'.format(
-            self.full_url(),
-            _(u'text_no_preview', default=u'No Preview')
-            )
+        return HTML.format(
+            **{'title': self.context.Title(),
+               'date': self.context.start().strftime('%d.%m.%Y'),
+               'time': self.context.start().strftime('%H:%M')+" - " +
+               self.context.end().strftime('%H:%M')})
 
     def full_url(self):
         return self.context.absolute_url()
