@@ -1,11 +1,12 @@
+jq = $;
 function activatePreviewColorbox(){
   $('a.colorboxLink.image').colorbox(
   {
-    'photo': true,
-    'current': '{current}/{total}',
-    'width': '80%',
-    'height': '80%',
-    'title': function() {
+    photo: true,
+    current: '{current}/{total}',
+    width: '80%',
+    height: '80%',
+    title: function() {
         return $(this).attr('title') +
                'Details'.link($('img',this).attr('detail_url')) +
                '<span> | </span>' +
@@ -13,21 +14,20 @@ function activatePreviewColorbox(){
     }
   });
 
-$('a.colorboxLink.html').colorbox(
-  {
-    'inline': true,
-    'current': '{current}/{total}',
-    'maxWidth': '100%',
-    'maxHeight': '100%',
-    'title': function() {
-        return $(this).attr('title') +
-               'Details'.link($('img',this).attr('detail_url')) +
-               '<span> | </span>' +
-               'Download'.link($('img',this).attr('download_url'));
-    }
+  $('a.colorboxLink.html').colorbox(
+    {
+      current: '{current}/{total}',
+      width: '80%',
+      height: '80%',
+      title: function() {
+          return $(this).attr('title') +
+                 'Details'.link($('img',this).attr('detail_url')) +
+                 '<span> | </span>' +
+                 'Download'.link($('img',this).attr('download_url'));
+      }
   });
-
 }
+
 
 function activatePreviewGroups(data){
   var headings = $('.previewGroupTitle', data);
