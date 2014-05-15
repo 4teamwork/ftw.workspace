@@ -14,4 +14,3 @@ msgstr ""
 msgid "Print details (PDF)"
 msgstr ""
 
-

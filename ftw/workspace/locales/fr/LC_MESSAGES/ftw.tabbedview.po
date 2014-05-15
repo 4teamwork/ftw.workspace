@@ -74,4 +74,3 @@ msgstr "Sommaire"
 msgid "workspaces"
 msgstr "Espaces travail"
 
-
