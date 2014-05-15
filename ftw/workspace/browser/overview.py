@@ -6,7 +6,7 @@ from ftw.workspace.browser import helper
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 import datetime
-
+from ftw.workspace.browser.preview import PreviewTab
 
 class ListingHelper(object):
 
@@ -33,7 +33,7 @@ class ListingHelper(object):
         return helper.icon(document, "")
 
 
-class OverviewTab(listing.CatalogListingView, ListingHelper):
+class OverviewTab(listing.CatalogListingView, ListingHelper, PreviewTab):
     """Overview tab for workspace"""
 
     overview_template = ViewPageTemplateFile("overview.pt")
