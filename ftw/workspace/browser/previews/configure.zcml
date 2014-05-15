@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ftw.workspace">
 
     <!-- default adapter, if there's no preview available -->
@@ -30,6 +31,13 @@
 
     <!-- pdf -->
     <adapter factory=".office.PdfPreview" name="pdf" />
+
+    <browser:page
+        for="*"
+        name="pdf_two_slides_preview"
+        permission="zope2.View"
+        template="templates/pdf_two_slides_preview.pt"
+        />
 
     <!-- Misc -->
     <adapter factory=".misc.ZipPreview" name="zip" />

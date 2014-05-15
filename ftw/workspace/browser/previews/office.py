@@ -87,7 +87,7 @@ class PdfPreview(DefaultPreview):
 
     def full_url(self):
         if self.has_image_preview:
-            return '{0}/++images++1_preview'.format(
+            return '{0}/pdf_two_slides_preview'.format(
                 self.context.absolute_url())
         else:
             portal_url = getToolByName(self.context, 'portal_url')
@@ -107,3 +107,8 @@ class PdfPreview(DefaultPreview):
                 _(u'text_no_preview', default=u'No Preview')
                 )
 
+    def preview_type(self):
+        if self.has_image_preview:
+            return 'html'
+        else:
+            return 'image'
