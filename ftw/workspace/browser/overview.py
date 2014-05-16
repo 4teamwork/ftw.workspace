@@ -82,29 +82,6 @@ class OverviewTab(listing.CatalogListingView, ListingHelper, PreviewTab):
         else:
             return self.overview_template()
 
-    def catalog(self, types=None, depth=-1, sort_on='modified',
-                sort_order='reverse'):
-
-        query = dict(
-            path=dict(
-                depth=depth,
-                query='/'.join(self.context.getPhysicalPath())),
-            sort_on=sort_on,
-            sort_order=sort_order)
-        if types:
-            query['portal_type'] = types
-
-        return self.context.portal_catalog(query)
-
-    def folders(self):
-        all_folders = self.catalog(
-            ['Folder', 'Workspace', 'TabbedViewFolder'], depth=1,
-            sort_on='getObjPositionInParent', sort_order='')
-        return all_folders
-
-    def description(self):
-        return self.context.Description()
-
     def show_search_results(self):
         if 'searchable_text' in self.request:
             searchable_text = self.request.get('searchable_text')

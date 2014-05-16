@@ -23,8 +23,8 @@ class TestOverviewTab(TestCase):
         login(portal, TEST_USER_NAME)
 
         self.workspace = create(Builder('workspace')
-            .titled('Workspace')
-            .having(description='Description'))
+                                .titled('Workspace')
+                                .having(description='Description'))
 
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
@@ -44,23 +44,6 @@ class TestOverviewTab(TestCase):
         self.assertIn(self.workspace.Description(),
                       doc('.textbox')[0].text_content(),
                       'Description not found')
-
-    def test_overview_base_catalog_result(self):
-        file1 = create(Builder('file')
-                       .within(self.workspace)
-                       .having(modificationDate=DateTime() - 1)
-                       .attach_file_containing('DATA', name='dummy.pdf'))
-
-        file2 = create(Builder('file')
-                       .within(self.workspace)
-                       .having(modificationDate=DateTime() - 2)
-                       .attach_file_containing('DATA', name='dummy.pdf'))
-
-        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
-
-        self.assertEquals([self.workspace.id, file1.id, file2.id],
-                          [brain.getId for brain in view.catalog()],
-                          'Wrong default order')
 
     def test_display_subfolders(self):
         folder = create(Builder('TabbedViewFolder')
@@ -131,3 +114,5 @@ class TestOverviewTab(TestCase):
 
         datestring = '2013-03-01 11:00:00'
         self.assertEquals('01.03.2013', view.generate_date(datestring, now))
+
+
