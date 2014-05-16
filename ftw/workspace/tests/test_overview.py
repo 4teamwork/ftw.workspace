@@ -2,6 +2,7 @@ from DateTime import DateTime
 from datetime import datetime
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.testbrowser import browsing
 from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
 from plone.app.testing import login
 from plone.app.testing import setRoles
@@ -146,4 +147,10 @@ class TestOverviewTab(TestCase):
         datestring = '2013-03-01 11:00:00'
         self.assertEquals('01.03.2013', view.generate_date(datestring, now))
 
+    @browsing
+    def test_preview_is_enabled_on_overview(self, browser):
 
+        browser.login().visit(self.workspace,
+                              view='tabbedview_view-overview')
+        self.assertTrue(browser.css('.previewContainer'),
+                        'No preview conatiner found')
