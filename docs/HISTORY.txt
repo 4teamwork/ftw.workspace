@@ -11,6 +11,9 @@ Changelog
 - Fix broken upgradestep 1707 if no workspaces exists.
   [elioschmutz]
 
+- Show previews on overview tab.
+  [mathias.leimgruber]
+
 
 2.2.0 (2014-06-02)
 ------------------
