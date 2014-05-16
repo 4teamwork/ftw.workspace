@@ -96,13 +96,13 @@ class PdfPreview(DefaultPreview):
 
     def preview(self):
         if self.has_image_preview:
-            return '<img height="200px" src="{0}" alt={1} title={1}/>'.format(
+            return '<img height="200px" src="{0}" alt="{1}" title="{1}"/>'.format(
                 '{0}/++images++1_thumb'.format(
                     self.context.absolute_url()),
                 self.context.Title()
             )
         else:
-            return '<img height="200px" src="{0}" alt={1} title={1}/>'.format(
+            return '<img height="200px" src="{0}" alt="{1}" title="{1}"/>'.format(
                 self.full_url(),
                 _(u'text_no_preview', default=u'No Preview')
                 )

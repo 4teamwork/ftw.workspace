@@ -45,6 +45,7 @@ setup(name='ftw.workspace',
       install_requires=[
         'z3c.relationfield',
         'collective.js.jqsmartTruncation',
+        'collective.pdfpeek',
         'ftw.calendar',
         'ftw.colorbox',
         'ftw.tabbedview',

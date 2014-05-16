@@ -1,3 +1,4 @@
+from collective.pdfpeek.interfaces import IPDFDataExtractor
 from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
@@ -242,7 +243,21 @@ class TestPreview(TestCase):
 
         self.assertIn('xlsx.png', adapter.full_url())
 
-    def test_pdf_preview_full_url(self):
+    def test_pdf_preview_has_no_image_preview(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertFalse(adapter.has_image_preview, 'No images yet')
+
+    def test_pdf_preview_full_url_without_pdfpeek(self):
         file_content = open("{0}/data/test.pdf".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
@@ -255,6 +270,81 @@ class TestPreview(TestCase):
             name='pdf')
 
         self.assertIn('pdf.png', adapter.full_url())
+
+    def test_pdf_preview_without_pdfpeek(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertIn(
+            '<img height="200px" src="{0}" alt="{1}" title="{1}"/>'.format(
+                adapter.full_url(),
+                'text_no_preview'),
+            adapter.preview())
+
+    def test_pdf_preview_has_image_preview(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+                       .within(self.workspace))
+        file_.setFile(file_content)
+
+        converter = IPDFDataExtractor(file_)
+        converter()
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertTrue(adapter.has_image_preview,
+                        'We should have image previews')
+
+    def test_pdf_preview_full_url_with_pdfpeek(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+                       .within(self.workspace))
+        file_.setFile(file_content)
+
+        converter = IPDFDataExtractor(file_)
+        converter()
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertEquals(
+            '{0}/pdf_two_slides_preview'.format(file_.absolute_url()),
+            adapter.full_url())
+
+    def test_pdf_preview_with_pdfpeek(self):
+        file_content = open("{0}/data/test.pdf".format(
+            os.path.split(__file__)[0], 'r'))
+        file_ = create(Builder('file')
+                       .within(self.workspace))
+        file_.setFile(file_content)
+
+        converter = IPDFDataExtractor(file_)
+        converter()
+
+        adapter = queryMultiAdapter(
+            (file_, file_.REQUEST),
+            IWorkspacePreview,
+            name='pdf')
+
+        self.assertEquals(
+            '<img height="200px" src="{0}/++images++1_thumb" alt="" '
+            'title=""/>'.format(file_.absolute_url()),
+            adapter.preview())
 
     def test_zip_preview_full_url(self):
         file_content = open("{0}/data/test.zip".format(
@@ -303,4 +393,4 @@ class TestPreview(TestCase):
         self.assertEquals(meeting.absolute_url(),
                           adapter.full_url())
 
-        self.assertEquals('MeetingPreviewWrapper', adapter.preview())
+        self.assertIn('MeetingPreviewWrapper', adapter.preview())
