@@ -7,9 +7,9 @@ function activatePreviewColorbox(){
     height: '80%',
     title: function() {
         return $(this).attr('title') +
-               'Details'.link($('img',this).attr('detail_url')) +
+               'Details'.link($('img',this).data('preview').detail_url) +
                '<span> | </span>' +
-               'Download'.link($('img',this).attr('download_url'));
+               'Download'.link($('img',this).data('preview').download_url);
     }
   });
 
@@ -33,9 +33,9 @@ function activatePreviewColorbox(){
       },
       title: function() {
           return $(this).attr('title') +
-                 'Details'.link($('*:first',this).attr('detail_url')) +
+                 'Details'.link($('*:first',this).data('preview').detail_url) +
                  '<span> | </span>' +
-                 'Download'.link($('*:first',this).attr('download_url'));
+                 'Download'.link($('*:first',this).data('preview').download_url);
       }
   });
 }
