@@ -74,3 +74,10 @@ class DocumentsTab(Tab):
              'width': 80},
         )
         return columns
+
+    def get_base_query(self):
+        query = super(DocumentsTab, self).get_base_query()
+        labels = self.request.form.get('labels', '')
+        if labels:
+            query['labels'] = labels.split(',')
+        return query

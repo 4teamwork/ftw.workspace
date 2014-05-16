@@ -5,6 +5,9 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
+- Integrate ftw.labels as extras "labels".
+  [jone]
+
 - Show previews on overview tab.
   [mathias.leimgruber]
 
