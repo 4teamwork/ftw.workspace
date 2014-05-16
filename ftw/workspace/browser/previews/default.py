@@ -20,7 +20,7 @@ class DefaultPreview(object):
 
     def preview(self):
         return ('<img height="200px" src="{0}" alt="{1}" title="{1}" '
-                'data-preview="{2}" />').format(
+                'data-preview=\'{2}\' />').format(
                     self.full_url(),
                     _(u'text_no_preview', default=u'No Preview'),
                     self.data_preview_attr())
@@ -45,7 +45,7 @@ class DefaultPreview(object):
         return url
 
     def data_preview_attr(self):
-        return '{{detail_url:"{0}", download_url:"{1}"}}'.format(
+        return '{{"detail_url":"{0}", "download_url":"{1}"}}'.format(
             self.detail_url(),
             self.download_url())
 
