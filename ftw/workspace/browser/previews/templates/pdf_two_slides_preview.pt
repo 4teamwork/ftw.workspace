@@ -2,6 +2,5 @@
 <div>
     <div class="pdfPreview" id="content">
         <img tal:attributes="src string:${context/absolute_url}/++images++1_preview" />
-        <img tal:attributes="src string:${context/absolute_url}/++images++2_preview" />
     </div>
 </div>

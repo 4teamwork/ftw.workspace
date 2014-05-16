@@ -24,10 +24,8 @@ class ImagePreview(DefaultPreview):
             self._primary_field,
             width=width,
             height=height,
-            direction='down').tag(
-            download_url=self.download_url(),
-            detail_url=self.detail_url())
+            direction='down').tag()
 
     def full_url(self):
         return '{0}/images/{1}'.format(self.context.absolute_url(),
-                                self._primary_field)
+                                       self._primary_field)
