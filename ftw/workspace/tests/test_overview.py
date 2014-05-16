@@ -42,42 +42,42 @@ class TestOverviewTab(TestCase):
         doc = pq(self.browser.contents)
 
         self.assertIn(self.workspace.Description(),
-            doc('.textbox')[0].text_content(),
-            'Description not found')
+                      doc('.textbox')[0].text_content(),
+                      'Description not found')
 
     def test_overview_base_catalog_result(self):
         file1 = create(Builder('file')
-            .within(self.workspace)
-            .having(modificationDate=DateTime() - 1)
-            .attach_file_containing('DATA', name='dummy.pdf'))
+                       .within(self.workspace)
+                       .having(modificationDate=DateTime() - 1)
+                       .attach_file_containing('DATA', name='dummy.pdf'))
 
         file2 = create(Builder('file')
-            .within(self.workspace)
-            .having(modificationDate=DateTime() - 2)
-            .attach_file_containing('DATA', name='dummy.pdf'))
+                       .within(self.workspace)
+                       .having(modificationDate=DateTime() - 2)
+                       .attach_file_containing('DATA', name='dummy.pdf'))
 
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
         self.assertEquals([self.workspace.id, file1.id, file2.id],
-            [brain.getId for brain in view.catalog()],
-            'Wrong default order')
+                          [brain.getId for brain in view.catalog()],
+                          'Wrong default order')
 
     def test_display_subfolders(self):
         folder = create(Builder('TabbedViewFolder')
-            .within(self.workspace)
-            .titled('SubFolder'))
+                        .within(self.workspace)
+                        .titled('SubFolder'))
 
         self.browser.open(
             '%s/tabbedview_view-overview' % self.workspace.absolute_url())
         doc = pq(self.browser.contents)
         self.assertEquals(folder.Title(),
-            doc('.SubListing .box ul li a.rollover').text())
+                          doc('.SubListing .box ul li a.rollover').text())
 
     def test_save_description(self):
         create(Builder('file')
-            .within(self.workspace)
-            .having(description='<b>Bold description</b>')
-            .attach_file_containing('DATA', name='dummy.pdf'))
+               .within(self.workspace)
+               .having(description='<b>Bold description</b>')
+               .attach_file_containing('DATA', name='dummy.pdf'))
         brain = self.workspace.getFolderContents()[0]
 
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
@@ -95,8 +95,8 @@ class TestOverviewTab(TestCase):
     def test_overview_type_class_file(self):
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
         create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing('DATA', name='dummy.pdf'))
+               .within(self.workspace)
+               .attach_file_containing('DATA', name='dummy.pdf'))
         brain = self.workspace.getFolderContents()[0]
 
         self.assertEquals('', view.type_class(brain))
@@ -104,11 +104,11 @@ class TestOverviewTab(TestCase):
     def test_overview_type_class_other(self):
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
         create(Builder('document')
-            .within(self.workspace))
+               .within(self.workspace))
         brain = self.workspace.getFolderContents()[0]
 
         self.assertEquals('contenttype-document',
-            view.type_class(brain))
+                          view.type_class(brain))
 
     def test_overview_generate_date_today(self):
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
@@ -123,7 +123,7 @@ class TestOverviewTab(TestCase):
 
         datestring = '2013-06-02 09:00:00'
         self.assertEquals('label_yesterday',
-            view.generate_date(datestring, now))
+                          view.generate_date(datestring, now))
 
     def test_overview_generate_date_older(self):
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
