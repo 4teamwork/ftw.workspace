@@ -59,3 +59,6 @@ class IWorkspacePreview(Interface):
 
     def preview_type():
         """Supported types so far: html, image"""
+
+    def data_preview_attr():
+        """return json for the data-preview attribute."""

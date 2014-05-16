@@ -8,8 +8,7 @@ from zope.interface import Interface
 
 HTML = """
 <div class="MeetingPreviewWrapper"
-     detail_url="{detail_url}"
-     download_url="{download_url}">
+     data-preview="{data_preview}">
     <h2>{title}</h2>
     <p>Datum: {date}</p>
     <p>Zeit: {time}</p>
@@ -33,8 +32,7 @@ class MeetingPreview(DefaultPreview):
                'date': self.context.start().strftime('%d.%m.%Y'),
                'time': '%s - %s' % (self.context.start().strftime('%H:%M'),
                                     self.context.end().strftime('%H:%M')),
-               'detail_url': self.detail_url(),
-               'download_url': self.download_url()})
+               'data_preview': self.data_preview_attr()})
 
     def full_url(self):
         return self.context.absolute_url()

@@ -284,9 +284,11 @@ class TestPreview(TestCase):
             name='pdf')
 
         self.assertIn(
-            '<img height="200px" src="{0}" alt="{1}" title="{1}"/>'.format(
+            '<img height="200px" src="{0}" alt="{1}" title="{1}" '
+            'data-preview="{2}" />'.format(
                 adapter.full_url(),
-                'text_no_preview'),
+                'text_no_preview',
+                adapter.data_preview_attr()),
             adapter.preview())
 
     def test_pdf_preview_has_image_preview(self):
@@ -343,7 +345,9 @@ class TestPreview(TestCase):
 
         self.assertEquals(
             '<img height="200px" src="{0}/++images++1_thumb" alt="" '
-            'title=""/>'.format(file_.absolute_url()),
+            'title="" data-preview="{1}" />'.format(
+                file_.absolute_url(),
+                adapter.data_preview_attr()),
             adapter.preview())
 
     def test_zip_preview_full_url(self):
