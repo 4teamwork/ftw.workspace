@@ -44,6 +44,8 @@
     <adapter factory=".misc.TxtPreview" name="txt" />
 
     <!-- ftw.meeting Meeting preview -->
-    <adapter factory=".meeting.MeetingPreview" name="meeting" />
+    <configure zcml:condition="installed ftw.meeting">
+        <adapter factory=".meeting.MeetingPreview" name="meeting" />
+    </configure>
 
 </configure>
