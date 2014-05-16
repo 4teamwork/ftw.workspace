@@ -63,4 +63,16 @@
           for="ftw.tabbedview.interfaces.ITabbedviewUploadable"
           />
       </configure>
+
+
+    <configure zcml:condition="installed ftw.labels">
+      <class class="ftw.workspace.content.workspace.Workspace">
+          <implements interface="ftw.labels.interfaces.ILabelRoot" />
+      </class>
+
+      <class class="ftw.file.content.file.File">
+          <implements interface="ftw.labels.interfaces.ILabelSupport" />
+      </class>
+    </configure>
+
 </configure>

@@ -42,7 +42,6 @@ setup(name='ftw.workspace',
       zip_safe=False,
 
       install_requires=[
-        'z3c.relationfield',
         'collective.js.jqsmartTruncation',
         'ftw.calendar',
         'ftw.colorbox',
@@ -52,13 +51,16 @@ setup(name='ftw.workspace',
         'plone.namedfile',
         'plone.principalsource',
         'setuptools',
+        'z3c.relationfield',
         # -*- Extra requirements: -*-
         ],
 
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
                           pdf=['ftw.pdfgenerator',
-                               'ftw.file', ]),
+                               'ftw.file', ],
+                          labels=['ftw.labels',
+                                  'ftw.file']),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''
