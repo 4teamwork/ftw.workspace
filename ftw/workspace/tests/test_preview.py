@@ -1,3 +1,4 @@
+from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.workspace.interfaces import IWorkspacePreview
@@ -26,7 +27,7 @@ class TestPreview(TestCase):
             '@@previews')
 
         portal.portal_types.get(
-            'Workspace').allowed_content_types = ('File', 'Image')
+            'Workspace').allowed_content_types = ('File', 'Image', 'Meeting')
 
     def test_get_extension_no_contenttype(self):
         self.assertListEqual([], self.previews.get_extensions(None))
@@ -46,17 +47,17 @@ class TestPreview(TestCase):
     def test_get_previews(self):
 
         create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+               .within(self.workspace)
+               .with_dummy_content())
 
         self.assertGreaterEqual(len(self.previews.get_previews()),
                                 1,
-                               'Expect at least one adapter')
+                                'Expect at least one adapter')
 
     def test_default_preview(self):
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .with_dummy_content())
+                       .within(self.workspace)
+                       .with_dummy_content())
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -66,8 +67,8 @@ class TestPreview(TestCase):
 
     def test_gif_preview(self):
         image = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+                       .within(self.workspace)
+                       .with_dummy_content())
 
         adapter = queryMultiAdapter(
             (image, image.REQUEST),
@@ -81,8 +82,8 @@ class TestPreview(TestCase):
 
     def test_gif_full_url(self):
         image = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+                       .within(self.workspace)
+                       .with_dummy_content())
 
         adapter = queryMultiAdapter(
             (image, image.REQUEST),
@@ -90,12 +91,12 @@ class TestPreview(TestCase):
             name='gif')
 
         self.assertEquals(image.absolute_url() + '/images/image',
-                         adapter.full_url())
+                          adapter.full_url())
 
     def test_gif_scale_properties(self):
         image = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+                       .within(self.workspace)
+                       .with_dummy_content())
 
         adapter = queryMultiAdapter(
             (image, image.REQUEST),
@@ -106,23 +107,23 @@ class TestPreview(TestCase):
 
     def test_tab_renders(self):
         create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+               .within(self.workspace)
+               .with_dummy_content())
 
         doc = PyQuery(self.workspace.restrictedTraverse(
             '@@tabbedview_view-preview')())
 
         self.assertTrue(doc('.previewContainer .colorboxLink img'),
-                            'There should be an image')
+                        'There should be an image')
 
     def test_ftwfile_gif_preview(self):
         image = ('GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00'
-                '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
-                '\x01\x00\x00\x02\x02D\x01\x00;')
+                 '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
+                 '\x01\x00\x00\x02\x02D\x01\x00;')
 
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(image))
+                       .within(self.workspace)
+                       .attach_file_containing(image))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -147,8 +148,8 @@ class TestPreview(TestCase):
 
     def test_default_get_group_information(self):
         image = create(Builder('image')
-            .within(self.workspace)
-            .with_dummy_content())
+                       .within(self.workspace)
+                       .with_dummy_content())
         adapter = queryMultiAdapter(
             (image, image.REQUEST),
             IWorkspacePreview,
@@ -161,8 +162,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.doc".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -175,8 +176,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.docx".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -189,8 +190,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.ppt".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -203,8 +204,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.pptx".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -217,8 +218,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.xls".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -231,8 +232,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.xlsx".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -245,8 +246,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.pdf".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -259,8 +260,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.zip".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -273,8 +274,8 @@ class TestPreview(TestCase):
         file_content = open("{0}/data/test.txt".format(
             os.path.split(__file__)[0], 'r'))
         file_ = create(Builder('file')
-            .within(self.workspace)
-            .attach_file_containing(file_content))
+                       .within(self.workspace)
+                       .attach_file_containing(file_content))
 
         adapter = queryMultiAdapter(
             (file_, file_.REQUEST),
@@ -282,3 +283,24 @@ class TestPreview(TestCase):
             name='txt')
 
         self.assertIn('txt.png', adapter.full_url())
+
+    def test_ftw_meeting_preview(self):
+        meeting = create(Builder('meeting').titled('A meeting')
+                         .having(start_date=DateTime('2014/01/01 10:00'))
+                         .having(end_date=DateTime('2014/01/01 12:00')))
+
+        adapter = queryMultiAdapter(
+            (meeting, meeting.REQUEST),
+            IWorkspacePreview,
+            name='meeting')
+
+        self.assertEquals('{0}/export_ics'.format(meeting.absolute_url()),
+                          adapter.download_url())
+
+        self.assertEquals('html',
+                          adapter.preview_type())
+
+        self.assertEquals(meeting.absolute_url(),
+                          adapter.full_url())
+
+        self.assertEquals('MeetingPreviewWrapper', adapter.preview())

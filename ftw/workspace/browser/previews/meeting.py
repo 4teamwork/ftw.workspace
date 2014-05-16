@@ -1,11 +1,10 @@
 from ftw.meeting.interfaces import IMeeting
 from ftw.workspace.browser.previews.default import DefaultPreview
 from ftw.workspace.interfaces import IWorkspacePreview
-from plone.namedfile.interfaces import IAvailableSizes
 from zope.component import adapts
-from zope.component import getUtility
 from zope.interface import implements
 from zope.interface import Interface
+
 
 HTML = """
 <div class="MeetingPreviewWrapper"
@@ -40,12 +39,8 @@ class MeetingPreview(DefaultPreview):
     def full_url(self):
         return self.context.absolute_url()
 
-    def get_scale_properties(self):
-        sizes = getUtility(IAvailableSizes)()
-        return sizes.get('workspace_preview', (200, 200))
-
     def preview_type(self):
         return 'html'
 
     def download_url(self):
-        return '%s/export_ics' % self.context.absolute_url()
+        return '{0}/export_ics'.format(self.context.absolute_url())
