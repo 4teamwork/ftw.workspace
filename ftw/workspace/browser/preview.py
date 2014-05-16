@@ -12,10 +12,10 @@ from zope.component import queryMultiAdapter
 class PreviewTab(BrowserView):
     """Preview tab for workspace"""
 
-    template = ViewPageTemplateFile('preview_tab.pt')
+    preview_template = ViewPageTemplateFile('preview_tab.pt')
 
     def __call__(self):
-        return self.template()
+        return self.preview_template()
 
     def previews(self):
         return self.context.restrictedTraverse('@@previews')()
@@ -40,7 +40,7 @@ class LoadPreviews(BrowserView):
         query = dict(
             sort_on='modified',
             sort_order="descending",
-            portal_type=['File', 'Document', 'Image'],
+            portal_type=['File', 'Document', 'Image', 'Meeting'],
             path='/'.join(self.context.getPhysicalPath()))
 
         query.update(kwargs)
@@ -91,6 +91,13 @@ class LoadPreviews(BrowserView):
                     adapter = specific
                     break
 
+            # Try to get specific preview by portal_type
+            specific = queryMultiAdapter((obj, obj.REQUEST),
+                                         IWorkspacePreview,
+                                         name=obj.portal_type.lower())
+            if specific is not None:
+                adapter = specific
+
             previews.append(adapter)
         return previews
 
@@ -104,3 +111,7 @@ class LoadPreviews(BrowserView):
             return readable_date_text(context, value)
         else:
             return value
+
+    def get_css_klasses(self, preview_adapter):
+        return 'colorboxLink {0}'.format(preview_adapter.preview_type())
+

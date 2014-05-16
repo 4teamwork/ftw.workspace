@@ -38,6 +38,10 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         import ftw.workspace
         import zope.traversing
         import ftw.file
+        import ftw.meeting
+        import Products.DataGridField
+        import collective.pdfpeek
+
         xmlconfig.file(
             'configure.zcml',
             ftw.workspace,
@@ -52,16 +56,35 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
             ftw.file,
             context=configurationContext)
 
+        xmlconfig.file(
+            'configure.zcml',
+            ftw.meeting,
+            context=configurationContext)
+
+        xmlconfig.file(
+            'configure.zcml',
+            Products.DataGridField,
+            context=configurationContext)
+
+        xmlconfig.file(
+            'configure.zcml',
+            collective.pdfpeek,
+            context=configurationContext)
+
         # installProduct() is *only* necessary for packages outside
         # the Products.* namespace which are also declared as Zope 2 products,
         # using <five:registerPackage /> in ZCML.
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
+        z2.installProduct(app, 'ftw.meeting')
+        z2.installProduct(app, 'Products.DataGridField')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
         applyProfile(portal, 'ftw.file:default')
+        applyProfile(portal, 'ftw.meeting:default')
+        applyProfile(portal, 'collective.pdfpeek.at:at')
         # Add role for vocab testing
         portal._addRole('Reader')
 

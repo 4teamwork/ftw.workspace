@@ -8,14 +8,25 @@
   <h3 class="previewGroupTitle"
       style="display:none;"
       tal:content="python: view.get_group_information(preview)" />
-  <a class="colorboxLink" rel="entry"
-     tal:define="width python: preview.get_scale_properties()[0];
-                 height python: preview.get_scale_properties()[1]"
-     tal:attributes="href string:${preview/full_url};
-                     title preview/context/pretty_title_or_id;
-                     style string:width:${width}px;;height:${height}px;;">
-     <tal:img replace="structure preview/preview" />
-  <span class="previewTitle" tal:content="preview/context/pretty_title_or_id" />
-  </a>
+  <span class="colorboxLinkWrapper">
+      <a tal:define="width python: preview.get_scale_properties()[0];
+                     height python: preview.get_scale_properties()[1]"
+         tal:attributes="class python: view.get_css_klasses(preview);
+                         rel string:entry;
+                         href string:${preview/full_url};
+                         title preview/context/pretty_title_or_id;
+                         style string:width:${width}px;;height:${height}px;;">
+         <tal:img replace="structure preview/preview" />
+          <span class="previewTitle">
+              <span tal:replace="preview/context/pretty_title_or_id" />
+          </span>
+      </a>
+      <div class="preview_actions">
+          <a tal:attributes="class string:download_link;
+                             href preview/download_url">Download</a>
+          <a tal:attributes="class string:detail_link;
+                             href preview/detail_url">Details</a>
+      </div>
+  </span>
 
 </tal:loop>

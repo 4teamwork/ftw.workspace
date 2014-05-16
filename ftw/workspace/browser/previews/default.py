@@ -19,10 +19,11 @@ class DefaultPreview(object):
         self.request = request
 
     def preview(self):
-        return '<img height="200px" src="{0}" alt={1} title={1}/>'.format(
-            self.full_url(),
-            _(u'text_no_preview', default=u'No Preview')
-            )
+        return ('<img height="200px" src="{0}" alt="{1}" title="{1}" '
+                'data-preview=\'{2}\' />').format(
+                    self.full_url(),
+                    _(u'text_no_preview', default=u'No Preview'),
+                    self.data_preview_attr())
 
     def full_url(self):
         portal_url = getToolByName(self.context, 'portal_url')
@@ -32,3 +33,24 @@ class DefaultPreview(object):
     def get_scale_properties(self):
         sizes = getUtility(IAvailableSizes)()
         return sizes.get('workspace_preview', (200, 200))
+
+    def detail_url(self):
+        properties = getToolByName(self.context, 'portal_properties')
+        view_action_types = properties.site_properties.getProperty(
+            'typesUseViewActionInListings', ())
+        url = self.context.absolute_url()
+        if self.context.portal_type in view_action_types:
+            url = '%s/view' % url
+
+        return url
+
+    def data_preview_attr(self):
+        return '{{"detail_url":"{0}", "download_url":"{1}"}}'.format(
+            self.detail_url(),
+            self.download_url())
+
+    def download_url(self):
+        return "%s/download" % self.context.absolute_url()
+
+    def preview_type(self):
+        return 'image'

@@ -1,4 +1,5 @@
-.previewContainer a {
+.colorboxLink,
+.colorboxLinkWrapper {
   border: 1px solid #d3d3d3;
   display: block;
   float: left;
@@ -9,6 +10,19 @@
   text-align: center;
   overflow: hidden;
 }
+
+.colorboxLink a {
+    display: block;
+    position: relative;
+}
+
+.colorboxLink .detail_link,
+.colorboxLink .download_link {
+    float: left;
+    padding-right: 1em;
+    border: none !important;
+}
+
 .previewContainer img {
   max-width: 100%;
   max-height: 100%;
@@ -38,4 +52,28 @@
 
 .previewGroupTitle {
   clear:both;
+}
+
+/* position download and details on the bottom right */
+#cboxTitle a, #cboxTitle span {
+    float: right;
+    padding: 0 3px;
+}
+#cboxTitle a:first-child {
+    margin-right: 30px;
+}
+#cboxTitle a:hover {
+    text-decoration: underline;
+}
+
+#colorboxAjaxContent {
+  margin: 30px;
+  position: relative;
+  top: 50%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY;
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

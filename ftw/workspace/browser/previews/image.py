@@ -28,4 +28,4 @@ class ImagePreview(DefaultPreview):
 
     def full_url(self):
         return '{0}/images/{1}'.format(self.context.absolute_url(),
-                                self._primary_field)
+                                       self._primary_field)

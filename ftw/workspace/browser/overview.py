@@ -6,7 +6,7 @@ from ftw.workspace.browser import helper
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 import datetime
-
+from ftw.workspace.browser.preview import PreviewTab
 
 class ListingHelper(object):
 
@@ -33,7 +33,7 @@ class ListingHelper(object):
         return helper.icon(document, "")
 
 
-class OverviewTab(listing.CatalogListingView, ListingHelper):
+class OverviewTab(listing.CatalogListingView, ListingHelper, PreviewTab):
     """Overview tab for workspace"""
 
     overview_template = ViewPageTemplateFile("overview.pt")
@@ -81,32 +81,6 @@ class OverviewTab(listing.CatalogListingView, ListingHelper):
             return super(OverviewTab, self).template()
         else:
             return self.overview_template()
-
-    def catalog(self, types=None, depth=-1, sort_on='modified',
-                sort_order='reverse'):
-
-        query = dict(
-            path=dict(
-                depth=depth,
-                query='/'.join(self.context.getPhysicalPath())),
-            sort_on=sort_on,
-            sort_order=sort_order)
-        if types:
-            query['portal_type'] = types
-
-        return self.context.portal_catalog(query)
-
-    def folders(self):
-        all_folders = self.catalog(
-            ['Folder', 'Workspace', 'TabbedViewFolder'], depth=1,
-            sort_on='getObjPositionInParent', sort_order='')
-        return all_folders
-
-    def description(self):
-        return self.context.Description()
-
-    def recently_modified(self):
-        return self.catalog()[:10]
 
     def show_search_results(self):
         if 'searchable_text' in self.request:
