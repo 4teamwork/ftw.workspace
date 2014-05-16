@@ -36,27 +36,6 @@ class TestOverviewTab(TestCase):
 
         self.assertIsNotNone(view, 'Overview tab is no available.')
 
-    def test_recently_modified_listing_order(self):
-        file1 = create(Builder('file')
-            .within(self.workspace)
-            .titled('Dummy File')
-            .having(modificationDate=DateTime() - 1)
-            .attach_file_containing('DATA', name='dummy.pdf'))
-
-        self.browser.open(
-            '%s/tabbedview_view-overview' % self.workspace.absolute_url())
-        doc = pq(self.browser.contents)
-        listing = doc('.overview-right-column tr')
-
-        self.assertEquals(2, len(listing),
-            'Expect two entries in recently modified listing')
-
-        self.assertEquals(self.workspace.Title(),
-            doc('a.rollover', listing[0]).text())
-
-        self.assertEquals(file1.Title(),
-            doc('a.rollover', listing[1]).text())
-
     def test_overview_description(self):
         self.browser.open(
             '%s/tabbedview_view-overview' % self.workspace.absolute_url())
@@ -92,17 +71,7 @@ class TestOverviewTab(TestCase):
             '%s/tabbedview_view-overview' % self.workspace.absolute_url())
         doc = pq(self.browser.contents)
         self.assertEquals(folder.Title(),
-            doc('.overview-left-column .box ul li a.rollover').text())
-
-    def test_show_ten_recently_modified_items(self):
-        for i in range(1, 15):
-            create(Builder('file')
-                .within(self.workspace))
-
-        view = self.workspace.restrictedTraverse('tabbedview_view-overview')
-
-        self.assertEquals(10, len(view.recently_modified()),
-            'Display only the ten most recent changes')
+            doc('.SubListing .box ul li a.rollover').text())
 
     def test_save_description(self):
         create(Builder('file')

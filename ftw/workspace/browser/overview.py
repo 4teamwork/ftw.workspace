@@ -105,9 +105,6 @@ class OverviewTab(listing.CatalogListingView, ListingHelper, PreviewTab):
     def description(self):
         return self.context.Description()
 
-    def recently_modified(self):
-        return self.catalog()[:10]
-
     def show_search_results(self):
         if 'searchable_text' in self.request:
             searchable_text = self.request.get('searchable_text')

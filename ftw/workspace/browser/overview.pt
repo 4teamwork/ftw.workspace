@@ -82,7 +82,7 @@
     <tal:block tal:condition="not: view/show_search_results">
 
         <div class="row">
-            <div class="cell position-0 width-8">
+            <div class="SubListing cell position-0 width-8">
                 <div tal:replace="structure view/render_sublisting" />
             </div>
             <div class="cell position-8 width-8">
