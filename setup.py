@@ -5,12 +5,13 @@ version = '2.2.1.dev0'
 
 tests_require = [
     'collective.quickupload',
-    'plone.app.testing',
-    'ftw.file',
-    'ftw.testing',
-    'ftw.testbrowser',
-    'ftw.pdfgenerator',
     'ftw.builder',
+    'ftw.file',
+    'ftw.meeting',
+    'ftw.pdfgenerator',
+    'ftw.testbrowser',
+    'ftw.testing',
+    'plone.app.testing',
     'pyquery',
     ]
 
