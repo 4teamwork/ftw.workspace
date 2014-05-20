@@ -84,12 +84,10 @@ class AssignableUsersVocabulary(object):
             userroles = portal.acl_users._getLocalRolesForDisplay(context)
             # Use dict's to auto. prevent duplicated entries
             for user, roles, role_type, name in userroles:
-                if role_type == u'user' and u'Reader' in roles:
-                    if name not in users:
-                        users.add(name)
-                elif role_type == u'group' and u'Reader' in roles:
-                    if user not in groups:
-                        groups.add(name)
+                if role_type == u'user' and name not in users:
+                    users.add(name)
+                elif role_type == u'group' and user not in groups:
+                    groups.add(name)
 
             if getattr(aq_base(context), '__ac_local_roles_block__', None):
                 cont = False

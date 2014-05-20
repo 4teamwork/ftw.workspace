@@ -94,4 +94,4 @@ Stop acquisition - test group members
 
 the results should be sortetd on fullname
     >>> [aa.token for aa in factory(portal.f2)]
-    ['member2', 'member3', 'member1']
+    ['test_user_1_', 'member2', 'member3', 'member1']
