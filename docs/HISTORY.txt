@@ -5,6 +5,9 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
+- Added new helper method to get icon or sprite for document tab.
+  [Julian Infanger]
+
 - Show all users with local roles on a Workspace.
   [mathias.leimgruber]
 

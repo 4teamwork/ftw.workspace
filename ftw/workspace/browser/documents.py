@@ -55,7 +55,7 @@ class DocumentsTab(Tab):
             {'column': 'getIcon',
              'sort_index': 'getContentType',
              'column_title': _(u'column_type', default=u'Type'),
-             'transform': workspace_helper.icon,
+             'transform': workspace_helper.icon_or_sprite,
              'width': 35},
 
             {'column': 'Title',

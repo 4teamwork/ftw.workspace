@@ -46,6 +46,13 @@ def icon(item, value):
 
     return u'<a href="%s">%s</a>' % (href.decode('utf8'), img)
 
+def icon_or_sprite(item, value):
+    if item.getIcon:
+        return icon(item, value)
+    site = getSite()
+    plone_utils = getToolByName(site, 'plone_utils')
+    return '<div class="spriteIcon contenttype-%s">&nbsp;</div>' % \
+        plone_utils.normalizeString(item.portal_type)
 
 @ram.cache(lambda m, i, author: author)
 def readable_author(item, author):
@@ -115,4 +122,3 @@ def group_by_date(results):
         else:
             grouped_results['older'].append(result)
     return grouped_results.items()
-
