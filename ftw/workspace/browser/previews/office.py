@@ -1,112 +1,62 @@
-from ftw.workspace import _
-from ftw.workspace.browser.previews.default import DefaultPreview
+from ftw.workspace.browser.previews.default import PDFPeekPreview
 from ftw.workspace.interfaces import IWorkspacePreview
 from Products.ATContentTypes.interfaces.file import IATFile
-from Products.CMFCore.utils import getToolByName
 from zope.component import adapts
 from zope.interface import implements
 from zope.interface import Interface
 
 
-class DocPreview(DefaultPreview):
+class DocPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/doc.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/doc.png'
 
 
-class DocXPreview(DefaultPreview):
+class DocXPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/docx.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/docx.png'
 
 
-class PptPreview(DefaultPreview):
+class PptPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/ppt.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/ppt.png'
 
 
-class PptxPreview(DefaultPreview):
+class PptxPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/pptx.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/pptx.png'
 
 
-class XlsPreview(DefaultPreview):
+class XlsPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/xls.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/xls.png'
 
 
-class XlsxPreview(DefaultPreview):
+class XlsxPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def full_url(self):
-        portal_url = getToolByName(self.context, 'portal_url')
-        return '{0}/++resource++ftw.workspace-resources/xlsx.png'.format(
-            portal_url())
+    preview_image_path = '++resource++ftw.workspace-resources/xlsx.png'
 
 
-class PdfPreview(DefaultPreview):
+class PdfPreview(PDFPeekPreview):
 
     implements(IWorkspacePreview)
     adapts(IATFile, Interface)
 
-    def __init__(self, context, request):
-        super(PdfPreview, self).__init__(context, request)
-        self.has_image_preview = bool(self.context.restrictedTraverse(
-            'view-image-annotation',
-            None))
-
-    def full_url(self):
-        if self.has_image_preview:
-            return '{0}/pdf_two_slides_preview'.format(
-                self.context.absolute_url())
-        else:
-            portal_url = getToolByName(self.context, 'portal_url')
-            return '{0}/++resource++ftw.workspace-resources/pdf.png'.format(
-                portal_url())
-
-    def preview(self):
-        if self.has_image_preview:
-            return ('<img height="200px" src="{0}" alt="{1}" title="{1}" '
-                    'data-preview=\'{2}\' />'.format(
-                        '{0}/++images++1_thumb'.format(
-                            self.context.absolute_url()),
-                        self.context.Title(),
-                        self.data_preview_attr()))
-        else:
-            return super(PdfPreview, self).preview()
-
-    def preview_type(self):
-        if self.has_image_preview:
-            return 'html'
-        else:
-            return 'image'
+    preview_image_path = '++resource++ftw.workspace-resources/pdf.png'

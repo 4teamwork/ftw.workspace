@@ -54,3 +54,39 @@ class DefaultPreview(object):
 
     def preview_type(self):
         return 'image'
+
+
+class PDFPeekPreview(DefaultPreview):
+
+    preview_image_path = '++resource++ftw.workspace-resources/default.png'
+
+    def __init__(self, context, request):
+        super(PDFPeekPreview, self).__init__(context, request)
+        self.has_pdfpeek_preview = bool(context.unrestrictedTraverse(
+            'view-image-annotation',
+            None))
+
+    def full_url(self):
+        if self.has_pdfpeek_preview:
+            return '{0}/pdf_two_slides_preview'.format(
+                self.context.absolute_url())
+        else:
+            portal_url = getToolByName(self.context, 'portal_url')
+            return '{0}/{1}'.format(portal_url(), self.preview_image_path)
+
+    def preview(self):
+        if self.has_pdfpeek_preview:
+            return ('<img height="200px" src="{0}" alt="{1}" title="{1}" '
+                    'data-preview=\'{2}\' />'.format(
+                        '{0}/++images++1_thumb'.format(
+                            self.context.absolute_url()),
+                        self.context.Title(),
+                        self.data_preview_attr()))
+        else:
+            return super(PDFPeekPreview, self).preview()
+
+    def preview_type(self):
+        if self.has_pdfpeek_preview:
+            return 'html'
+        else:
+            return 'image'
