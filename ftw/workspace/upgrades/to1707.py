@@ -14,6 +14,8 @@ class ResetExtJSConfig(UpgradeStep):
 
     def __call__(self):
         workspace = self.get_any_workspace()
+        if not workspace:
+            return
         view = workspace.unrestrictedTraverse('tabbedview_view-documents')
         storage = IDictStorage(view)
         keys = storage.storage.storage.keys()[:]
@@ -26,4 +28,6 @@ class ResetExtJSConfig(UpgradeStep):
     def get_any_workspace(self):
         query = {'portal_type': 'Workspace'}
         brains = self.catalog_unrestricted_search(query)
+        if not brains:
+            return None
         return self.catalog_unrestricted_get_object(brains[0])
