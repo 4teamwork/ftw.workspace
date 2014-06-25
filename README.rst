@@ -5,37 +5,15 @@ Introduction
 
 The folder has a tabbed view with the tabs:
 
-- **Overview**: Shows previews within this workspace and the structure (subfolders)
+- **Overview**: Shows recently modified contents within this workspace and the structure (subfolders)
 - **Documents**: Lists files recursively
 - **Events**: Lists events (see ``ftw.meeting``) and a calendar view.
 
 The ``@@workspaces_view`` lists all workspaces recursively.
 
 
-Previews
---------
-
-- Display previews of images
-- If collective.pdfpeek ist installed previews of pdf is also supported.
-- Infinit scrolling
-
-On the overview tab
-
-**Important note, about collective.pdfpeek**
-
-Currently we are working on a fork of collective.pdfpeek.
-The fork is located in the `4teamwork organisation <https://github.com/4teamwork/collective.pdfpeek>`_.
-
-
-**System dependency**
-
-collective.pdfpeek is using ghostscript to convert the pdf to images.
-
-
 Compatibility
 =============
-
-``ftw.workspace`` Version 3.0.0 and greater only supports collective.pdfpeek
 
 ``ftw.workspace`` Version 2.0.0 and greater only supports Plone 4.3.x
 
