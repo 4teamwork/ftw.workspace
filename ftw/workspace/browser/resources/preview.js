@@ -2,17 +2,16 @@ function activatePreviewColorbox() {
     $('a.colorboxLink.image').colorbox({
         photo: true,
         current: '{current}/{total}',
-        width: '80%',
-        height: '80%',
+        // width: '80%',
+        // height: '80%',
         title: function() {
             var $img = $('img', this);
-            var preview_data = $img.data('preview');
-
-            if (preview_data !== undefined) {
+            linkwrapper = $($(this).parent()).children('.preview_actions');
+            if (linkwrapper !== null) {
                 return $(this).attr('title') +
-                    'Details'.link($img.data('preview').detail_url) +
+                    'Details'.link($(linkwrapper).children('a')[1]) +
                     '<span> | </span>' +
-                    'Download'.link($img.data('preview').download_url);
+                    'Download'.link($(linkwrapper).children('a')[0]);
             } else {
                 return '';
             }
@@ -21,8 +20,8 @@ function activatePreviewColorbox() {
 
     $('a.colorboxLink.html').colorbox({
         current: '{current}/{total}',
-        width: '80%',
-        height: '80%',
+        // width: '80%',
+        // height: '80%',
         html: function(cache) {
             var url = $(cache.el).attr('href');
 
@@ -38,13 +37,13 @@ function activatePreviewColorbox() {
         },
         title: function() {
             var $el = $('*:first', this);
-            var preview_data = $el.data('preview');
-
-            if (preview_data !== undefined){
+            linkwrapper = $($(this).parent()).children('.preview_actions');
+            
+            if (linkwrapper !== null){
                 return $(this).attr('title') +
-                    'Details'.link($el.data('preview').detail_url) +
+                    'Details'.link($(linkwrapper).children('a')[1]) +
                     '<span> | </span>' +
-                    'Download'.link($el.data('preview').download_url);
+                    'Download'.link($(linkwrapper).children('a')[0]);
             } else {
                 return '';
             }

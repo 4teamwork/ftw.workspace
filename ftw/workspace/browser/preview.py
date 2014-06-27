@@ -40,7 +40,7 @@ class LoadPreviews(BrowserView):
         query = dict(
             sort_on='modified',
             sort_order="descending",
-            portal_type=['File', 'Document', 'Image', 'Meeting'],
+            portal_type=['File', 'Document', 'Image', 'Meeting', 'Task'],
             path='/'.join(self.context.getPhysicalPath()))
 
         query.update(kwargs)
@@ -105,7 +105,6 @@ class LoadPreviews(BrowserView):
         """Rendered as hidden field per entry"""
         attr = self._query()['sort_on']
         context = preview_adapter.context
-
         value = getattr(context, attr)()
         if isinstance(value, DateTime):
             return readable_date_text(context, value)

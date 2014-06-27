@@ -40,4 +40,8 @@
         <adapter factory=".meeting.MeetingPreview" name="meeting" />
     </configure>
 
+    <configure zcml:condition="installed ftw.task">
+        <adapter factory=".task.TaskPreview" name="task" />
+    </configure>
+
 </configure>
