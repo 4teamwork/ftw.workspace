@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-11 13:04+0000\n"
+"POT-Creation-Date: 2014-07-01 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,17 +36,12 @@ msgstr ""
 msgid "Creator"
 msgstr ""
 
-#: ./ftw/workspace/browser/overview.pt:91
-msgid "Description"
-msgstr ""
-
-#: ./ftw/workspace/browser/move_items.py:127
-msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
-msgstr ""
-
-#. Default: "Failed to move following objects: ${failed_objects}"
 #: ./ftw/workspace/browser/move_items.py:120
-msgid "Failed_to_move_following_objects"
+msgid "Failed to move following objects: ${failed_objects}"
+msgstr ""
+
+#: ./ftw/workspace/browser/move_items.py:126
+msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
 msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
@@ -54,7 +49,7 @@ msgstr ""
 msgid "Folder"
 msgstr ""
 
-#: ./ftw/workspace/browser/move_items.py:165
+#: ./ftw/workspace/browser/move_items.py:164
 msgid "It isn't allowed to add such items there"
 msgstr ""
 
@@ -63,7 +58,7 @@ msgid "Modified"
 msgstr ""
 
 #: ./ftw/workspace/profiles/default/actions.xml
-#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
 msgid "Move Items"
 msgstr ""
 
@@ -79,7 +74,7 @@ msgstr ""
 msgid "Workspace"
 msgstr ""
 
-#: ./ftw/workspace/browser/move_items.py:148
+#: ./ftw/workspace/browser/move_items.py:147
 msgid "You have not selected any items"
 msgstr ""
 
@@ -138,7 +133,7 @@ msgid "documents_pill_preview"
 msgstr ""
 
 #. Default: "It isn't allowed to add such items there: ${failed_objects}"
-#: ./ftw/workspace/browser/move_items.py:196
+#: ./ftw/workspace/browser/move_items.py:195
 msgid "error_NotInContentTypes ${failed_objects}"
 msgstr ""
 
@@ -170,9 +165,15 @@ msgstr ""
 msgid "help_destination"
 msgstr ""
 
+msgid "label_date"
+msgstr ""
+
 #. Default: "Destination"
 #: ./ftw/workspace/browser/move_items.py:22
 msgid "label_destination"
+msgstr ""
+
+msgid "label_due_date"
 msgstr ""
 
 #: ./ftw/workspace/browser/events.py:44
@@ -194,19 +195,28 @@ msgstr ""
 msgid "label_eventstab_type"
 msgstr ""
 
+msgid "label_responsible"
+msgstr ""
+
+msgid "label_state"
+msgstr ""
+
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
 #: ./ftw/workspace/content/workspace.py:32
 msgid "label_text"
 msgstr ""
 
+msgid "label_time"
+msgstr ""
+
 #. Default: "Today, ${time}"
-#: ./ftw/workspace/browser/overview.py:129
+#: ./ftw/workspace/browser/overview.py:103
 msgid "label_today"
 msgstr ""
 
 #. Default: "Yesterday, ${time}"
-#: ./ftw/workspace/browser/overview.py:133
+#: ./ftw/workspace/browser/overview.py:107
 msgid "label_yesterday"
 msgstr ""
 
@@ -269,10 +279,6 @@ msgid "meeting"
 msgstr ""
 
 msgid "poll"
-msgstr ""
-
-#: ./ftw/workspace/browser/overview.pt:99
-msgid "recently modified"
 msgstr ""
 
 #. Default: "No Preview"

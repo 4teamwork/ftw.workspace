@@ -31,3 +31,18 @@ msgstr ""
 
 msgid "Contacts"
 msgstr ""
+
+msgid "label_state"
+msgstr ""
+
+msgid "label_due_date"
+msgstr ""
+
+msgid "label_responsible"
+msgstr ""
+
+msgid "label_date"
+msgstr ""
+
+msgid "label_time"
+msgstr ""

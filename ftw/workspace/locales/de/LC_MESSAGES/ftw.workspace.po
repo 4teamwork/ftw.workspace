@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-11 12:48+0000\n"
+"POT-Creation-Date: 2014-07-01 10:14+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,10 +31,6 @@ msgstr "Kontakte"
 msgid "Creator"
 msgstr "Ersteller"
 
-#: ./ftw/workspace/browser/overview.pt:91
-msgid "Description"
-msgstr "Beschreibung"
-
 #: ./ftw/workspace/browser/move_items.py:120
 msgid "Failed to move following objects: ${failed_objects}"
 msgstr ""
@@ -57,7 +53,7 @@ msgid "Modified"
 msgstr "Änderungsdatum"
 
 #: ./ftw/workspace/profiles/default/actions.xml
-#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
 msgid "Move Items"
 msgstr "Inhalte verschieben"
 
@@ -164,10 +160,16 @@ msgstr "Inhalte verschieben"
 msgid "help_destination"
 msgstr "Zielordner wählen"
 
+msgid "label_date"
+msgstr "Datum:"
+
 #. Default: "Destination"
 #: ./ftw/workspace/browser/move_items.py:22
 msgid "label_destination"
 msgstr "Zielordner"
+
+msgid "label_due_date"
+msgstr "Fälligkeit:"
 
 #: ./ftw/workspace/browser/events.py:44
 #: ./ftw/workspace/browser/overview.py:57
@@ -188,19 +190,28 @@ msgstr "Titel"
 msgid "label_eventstab_type"
 msgstr "Typ"
 
+msgid "label_responsible"
+msgstr "Verantwortlich:"
+
+msgid "label_state"
+msgstr "Status:"
+
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
 #: ./ftw/workspace/content/workspace.py:32
 msgid "label_text"
 msgstr "Text"
 
+msgid "label_time"
+msgstr "Zeit:"
+
 #. Default: "Today, ${time}"
-#: ./ftw/workspace/browser/overview.py:129
+#: ./ftw/workspace/browser/overview.py:103
 msgid "label_today"
 msgstr "Heute, ${time}"
 
 #. Default: "Yesterday, ${time}"
-#: ./ftw/workspace/browser/overview.py:133
+#: ./ftw/workspace/browser/overview.py:107
 msgid "label_yesterday"
 msgstr "Gestern, ${time}"
 
@@ -264,10 +275,6 @@ msgstr "Sitzung"
 
 msgid "poll"
 msgstr "Sitzungsumfrage"
-
-#: ./ftw/workspace/browser/overview.pt:99
-msgid "recently modified"
-msgstr "Kürzlich verändert"
 
 #. Default: "No Preview"
 #: ./ftw/workspace/browser/previews/default.py:24
