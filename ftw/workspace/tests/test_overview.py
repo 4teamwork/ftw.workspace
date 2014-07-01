@@ -147,10 +147,3 @@ class TestOverviewTab(TestCase):
         datestring = '2013-03-01 11:00:00'
         self.assertEquals('01.03.2013', view.generate_date(datestring, now))
 
-    @browsing
-    def test_preview_is_enabled_on_overview(self, browser):
-
-        browser.login().visit(self.workspace,
-                              view='tabbedview_view-overview')
-        self.assertTrue(browser.css('.previewContainer'),
-                        'No preview conatiner found')
