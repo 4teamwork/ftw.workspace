@@ -77,3 +77,8 @@
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+#colorboxAjaxContent .taskListing,
+.MeetingPreview {
+    margin: auto;
+}
