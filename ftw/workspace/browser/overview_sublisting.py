@@ -15,10 +15,12 @@ class Sublisting(BrowserView, ListingHelper):
                              ['TabbedViewFolder'])
 
         result = []
+        portal_props = getToolByName(self.context, 'portal_properties')
+        sort_on = portal_props.navtree_properties.sortAttribute
 
         for type_ in types:
             query = {'portal_type': type_,
-                     'sort_on': 'sortable_title'}
+                     'sort_on': sort_on}
 
             objects = self.context.getFolderContents(contentFilter=query)
 

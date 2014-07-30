@@ -5,6 +5,9 @@ Changelog
 2.2.1 (unreleased)
 ------------------
 
+- Use navtree properties to sort items on workspace overview.
+  [tschanzt]
+
 - Fix broken upgradestep 1707 if no workspaces exists.
   [elioschmutz]
 

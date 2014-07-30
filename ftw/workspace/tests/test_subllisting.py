@@ -9,16 +9,16 @@ from plone.registry.interfaces import IRegistry
 from pyquery import PyQuery
 from unittest2 import TestCase
 from zope.component import getUtility
-
+from Products.CMFCore.utils import getToolByName
 
 class TestOverviewFolderSublisting(TestCase):
 
     layer = FTW_WORKSPACE_INTEGRATION_TESTING
 
     def setUp(self):
-        portal = self.layer['portal']
-        setRoles(portal, TEST_USER_ID, ['Manager'])
-        login(portal, TEST_USER_NAME)
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        login(self.portal, TEST_USER_NAME)
 
         self.workspace = create(Builder('workspace'))
         self.view = self.workspace.restrictedTraverse('@@overview_sublisting')
@@ -113,3 +113,29 @@ class TestOverviewFolderSublisting(TestCase):
     def test_translate_title_fallback(self):
         self.assertEquals('Dummy',
                           self.view.translated_title('Dummy'))
+
+    def test_sublisting_sorting_correct_obj_position_in_parent(self):
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('B folder'))
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('A folder'))
+        
+        objects = self.view.collect()[0]['objects']
+        self.assertEquals('B folder', objects[0].Title)
+        self.assertEquals('A folder', objects[1].Title)
+
+    def test_sublisting_sortin_correct_sortable_title(self):
+        portal_props = getToolByName(self.portal, 'portal_properties')
+        portal_props.navtree_properties.sortAttribute = 'sortable_title'
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('B folder'))
+        create(Builder('TabbedViewFolder')
+            .within(self.workspace)
+            .titled('A folder'))
+
+        objects = self.view.collect()[0]['objects']
+        self.assertEquals('A folder', objects[0].Title)
+        self.assertEquals('B folder', objects[1].Title)
