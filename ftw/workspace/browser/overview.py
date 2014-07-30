@@ -96,12 +96,6 @@ class OverviewTab(listing.CatalogListingView, ListingHelper):
 
         return self.context.portal_catalog(query)
 
-    def folders(self):
-        all_folders = self.catalog(
-            ['Folder', 'Workspace', 'TabbedViewFolder'], depth=1,
-            sort_on='getObjPositionInParent', sort_order='')
-        return all_folders
-
     def description(self):
         return self.context.Description()
 
