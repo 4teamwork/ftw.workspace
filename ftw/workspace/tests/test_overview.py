@@ -2,6 +2,7 @@ from DateTime import DateTime
 from datetime import datetime
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.testbrowser import browsing
 from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
 from plone.app.testing import login
 from plone.app.testing import setRoles
@@ -35,6 +36,12 @@ class TestOverviewTab(TestCase):
         view = self.workspace.restrictedTraverse('tabbedview_view-overview')
 
         self.assertIsNotNone(view, 'Overview tab is no available.')
+
+    @browsing
+    def test_activity_stream_is_visible(self, browser):
+        browser.login().open(self.workspace,
+                             view='tabbedview_view-overview')
+        self.assertTrue(browser.css('.activity .events').first)
 
     def test_overview_description(self):
         self.browser.open(

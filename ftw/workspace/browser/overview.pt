@@ -94,7 +94,9 @@
                 </div>
 
             </div>
-            <div class="overview-right-column cell position-8 width-1:2">
+            <div class="overview-right-column cell position-8 width-1:2"
+                 tal:define="foo python:request.set('amount_of_events', 5);">
+              <tal:ACTIVITY replace="structure context/activity/raw" />
             </div>
         </div>
     </tal:block>
