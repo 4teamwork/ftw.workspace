@@ -5,6 +5,9 @@ Changelog
 2.3.0 (unreleased)
 ------------------
 
+- Add "Activity"-tab to the workspaces view.
+  [jone]
+
 - Overview: replace old recently modified with activity stream.
   [jone]
 
