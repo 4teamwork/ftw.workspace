@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+  <stylesheet id="++resource++ftw.workspace-resources/overview_truncate.css"
+              remove="True" />
+
+</object>

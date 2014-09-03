@@ -94,40 +94,11 @@
                 </div>
 
             </div>
-            <div class="overview-right-column cell position-8 width-1:2">
-                <div class="box" tal:condition="view/recently_modified">
-                    <h2 i18n:translate="">recently modified</h2>
-                    <table class="listing">
-                        <tr tal:repeat="item view/recently_modified">
-                            <td class="columnDate">
-                                <span tal:content="python: view.generate_date(item.modified)"/>
-                            </td>
-                            <td class="columnData">
-                                <span tal:replace="structure python: view.get_icon(item)" />
-                                <a tal:content="item/Title"
-                                   tal:attributes="href string:${item/getURL}/view; title python: view.get_description(item);
-                                                   class python:'rollover %s' % view.type_class(item)" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="overview-right-column cell position-8 width-1:2"
+                 tal:define="foo python:request.set('amount_of_events', 5);">
+              <tal:ACTIVITY replace="structure context/activity/raw" />
             </div>
         </div>
-    <script type="text/javascript" language="javascript">
-$(function(){
-    if (typeof(_truncate_event_already_registered) !== "undefined" && !_truncate_event_already_registered){
-        jQuery.tabbedview.view_container.bind('reload', function() {
-            if ($('#overview_overview:visible').length === 1){
-                if (typeof(truncate_overview) !== "undefined"){
-                    truncate_overview();
-                    _truncate_event_already_registered = true;
-                }
-            }
-        });
-    }
-});
-    </script>
-
     </tal:block>
     <div class="visualClear"><!-- --></div>
 
