@@ -167,4 +167,13 @@
         profile="ftw.workspace:default"
         />
 
+    <!-- 2300 -> 2301 -->
+    <upgrade-step:importProfile
+        title="Remove resources for recently modified in overview."
+        profile="ftw.workspace:default"
+        source="2300"
+        destination="2301"
+        directory="profiles/2301"
+        />
+
 </configure>
