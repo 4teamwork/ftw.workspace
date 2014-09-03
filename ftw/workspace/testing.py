@@ -1,7 +1,6 @@
 from ftw.builder.session import BuilderSession
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import set_builder_session_factory
-from ftw.workspace.tests import builders
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
@@ -12,6 +11,7 @@ from plone.testing import z2
 from plone.testing import zca
 from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
+import ftw.workspace.tests.builders
 
 
 USERS = [
@@ -34,27 +34,14 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
-        # Load ZCML
-        import ftw.workspace
-        import zope.traversing
-        import ftw.file
-        xmlconfig.file(
-            'configure.zcml',
-            ftw.workspace,
-            context=configurationContext)
-        xmlconfig.file(
-            'configure.zcml',
-            zope.traversing,
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '  <include package="z3c.autoinclude" file="meta.zcml" />'
+            '  <includePlugins package="plone" />'
+            '  <includePluginsOverrides package="plone" />'
+            '</configure>',
             context=configurationContext)
 
-        xmlconfig.file(
-            'configure.zcml',
-            ftw.file,
-            context=configurationContext)
-
-        # installProduct() is *only* necessary for packages outside
-        # the Products.* namespace which are also declared as Zope 2 products,
-        # using <five:registerPackage /> in ZCML.
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
 

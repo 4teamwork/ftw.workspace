@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.2.2.dev0'
+version = '2.3.0.dev0'
 
 tests_require = [
     'collective.quickupload',
@@ -44,6 +44,7 @@ setup(name='ftw.workspace',
       install_requires=[
         'z3c.relationfield',
         'collective.js.jqsmartTruncation',
+        'ftw.activity',
         'ftw.calendar',
         'ftw.colorbox',
         'ftw.tabbedview',

@@ -157,4 +157,14 @@
         profile="ftw.workspace:default"
         />
 
+    <!-- 1707 -> 2300 -->
+    <genericsetup:upgradeStep
+        title="Install ftw.activity."
+        description=""
+        source="1707"
+        destination="2300"
+        handler=".to2300.InstallActivity"
+        profile="ftw.workspace:default"
+        />
+
 </configure>
