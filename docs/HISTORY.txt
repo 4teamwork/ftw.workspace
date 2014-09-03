@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2.1 (unreleased)
+2.2.1 (2014-09-03)
 ------------------
 
 - Use navtree properties to sort items on workspace overview.
