@@ -11,6 +11,7 @@ class WorkspacesView(TabbedView):
         return [{'id': 'workspaces', 'class': ''},
                 {'id': 'documents', 'class': ''},
                 {'id': 'events', 'class': ''},
+                {'id': 'activity', 'class': ''},
                 ]
 
 
