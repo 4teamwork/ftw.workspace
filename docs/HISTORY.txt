@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.3.0 (unreleased)
+3.0.0 (2014-09-29)
 ------------------
 
 - Add "Activity"-tab to the workspaces view.
