@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.1 (unreleased)
+3.0.1 (2014-11-19)
 ------------------
 
 - Do not show filter/search box on activitiy tab.
