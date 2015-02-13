@@ -76,3 +76,15 @@ class TinyMCEAllowedButtonsConfigurator(object):
 
         # Fallback
         return DEFAULT_TINYMCE_ALLOWED_BUTTONS
+
+
+def get_creator_fullname(obj):
+    creator = obj.Creator()
+    pas_tool = getToolByName(obj, 'acl_users')
+    user = pas_tool.getUserById(creator)
+    if not user:
+        return creator
+    fullname = user.getProperty('fullname', creator)
+    if fullname:
+        return fullname
+    return creator

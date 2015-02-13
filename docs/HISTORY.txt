@@ -5,7 +5,10 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add the fullname of the creator of a workspace to the searchable text
+  index. This way the list of workspaces on the overview tab can be filtered
+  by creator.
+  [mbaechtold]
 
 
 3.0.1 (2014-11-19)
