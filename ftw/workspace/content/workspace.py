@@ -10,6 +10,7 @@ from ftw.workspace import _
 from ftw.workspace.config import PROJECTNAME
 from ftw.workspace.content.schemata import finalizeWorkspaceSchema
 from ftw.workspace.interfaces import IWorkspace
+from ftw.workspace.utils import get_creator_fullname
 from ftw.workspace.utils import TinyMCEAllowedButtonsConfigurator
 from plone.registry.interfaces import IRegistry
 from zope.component import adapter
@@ -70,5 +71,10 @@ class Workspace(folder.ATFolder):
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
         return False
+
+    security.declarePublic('SearchableText')
+    def SearchableText(self):
+        fullname = get_creator_fullname(self)
+        return ' '.join((super(Workspace, self).SearchableText(), fullname))
 
 atapi.registerType(Workspace, PROJECTNAME)
