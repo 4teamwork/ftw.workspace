@@ -157,4 +157,13 @@
         profile="ftw.workspace:default"
         />
 
+    <!-- 1707 -> 1708 -->
+    <genericsetup:upgradeStep
+        title="Add the fullname of the workspace creators to the searchable text index."
+        source="1707"
+        destination="1708"
+        handler=".to1708.IndexWorkspaceCreator"
+        profile="ftw.workspace:default"
+        />
+
 </configure>
