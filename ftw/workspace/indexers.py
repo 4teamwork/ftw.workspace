@@ -1,6 +1,6 @@
-from plone.indexer.decorator import indexer
-from Products.CMFCore.utils import getToolByName
 from ftw.workspace.interfaces import IWorkspace
+from ftw.workspace.utils import get_creator_fullname
+from plone.indexer.decorator import indexer
 from Products.ATContentTypes.interfaces.interfaces import IATContentType
 
 
@@ -13,12 +13,4 @@ def ownerid(object_, **kw):
 
 @indexer(IATContentType)
 def sortable_creator(object_, **kw):
-    creator = object_.Creator()
-    pas_tool = getToolByName(object_, 'acl_users')
-    user = pas_tool.getUserById(creator)
-    if not user:
-        return creator
-    fullname = user.getProperty('fullname', creator)
-    if fullname:
-        return fullname
-    return creator
+    return get_creator_fullname(object_)
