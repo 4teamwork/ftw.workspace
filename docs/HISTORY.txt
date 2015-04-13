@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2.2 (unreleased)
+2.2.2 (2015-04-13)
 ------------------
 
 - Add the fullname of the creator of a workspace to the searchable text
