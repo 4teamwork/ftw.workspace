@@ -44,11 +44,14 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
+        z2.installProduct(app, 'ftw.zipexport')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
         applyProfile(portal, 'ftw.file:default')
+        applyProfile(portal, 'ftw.zipexport:default')
+
         # Add role for vocab testing
         portal._addRole('Reader')
 

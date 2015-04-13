@@ -5,14 +5,24 @@ version = '3.0.2.dev0'
 
 tests_require = [
     'collective.quickupload',
-    'plone.app.testing',
-    'ftw.file',
-    'ftw.testing',
-    'ftw.testbrowser',
-    'ftw.pdfgenerator',
     'ftw.builder',
+    'ftw.file',
+    'ftw.pdfgenerator',
+    'ftw.testbrowser',
+    'ftw.testing',
+    'ftw.zipexport',
+    'plone.app.testing',
     'pyquery',
-    ]
+]
+
+pdf_require = [
+    'ftw.file',
+    'ftw.pdfgenerator',
+]
+
+zip_export_require = pdf_require + [
+    'ftw.zipexport'
+]
 
 setup(name='ftw.workspace',
       version=version,
@@ -58,8 +68,8 @@ setup(name='ftw.workspace',
 
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
-                          pdf=['ftw.pdfgenerator',
-                               'ftw.file', ]),
+                          pdf=pdf_require,
+                          zip_export=zip_export_require),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''

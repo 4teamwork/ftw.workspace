@@ -62,5 +62,9 @@
           factory=".quick_upload.WorkspaceQuickUploadCapableFileFactory"
           for="ftw.tabbedview.interfaces.ITabbedviewUploadable"
           />
-      </configure>
+    </configure>
+
+    <configure zcml:condition="installed ftw.zipexport">
+        <adapter factory=".zip_export.WorkspaceZipRepresentation" />
+    </configure>
 </configure>
