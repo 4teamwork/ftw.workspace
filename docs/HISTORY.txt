@@ -27,6 +27,15 @@ Changelog
   [jone]
 
 
+2.2.2 (2015-04-13)
+------------------
+
+- Add the fullname of the creator of a workspace to the searchable text
+  index. This way the list of workspaces on the overview tab can be filtered
+  by creator.
+  [mbaechtold]
+
+
 2.2.1 (2014-09-03)
 ------------------
 
