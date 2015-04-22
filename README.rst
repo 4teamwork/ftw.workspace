@@ -31,6 +31,8 @@ Usage
     eggs =+
         ftw.workspace
 
+- Use ftw.workspace [zip_export] if you want to enable zip export.
+
 - Install the generic setup profile.
 
 

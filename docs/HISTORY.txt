@@ -5,6 +5,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- Export workspace as a ZIP file with the help of ftw.zipexport.
+  [mbaechtold]
+
 - Add the fullname of the creator of a workspace to the searchable text
   index. This way the list of workspaces on the overview tab can be filtered
   by creator.
