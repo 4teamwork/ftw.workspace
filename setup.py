@@ -13,6 +13,8 @@ tests_require = [
     'ftw.zipexport',
     'plone.app.testing',
     'pyquery',
+    'xlrd',
+    'XlsxWriter',
 ]
 
 pdf_require = [
@@ -21,7 +23,8 @@ pdf_require = [
 ]
 
 zip_export_require = pdf_require + [
-    'ftw.zipexport'
+    'ftw.zipexport',
+    'XlsxWriter',
 ]
 
 setup(name='ftw.workspace',

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-11 13:04+0000\n"
+"POT-Creation-Date: 2015-04-14 09:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,10 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: ftw.workspace\n"
 
 #: ./ftw/workspace/browser/move_items.py:114
 msgid "${moved_items} Elements were moved successfully"
@@ -40,13 +37,12 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ./ftw/workspace/browser/move_items.py:127
-msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
+#: ./ftw/workspace/browser/move_items.py:120
+msgid "Failed to move following objects: ${failed_objects}"
 msgstr ""
 
-#. Default: "Failed to move following objects: ${failed_objects}"
-#: ./ftw/workspace/browser/move_items.py:120
-msgid "Failed_to_move_following_objects"
+#: ./ftw/workspace/browser/move_items.py:126
+msgid "Failed to move following objects: ${failed_objects}. Locked via WebDAV"
 msgstr ""
 
 #: ./ftw/workspace/profiles/default/types/TabbedViewFolder.xml
@@ -54,7 +50,7 @@ msgstr ""
 msgid "Folder"
 msgstr ""
 
-#: ./ftw/workspace/browser/move_items.py:165
+#: ./ftw/workspace/browser/move_items.py:164
 msgid "It isn't allowed to add such items there"
 msgstr ""
 
@@ -63,7 +59,7 @@ msgid "Modified"
 msgstr ""
 
 #: ./ftw/workspace/profiles/default/actions.xml
-#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
 msgid "Move Items"
 msgstr ""
 
@@ -79,7 +75,7 @@ msgstr ""
 msgid "Workspace"
 msgstr ""
 
-#: ./ftw/workspace/browser/move_items.py:148
+#: ./ftw/workspace/browser/move_items.py:147
 msgid "You have not selected any items"
 msgstr ""
 
@@ -95,7 +91,7 @@ msgstr ""
 
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:67
-#: ./ftw/workspace/browser/workspaces.py:36
+#: ./ftw/workspace/browser/workspaces.py:37
 msgid "column_creator"
 msgstr ""
 
@@ -107,13 +103,13 @@ msgstr ""
 #. Default: "modified"
 #: ./ftw/workspace/browser/documents.py:72
 #: ./ftw/workspace/browser/overview.py:51
-#: ./ftw/workspace/browser/workspaces.py:31
+#: ./ftw/workspace/browser/workspaces.py:32
 msgid "column_modified"
 msgstr ""
 
 #. Default: "Title"
 #: ./ftw/workspace/browser/documents.py:62
-#: ./ftw/workspace/browser/workspaces.py:26
+#: ./ftw/workspace/browser/workspaces.py:27
 msgid "column_title"
 msgstr ""
 
@@ -138,7 +134,7 @@ msgid "documents_pill_preview"
 msgstr ""
 
 #. Default: "It isn't allowed to add such items there: ${failed_objects}"
-#: ./ftw/workspace/browser/move_items.py:196
+#: ./ftw/workspace/browser/move_items.py:195
 msgid "error_NotInContentTypes ${failed_objects}"
 msgstr ""
 
@@ -158,6 +154,26 @@ msgstr ""
 #. Default: "List"
 #: ./ftw/workspace/browser/events.pt:14
 msgid "events_pill_list"
+msgstr ""
+
+#. Default: "E-Mail"
+#: ./ftw/workspace/export.py:127
+msgid "export_heading_email"
+msgstr ""
+
+#. Default: "Full name"
+#: ./ftw/workspace/export.py:125
+msgid "export_heading_full_name"
+msgstr ""
+
+#. Default: "Roles"
+#: ./ftw/workspace/export.py:129
+msgid "export_heading_roles"
+msgstr ""
+
+#. Default: "User ID"
+#: ./ftw/workspace/export.py:123
+msgid "export_heading_user_id"
 msgstr ""
 
 #. Default: "Move Items"
@@ -196,17 +212,17 @@ msgstr ""
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
-#: ./ftw/workspace/content/workspace.py:32
+#: ./ftw/workspace/content/workspace.py:33
 msgid "label_text"
 msgstr ""
 
 #. Default: "Today, ${time}"
-#: ./ftw/workspace/browser/overview.py:129
+#: ./ftw/workspace/browser/overview.py:123
 msgid "label_today"
 msgstr ""
 
 #. Default: "Yesterday, ${time}"
-#: ./ftw/workspace/browser/overview.py:133
+#: ./ftw/workspace/browser/overview.py:127
 msgid "label_yesterday"
 msgstr ""
 
@@ -268,15 +284,17 @@ msgstr ""
 msgid "meeting"
 msgstr ""
 
-msgid "poll"
+#. Default: "participants.xlsx"
+#: ./ftw/workspace/zip_export.py:26
+msgid "participants_export_filename"
 msgstr ""
 
-#: ./ftw/workspace/browser/overview.pt:99
-msgid "recently modified"
+msgid "poll"
 msgstr ""
 
 #. Default: "No Preview"
 #: ./ftw/workspace/browser/previews/default.py:24
 msgid "text_no_preview"
 msgstr ""
+
 

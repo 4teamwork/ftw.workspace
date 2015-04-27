@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-11 12:19+0000\n"
+"POT-Creation-Date: 2015-04-14 09:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,7 +10,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 #: ./ftw/workspace/browser/move_items.py:114
 msgid "${moved_items} Elements were moved successfully"
@@ -57,7 +56,7 @@ msgid "Modified"
 msgstr "Modifié"
 
 #: ./ftw/workspace/profiles/default/actions.xml
-#: ./ftw/workspace/upgrades/profiles/1705/actions.xml
+#: ./ftw/workspace/upgrades/profiles/1706/actions.xml
 msgid "Move Items"
 msgstr "Déplacer des éléments"
 
@@ -89,7 +88,7 @@ msgstr "Déplacer"
 
 #. Default: "Creator"
 #: ./ftw/workspace/browser/documents.py:67
-#: ./ftw/workspace/browser/workspaces.py:36
+#: ./ftw/workspace/browser/workspaces.py:37
 msgid "column_creator"
 msgstr "Créateur"
 
@@ -101,13 +100,13 @@ msgstr "Date"
 #. Default: "modified"
 #: ./ftw/workspace/browser/documents.py:72
 #: ./ftw/workspace/browser/overview.py:51
-#: ./ftw/workspace/browser/workspaces.py:31
+#: ./ftw/workspace/browser/workspaces.py:32
 msgid "column_modified"
 msgstr "Modifié"
 
 #. Default: "Title"
 #: ./ftw/workspace/browser/documents.py:62
-#: ./ftw/workspace/browser/workspaces.py:26
+#: ./ftw/workspace/browser/workspaces.py:27
 msgid "column_title"
 msgstr "Titre"
 
@@ -154,6 +153,26 @@ msgstr "Calendrier"
 msgid "events_pill_list"
 msgstr "Liste"
 
+#. Default: "E-Mail"
+#: ./ftw/workspace/export.py:127
+msgid "export_heading_email"
+msgstr ""
+
+#. Default: "Full name"
+#: ./ftw/workspace/export.py:125
+msgid "export_heading_full_name"
+msgstr ""
+
+#. Default: "Roles"
+#: ./ftw/workspace/export.py:129
+msgid "export_heading_roles"
+msgstr ""
+
+#. Default: "User ID"
+#: ./ftw/workspace/export.py:123
+msgid "export_heading_user_id"
+msgstr ""
+
 #. Default: "Move Items"
 #: ./ftw/workspace/browser/move_items.py:39
 msgid "heading_move_items"
@@ -190,17 +209,17 @@ msgstr "Type"
 
 #. Default: "Text"
 #: ./ftw/workspace/content/folder_extender.py:32
-#: ./ftw/workspace/content/workspace.py:32
+#: ./ftw/workspace/content/workspace.py:33
 msgid "label_text"
 msgstr "Texte"
 
 #. Default: "Today, ${time}"
-#: ./ftw/workspace/browser/overview.py:129
+#: ./ftw/workspace/browser/overview.py:123
 msgid "label_today"
 msgstr "Aujourd'hui'"
 
 #. Default: "Yesterday, ${time}"
-#: ./ftw/workspace/browser/overview.py:133
+#: ./ftw/workspace/browser/overview.py:127
 msgid "label_yesterday"
 msgstr "Hier"
 
@@ -262,12 +281,13 @@ msgstr "Imprimé"
 msgid "meeting"
 msgstr "Rendez-vous"
 
+#. Default: "participants.xlsx"
+#: ./ftw/workspace/zip_export.py:26
+msgid "participants_export_filename"
+msgstr ""
+
 msgid "poll"
 msgstr "Enquête"
-
-#: ./ftw/workspace/browser/overview.pt:99
-msgid "recently modified"
-msgstr "Modifié"
 
 #. Default: "No Preview"
 #: ./ftw/workspace/browser/previews/default.py:24

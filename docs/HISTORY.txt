@@ -5,6 +5,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- Add a spreadsheet of the participants in the zip export.
+  [mbaechtold]
+
 - Export workspace as a ZIP file with the help of ftw.zipexport.
   [mbaechtold]
 
