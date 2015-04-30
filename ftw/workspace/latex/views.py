@@ -55,6 +55,11 @@ class WorkspaceDetailsView(MakoLaTeXView):
 
     def get_owner(self):
         userid = self.context.getOwner(0).getId()
+
+        # Could be None, if there user no longer exists
+        if userid is None:
+            return ''
+
         acl_users = getToolByName(self.context, 'acl_users')
         user = acl_users.getUserById(userid)
         return user and user.getProperty('fullname', userid) or userid
