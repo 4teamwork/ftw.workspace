@@ -4,6 +4,7 @@ from ftw.workspace.export import get_header, get_data, create_xlsx
 from ftw.workspace.interfaces import IWorkspace
 from ftw.zipexport.interfaces import IZipRepresentation
 from ftw.zipexport.representations.archetypes import FolderZipRepresentation
+from Products.CMFPlone.utils import safe_unicode
 from StringIO import StringIO
 from zope.component import adapts
 from zope.component import getMultiAdapter
@@ -22,12 +23,13 @@ class WorkspaceZipRepresentation(FolderZipRepresentation):
         - a relative path under which the file should show up in the zip
         - the data as either a file or a stream
         """
-        filename = u'{0}.pdf'.format(self.context.getId())
+        filename = '{0}.pdf'.format(self.context.getId())
 
         assembler = getMultiAdapter((self.context, self.request),
                                     IPDFAssembler)
 
-        yield (u'{0}/{1}'.format(path_prefix, filename),
+        yield (u'{0}/{1}'.format(safe_unicode(path_prefix),
+                                 safe_unicode(filename)),
                StringIO(assembler.build_pdf()))
 
         header = get_header(self.context)
@@ -39,7 +41,8 @@ class WorkspaceZipRepresentation(FolderZipRepresentation):
             context=self.request
         )
 
-        yield (u'{0}/{1}'.format(path_prefix, filename), xlsx)
+        yield (u'{0}/{1}'.format(safe_unicode(path_prefix),
+                                 safe_unicode(filename)), xlsx)
         
         # Recursively export folder contents.
         folder_contents = super(WorkspaceZipRepresentation, self).get_files(
