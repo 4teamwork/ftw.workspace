@@ -39,9 +39,9 @@ Usage
 Links
 =====
 
-- Main github project repository: https://github.com/4teamwork/ftw.workspace
-- Issue tracker: https://github.com/4teamwork/ftw.workspace/issues
-- Package on pypi: http://pypi.python.org/pypi/ftw.workspace
+- Github: https://github.com/4teamwork/ftw.workspace
+- Issues: https://github.com/4teamwork/ftw.workspace/issues
+- Pypi: http://pypi.python.org/pypi/ftw.workspace
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.workspace
 
 
