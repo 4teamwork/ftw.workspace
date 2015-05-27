@@ -65,6 +65,8 @@
     </configure>
 
     <configure zcml:condition="installed ftw.zipexport">
-        <adapter factory=".zip_export.WorkspaceZipRepresentation" />
+        <configure zcml:condition="installed ftw.pdfgenerator">
+            <adapter factory=".zip_export.WorkspaceZipRepresentation" />
+        </configure>
     </configure>
 </configure>
