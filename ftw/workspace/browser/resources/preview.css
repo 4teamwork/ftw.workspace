@@ -1,4 +1,4 @@
-.previewContainer a {
+ a.previewitem {
   border: 1px solid #d3d3d3;
   display: block;
   float: left;
@@ -13,13 +13,12 @@
   max-width: 100%;
   max-height: 100%;
 }
-
+.file-mimetype {
+    float:right;
+}
 .previewTitle {
     display: block;
-    position: absolute;
     top: 80%;
-    background-color: rgb(238, 238, 238);
-    background-color: rgba(238, 238, 238, 0.7);
     border-radius: 5px;
     margin-right: 1em;
     text-align: center;
@@ -27,6 +26,10 @@
     overflow: hidden;
     width:inherit;
 }
+
+.previewDesc {display:none;}
+
+.imageContainer:hover > a > .previewDesc {display:block;}
 
 .previewBatchInformation {
   display: none;
@@ -36,6 +39,34 @@
   left:-1000;
 }
 
-.previewGroupTitle {
-  clear:both;
+.preview > iframe {
+    width:calc(100% - 273px);
+}
+
+.previewnav {
+    width:273px;
+    overflow-y:scroll;
+    height:100%;
+    float:left;
+}
+
+.previewnav.collapsed {
+    width:5px;
+    overflow:hidden;
+}
+
+.navcontrol {
+  top: 50%;
+  left: 275px;
+  position: absolute;
+  border: 1px solid #aaaaaa;
+  padding-top: 40px;
+  padding-bottom: 40px;}
+
+#cboxNext, #cboxPrevious {
+    display:none !important;
+}
+
+.previewnav .currentitem {
+    background-color: rgba(200, 200, 200, 0.4);
 }

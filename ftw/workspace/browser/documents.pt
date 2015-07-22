@@ -1,73 +1,35 @@
-<html
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:tal="http://xml.zope.org/namespaces/tal"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    tal:omit-tag="python: True"
-    i18n:domain="ftw.tabbedview">
+<div class="ViewChooser" i18n:domain="ftw.workspace">
 
-    <tal:has_contents tal:condition="view/contents">
-        <div tal:omit-tag="python: view.extjs_enabled" class="tab_container">
+    <span id="events-calendar">
+        <b i18n:translate="documents_pill_documents">Preview</b>
+    </span>|
+    <a id="listdocuments" href="#" i18n:translate="documents_pill_list">
+        List
+    </a> 
+</div>
 
-            <tal:START_CUSTOM_______________________________________ />
-            <div class="ViewChooser" i18n:domain="ftw.workspace">
-                <span id="documents" >
-                    <b i18n:translate="documents_pill_list">List</b>
-                    </span> |
-                    <a id="preview"
-                       href="#"
-                       i18n:translate="documents_pill_preview">Preview</a>
-            </div>
-            <tal:END_CUSTOM_______________________________________ />
+<div class="previewContainer">
+<div>
+<tal:loop repeat="preview view/get_previews">
 
-            <tal:extjs condition="view/extjs_enabled">
-                <div id="selection_container" class="ftwtable"><!--iefix--></div>
-                <div id="batching_container" class="ftwtable"><!--iefix--></div>
-            </tal:extjs>
-            <tal:html condition="not:view/extjs_enabled">
-                <div tal:replace="structure view/batching" />
-                <div tal:replace="structure view/selection" />
-            </tal:html>
+<div class="imageContainer">
+  <a class="colorboxLink previewitem" rel="entry"
+     tal:attributes="href string:${preview/overlay_url}">
+                 <img tal:attributes="src preview/mimetype_image_url;
+                                 title preview/mimetype_title;
+                                 data-title preview/mimetype_title"
+                 width="16"
+                 class="file-mimetype" />
 
-            <form name="tabbedview_form"
-                  method="post"
-                  action="folder_object"
-                  tal:attributes="action context/absolute_url">
-                <input type="hidden" name="orig_template" tal:attributes="value string:${context/absolute_url}/#${view/view_name}" />
-                <span tal:replace="structure context/@@authenticator/authenticator"/>
+            <img tal:attributes="src preview/preview_image_url;
+                                 alt preview/title"
+                 width="200"
+                 class="file-preview" />
 
-                <tal:extjs condition="view/extjs_enabled">
-                    <div id="listing_container"
-                         class="ftwtable +extjs tab_container"><!--iefix--></div>
-                    <div id="menu_container" class="ftwtable"><!--iefix--></div>
-                </tal:extjs>
-
-                <tal:html condition="not:view/extjs_enabled">
-                    <div id="listing_container">
-                        <div tal:content="structure view/render_listing" />
-                    </div>
-                    <div tal:replace="structure view/menu" />
-                </tal:html>
-
-            </form>
-
-        </div>
-    </tal:has_contents>
-
-    <tal:extjs condition="view/extjs_enabled">
-        <p style="display:none"
-           id="message_no_contents"
-           i18n:translate="label_no_contents">
-            No contents
-        </p>
-    </tal:extjs>
-
-    <tal:html condition="not:view/extjs_enabled">
-        <p tal:condition="not:view/contents"
-           id="message_no_contents"
-           i18n:translate="label_no_contents">
-            No contents
-        </p>
-    </tal:html>
-
-
-</html>
+  <b class="previewTitle" tal:content="preview/title" />
+  <p class="previewDesc" tal:content="preview/description" />
+  </a>
+</div>
+</tal:loop>
+</div>
+</div>

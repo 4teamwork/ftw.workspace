@@ -5,8 +5,6 @@
 
     <include package="plone.app.contentmenu" />
 
-    <include package=".previews" />
-
     <!-- resource directory -->
     <browser:resourceDirectory
         name="ftw.workspace-resources"
@@ -47,8 +45,8 @@
 
     <browser:page
         for="Products.CMFCore.interfaces._content.IFolderish"
-        name="tabbedview_view-documents"
-        class=".documents.DocumentsTab"
+        name="tabbedview_view-listdocuments"
+        class=".list-documents.DocumentsListingTab"
         permission="zope2.View"
         />
 
@@ -68,15 +66,8 @@
 
     <browser:page
         for="Products.CMFCore.interfaces._content.IFolderish"
-        name="tabbedview_view-preview"
-        class=".preview.PreviewTab"
-        permission="zope2.View"
-        />
-
-    <browser:page
-        for="Products.CMFCore.interfaces._content.IFolderish"
-        name="previews"
-        class=".preview.LoadPreviews"
+        name="tabbedview_view-documents"
+        class=".documents.DocumentsTab"
         permission="zope2.View"
         />
 
@@ -86,5 +77,6 @@
         class=".move_items.MoveItemsFormView"
         permission="zope2.CopyOrMove"
         />
+
 
 </configure>
