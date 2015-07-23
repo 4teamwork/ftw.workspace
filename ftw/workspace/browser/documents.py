@@ -31,11 +31,16 @@ class DocumentsTab(BrowserView):
             sort_order="descending",
             path='/'.join(self.context.getPhysicalPath()))
 
+        if 'searchable_text' in self.request.keys() and self.request['searchable_text'] != '':
+            query['SearchableText'] = self.request.get('searchable_text')
+            if not query['SearchableText'].endswith('*'):
+                query['SearchableText'] += '*'
         query.update(kwargs)
         return query
 
     def get_previews(self, **kwargs):
         catalog = getToolByName(self.context, 'portal_catalog')
+
         results = catalog(self._query())
         return map(self.item_for_brain, results)
 
