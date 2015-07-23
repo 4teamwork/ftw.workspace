@@ -70,3 +70,10 @@
 .previewnav .currentitem {
     background-color: rgba(200, 200, 200, 0.4);
 }
+
+.imageContainer {
+    width: 260px;
+    height:290px;
+    float:left;
+    overflow:hidden;
+}
