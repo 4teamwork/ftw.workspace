@@ -58,8 +58,11 @@ class DocumentsTab(BrowserView):
             preview_image_url = not_found_image_url
 
         mimetype_image_url = get_mimetype_image_url(brain.getContentType)
+        desc = brain.Description
+        if brain.Description:
+            desc = len(desc) < 50 and desc or desc[:49] + '...'
         return {'title': brain.Title,
-                'description': brain.Description,
+                'description': desc,
                 'details_url': brain.getURL() + '/view',
                 'overlay_url': brain.getURL() + '/file_preview?nav=true',
                 'preview_image_url': preview_image_url,
