@@ -27,7 +27,7 @@
                  class="file-preview" />
 
   <b class="previewTitle" tal:content="preview/title" />
-  <p class="previewDesc" tal:content="preview/description" />
+  <span tal:condition="preview/description" class="previewDesc" tal:content="preview/description" />
   </a>
 </div>
 </tal:loop>
