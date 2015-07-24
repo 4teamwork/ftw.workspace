@@ -39,38 +39,6 @@
   left:-1000;
 }
 
-.preview > iframe {
-    width:calc(100% - 273px);
-}
-
-.previewnav {
-    width:273px;
-    overflow-y:scroll;
-    height:100%;
-    float:left;
-}
-
-.previewnav.collapsed {
-    width:5px;
-    overflow:hidden;
-}
-
-.navcontrol {
-  top: 50%;
-  left: 275px;
-  position: absolute;
-  border: 1px solid #aaaaaa;
-  padding-top: 40px;
-  padding-bottom: 40px;}
-
-#cboxNext, #cboxPrevious {
-    display:none !important;
-}
-
-.previewnav .currentitem {
-    background-color: rgba(200, 200, 200, 0.4);
-}
-
 .imageContainer {
     width: 260px;
     height:290px;
