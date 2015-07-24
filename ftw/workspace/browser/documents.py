@@ -64,7 +64,7 @@ class DocumentsTab(BrowserView):
         return {'title': brain.Title,
                 'description': desc,
                 'details_url': brain.getURL() + '/view',
-                'overlay_url': brain.getURL() + '/file_preview?nav=true',
+                'overlay_url': brain.getURL() + '/file_preview',
                 'preview_image_url': preview_image_url,
                 'mimetype_image_url': mimetype_image_url,
                 'mimetype_title': get_mimetype_title(brain.getContentType),
