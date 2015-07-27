@@ -40,7 +40,6 @@ class DocumentsTab(BrowserView):
 
     def get_previews(self, **kwargs):
         catalog = getToolByName(self.context, 'portal_catalog')
-
         results = catalog(self._query())
         return map(self.item_for_brain, results)
 
@@ -49,7 +48,7 @@ class DocumentsTab(BrowserView):
         not_found_image_url = (portal_url +
                                '/++resource++ftw.workspace-resources/image_not_found.png')
 
-        if brain.bumblebee_checksum:
+        if brain.get('bumblebee_checksum'):
             preview_image_url = get_representation_url('thumbnail',
                                                        checksum=brain.bumblebee_checksum,
                                                        fallback_url=not_found_image_url)

@@ -12,6 +12,9 @@ from plone.testing import zca
 from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
 import ftw.workspace.tests.builders
+import os
+from ftw.bumblebee.testing import BumblebeeLayer
+from zope.component import getSiteManager
 
 
 USERS = [
@@ -46,6 +49,19 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         z2.installProduct(app, 'ftw.file')
         z2.installProduct(app, 'ftw.zipexport')
 
+        os.environ['BUMBLEBEE_APP_ID'] = 'local'
+        os.environ['BUMBLEBEE_SECRET'] = 'secret'
+        os.environ['BUMBLEBEE_URL'] = 'http://bumblebee/api/v1'
+        os.environ['BUMBLEBEE_DEACTIVATE'] = "True"
+
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '   <class class="ftw.file.content.file.File">'
+            '       <implements interface="ftw.bumblebee.interfaces.IBumblebeeable" />'
+            '   </class>'
+            '</configure>',
+            context=configurationContext)
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:default')
@@ -71,7 +87,6 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         # Setup a group and add member3
         portal.portal_groups.addGroup('group1')
         portal.portal_groups.addPrincipalToGroup("member3", "group1")
-
 
 FTW_WORKSPACE_FIXTURE = FtwWorkspaceLayer()
 FTW_WORKSPACE_INTEGRATION_TESTING = IntegrationTesting(
