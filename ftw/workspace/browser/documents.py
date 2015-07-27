@@ -47,12 +47,10 @@ class DocumentsTab(BrowserView):
         portal_url = getToolByName(self.context, 'portal_url')()
         not_found_image_url = (portal_url +
                                '/++resource++ftw.workspace-resources/image_not_found.png')
-
-        if brain.get('bumblebee_checksum'):
+        if brain.has_key('bumblebee_checksum') and brain.bumblebee_checksum:
             preview_image_url = get_representation_url('thumbnail',
                                                        checksum=brain.bumblebee_checksum,
                                                        fallback_url=not_found_image_url)
-
         else:
             preview_image_url = not_found_image_url
 

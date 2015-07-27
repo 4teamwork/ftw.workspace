@@ -23,6 +23,10 @@ pdf_require = [
     'ftw.pdfgenerator',
 ]
 
+bumblebee_require = [
+    'ftw.bumblebee'
+]
+
 zip_export_require = pdf_require + [
     'ftw.zipexport',
     'XlsxWriter',
@@ -59,7 +63,6 @@ setup(name='ftw.workspace',
         'z3c.relationfield',
         'collective.js.jqsmartTruncation',
         'ftw.activity',
-        'ftw.bumblebee',
         'ftw.calendar',
         'ftw.colorbox',
         'ftw.tabbedview',
@@ -74,7 +77,8 @@ setup(name='ftw.workspace',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
                           pdf=pdf_require,
-                          zip_export=zip_export_require),
+                          zip_export=zip_export_require,
+                          bumblebee=bumblebee_require),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''
