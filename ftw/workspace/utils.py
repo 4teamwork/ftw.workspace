@@ -5,6 +5,12 @@ from ftw.workspace.config import DEFAULT_TINYMCE_ALLOWED_BUTTONS
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from Products.CMFCore.utils import getToolByName
+from Products.MimetypesRegistry.common import MimeTypeException
+from zope.component import queryMultiAdapter
+from ftw.bumblebee.utils import get_representation_url
+from ftw.bumblebee.mimetypes import get_mimetype_image_url
+from ftw.bumblebee.mimetypes import get_mimetype_title
+from zope.component.hooks import getSite
 
 
 def has_ftwfile(context):
@@ -88,3 +94,30 @@ def get_creator_fullname(obj):
     if fullname:
         return fullname
     return creator
+
+
+def item_for_brain(brain):
+    site = getSite()
+    portal_url = getToolByName(site, 'portal_url')()
+    not_found_image_url = (portal_url +
+                           '/++resource++ftw.workspace-resources/image_not_found.png')
+    if brain.has_key('bumblebee_checksum') and brain.bumblebee_checksum:
+
+        preview_image_url = get_representation_url('thumbnail',
+                                                   checksum=brain.bumblebee_checksum,
+                                                   fallback_url=not_found_image_url)
+    else:
+        preview_image_url = not_found_image_url
+
+    mimetype_image_url = get_mimetype_image_url(brain.getContentType)
+    desc = brain.Description
+    if brain.Description:
+        desc = len(desc) < 50 and desc or desc[:49] + '...'
+    return {'title': brain.Title,
+            'description': desc,
+            'details_url': brain.getURL() + '/view',
+            'overlay_url': brain.getURL() + '/file_preview',
+            'preview_image_url': preview_image_url,
+            'mimetype_image_url': mimetype_image_url,
+            'mimetype_title': get_mimetype_title(brain.getContentType),
+            }

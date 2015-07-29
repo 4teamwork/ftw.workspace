@@ -8,9 +8,9 @@
     </a> 
 </div>
 
-<div class="previewContainer">
-<div>
-<tal:loop repeat="preview view/get_previews">
+<div tal:define="previews view/get_previews" class="previewContainer">
+<div tal:condition="previews">
+<tal:loop repeat="preview previews">
 
 <div class="imageContainer">
   <a class="colorboxLink previewitem" rel="entry"
@@ -31,5 +31,8 @@
   </a>
 </div>
 </tal:loop>
+</div>
+<div tal:condition="not: previews">
+    <p class="no_content" i18n:translate="label_no_contents">No Contents</p>
 </div>
 </div>

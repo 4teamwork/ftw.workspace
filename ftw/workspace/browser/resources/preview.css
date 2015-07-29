@@ -45,3 +45,8 @@
     float:left;
     overflow:hidden;
 }
+
+.no_content{
+    margin-top:1em;
+    font-weight:bold;
+}
