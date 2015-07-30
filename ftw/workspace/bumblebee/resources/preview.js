@@ -11,6 +11,7 @@
 //     });
 // });
 
+
 (function($) {
 
   "use strict";
@@ -60,6 +61,13 @@
             window.history.pushState({'index': currentindex}, "", path);
         }
         else{dontupdatehistory = false;}
+
+        // Bumblebee-integration
+        $('.cboxIframe').load(function(){
+            if (typeof initBumblebee !== 'undefined' && $.isFunction(initBumblebee)) {
+                initBumblebee();
+        };
+});
 
 
     };
@@ -117,5 +125,6 @@ $(window).on('popstate', function(event) {
         $.colorbox.next();
     }
 });
-
 }(jQuery));
+
+
