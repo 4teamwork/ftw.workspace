@@ -29,6 +29,11 @@
         />
     <!-- Include the sub-packages that use their own configure.zcml files. -->
 
+
+    <include package=".browser" />
+    <include package=".content" />
+    <include package=".upgrades" />
+
     <configure zcml:condition="installed ftw.bumblebee">
         <genericsetup:registerProfile
             name="bumblebee"
@@ -39,10 +44,6 @@
         />
         <include package=".bumblebee" />
     </configure>
-
-    <include package=".browser" />
-    <include package=".content" />
-    <include package=".upgrades" />
 
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 

@@ -45,7 +45,7 @@
 
     <browser:page
         for="Products.CMFCore.interfaces._content.IFolderish"
-        name="tabbedview_view-listdocuments"
+        name="tabbedview_view-documents"
         class=".list-documents.DocumentsListingTab"
         permission="zope2.View"
         />
@@ -64,12 +64,6 @@
         permission="zope2.View"
         />
 
-    <browser:page
-        for="Products.CMFCore.interfaces._content.IFolderish"
-        name="tabbedview_view-documents"
-        class=".documents.DocumentsTab"
-        permission="zope2.View"
-        />
 
     <browser:page
         for="Products.CMFCore.interfaces._content.IFolderish"

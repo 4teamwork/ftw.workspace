@@ -1,6 +1,28 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ftw.workspace">
+
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-documents"
+        class=".documents.DocumentsTab"
+        permission="zope2.View"
+        layer="ftw.bumblebee.interfaces.IFtwBumblebeeLayer"
+        />
+
+    <browser:page
+        for="Products.CMFCore.interfaces._content.IFolderish"
+        name="tabbedview_view-listdocuments"
+        class="ftw.workspace.browser.list-documents.DocumentsListingTab"
+        permission="zope2.View"
+        layer="ftw.bumblebee.interfaces.IFtwBumblebeeLayer"
+        />
+
+    <browser:resourceDirectory
+        name="ftw.workspace-bumblebee"
+        directory="resources"
+        />
 
 
 </configure>

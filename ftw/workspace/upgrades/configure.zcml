@@ -185,4 +185,11 @@
         profile="ftw.workspace:default"
         />
 
+    <include package="ftw.upgrade" file="meta.zcml" />
+
+    <upgrade-step:directory
+        profile="ftw.workspace:default"
+        directory="."
+        />
+
 </configure>

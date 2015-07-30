@@ -2,7 +2,7 @@
 <object name="portal_css">
 
     <stylesheet title=""
-        id="++resource++ftw.workspace-resources/preview.css"
+        id="++resource++ftw.workspace-bumblebee/preview.css"
         media="screen" rel="stylesheet" rendering="import"
         cacheable="True" compression="safe" cookable="True"
         enabled="1" expression=""/>
