@@ -1,7 +1,7 @@
+from ftw.bumblebee.utils import item_for_brain
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.workspace.utils import item_for_brain
 
 
 class DocumentsTab(BrowserView):
