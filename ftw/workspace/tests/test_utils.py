@@ -1,4 +1,4 @@
-from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
+from ftw.workspace.testing import FTW_WORKSPACE_BUMBLEBEE_FUNCTIONAL_TESTING
 from ftw.workspace.utils import item_for_brain
 from unittest2 import TestCase
 from ftw.builder import Builder
@@ -11,7 +11,7 @@ from plone.app.testing import TEST_USER_NAME
 
 class TestItemForBrain(TestCase):
 
-    layer = FTW_WORKSPACE_FUNCTIONAL_TESTING
+    layer = FTW_WORKSPACE_BUMBLEBEE_FUNCTIONAL_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
@@ -28,8 +28,6 @@ class TestItemForBrain(TestCase):
 
     def test_item_for_brain(self):
         catalog = self.portal.portal_catalog
-        catalog.addColumn('bumblebee_checksum')
-        catalog.addColumn('getContentType')
 
         brains = catalog(UID=self.bumble1.UID())
         brain = brains[0]

@@ -88,10 +88,19 @@ class FtwWorkspaceBumblebeeLayer(FtwWorkspaceLayer):
     def setUpZope(self, app, configurationContext):
         super(FtwWorkspaceBumblebeeLayer, self).setUpZope(
             app, configurationContext)
+
         os.environ['BUMBLEBEE_APP_ID'] = 'local'
         os.environ['BUMBLEBEE_SECRET'] = 'secret'
         os.environ['BUMBLEBEE_URL'] = 'http://bumblebee/api/v1'
         os.environ['BUMBLEBEE_DEACTIVATE'] = "True"
+
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '   <class class="ftw.file.content.file.File">'
+            '       <implements interface="ftw.bumblebee.interfaces.IBumblebeeable" />'
+            '   </class>'
+            '</configure>',
+            context=configurationContext)
 
     def setUpPloneSite(self, portal):
         super(FtwWorkspaceBumblebeeLayer, self).setUpPloneSite(portal)
@@ -106,8 +115,9 @@ class FtwWorkspaceBumblebeeLayer(FtwWorkspaceLayer):
 
 
 FTW_WORKSPACE_BUMBLEBEE_FIXTURE = FtwWorkspaceBumblebeeLayer()
-FTW_WORKSPACE_BUMBLEBEE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(FTW_WORKSPACE_BUMBLEBEE_FIXTURE, ),
+FTW_WORKSPACE_BUMBLEBEE_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FTW_WORKSPACE_BUMBLEBEE_FIXTURE,
+           set_builder_session_factory(functional_session_factory)),
     name="ftw.workspace:Integration Bumblebee")
 
 
