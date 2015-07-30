@@ -13,8 +13,6 @@ from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
 import ftw.workspace.tests.builders
 import os
-from ftw.bumblebee.testing import BumblebeeLayer
-from zope.component import getSiteManager
 
 
 USERS = [
@@ -48,19 +46,6 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
         z2.installProduct(app, 'ftw.zipexport')
-
-        os.environ['BUMBLEBEE_APP_ID'] = 'local'
-        os.environ['BUMBLEBEE_SECRET'] = 'secret'
-        os.environ['BUMBLEBEE_URL'] = 'http://bumblebee/api/v1'
-        os.environ['BUMBLEBEE_DEACTIVATE'] = "True"
-
-        xmlconfig.string(
-            '<configure xmlns="http://namespaces.zope.org/zope">'
-            '   <class class="ftw.file.content.file.File">'
-            '       <implements interface="ftw.bumblebee.interfaces.IBumblebeeable" />'
-            '   </class>'
-            '</configure>',
-            context=configurationContext)
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
@@ -96,6 +81,34 @@ FTW_WORKSPACE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FTW_WORKSPACE_FIXTURE,
            set_builder_session_factory(functional_session_factory)),
     name="FtwWorkspace:Functional")
+
+
+class FtwWorkspaceBumblebeeLayer(FtwWorkspaceLayer):
+
+    def setUpZope(self, app, configurationContext):
+        super(FtwWorkspaceBumblebeeLayer, self).setUpZope(
+            app, configurationContext)
+        os.environ['BUMBLEBEE_APP_ID'] = 'local'
+        os.environ['BUMBLEBEE_SECRET'] = 'secret'
+        os.environ['BUMBLEBEE_URL'] = 'http://bumblebee/api/v1'
+        os.environ['BUMBLEBEE_DEACTIVATE'] = "True"
+
+    def setUpPloneSite(self, portal):
+        super(FtwWorkspaceBumblebeeLayer, self).setUpPloneSite(portal)
+        applyProfile(portal, 'ftw.workspace:bumblebee')
+
+    def tearDownZope(self, app):
+        super(FtwWorkspaceBumblebeeLayer, self).tearDownZope(app)
+        del os.environ['BUMBLEBEE_APP_ID']
+        del os.environ['BUMBLEBEE_SECRET']
+        del os.environ['BUMBLEBEE_URL']
+        del os.environ['BUMBLEBEE_DEACTIVATE']
+
+
+FTW_WORKSPACE_BUMBLEBEE_FIXTURE = FtwWorkspaceBumblebeeLayer()
+FTW_WORKSPACE_BUMBLEBEE_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(FTW_WORKSPACE_BUMBLEBEE_FIXTURE, ),
+    name="ftw.workspace:Integration Bumblebee")
 
 
 class LatexZCMLLayer(Layer):

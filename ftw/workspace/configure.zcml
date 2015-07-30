@@ -29,6 +29,17 @@
         />
     <!-- Include the sub-packages that use their own configure.zcml files. -->
 
+    <configure zcml:condition="installed ftw.bumblebee">
+        <genericsetup:registerProfile
+            name="bumblebee"
+            title="ftw.workspace with bumblebee support"
+            directory="profiles/bumblebee"
+            description="Workspace with bumblebee support"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+        <include package=".bumblebee" />
+    </configure>
+
     <include package=".browser" />
     <include package=".content" />
     <include package=".upgrades" />

@@ -6,7 +6,7 @@ version = '3.1.2.dev0'
 tests_require = [
     'collective.quickupload',
     'ftw.builder',
-    'ftw.bumblebee',
+    'ftw.workspace [bumblebee]',
     'ftw.file',
     'ftw.pdfgenerator',
     'ftw.testbrowser',
