@@ -50,12 +50,26 @@
 
     };
 
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
 
     var changeUrl = function(){
         if (!current_state){
             current_state = window.location.pathname + window.location.hash;
         }
-        var path = $.colorbox.element().attr("href").replace(RegExp("^(" + "http://" + location.host + ")", "g"), "");
+        var path = window.location.pathname + "?overlay=" + $.colorbox.element().attr("id") + window.location.hash
         if (!dontupdatehistory){
             console.log(currentindex);
             window.history.pushState({'index': currentindex}, "", path);
@@ -100,6 +114,12 @@
         "tipClass": "file-tooltip"
       });
       $(".colorboxLink").colorbox(settings);
+      if (getUrlParameter('overlay')) {
+        var uid = getUrlParameter('overlay')
+        var element = document.getElementById(uid);
+        $(element).click();
+      }
+
     });
 
 $(window).on('popstate', function(event) {
@@ -122,6 +142,8 @@ $(window).on('popstate', function(event) {
         $.colorbox.next();
     }
 });
+
+
 }(jQuery));
 
 

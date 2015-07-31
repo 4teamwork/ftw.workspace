@@ -14,7 +14,8 @@
 
 <div class="imageContainer">
   <a class="colorboxLink previewitem" rel="entry"
-     tal:attributes="href string:${preview/overlay_url}">
+     tal:attributes="href string:${preview/overlay_url};
+                     id preview/uid">
                  <img tal:attributes="src preview/mimetype_image_url;
                                  title preview/mimetype_title;
                                  data-title preview/mimetype_title"

@@ -50,4 +50,5 @@ class DocumentsTab(BrowserView):
                 'mimetype_image_url': get_mimetype_image_url(
                     brain.getContentType),
                 'mimetype_title': get_mimetype_title(brain.getContentType),
+                'uid': brain.UID,
             }
