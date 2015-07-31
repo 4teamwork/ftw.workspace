@@ -63,13 +63,9 @@
         else{dontupdatehistory = false;}
 
         // Bumblebee-integration
-        $('.cboxIframe').load(function(){
-            if (typeof initBumblebee !== 'undefined' && $.isFunction(initBumblebee)) {
+        if (typeof initBumblebee !== 'undefined' && $.isFunction(initBumblebee)) {
                 initBumblebee();
         };
-});
-
-
     };
     var cleanup = function() { $("body").css("overflow", "scroll");
                                window.history.pushState({}, "", current_state);
@@ -78,11 +74,12 @@
     var destroy = function() {  };
 
     var settings = {
-      iframe: true,
+      iframe: false,
       rel: "previews",
       width: "95%",
       height: "90%",
 
+      className: 'cbFilePreview',
       trapFocus: true,
       fixed: true,
       reposition: false,
