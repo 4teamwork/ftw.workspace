@@ -118,6 +118,7 @@
       $(".colorboxLink").colorbox(settings);
       settings['iframe'] = true;
       $(".Image.colorboxLink").colorbox(settings);
+      settings['iframe'] = false;
 
       if (getUrlParameter('overlay')) {
         var uid = getUrlParameter('overlay')
@@ -136,15 +137,17 @@ $(window).on('popstate', function(event) {
         return;
     }
 
-    if((history.state.index < currentindex && !(history.state.index == 0 && currentindex ==$('.colorboxLink').length -1)) || (currentindex ==0 && history.state.index == $('.colorboxLink').length -1)){
+    if(history.state && ((history.state.index < currentindex && !(history.state.index == 0 && currentindex ==$('.colorboxLink').length -1)) || (currentindex ==0 && history.state.index == $('.colorboxLink').length -1))){
         dontupdatehistory = true;
         currentindex = history.state.index;
         $.colorbox.prev();
     }
     else{
         dontupdatehistory = true;
-        currentindex = history.state.index;
-        $.colorbox.next();
+        if (history.state){
+            currentindex = history.state.index;
+            $.colorbox.next();
+        }
     }
 });
 
