@@ -83,8 +83,13 @@
     var cleanup = function() { $("body").css("overflow", "scroll");
                                window.history.pushState({}, "", current_state);
                                currentindex = -1 };
-
-    var destroy = function() {  };
+    var clickUIDElement = function() {
+      if (getUrlParameter('overlay')) {
+        var uid = getUrlParameter('overlay');
+        var element = document.getElementById(uid);
+        $(element).click();
+      }
+    }
 
     var settings = {
       photo: false,
@@ -108,9 +113,10 @@
       onOpen: init,
       onComplete: changeUrl,
       onCleanup: cleanup,
-      onClose: destroy
     };
-
+    $(document).on("cbFileVersionPreviewClosed", function() {
+      clickUIDElement();
+    })
     $(document).on("ready reload activity-fetched", function() {
       $(".documents-tab .file-mimetype").tooltip({
         "tipClass": "file-tooltip"
@@ -120,11 +126,7 @@
       $(".Image.colorboxLink").colorbox(settings);
       settings['iframe'] = false;
 
-      if (getUrlParameter('overlay')) {
-        var uid = getUrlParameter('overlay')
-        var element = document.getElementById(uid);
-        $(element).click();
-      }
+      clickUIDElement();
 
     });
 
