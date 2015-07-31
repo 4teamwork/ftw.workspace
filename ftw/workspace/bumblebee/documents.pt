@@ -5,10 +5,10 @@
     </span>|
     <a id="listdocuments" href="#" i18n:translate="documents_pill_list">
         List
-    </a> 
+    </a>
 </div>
 
-<div tal:define="previews view/get_previews" class="previewContainer">
+<div tal:define="previews view/previews" class="previewContainer">
 <div tal:condition="previews">
 <tal:loop repeat="preview previews">
 

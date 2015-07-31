@@ -1,4 +1,6 @@
-from ftw.bumblebee.utils import item_for_brain
+from ftw.bumblebee.mimetypes import get_mimetype_image_url
+from ftw.bumblebee.mimetypes import get_mimetype_title
+from ftw.bumblebee.utils import get_representation_url_by_brain
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -30,7 +32,22 @@ class DocumentsTab(BrowserView):
         query.update(kwargs)
         return query
 
-    def get_previews(self, **kwargs):
+    def previews(self, **kwargs):
         catalog = getToolByName(self.context, 'portal_catalog')
-        results = catalog(self._query())
-        return map(item_for_brain, results)
+        brains = catalog(self._query())
+
+        for brain in brains:
+            desc = brain.Description
+            if desc:
+                desc = len(desc) < 50 and desc or desc[:49] + '...'
+            yield {
+                'title': brain.Title,
+                'description': desc,
+                'details_url': brain.getURL() + '/view',
+                'overlay_url': brain.getURL() + '/file_preview',
+                'preview_image_url': get_representation_url_by_brain(
+                    'thumbnail', brain),
+                'mimetype_image_url': get_mimetype_image_url(
+                    brain.getContentType),
+                'mimetype_title': get_mimetype_title(brain.getContentType),
+            }
