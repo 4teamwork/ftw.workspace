@@ -71,7 +71,6 @@
         }
         var path = window.location.pathname + "?overlay=" + $.colorbox.element().attr("id") + window.location.hash
         if (!dontupdatehistory){
-            console.log(currentindex);
             window.history.pushState({'index': currentindex}, "", path);
         }
         else{dontupdatehistory = false;}
@@ -88,7 +87,10 @@
     var destroy = function() {  };
 
     var settings = {
+      photo: false,
       iframe: false,
+      html: false,
+      inline: false,
       rel: "previews",
       width: "95%",
       height: "90%",
@@ -114,6 +116,9 @@
         "tipClass": "file-tooltip"
       });
       $(".colorboxLink").colorbox(settings);
+      settings['iframe'] = true;
+      $(".Image.colorboxLink").colorbox(settings);
+
       if (getUrlParameter('overlay')) {
         var uid = getUrlParameter('overlay')
         var element = document.getElementById(uid);
