@@ -8,8 +8,8 @@
     <tal:has_contents tal:condition="view/contents">
         <div tal:omit-tag="python: view.extjs_enabled" class="tab_container">
 
-            <tal:START_CUSTOM_______________________________________ />
-            <div class="ViewChooser" i18n:domain="ftw.workspace">
+            <tal:START_CUSTOM_______________________________________  />
+            <div class="ViewChooser" i18n:domain="ftw.workspace" tal:condition="view/has_bumblebee">
                     <a id="documents"
                        href="#"
                        i18n:translate="documents_pill_documents">Preview</a>

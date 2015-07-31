@@ -4,6 +4,7 @@ from ftw.workspace.browser import helper as workspace_helper
 from ftw.workspace.browser.tab import Tab
 from ftw.workspace.utils import has_ftwfile
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 from zope.i18nmessageid import MessageFactory
 
 
@@ -74,3 +75,7 @@ class DocumentsListingTab(Tab):
              'width': 80},
         )
         return columns
+
+    def has_bumblebee(self):
+        quickinstaller = getToolByName(self.context, 'portal_quickinstaller')
+        return quickinstaller.isProductInstalled('ftw.bumblebee')
