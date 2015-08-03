@@ -74,11 +74,24 @@
             window.history.pushState({'index': currentindex}, "", path);
         }
         else{dontupdatehistory = false;}
+    };
+    var cboxComplete = function(){
+        changeUrl();
 
         // Bumblebee-integration
         if (typeof initBumblebee !== 'undefined' && $.isFunction(initBumblebee)) {
                 initBumblebee();
         };
+
+        // After clicking a version-entry, the old journal will be deleted and is no longer
+        // available for the version-colorbox. Its no longer possible to swich between the versions.
+        // To fix this, we copy the given journal into the dom and it will be available for
+        // the versioning-colorbox too. After closing the version-colorbox we delete it.
+        // see: cbFileVersionPreviewClosed-event
+        $('.journalItemLink.cboxElement').on("click", function(){
+          $('#colorbox').after($('.journal').css('display', 'none').addClass('tempJournal'))
+        })
+
     };
     var cleanup = function() { $("body").css("overflow", "scroll");
                                window.history.pushState({}, "", current_state);
@@ -109,9 +122,10 @@
       current: "{current} / {total} Dateien",
       title: " ",
       fadeOut: 0,
+      loop: true,
 
       onOpen: init,
-      onComplete: changeUrl,
+      onComplete: cboxComplete,
       onCleanup: cleanup,
     };
     var init = function() {
@@ -131,6 +145,7 @@
       };
     };
     $(document).on("cbFileVersionPreviewClosed", function() {
+      $('.tempJournal').remove();
       init();
     })
     $(document).on("ready reload activity-fetched", function() {
