@@ -41,11 +41,13 @@
 
 .imageContainer {
     width: 260px;
-    height:290px;
+    height:auto;
     float:left;
     overflow:hidden;
 }
-
+.imageContainer a {
+    height: 250px;
+}
 .no_content{
     margin-top:1em;
     font-weight:bold;
