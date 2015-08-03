@@ -109,6 +109,7 @@
       transition: "none",
       current: "{current} / {total} Dateien",
       title: " ",
+      fadeOut: 0,
 
       onOpen: init,
       onComplete: changeUrl,
