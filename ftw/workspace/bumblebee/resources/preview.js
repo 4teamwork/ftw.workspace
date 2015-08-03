@@ -141,12 +141,11 @@
     });
 
 $(window).on('popstate', function(event) {
-    if(history.state.index == undefined && location.pathname + location.hash != current_state){
-        return;
-    }
-    else if(history.state.index == undefined && location.pathname + location.hash == current_state){
+    if(history.state == true && history.state.index == undefined){
+      if (location.pathname + location.hash == current_state){
         $.colorbox.close();
-        return;
+      }
+      return;
     }
 
     if(history.state && ((history.state.index < currentindex && !(history.state.index == 0 && currentindex ==$('.colorboxLink').length -1)) || (currentindex ==0 && history.state.index == $('.colorboxLink').length -1))){
