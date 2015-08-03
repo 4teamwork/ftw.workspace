@@ -1,13 +1,7 @@
-<div class="ViewChooser" i18n:domain="ftw.workspace">
-
-    <span id="events-calendar">
-        <b i18n:translate="documents_pill_documents">Preview</b>
-    </span>|
-    <a id="listdocuments" href="#" i18n:translate="documents_pill_list">
-        List
-    </a>
-</div>
-
+<ul class="ViewChooser">
+    <li class="active"><span class="documentsGallery" i18n:translate="documents_pill_documents">Gallery</span></li>
+    <li><a id="listdocuments" class="documentsList" href="#" i18n:translate="documents_pill_list">List</a></li>
+</ul>
 <div tal:define="previews view/previews" class="previewContainer">
 <div tal:condition="previews">
 <tal:loop repeat="preview previews">

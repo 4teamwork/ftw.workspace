@@ -9,16 +9,10 @@
         <div tal:omit-tag="python: view.extjs_enabled" class="tab_container">
 
             <tal:START_CUSTOM_______________________________________  />
-            <div class="ViewChooser" i18n:domain="ftw.workspace" tal:condition="view/has_bumblebee">
-                    <a id="documents"
-                       href="#"
-                       i18n:translate="documents_pill_documents">Preview</a>
-                       |
-                <span id="documents" >
-                    <b i18n:translate="documents_pill_list">List</b>
-                    </span>
-
-            </div>
+            <ul class="ViewChooser" tal:condition="view/has_bumblebee">
+                <li><a id="documents" class="documentsGallery" href="#" i18n:translate="documents_pill_documents">Gallery</a></li>
+                <li class="active"><span class="documentsList" i18n:translate="documents_pill_list">List</span></li>
+            </ul>
             <tal:END_CUSTOM_______________________________________ />
 
             <tal:extjs condition="view/extjs_enabled">
