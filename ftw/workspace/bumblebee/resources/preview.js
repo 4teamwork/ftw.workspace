@@ -114,10 +114,7 @@
       onComplete: changeUrl,
       onCleanup: cleanup,
     };
-    $(document).on("cbFileVersionPreviewClosed", function() {
-      clickUIDElement();
-    })
-    $(document).on("ready reload activity-fetched", function() {
+    var init = function() {
       $(".documents-tab .file-mimetype").tooltip({
         "tipClass": "file-tooltip"
       });
@@ -127,7 +124,20 @@
       settings['iframe'] = false;
 
       clickUIDElement();
-
+    };
+    var resizeColorbox = function() {
+      if ($('.cbFilePreview').is(':visible')){
+        $.colorbox.resize({width:$('body').width()*0.95, height:$('body').height()*0.9});
+      };
+    };
+    $(document).on("cbFileVersionPreviewClosed", function() {
+      init();
+    })
+    $(document).on("ready reload activity-fetched", function() {
+      init();
+      $(".simplelayout-content:first").on('refreshed', function() {
+        init();
+      });
     });
 
 $(window).on('popstate', function(event) {
@@ -153,9 +163,7 @@ $(window).on('popstate', function(event) {
     }
 });
 $( window ).on('resize', function() {
-  if ($('.cbFilePreview').is(':visible')){
-    $.colorbox.resize({width:$('body').width()*0.95, height:$('body').height()*0.9});
-  }
+  resizeColorbox();
 });
 
 }(jQuery));
