@@ -7,9 +7,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.workspace">
 
-    <!-- Include configuration for dependencies listed in setup.py -->
-    <includeDependencies package="." />
-
     <include package="plone.registry" />
 
     <five:registerPackage package="." initialize=".initialize" />
