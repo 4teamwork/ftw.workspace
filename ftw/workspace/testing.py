@@ -44,7 +44,6 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
-        z2.installProduct(app, 'ftw.zipexport')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
