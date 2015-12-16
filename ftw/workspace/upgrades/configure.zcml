@@ -185,4 +185,9 @@
         profile="ftw.workspace:default"
         />
 
+    <upgrade-step:directory
+        profile="ftw.workspace:default"
+        directory="."
+        />
+
 </configure>

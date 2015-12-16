@@ -55,17 +55,18 @@ setup(name='ftw.workspace',
       zip_safe=False,
 
       install_requires=[
-        'z3c.relationfield',
         'collective.js.jqsmartTruncation',
         'ftw.activity',
         'ftw.calendar',
         'ftw.colorbox',
+        'ftw.meeting [pdf, zipexport, calendar]',
         'ftw.tabbedview',
         'ftw.upgrade',
         'plone.formwidget.contenttree',
         'plone.namedfile',
         'plone.principalsource',
         'setuptools',
+        'z3c.relationfield',
         # -*- Extra requirements: -*-
         ],
 

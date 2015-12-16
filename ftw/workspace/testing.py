@@ -11,6 +11,7 @@ from plone.testing import z2
 from plone.testing import zca
 from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
+import ftw.meeting.tests.builders
 import ftw.workspace.tests.builders
 
 
@@ -42,8 +43,16 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
             '</configure>',
             context=configurationContext)
 
+        # DatagridField doesn't define the auto-include entry point
+        import Products.DataGridField
+        xmlconfig.file('configure.zcml',
+                       Products.DataGridField,
+                       context=configurationContext)
+
         z2.installProduct(app, 'ftw.workspace')
         z2.installProduct(app, 'ftw.file')
+        z2.installProduct(app, 'ftw.meeting')
+        z2.installProduct(app, 'Products.DataGridField')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
