@@ -2,6 +2,7 @@
 <metadata>
   <dependencies>
     <dependency>profile-ftw.tabbedview:default</dependency>
+    <dependency>profile-ftw.meeting:default</dependency>
     <dependency>profile-ftw.calendar:default</dependency>
     <dependency>profile-collective.js.jqsmartTruncation:default</dependency>
     <dependency>profile-ftw.colorbox:default</dependency>
