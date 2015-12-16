@@ -10,21 +10,14 @@ tests_require = [
     'ftw.pdfgenerator',
     'ftw.testbrowser',
     'ftw.testing',
-    'ftw.zipexport',
     'plone.app.testing',
     'pyquery',
     'xlrd',
-    'XlsxWriter',
 ]
 
 pdf_require = [
     'ftw.file',
     'ftw.pdfgenerator',
-]
-
-zip_export_require = pdf_require + [
-    'ftw.zipexport',
-    'XlsxWriter',
 ]
 
 setup(name='ftw.workspace',
@@ -62,10 +55,12 @@ setup(name='ftw.workspace',
         'ftw.meeting [pdf, zipexport, calendar]',
         'ftw.tabbedview',
         'ftw.upgrade',
+        'ftw.zipexport',
         'plone.formwidget.contenttree',
         'plone.namedfile',
         'plone.principalsource',
         'setuptools',
+        'XlsxWriter',
         'z3c.relationfield',
         # -*- Extra requirements: -*-
         ],
@@ -73,7 +68,7 @@ setup(name='ftw.workspace',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
                           pdf=pdf_require,
-                          zip_export=zip_export_require),
+                          zip_export=[]),  # For backwards compatibility
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''
