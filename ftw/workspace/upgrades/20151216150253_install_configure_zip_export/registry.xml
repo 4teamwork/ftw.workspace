@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry>
+
+    <registry>
+        <records interface="ftw.zipexport.interfaces.IZipExportSettings">
+            <value key="enabled_dotted_names" purge="False">
+                <element>Products.CMFCore.interfaces._content.IContentish</element>
+            </value>
+        </records>
+    </registry>
+
+</registry>
