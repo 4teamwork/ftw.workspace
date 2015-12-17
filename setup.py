@@ -4,7 +4,6 @@ import os
 version = '3.1.2.dev0'
 
 tests_require = [
-    'collective.quickupload',
     'ftw.builder',
     'ftw.file',
     'ftw.pdfgenerator',
@@ -53,7 +52,7 @@ setup(name='ftw.workspace',
         'ftw.calendar',
         'ftw.colorbox',
         'ftw.meeting [pdf, zipexport, calendar]',
-        'ftw.tabbedview',
+        'ftw.tabbedview[extjs, quickupload]',
         'ftw.upgrade',
         'ftw.zipexport',
         'plone.formwidget.contenttree',
