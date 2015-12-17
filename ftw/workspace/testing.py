@@ -1,15 +1,18 @@
 from ftw.builder.session import BuilderSession
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import set_builder_session_factory
+from ftw.tabbedview.interfaces import ITabbedView
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from plone.registry.interfaces import IRegistry
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
 from Products.CMFCore.utils import getToolByName
+from zope.component import getUtility
 from zope.configuration import xmlconfig
 import ftw.meeting.tests.builders
 import ftw.workspace.tests.builders
@@ -79,6 +82,11 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         # Setup a group and add member3
         portal.portal_groups.addGroup('group1')
         portal.portal_groups.addPrincipalToGroup("member3", "group1")
+
+        # Disable extjs integration for tests.
+        registry = getUtility(IRegistry)
+        reg_proxy = registry.forInterface(ITabbedView)
+        reg_proxy.extjs_enabled = False
 
 
 FTW_WORKSPACE_FIXTURE = FtwWorkspaceLayer()
