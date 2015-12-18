@@ -47,7 +47,6 @@ setup(name='ftw.workspace',
       zip_safe=False,
 
       install_requires=[
-        'collective.js.jqsmartTruncation',
         'ftw.activity',
         'ftw.calendar',
         'ftw.colorbox',
