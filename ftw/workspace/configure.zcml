@@ -66,4 +66,10 @@
             <adapter factory=".zip_export.WorkspaceZipRepresentation" />
         </configure>
     </configure>
+
+    <!-- Enable participation support for Workspace -->
+    <class class="ftw.workspace.content.workspace.Workspace">
+       <implements interface="ftw.participation.interfaces.IParticipationSupport" />
+    </class>
+
 </configure>
