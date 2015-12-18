@@ -3,6 +3,7 @@
   <dependencies>
     <dependency>profile-ftw.tabbedview:extjs</dependency>
     <dependency>profile-ftw.tabbedview:quickupload</dependency>
+    <dependency>profile-ftw.file:default</dependency>
     <dependency>profile-ftw.meeting:default</dependency>
     <dependency>profile-ftw.zipexport:default</dependency>
     <dependency>profile-ftw.calendar:default</dependency>

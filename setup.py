@@ -5,7 +5,6 @@ version = '3.1.2.dev0'
 
 tests_require = [
     'ftw.builder',
-    'ftw.file',
     'ftw.pdfgenerator',
     'ftw.testbrowser',
     'ftw.testing',
@@ -15,7 +14,6 @@ tests_require = [
 ]
 
 pdf_require = [
-    'ftw.file',
     'ftw.pdfgenerator',
 ]
 
@@ -50,6 +48,7 @@ setup(name='ftw.workspace',
         'ftw.activity',
         'ftw.calendar',
         'ftw.colorbox',
+        'ftw.file',
         'ftw.meeting [pdf, zipexport, calendar]',
         'ftw.tabbedview[extjs, quickupload]',
         'ftw.upgrade',
