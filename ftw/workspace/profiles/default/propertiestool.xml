@@ -11,4 +11,10 @@
    <element value="workspace_preview 200:200"/>
   </property>
  </object>
+
+ <object name="ftw.notification-properties" meta_type="Plone Property Sheet">
+  <property name="show_notification" type="lines" purge="True">
+  </property>
+ </object>
+
 </object>
