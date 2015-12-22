@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-04-14 09:12+0000\n"
+"POT-Creation-Date: 2015-12-22 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,6 +71,7 @@ msgstr ""
 msgid "Typ"
 msgstr ""
 
+#: ./ftw/workspace/configure.zcml:26
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
 msgstr ""
@@ -157,23 +158,27 @@ msgid "events_pill_list"
 msgstr ""
 
 #. Default: "E-Mail"
-#: ./ftw/workspace/export.py:127
+#: ./ftw/workspace/export.py:112
 msgid "export_heading_email"
 msgstr ""
 
 #. Default: "Full name"
-#: ./ftw/workspace/export.py:125
+#: ./ftw/workspace/export.py:110
 msgid "export_heading_full_name"
 msgstr ""
 
 #. Default: "Roles"
-#: ./ftw/workspace/export.py:129
+#: ./ftw/workspace/export.py:114
 msgid "export_heading_roles"
 msgstr ""
 
 #. Default: "User ID"
-#: ./ftw/workspace/export.py:123
+#: ./ftw/workspace/export.py:108
 msgid "export_heading_user_id"
+msgstr ""
+
+#: ./ftw/workspace/configure.zcml:26
+msgid "ftw.workspace"
 msgstr ""
 
 #. Default: "Move Items"
@@ -252,7 +257,7 @@ msgid "latex_label_description"
 msgstr ""
 
 #. Default: "Files"
-#: ./ftw/workspace/latex/views.py:96
+#: ./ftw/workspace/latex/views.py:101
 msgid "latex_label_files"
 msgstr ""
 
@@ -285,7 +290,7 @@ msgid "meeting"
 msgstr ""
 
 #. Default: "participants.xlsx"
-#: ./ftw/workspace/zip_export.py:26
+#: ./ftw/workspace/zip_export.py:40
 msgid "participants_export_filename"
 msgstr ""
 
@@ -296,5 +301,4 @@ msgstr ""
 #: ./ftw/workspace/browser/previews/default.py:24
 msgid "text_no_preview"
 msgstr ""
-
 

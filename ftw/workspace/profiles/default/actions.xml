@@ -14,4 +14,19 @@
           <property name="visible">True</property>
       </object>
   </object>
+
+  <object name="object_buttons" meta_type="CMF Action Category">
+
+    <object name="notification" meta_type="CMF Action" i18n:domain="plone">
+      <property name="title" i18n:translate="">Notification</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">string:${object_url}/notification_form</property>
+      <property name="permissions">
+        <element value="View"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+  </object>
+
 </object>

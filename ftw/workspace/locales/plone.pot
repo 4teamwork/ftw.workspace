@@ -19,3 +19,7 @@ msgstr ""
 
 msgid "Print details (PDF)"
 msgstr ""
+
+msgid "Notification"
+msgstr ""
+
