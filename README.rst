@@ -1,7 +1,7 @@
 Introduction
 ============
 
-``ftw.workspace`` provides a full featured project folder for plone.
+``ftw.workspace`` provides a full featured project folder for Plone.
 
 It uses ``ftw.tabbedview`` and ``ftw.activity`` to give you a overview view what happens
 in your project.
@@ -68,6 +68,12 @@ You may extend the Workspace by the following features.
 - ``ftw.avatar`
 
 
+Example Workflow
+================
+``ftw.workspace`` is shipped with a ``ftw.lawgiver``based default workflow for Workspaces.
+You need to copy the specification.txt to your policy package if you install any other AddOns to make sure the workflow works properly. Check ``ftw.lawgiver`` for further informations.
+
+
 Compatibility
 =============
 
@@ -87,7 +93,6 @@ Usage
     eggs =+
         ftw.workspace
 
-- Use ftw.workspace [zip_export] if you want to enable zip export.
 
 - Install the generic setup profile.
 
