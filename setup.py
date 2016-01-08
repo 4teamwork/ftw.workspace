@@ -4,6 +4,7 @@ import os
 version = '3.1.2.dev0'
 
 tests_require = [
+    'egov.contactdirectory',
     'ftw.builder',
     'ftw.pdfgenerator',
     'ftw.testbrowser',
@@ -15,6 +16,10 @@ tests_require = [
 
 pdf_require = [
     'ftw.pdfgenerator',
+]
+
+contact_require = [
+    'egov.contactdirectory'
 ]
 
 setup(name='ftw.workspace',
@@ -68,7 +73,8 @@ setup(name='ftw.workspace',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
                           pdf=pdf_require,
-                          zip_export=[]),  # For backwards compatibility
+                          zip_export=[],  # For backwards compatibility
+                          contact=contact_require),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''

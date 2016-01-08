@@ -56,6 +56,7 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         z2.installProduct(app, 'ftw.file')
         z2.installProduct(app, 'ftw.meeting')
         z2.installProduct(app, 'Products.DataGridField')
+        z2.installProduct(app, 'egov.contactdirectory')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup

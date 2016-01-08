@@ -24,6 +24,16 @@
         description="Workspace"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+
+    <genericsetup:registerProfile
+        name="contact"
+        title="ftw.workspace with contacts"
+        directory="profiles/contact"
+        description="Workspace"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
     <!-- Include the sub-packages that use their own configure.zcml files. -->
 
     <include package=".browser" />
