@@ -1,15 +1,77 @@
 Introduction
 ============
 
-``ftw.workspace`` provides a project folder for plone.
+``ftw.workspace`` provides a full featured project folder for Plone.
 
-The folder has a tabbed view with the tabs:
+It uses ``ftw.tabbedview`` and ``ftw.activity`` to give you a overview view what happens
+in your project.
 
-- **Overview**: Shows recently modified contents within this workspace and the structure (subfolders)
-- **Documents**: Lists files recursively
-- **Events**: Lists events (see ``ftw.meeting``) and a calendar view.
+What could happen in your project you're asking?
 
-The ``@@workspaces_view`` lists all workspaces recursively.
+- Share files
+    - Multi-upload using `collective.quickupload` - You are able to directly drop files into the Workspace, the Quickupload portlet is not necessary.
+    - `ftw.file` provides a journal, versions, D'n'D file replacement, an much more.
+    - Seperate Tabs, which shows all files, including filtering and Image preview.
+- Manage your Team.
+    - Extend your Team with ``ftw.participation``. Invite external an internal people to collaborate.
+    - Overview of who is collaborating and open invitations.
+- Meetings and Events
+    - Add Meetings or Events.
+    - Overview of all Meetings and Events as list or FullCalendar using ``ftw.calendar``.
+- General features
+    - Download all necessary informations of the Workspace as PDF.
+    - Once you're done with the Project you can Download everything as ZIP-File.
+    - Shows activities (Add, Modify, Delete, etc.)
+    - Uploaded something interesting? Notify the People you want with ``ftw.notification``.
+    - All Informations are fast accessible thru Tabs.
+    - Create Project structures with Folders.
+    - Global Overview of all your Projects with the ``@@workspaces_view``.
+    - Using ExtJS for tabular listings.
+    - Move and delete files directly in listings.
+
+
+
+Integrated AddOns
+-----------------
+**``egov.contactdirectory``** is implemented as `extras`::
+
+
+    [instance]
+    eggs =+
+        ftw.workspace [contact]
+
+
+An additional profile is implemented which adds a new Tab to the Workspace and make the Contacts addable.
+
+
+**PDF generation** is implemented as `extras`::
+
+    [instance]
+    eggs =+
+        ftw.workspace [pdf]
+
+Consider not installing it, if PDFLatex binaries are missing.
+
+
+Possible AddOns
+---------------
+You may extend the Workspace by the following features.
+
+- ``izug.ticketbox``
+- ``ftw.mail``
+- ``ftw.book``
+- ``ftw.blog``
+- ``ftw.contentpage``
+- ``ftw.labels``
+- ``ftw.donwloadtoken``
+- ``ftw.quota``
+- ``ftw.avatar`
+
+
+Example Workflow
+================
+``ftw.workspace`` is shipped with a ``ftw.lawgiver``based default workflow for Workspaces.
+You need to copy the specification.txt to your policy package if you install any other AddOns to make sure the workflow works properly. Check ``ftw.lawgiver`` for further informations.
 
 
 Compatibility
@@ -31,7 +93,6 @@ Usage
     eggs =+
         ftw.workspace
 
-- Use ftw.workspace [zip_export] if you want to enable zip export.
 
 - Install the generic setup profile.
 
