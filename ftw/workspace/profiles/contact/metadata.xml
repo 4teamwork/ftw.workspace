@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<metadata>
+  <dependencies>
+    <dependency>profile-ftw.workspace:default</dependency>
+    <dependency>profile-egov.contactdirectory:default</dependency>
+  </dependencies>
+</metadata>
