@@ -1,19 +1,22 @@
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
+from ftw.workspace.testing import FTW_WORKSPACE_INTEGRATION_TESTING
 from operator import methodcaller
 from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from plone.uuid.interfaces import IUUID
+from Products.CMFPlone.interfaces.factory import IFactoryTool
 from unittest2 import TestCase
 from zope.component import getUtility
+from zope.interface import alsoProvides
 from zope.schema.interfaces import IVocabularyFactory
 
 
 class TestFtwNotificationIntegration(TestCase):
 
-    layer = FTW_WORKSPACE_FUNCTIONAL_TESTING
+    layer = FTW_WORKSPACE_INTEGRATION_TESTING
 
     def setUp(self):
 
@@ -144,3 +147,37 @@ class TestFtwNotificationIntegration(TestCase):
             self.subsubfolder)]
 
         self.assertItemsEqual(users, users_from_vocabulary)
+
+    def test_vocabulary_can_lists_contacts_too(self):
+        user1 = create(Builder('user')
+                       .named('ZZZ', 'User')
+                       .with_roles('Reader', on=self.workspace))
+
+        contact = create(Builder('contact')
+                         .within(self.workspace)
+                         .having(firstname='Contact', lastname='User'))
+
+        self.assertItemsEqual(
+            [user1.getId()] + self.owner + [IUUID(contact)],
+            self.vocab_factory(self.subfolder, membersonly=False).userids)
+
+        self.assertItemsEqual(
+            [user1.getId()] + self.owner,
+            self.vocab_factory(self.subfolder, membersonly=True).userids)
+
+    def test_vocabulary_ignore_local_roles_of_factory_tool(self):
+        user1 = create(Builder('user')
+                       .named('Test', 'User1')
+                       .with_roles('Reader', on=self.workspace))
+        create(Builder('user')
+               .named('Test', 'User2')
+               .with_roles('Reader', on=self.subfolder))
+        create(Builder('user')
+               .named('Test', 'User3')
+               .with_roles('Reader', on=self.subsubfolder))
+
+        alsoProvides(self.subfolder, IFactoryTool)
+
+        self.assertItemsEqual(
+            [user1.getId()] + self.owner,
+            self.vocab_factory(self.file_).userids)
