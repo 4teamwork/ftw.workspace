@@ -11,20 +11,10 @@ from plone.registry.interfaces import IRegistry
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
-from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from zope.configuration import xmlconfig
 import ftw.meeting.tests.builders
 import ftw.workspace.tests.builders
-
-
-USERS = [
-    {'user': 'member1', 'roles': ('Member', 'Reader'),
-     'fullname': 'BBB MEMBER1'},
-    {'user': 'member2', 'roles': ('Member', 'Reader'),
-     'fullname': 'AAA MEMBER2'},
-    {'user': 'member3', 'roles': ('Member', 'Reader'),
-     'fullname': 'BAA MEMBER3'}]
 
 
 def functional_session_factory():
@@ -43,6 +33,7 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
             '  <include package="z3c.autoinclude" file="meta.zcml" />'
             '  <includePlugins package="plone" />'
             '  <includePluginsOverrides package="plone" />'
+            '  <include package="Products.CMFPlacefulWorkflow" />'
             '</configure>',
             context=configurationContext)
 
@@ -57,32 +48,14 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
         z2.installProduct(app, 'ftw.meeting')
         z2.installProduct(app, 'Products.DataGridField')
         z2.installProduct(app, 'egov.contactdirectory')
+        z2.installProduct(app, 'Products.CMFPlacefulWorkflow')
+        # Dep. of egov.contactdirectory
+        z2.installProduct(app, 'ftw.contentpage')
+        z2.installProduct(app, 'simplelayout.types.common')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.workspace:contact')
-        applyProfile(portal, 'ftw.file:default')
-        applyProfile(portal, 'ftw.zipexport:default')
-
-        # Add role for vocab testing
-        portal._addRole('Reader')
-
-        mtool = getToolByName(portal, 'portal_membership')
-
-        # Setup some users
-        for userinfo in USERS:
-            username = userinfo['user']
-
-            portal.acl_users.userFolderAddUser(
-                username, 'password', userinfo['roles'], [])
-
-            member = mtool.getMemberById(username)
-            member.setMemberProperties(
-                mapping={"fullname": userinfo['fullname']})
-
-        # Setup a group and add member3
-        portal.portal_groups.addGroup('group1')
-        portal.portal_groups.addPrincipalToGroup("member3", "group1")
 
         # Disable extjs integration for tests.
         registry = getUtility(IRegistry)

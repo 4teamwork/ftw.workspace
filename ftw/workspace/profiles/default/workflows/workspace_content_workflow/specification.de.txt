@@ -1,0 +1,35 @@
+[Workspace Content Workflow]
+
+Beschreibung: Dieser Workflow gilt für Inhalte innerhalb eines Arbeitsraums.
+
+
+Initialzustand: Offen
+
+
+Rollen Zuweisung:
+  Besitzer => Owner
+  Benutzer => Authenticated
+  Gast => Reader
+  Teammitglied => Contributor
+  Admin => Editor
+  System Administrator => Manager
+
+
+Sichtbare Rollen:
+# Vorläufig können nur auf Stufe Arbeitsraum Rollen vergeben werden.
+
+
+Status Offen:
+  Ein Gast kann diesen Inhalt ansehen.
+
+  Ein Teammitglied kann das gleiche wie ein Gast.
+  Ein Teammitglied kann neuen Inhalt hinzufügen.
+  Ein Teammitglied kann diesen Inhalt bearbeiten.
+  Ein Teammitglied kann diesen Inhalt löschen.
+
+  Ein Admin kann das gleiche wie ein Teammitglied.
+
+  Ein System Administrator kann das gleiche wie ein Admin.
+  Ein System Administrator kann Inhalte konfigurieren.
+  Ein System Administrator kann Portlets verwalten.
+  Ein System Administrator kann Rollen zuweisen.

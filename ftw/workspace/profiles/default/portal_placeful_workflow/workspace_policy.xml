@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<object name="workspace_policy" meta_type="WorkflowPolicy">
+
+    <property name="title">Workspace Policy</property>
+
+    <bindings>
+        <default>
+            <bound-workflow workflow_id="workspace_content_workflow"/>
+        </default>
+
+        <!-- The folder containing all the workspaces. -->
+        <type type_id="Folder">
+            <bound-workflow workflow_id="workspaces_workflow"/>
+        </type>
+
+        <!-- The workspace itself. -->
+        <type type_id="Workspace">
+            <bound-workflow workflow_id="workspace_workflow"/>
+        </type>
+
+        <!-- Content inside a workspace. -->
+        <type type_id="Meeting">
+            <bound-workflow workflow_id="(Default)"/>
+        </type>
+        <type type_id="Meeting Item">
+            <bound-workflow workflow_id="(Default)"/>
+        </type>
+        <type type_id="File">
+            <bound-workflow workflow_id="(Default)"/>
+        </type>
+        <type type_id="Document">
+            <bound-workflow workflow_id="(Default)"/>
+        </type>
+        <type type_id="TabbedViewFolder">
+            <bound-workflow workflow_id="(Default)"/>
+        </type>
+
+    </bindings>
+
+</object>

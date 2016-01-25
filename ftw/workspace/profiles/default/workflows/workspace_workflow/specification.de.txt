@@ -1,0 +1,41 @@
+[Workspace Workflow]
+
+Beschreibung: Dieser Workflow gilt für den Workspace an sich.
+# Es wird sichergestellt, dass nur der Eigentümer oder ein Site Admin den
+# Workspace löschen/bearbeiten kann.
+
+
+Initialzustand: Offen
+
+
+Rollen Zuweisung:
+  Besitzer => Owner
+  Benutzer => Authenticated
+  Gast => Reader
+  Teammitglied => Contributor
+  Admin => Editor
+  System Administrator => Manager
+
+
+Sichtbare Rollen:
+  Gast
+  Teammitglied
+  Admin
+
+
+Status Offen:
+  Ein Gast kann diesen Inhalt ansehen.
+
+  Ein Teammitglied kann das gleiche wie ein Gast.
+  Ein Teammitglied kann neuen Inhalt hinzufügen.
+
+  Ein Admin kann das gleiche wie ein Teammitglied.
+  Ein Admin kann diesen Inhalt bearbeiten.
+  Ein Admin kann diesen Inhalt löschen.
+  Ein Admin kann Rollen zuweisen.
+
+  Ein Besitzer kann das gleiche wie ein Admin.
+
+  Ein System Administrator kann das gleiche wie ein Admin.
+  Ein System Administrator kann Inhalte konfigurieren.
+  Ein System Administrator kann Portlets verwalten.

@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <metadata>
   <dependencies>
+    <dependency>profile-Products.CMFPlacefulWorkflow:CMFPlacefulWorkflow</dependency>
+    <dependency>profile-collective.deletepermission:default</dependency>
     <dependency>profile-ftw.tabbedview:extjs</dependency>
     <dependency>profile-ftw.tabbedview:quickupload</dependency>
     <dependency>profile-ftw.file:default</dependency>
@@ -13,5 +15,6 @@
     <dependency>profile-ftw.colorbox:default</dependency>
     <dependency>profile-plone.formwidget.contenttree:default</dependency>
     <dependency>profile-ftw.activity:default</dependency>
+    <dependency>profile-ftw.lawgiver:default</dependency>
   </dependencies>
 </metadata>
