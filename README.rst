@@ -65,13 +65,15 @@ You may extend the Workspace by the following features.
 - ``ftw.labels``
 - ``ftw.donwloadtoken``
 - ``ftw.quota``
-- ``ftw.avatar`
+- ``ftw.avatar``
+
 
 
 Example Workflow
 ================
-``ftw.workspace`` is shipped with a ``ftw.lawgiver``based default workflow for Workspaces.
-You need to copy the specification.txt to your policy package if you install any other AddOns to make sure the workflow works properly. Check ``ftw.lawgiver`` for further informations.
+``ftw.workspace`` is shipped with a ``ftw.lawgiver`` based default workflow for Workspaces.
+You need to copy the workflow specifications of all three workflows (incl. placeful workflow policy) to your policy package and generate the necessary definition.xml using ftw.lawgiver. Check ``ftw.lawgiver`` for further informations.
+You may also update the placeful workflow mappings with other types used in Workspaces.
 
 
 Compatibility
