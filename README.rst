@@ -10,7 +10,7 @@ What could happen in your project you're asking?
 
 - Share files
     - Multi-upload using `collective.quickupload` - You are able to directly drop files into the Workspace, the Quickupload portlet is not necessary.
-    - `ftw.file` provides a journal, versions, D'n'D file replacement, an much more.
+    - `ftw.file` provides a journal, versions, D'n'D file replacement, and much more.
     - Seperate Tabs, which shows all files, including filtering and Image preview.
 - Manage your Team.
     - Extend your Team with ``ftw.participation``. Invite external an internal people to collaborate.
@@ -63,7 +63,7 @@ You may extend the Workspace by the following features.
 - ``ftw.blog``
 - ``ftw.contentpage``
 - ``ftw.labels``
-- ``ftw.donwloadtoken``
+- ``ftw.downloadtoken``
 - ``ftw.quota``
 - ``ftw.avatar``
 

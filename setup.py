@@ -14,10 +14,6 @@ tests_require = [
     'xlrd',
 ]
 
-pdf_require = [
-    'ftw.pdfgenerator',
-]
-
 contact_require = [
     'egov.contactdirectory'
 ]
@@ -60,6 +56,7 @@ setup(name='ftw.workspace',
         'ftw.notification.base',
         'ftw.notification.email',
         'ftw.participation',
+        'ftw.pdfgenerator',
         'ftw.tabbedview[extjs, quickupload]',
         'ftw.upgrade',
         'ftw.zipexport',
@@ -75,7 +72,6 @@ setup(name='ftw.workspace',
 
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
-                          pdf=pdf_require,
                           zip_export=[],  # For backwards compatibility
                           contact=contact_require),
 

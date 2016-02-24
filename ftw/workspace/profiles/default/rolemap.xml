@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 <rolemap>
-  <roles>
-    <role name="Reader"/>
-  </roles>
-
   <permissions>
     <permission name="ftw.workspace: Add Workspace" acquire="False">
       <role name="Manager" />
