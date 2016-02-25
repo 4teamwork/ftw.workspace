@@ -33,6 +33,7 @@
   <permission>Portlets: Manage portlets</permission>
   <permission>Sharing page: Delegate Contributor role</permission>
   <permission>Sharing page: Delegate Editor role</permission>
+  <permission>Sharing page: Delegate Owner role</permission>
   <permission>Sharing page: Delegate Reader role</permission>
   <permission>Sharing page: Delegate Reviewer role</permission>
   <permission>Sharing page: Delegate roles</permission>
@@ -231,6 +232,7 @@
       <permission-role>Manager</permission-role>
       <permission-role>Owner</permission-role>
     </permission-map>
+    <permission-map name="Sharing page: Delegate Owner role" acquired="False"/>
     <permission-map name="Sharing page: Delegate Reader role" acquired="False">
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
