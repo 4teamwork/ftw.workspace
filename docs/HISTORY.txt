@@ -5,7 +5,12 @@ Changelog
 3.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Implement example workspaces workflow.
+  [mathias.leimgruber]
+
+- Move several features from the main policy package to ``ftw.workspace``. Check
+  Readme for details. If you upgrading to this version be careful, it may enable features you don't want.
+  [mathias.leimgruber]
 
 
 3.1.1 (2015-06-03)

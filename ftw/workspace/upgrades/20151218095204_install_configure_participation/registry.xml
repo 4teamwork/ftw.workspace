@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<registry>
+
+    <record name="ftw.participation.interfaces.IParticipationRegistry.allow_multiple_roles">
+        <value>False</value>
+    </record>
+
+</registry>

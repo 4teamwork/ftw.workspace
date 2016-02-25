@@ -1,8 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
-    i18n_domain="ftw.workspace">
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade">
 
     <include package="ftw.upgrade" file="meta.zcml" />
 
@@ -183,6 +182,11 @@
         destination="3000"
         handler=".to3000.IndexWorkspaceCreator"
         profile="ftw.workspace:default"
+        />
+
+    <upgrade-step:directory
+        profile="ftw.workspace:default"
+        directory="."
         />
 
 </configure>

@@ -11,6 +11,100 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
+msgid "Notification"
+msgstr "Benachrichtigung"
+
+#. Default: "Offen"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "Offen"
+msgstr "Offen"
+
 msgid "Print details (PDF)"
 msgstr "Details drucken (PDF)"
 
+#. Default: "Benutzer"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Authenticated"
+msgstr "Benutzer"
+
+#. Default: "Teammitglied"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Contributor"
+msgstr "Teammitglied"
+
+#. Default: "Admin"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Editor"
+msgstr "Admin"
+
+#. Default: "System Administrator"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Manager"
+msgstr "System Administrator"
+
+#. Default: "Besitzer"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Owner"
+msgstr "Besitzer"
+
+#. Default: "Gast"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--ROLE--Reader"
+msgstr "Gast"
+
+#. Default: "Benutzer"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Authenticated"
+msgstr "Benutzer"
+
+#. Default: "Teammitglied"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Contributor"
+msgstr "Teammitglied"
+
+#. Default: "Admin"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Editor"
+msgstr "Admin"
+
+#. Default: "System Administrator"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Manager"
+msgstr "System Administrator"
+
+#. Default: "Besitzer"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Owner"
+msgstr "Besitzer"
+
+#. Default: "Gast"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--ROLE--Reader"
+msgstr "Gast"
+
+#. Default: "Benutzer"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Authenticated"
+msgstr "Benutzer"
+
+#. Default: "Teammitglied"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Contributor"
+msgstr "Teammitglied"
+
+#. Default: "Admin"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Editor"
+msgstr "Admin"
+
+#. Default: "System Administrator"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Manager"
+msgstr "System Administrator"
+
+#. Default: "Besitzer"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Owner"
+msgstr "Besitzer"

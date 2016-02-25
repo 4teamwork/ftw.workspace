@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>3000</version>
   <dependencies>
-    <dependency>profile-ftw.tabbedview:default</dependency>
+    <dependency>profile-Products.CMFPlacefulWorkflow:CMFPlacefulWorkflow</dependency>
+    <dependency>profile-collective.deletepermission:default</dependency>
+    <dependency>profile-ftw.tabbedview:extjs</dependency>
+    <dependency>profile-ftw.tabbedview:quickupload</dependency>
+    <dependency>profile-ftw.file:default</dependency>
+    <dependency>profile-ftw.participation:default</dependency>
+    <dependency>profile-ftw.notification.base:default</dependency>
+    <dependency>profile-ftw.notification.email:default</dependency>
+    <dependency>profile-ftw.meeting:default</dependency>
+    <dependency>profile-ftw.zipexport:default</dependency>
     <dependency>profile-ftw.calendar:default</dependency>
-    <dependency>profile-collective.js.jqsmartTruncation:default</dependency>
     <dependency>profile-ftw.colorbox:default</dependency>
     <dependency>profile-plone.formwidget.contenttree:default</dependency>
     <dependency>profile-ftw.activity:default</dependency>
+    <dependency>profile-ftw.lawgiver:default</dependency>
   </dependencies>
 </metadata>

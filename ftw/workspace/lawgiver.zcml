@@ -10,4 +10,8 @@
         permissions="ftw.workspace: Add Workspace"
         />
 
+    <!-- By registering an Owner role it can be translated
+         e.g. in the members tab of the workspace. -->
+    <lawgiver:role name="Owner" />
+
 </configure>

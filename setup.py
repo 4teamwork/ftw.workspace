@@ -4,27 +4,18 @@ import os
 version = '3.1.2.dev0'
 
 tests_require = [
-    'collective.quickupload',
+    'egov.contactdirectory',
     'ftw.builder',
-    'ftw.file',
     'ftw.pdfgenerator',
     'ftw.testbrowser',
     'ftw.testing',
-    'ftw.zipexport',
     'plone.app.testing',
     'pyquery',
     'xlrd',
-    'XlsxWriter',
 ]
 
-pdf_require = [
-    'ftw.file',
-    'ftw.pdfgenerator',
-]
-
-zip_export_require = pdf_require + [
-    'ftw.zipexport',
-    'XlsxWriter',
+contact_require = [
+    'egov.contactdirectory'
 ]
 
 setup(name='ftw.workspace',
@@ -55,24 +46,34 @@ setup(name='ftw.workspace',
       zip_safe=False,
 
       install_requires=[
-        'z3c.relationfield',
-        'collective.js.jqsmartTruncation',
+        'collective.deletepermission',
         'ftw.activity',
         'ftw.calendar',
         'ftw.colorbox',
-        'ftw.tabbedview',
+        'ftw.file',
+        'ftw.lawgiver',
+        'ftw.meeting [pdf, zipexport, calendar]',
+        'ftw.notification.base',
+        'ftw.notification.email',
+        'ftw.participation',
+        'ftw.pdfgenerator',
+        'ftw.tabbedview[extjs, quickupload]',
         'ftw.upgrade',
+        'ftw.zipexport',
         'plone.formwidget.contenttree',
         'plone.namedfile',
         'plone.principalsource',
+        'Products.CMFPlacefulWorkflow',
         'setuptools',
+        'XlsxWriter',
+        'z3c.relationfield',
         # -*- Extra requirements: -*-
         ],
 
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
-                          pdf=pdf_require,
-                          zip_export=zip_export_require),
+                          zip_export=[],  # For backwards compatibility
+                          contact=contact_require),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
       entry_points='''

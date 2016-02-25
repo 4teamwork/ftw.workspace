@@ -1,0 +1,29 @@
+[Workspaces Workflow (Verzeichnis mit Workspaces)]
+
+Beschreibung: Dieser Workflow gilt für den Ordner, welcher alle Arbeitsräume enthält.
+
+
+Initialzustand: Offen
+
+
+Rollen Zuweisung:
+  Besitzer => Owner
+  Benutzer => Authenticated
+  Teammitglied => Contributor
+  Admin => Editor
+  System Administrator => Manager
+
+
+Sichtbare Rollen:
+# Auf dieser Stufe dürfen keine Rollen vergeben werden, da sie sonst auf alle Arbeitsräume vererbt würden.
+
+
+Status Offen:
+  Ein Benutzer kann diesen Inhalt ansehen.
+  Ein Benutzer kann neuen Inhalt hinzufügen.
+
+  Ein System Administrator kann diesen Inhalt bearbeiten.
+  Ein System Administrator kann diesen Inhalt löschen.
+  Ein System Administrator kann Inhalte konfigurieren.
+  Ein System Administrator kann Portlets verwalten.
+  Ein System Administrator kann Rollen zuweisen.

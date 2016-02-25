@@ -58,6 +58,14 @@ class TestWorkspaceZipExport(TestCase):
         return data
 
     @browsing
+    def test_zip_export_action_is_available(self, browser):
+        browser.login().visit(self.workspace)
+        self.assertEquals(
+            'Export as Zip',
+            browser.css('#plone-contentmenu-actions-zipexport').first.text,
+            'Expect the zip export action on workspace')
+
+    @browsing
     def test_zip_export_integration(self, browser):
         """
         Makes sure the zip file contains a spreadsheet with the correct

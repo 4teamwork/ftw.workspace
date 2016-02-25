@@ -46,4 +46,17 @@
             <element>TabbedViewFolder</element>
         </value>
     </record>
+
+    <registry>
+        <records interface="ftw.zipexport.interfaces.IZipExportSettings">
+            <value key="enabled_dotted_names">
+                <element>Products.CMFCore.interfaces._content.IContentish</element>
+            </value>
+        </records>
+    </registry>
+
+    <record name="ftw.participation.interfaces.IParticipationRegistry.allow_multiple_roles">
+        <value>False</value>
+    </record>
+
 </registry>
