@@ -55,6 +55,7 @@ class FtwWorkspaceLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
+        applyProfile(portal, 'ftw.workspace:default')
         applyProfile(portal, 'ftw.workspace:contact')
 
         # Disable extjs integration for tests.
