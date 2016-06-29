@@ -9,8 +9,6 @@
   <permission>ATContentTypes: Add Link</permission>
   <permission>ATContentTypes: Add News Item</permission>
   <permission>Access contents information</permission>
-  <permission>Access future portal content</permission>
-  <permission>Access inactive portal content</permission>
   <permission>Add Folders</permission>
   <permission>Add portal content</permission>
   <permission>Add portal events</permission>
@@ -62,6 +60,8 @@
   <permission>iterate : Check in content</permission>
   <permission>iterate : Check out content</permission>
   <permission>plone.app.collection: Add Collection</permission>
+  <permission>plone.portlet.collection: Add collection portlet</permission>
+  <permission>plone.portlet.static: Add static portlet</permission>
   <state state_id="workspace_content_workflow--STATUS--offen" title="Offen">
     <permission-map name="ATContentTypes: Add Document" acquired="False">
       <permission-role>Contributor</permission-role>
@@ -109,8 +109,6 @@
       <permission-role>Manager</permission-role>
       <permission-role>Reader</permission-role>
     </permission-map>
-    <permission-map name="Access future portal content" acquired="False"/>
-    <permission-map name="Access inactive portal content" acquired="False"/>
     <permission-map name="Add Folders" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
@@ -324,6 +322,12 @@
     <permission-map name="plone.app.collection: Add Collection" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
+      <permission-role>Manager</permission-role>
+    </permission-map>
+    <permission-map name="plone.portlet.collection: Add collection portlet" acquired="False">
+      <permission-role>Manager</permission-role>
+    </permission-map>
+    <permission-map name="plone.portlet.static: Add static portlet" acquired="False">
       <permission-role>Manager</permission-role>
     </permission-map>
   </state>
