@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '3.1.2.dev0'
+version = '4.0.0'
 
 tests_require = [
     'egov.contactdirectory',
