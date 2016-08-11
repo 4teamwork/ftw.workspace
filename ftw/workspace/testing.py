@@ -13,6 +13,7 @@ from plone.testing import z2
 from plone.testing import zca
 from zope.component import getUtility
 from zope.configuration import xmlconfig
+import egov.contactdirectory.tests.builders
 import ftw.meeting.tests.builders
 import ftw.workspace.tests.builders
 
