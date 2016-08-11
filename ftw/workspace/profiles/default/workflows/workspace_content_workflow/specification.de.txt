@@ -16,7 +16,9 @@ Rollen Zuweisung:
 
 
 Sichtbare Rollen:
-# Vorläufig können nur auf Stufe Arbeitsraum Rollen vergeben werden.
+  Gast
+  Teammitglied
+  Admin
 
 
 Status Offen:
@@ -24,12 +26,14 @@ Status Offen:
 
   Ein Teammitglied kann das gleiche wie ein Gast.
   Ein Teammitglied kann neuen Inhalt hinzufügen.
-  Ein Teammitglied kann diesen Inhalt bearbeiten.
-  Ein Teammitglied kann diesen Inhalt löschen.
 
   Ein Admin kann das gleiche wie ein Teammitglied.
+  Ein Admin kann diesen Inhalt bearbeiten.
+  Ein Admin kann diesen Inhalt löschen.
+  Ein Admin kann Rollen zuweisen.
+
+  Ein Besitzer kann das gleiche wie ein Admin.
 
   Ein System Administrator kann das gleiche wie ein Admin.
   Ein System Administrator kann Inhalte konfigurieren.
   Ein System Administrator kann Portlets verwalten.
-  Ein System Administrator kann Rollen zuweisen.

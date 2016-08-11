@@ -67,134 +67,152 @@
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add Event" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add File" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add Folder" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add Image" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add Large Plone Folder" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add Link" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ATContentTypes: Add News Item" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Access contents information" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
       <permission-role>Reader</permission-role>
     </permission-map>
     <permission-map name="Add Folders" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Add portal content" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Add portal events" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Add portal folders" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Add portal topics" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="CMFEditions: Access previous versions" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="CMFEditions: Apply version control" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="CMFEditions: Checkout to location" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="CMFEditions: Revert to previous versions" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="CMFEditions: Save new version" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Change local roles" acquired="False">
+      <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Delete objects" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Delete portal content" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Edit comments" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="List folder contents" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
       <permission-role>Reader</permission-role>
     </permission-map>
     <permission-map name="Manage properties" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Modify constrain types" acquired="False">
       <permission-role>Manager</permission-role>
     </permission-map>
     <permission-map name="Modify portal content" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Modify view template" acquired="False">
       <permission-role>Manager</permission-role>
@@ -202,94 +220,118 @@
     <permission-map name="Portlets: Manage portlets" acquired="False">
       <permission-role>Manager</permission-role>
     </permission-map>
-    <permission-map name="Sharing page: Delegate Contributor role" acquired="False"/>
-    <permission-map name="Sharing page: Delegate Editor role" acquired="False"/>
+    <permission-map name="Sharing page: Delegate Contributor role" acquired="False">
+      <permission-role>Editor</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
+    <permission-map name="Sharing page: Delegate Editor role" acquired="False">
+      <permission-role>Editor</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
     <permission-map name="Sharing page: Delegate Owner role" acquired="False"/>
-    <permission-map name="Sharing page: Delegate Reader role" acquired="False"/>
+    <permission-map name="Sharing page: Delegate Reader role" acquired="False">
+      <permission-role>Editor</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
     <permission-map name="Sharing page: Delegate Reviewer role" acquired="False"/>
     <permission-map name="Sharing page: Delegate roles" acquired="False">
+      <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="Take ownership" acquired="False">
+      <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="View" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
       <permission-role>Reader</permission-role>
     </permission-map>
     <permission-map name="egov.contactdirectory: Add Contact" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="egov.contactdirectory: Add Member" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add AddressBlock" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add ContentPage" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add EventFolder" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add EventPage" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add ListingBlock" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add News" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add NewsFolder" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add TextBlock" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Add teaser link" acquired="False"/>
     <permission-map name="ftw.contentpage: Edit teaser image on ContentPage" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Edit teaser image on EventPage" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Edit teaser image on News" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.contentpage: Toggle IAuthority marker interface" acquired="False"/>
     <permission-map name="ftw.file: Add File" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.file: Edit advanced fields" acquired="False">
       <permission-role>Manager</permission-role>
@@ -298,31 +340,35 @@
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.meeting: Add Meeting Item" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="ftw.workspace: Add Workspace" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="iterate : Check in content" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="iterate : Check out content" acquired="False">
-      <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="plone.app.collection: Add Collection" acquired="False">
       <permission-role>Contributor</permission-role>
       <permission-role>Editor</permission-role>
       <permission-role>Manager</permission-role>
+      <permission-role>Owner</permission-role>
     </permission-map>
     <permission-map name="plone.portlet.collection: Add collection portlet" acquired="False">
       <permission-role>Manager</permission-role>

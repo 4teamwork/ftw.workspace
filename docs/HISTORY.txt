@@ -5,7 +5,8 @@ Changelog
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update workspace workflows for the new requirements set by the workspace template in bobtemplates.
+  [raphael-s]
 
 
 4.0.0 (2016-08-08)
