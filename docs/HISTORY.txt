@@ -5,7 +5,11 @@ Changelog
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix builders import.
+  Do no longer import the egov.contactdirectory builders from the builders.py.
+  If you want to use the ftw.workspace builders from another project, you don't
+  want to import the egov.contactdirectory builders.
+  [elioschmutz]
 
 
 4.0.0 (2016-08-08)
