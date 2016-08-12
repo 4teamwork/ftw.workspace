@@ -108,3 +108,8 @@ msgstr "System Administrator"
 #: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
 msgid "workspaces_workflow--ROLE--Owner"
 msgstr "Besitzer"
+
+#. Default: "Arbeitsraum Ersteller"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--ROLE--Reviewer"
+msgstr "Arbeitsraum Ersteller"

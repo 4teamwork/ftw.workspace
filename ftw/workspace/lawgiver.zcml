@@ -14,4 +14,11 @@
          e.g. in the members tab of the workspace. -->
     <lawgiver:role name="Owner" />
 
+    <lawgiver:map_permissions
+        action_group="view"
+        permissions="Delete objects"
+        workflow="workspaces_workflow"
+        move="False"
+        />
+
 </configure>

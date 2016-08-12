@@ -9,18 +9,23 @@ Initialzustand: Offen
 Rollen Zuweisung:
   Besitzer => Owner
   Benutzer => Authenticated
+  Arbeitsraum Ersteller => Reviewer
   Teammitglied => Contributor
   Admin => Editor
   System Administrator => Manager
 
 
 Sichtbare Rollen:
-# Auf dieser Stufe dürfen keine Rollen vergeben werden, da sie sonst auf alle Arbeitsräume vererbt würden.
+  Arbeitsraum Ersteller
 
 
 Status Offen:
   Ein Benutzer kann diesen Inhalt ansehen.
-  Ein Benutzer kann neuen Inhalt hinzufügen.
+  Ein Benutzer kann diesen Inhalt löschen.
+
+  Ein Arbeitsraum Ersteller kann neuen Inhalt hinzufügen.
+
+  Ein System Administrator kann das gleiche wie ein Arbeitsraum Ersteller.
 
   Ein System Administrator kann diesen Inhalt bearbeiten.
   Ein System Administrator kann diesen Inhalt löschen.

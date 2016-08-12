@@ -59,16 +59,6 @@ class TestWorkspaceWorkflow(TestCase):
             self.portal.restrictedTraverse(self.folder.getId()),
             'A authenticated user should have access to the folder')
 
-    def test_authenticated_user_CAN_add_workspace(self):
-        user = create(Builder('user'))
-
-        logout()
-        login(self.portal, user.getId())
-
-        self.assertTrue(
-            create(Builder('workspace').within(self.folder)),
-            'Authenticated should be able to add a workspace')
-
     def test_authenticated_user_CANNOT_view_workspace(self):
         workspace = create(Builder('workspace').within(self.folder))
         user = create(Builder('user').with_roles('Authenticated'))
@@ -114,20 +104,6 @@ class TestWorkspaceWorkflow(TestCase):
 
         item = create(Builder('TabbedViewFolder').within(workspace))
         id_ = item.getId()
-
-        workspace.manage_delObjects([id_])
-
-        self.assertNotIn(id_, workspace.objectIds())
-
-    def test_contributor_CAN_delete_others_content(self):
-        workspace = create(Builder('workspace').within(self.folder))
-        user = create(Builder('user').with_roles('Contributor', on=workspace))
-
-        item = create(Builder('TabbedViewFolder').within(workspace))
-        id_ = item.getId()
-
-        logout()
-        login(self.portal, user.getId())
 
         workspace.manage_delObjects([id_])
 
@@ -210,14 +186,3 @@ class TestWorkspaceWorkflow(TestCase):
         item = create(Builder('TabbedViewFolder').within(workspace))
         self.assertTrue(item.restrictedTraverse('edit'),
                         'Contributor should be able to edit his content')
-
-    def test_contributor_CAN_edit_others_content(self):
-        workspace = create(Builder('workspace').within(self.folder))
-        user = create(Builder('user').with_roles('Contributor', on=workspace))
-        item = create(Builder('TabbedViewFolder').within(workspace))
-
-        logout()
-        login(self.portal, user.getId())
-
-        self.assertTrue(item.restrictedTraverse('edit'),
-                        'Contributor should be able to edit others content')
