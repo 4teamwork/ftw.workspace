@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.0.2 (unreleased)
+4.1.0 (2016-08-12)
 ------------------
 
 - Update workspace workflows for the new requirements set by the workspace template in bobtemplates.
