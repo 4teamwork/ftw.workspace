@@ -5,7 +5,8 @@ Changelog
 4.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add basetest to compare the workflow with the policyworkflow.
+  [elioschmutz]
 
 
 4.1.0 (2016-08-12)
