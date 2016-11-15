@@ -214,7 +214,7 @@ class TestFilesListing(ListingTestBase):
             name='files-listing')
 
         latex = listing.get_listing()
-        self.assertIn(r'\begin{tabular}', latex)
+        self.assertIn(r'\begin{longtable}', latex)
         self.assertIn(r'foo', latex)
         self.assertIn(r'23.05.2010', latex)
         self.assertIn(r'10.06.2010', latex)
