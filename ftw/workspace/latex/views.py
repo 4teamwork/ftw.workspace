@@ -105,7 +105,7 @@ class FilesListing(object):
         if len(self._brains()) == 0:
             return None
         else:
-            return self.view.convert(self.template())
+            return self.template()
 
     def get_items(self):
         """Returns all items to be displayed.

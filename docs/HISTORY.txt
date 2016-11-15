@@ -5,7 +5,10 @@ Changelog
 4.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Speed up file listing rendering.
+  The html2latex conversion was too slow for workspaces with a huge amount of files.
+  This commit skips the html step and generates latex directly from template.
+  [lknoepfel]
 
 
 4.1.1 (2016-08-16)

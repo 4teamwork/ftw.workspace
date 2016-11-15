@@ -5,42 +5,27 @@
     tal:omit-tag="python: True"
     i18n:domain="ftw.workspace">
 
-    <table>
-        <colgroup>
-            <col width="50%" />
-            <col width="15%" />
-            <col width="15%" />
-            <col width="20%" />
-        </colgroup>
-        <thead>
-            <tr>
-                <th class="border-bottom">
-                    <b i18n:translate="latex_files_title">Title</b>
-                </th>
-                <th class="border-bottom">
-                    <b i18n:translate="latex_files_effective">Date</b>
-                </th>
-                <th class="border-bottom">
-                    <b i18n:translate="latex_files_modified">Modified</b>
-                </th>
-                <th class="border-bottom">
-                    <b i18n:translate="latex_files_creator">Creator</b>
-                </th>
-            </tr>
-        </thead>
+    \makeatletter\@ifundefined{tablewidth}
+    {\newlength\tablewidth}\makeatother
+    \setlength\tablewidth\linewidth
+    \addtolength\tablewidth{-8\tabcolsep}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{longtable}{p{0.5\tablewidth}p{0.15\tablewidth}p{0.15\tablewidth}p{0.2\tablewidth}}
 
-        <tbody>
-            <tr tal:repeat="item view/get_items">
-                <td tal:content="item/title"
-                    class="border-bottom" />
-                <td tal:content="item/effective"
-                    class="border-bottom" />
-                <td tal:content="item/modified"
-                    class="border-bottom" />
-                <td tal:content="item/creator"
-                    class="border-bottom" />
-            </tr>
-        </tbody>
-    </table>
+    \multicolumn{1}{p{0.5\tablewidth}}{\textbf{\textbf{<tal:omit tal:omit-tag="" i18n:translate="latex_files_title">Title</tal:omit>}}} &
+    \multicolumn{1}{p{0.15\tablewidth}}{\textbf{\textbf{<tal:omit tal:omit-tag="" i18n:translate="latex_files_effective">Date</tal:omit>}}} &
+    \multicolumn{1}{p{0.15\tablewidth}}{\textbf{\textbf{<tal:omit tal:omit-tag="" i18n:translate="latex_files_modified">Modified</tal:omit>}}} &
+    \multicolumn{1}{p{0.2\tablewidth}}{\textbf{\textbf{<tal:omit tal:omit-tag="" i18n:translate="latex_files_creator">Creator</tal:omit>}}} \\
+    \hline
+    \endhead
+
+    <tal:omit tal:omit-tag="" tal:repeat="item view/get_items">
+        \multicolumn{1}{p{0.5\tablewidth}}{<tal:omit tal:replace="item/title"></tal:omit>} &
+        \multicolumn{1}{p{0.15\tablewidth}}{<tal:omit tal:replace="item/effective"></tal:omit>} &
+        \multicolumn{1}{p{0.15\tablewidth}}{<tal:omit tal:replace="item/modified"></tal:omit>} &
+        \multicolumn{1}{p{0.2\tablewidth}}{<tal:omit tal:replace="item/creator"></tal:omit>} \\
+        \hline
+    </tal:omit>
+    \end{longtable}
 
 </html>
