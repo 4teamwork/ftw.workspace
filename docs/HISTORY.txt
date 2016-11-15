@@ -5,7 +5,7 @@ Changelog
 3.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make setting roles on workspace creation more robust. [jone]
 
 
 3.1.1 (2015-06-03)
