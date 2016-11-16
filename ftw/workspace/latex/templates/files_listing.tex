@@ -1,0 +1,22 @@
+\makeatletter\@ifundefined{tablewidth}
+{\newlength\tablewidth}\makeatother
+\setlength\tablewidth\linewidth
+\addtolength\tablewidth{-8\tabcolsep}
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{p{0.5\tablewidth}p{0.15\tablewidth}p{0.15\tablewidth}p{0.2\tablewidth}}
+
+\multicolumn{1}{p{0.5\tablewidth}}{\textbf{${title}}} &
+\multicolumn{1}{p{0.15\tablewidth}}{\textbf{${date}}} &
+\multicolumn{1}{p{0.15\tablewidth}}{\textbf{${modified}}} &
+\multicolumn{1}{p{0.2\tablewidth}}{\textbf{${creator}}} \\ %%
+\hline
+\endhead
+
+% for item in items:
+    \multicolumn{1}{p{0.5\tablewidth}}{${item['title']}} &
+    \multicolumn{1}{p{0.15\tablewidth}}{${item['effective']}} &
+    \multicolumn{1}{p{0.15\tablewidth}}{${item['modified']}} &
+    \multicolumn{1}{p{0.2\tablewidth}}{${item['creator']}} \\
+    \hline
+% endfor
+\end{longtable}
