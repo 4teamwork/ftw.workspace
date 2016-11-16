@@ -82,11 +82,12 @@ class WorkspaceDetailsView(MakoLaTeXView):
         return listings
 
 
-class FilesListing(object):
+class FilesListing(MakoLaTeXView):
     implements(IWorkspaceDetailsListingProvider)
     adapts(IWorkspace, Interface, ILaTeXLayout, Interface)
 
-    template = ViewPageTemplateFile('templates/files_listing.pt')
+    template_directories = ['templates']
+    template_name = 'files_listing.tex'
 
     def __init__(self, context, request, layout, view):
         self.context = context
@@ -105,14 +106,23 @@ class FilesListing(object):
         if len(self._brains()) == 0:
             return None
         else:
-            return self.template()
+            return self.render()
+
+    def get_render_arguments(self):
+        return {
+            'title': translate(_(u'latex_files_title'), context=self.request),
+            'date': translate(_(u'latex_files_effective'), context=self.request),
+            'modified': translate(_(u'latex_files_modified'), context=self.request),
+            'creator': translate(_(u'latex_files_creator'), context=self.request),
+            'items': self.get_items()
+        }
 
     def get_items(self):
         """Returns all items to be displayed.
         """
         ftwfile = has_ftwfile(self.context)
         for brain in self._brains():
-            yield {'title': brain.Title,
+            yield {'title': self.convert(brain.Title),
                    'effective': helper.readable_date(
                         brain, getattr(
                         brain, ftwfile and 'documentDate' or 'effective')),
