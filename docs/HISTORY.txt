@@ -10,6 +10,8 @@ Changelog
   This commit skips the html step and generates latex directly from template.
   [lknoepfel]
 
+- Make setting roles on workspace creation more robust. [jone]
+
 
 4.1.1 (2016-08-16)
 ------------------

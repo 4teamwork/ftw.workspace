@@ -45,18 +45,19 @@ finalizeWorkspaceSchema(WorkspaceSchema,
 
 
 @adapter(IWorkspace, IObjectInitializedEvent)
-def workspace_added(object_, event):
+def workspace_added(workspace, event):
     """When a workspace is created, we add additional local roles
     to enable the creator to delegate them.
     """
-    pm_tool = getToolByName(object_, 'portal_membership')
+    pm_tool = getToolByName(workspace, 'portal_membership')
     current_user = pm_tool.getAuthenticatedMember().getId()
-    # Fix (PHa): Only set local roles for logged-in user,
-    # if his/her id already has local roles
-    if current_user in object_.__ac_local_roles__:
-        registry = getUtility(IRegistry)
-        roles = registry['ftw.workspace.auto_roles']
-        object_.__ac_local_roles__[current_user] += roles
+    roles = workspace.get_local_roles_for_userid(current_user)
+    if not roles:
+        return
+
+    registry = getUtility(IRegistry)
+    roles = tuple(set(roles) | set(registry['ftw.workspace.auto_roles']))
+    workspace.manage_setLocalRoles(current_user, roles)
 
 
 class Workspace(folder.ATFolder):
