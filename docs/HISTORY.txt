@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.2 (unreleased)
+4.2.0 (2016-11-18)
 ------------------
 
 - Speed up file listing rendering.
