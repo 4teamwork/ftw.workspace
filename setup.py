@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '3.1.3'
+version = '3.1.4.dev0'
 
 tests_require = [
     'collective.quickupload',
