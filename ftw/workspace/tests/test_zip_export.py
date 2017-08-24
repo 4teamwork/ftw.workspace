@@ -41,7 +41,7 @@ class TestWorkspaceZipExport(TestCase):
         self.assertEquals('application/zip', browser.headers['Content-Type'])
 
         zipfile = ZipFile(StringIO(browser.contents))
-        self.assertEquals(['workspace.pdf', 'participants.xlsx'],
+        self.assertEquals(['workspace.pdf', 'participants.xlsx', '/'],
                           zipfile.namelist())
 
         xlsx = zipfile.read('participants.xlsx')
