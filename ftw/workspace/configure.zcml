@@ -82,4 +82,10 @@
        <implements interface="ftw.participation.interfaces.IParticipationSupport" />
     </class>
 
+    <configure zcml:condition="installed ftw.zipextract">
+      <adapter factory=".foldercreator.FolderCreatorInWorkspace" />
+
+      <adapter factory=".foldercreator.FolderCreatorInTabbedViewFolder" />
+    </configure>
+
 </configure>
