@@ -110,7 +110,7 @@ class TestFtwNotificationIntegration(TestCase):
         self.subfolder.__ac_local_roles_block__ = True
 
         self.assertItemsEqual(
-            self.owner,
+            [],
             self.vocab_factory(self.subfolder).userids)
 
     def test_dont_list_member_of_group_if_acquistion_stopped(self):
@@ -125,7 +125,7 @@ class TestFtwNotificationIntegration(TestCase):
         self.subfolder.__ac_local_roles_block__ = True
 
         self.assertItemsEqual(
-            self.owner,
+            [],
             self.vocab_factory(self.subfolder).userids)
 
     def test_vocab_is_sorted_by_fullname(self):
