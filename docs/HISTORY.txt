@@ -5,7 +5,7 @@ Changelog
 3.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Exclude owner from assignable users vocabulary. [mbaechtold]
 
 
 3.1.3 (2016-11-21)
