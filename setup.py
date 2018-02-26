@@ -12,6 +12,7 @@ tests_require = [
     'plone.app.testing',
     'pyquery',
     'xlrd',
+    'ftw.zipextract',
 ]
 
 contact_require = [
