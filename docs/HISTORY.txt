@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.2.1 (unreleased)
+4.3.0 (2018-06-21)
 ------------------
 
 - Add support for ftw.zipexport: configure types to create. [njohner]
