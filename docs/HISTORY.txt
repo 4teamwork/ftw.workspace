@@ -5,6 +5,7 @@ Changelog
 4.2.1 (unreleased)
 ------------------
 
+- Add support for ftw.zipexport: configure types to create. [njohner]
 - Exclude owner from assignable users vocabulary. [mbaechtold]
 
 

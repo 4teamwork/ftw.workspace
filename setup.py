@@ -12,6 +12,7 @@ tests_require = [
     'plone.app.testing',
     'pyquery',
     'xlrd',
+    'ftw.zipextract',
 ]
 
 contact_require = [
@@ -73,6 +74,7 @@ setup(name='ftw.workspace',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require,
                           zip_export=[],  # For backwards compatibility
+                          zip_extract=['ftw.zipextract'],
                           contact=contact_require),
 
       test_suite='ftw.workspace.tests.test_docs.test_suite',
