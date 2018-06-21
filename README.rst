@@ -53,6 +53,15 @@ An additional profile is implemented which adds a new Tab to the Workspace and m
 Consider not installing it, if PDFLatex binaries are missing.
 
 
+**ZIP Extraction**:
+The package integrates well with `ftw.zipextract`_, making it possbile to extract
+an uploaded ZIP file on the server::
+
+    [instance]
+    eggs =+
+        ftw.workspace [zip_extract]
+
+
 Possible AddOns
 ---------------
 You may extend the Workspace by the following features.
@@ -117,3 +126,4 @@ This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 
 .. _ftw.meeting: https://github.com/4teamwork/ftw.meeting
+.. _ftw.zipextract: https://github.com/4teamwork/ftw.zipextract
