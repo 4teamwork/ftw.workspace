@@ -5,7 +5,7 @@ Changelog
 4.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update workflows due to a new permission in `ftw.file 1.16.0`. [mbaechtold]
 
 
 4.3.0 (2018-06-21)

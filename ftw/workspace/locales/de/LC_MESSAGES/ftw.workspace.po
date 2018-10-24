@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-12-22 14:36+0000\n"
+"POT-Creation-Date: 2018-10-24 06:32+0000\n"
 "PO-Revision-Date: 2010-09-03 12:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,7 @@ msgstr "<span>x</span>"
 msgid "A type for collaborative spaces."
 msgstr "Ein Inhaltstyp für internetbasierte Zusammenarbeit"
 
+#: ./ftw/workspace/profiles/contact/types/Workspace.xml
 msgid "Contacts"
 msgstr "Kontakte"
 
@@ -72,6 +73,10 @@ msgstr "Typ"
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
 msgstr "Arbeitsraum"
+
+#: ./ftw/workspace/configure.zcml:34
+msgid "Workspace witch contacts"
+msgstr ""
 
 #: ./ftw/workspace/browser/move_items.py:147
 msgid "You have not selected any items"
@@ -178,6 +183,10 @@ msgstr "Benutzer-ID"
 msgid "ftw.workspace"
 msgstr ""
 
+#: ./ftw/workspace/configure.zcml:34
+msgid "ftw.workspace with contacts"
+msgstr ""
+
 #. Default: "Move Items"
 #: ./ftw/workspace/browser/move_items.py:39
 msgid "heading_move_items"
@@ -229,22 +238,22 @@ msgid "label_yesterday"
 msgstr "Gestern, ${time}"
 
 #. Default: "Creator"
-#: ./ftw/workspace/latex/templates/files_listing.pt:27
+#: ./ftw/workspace/latex/views.py:116
 msgid "latex_files_creator"
 msgstr "Ersteller"
 
 #. Default: "Date"
-#: ./ftw/workspace/latex/templates/files_listing.pt:21
+#: ./ftw/workspace/latex/views.py:114
 msgid "latex_files_effective"
 msgstr "Datum"
 
 #. Default: "Modified"
-#: ./ftw/workspace/latex/templates/files_listing.pt:24
+#: ./ftw/workspace/latex/views.py:115
 msgid "latex_files_modified"
 msgstr "Verändert"
 
 #. Default: "Title"
-#: ./ftw/workspace/latex/templates/files_listing.pt:18
+#: ./ftw/workspace/latex/views.py:113
 msgid "latex_files_title"
 msgstr "Titel"
 
@@ -254,7 +263,7 @@ msgid "latex_label_description"
 msgstr "Beschreibung"
 
 #. Default: "Files"
-#: ./ftw/workspace/latex/views.py:101
+#: ./ftw/workspace/latex/views.py:102
 msgid "latex_label_files"
 msgstr "Dateien"
 

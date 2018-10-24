@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-12-22 14:36+0000\n"
+"POT-Creation-Date: 2018-10-24 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,7 @@ msgstr ""
 msgid "A type for collaborative spaces."
 msgstr ""
 
+#: ./ftw/workspace/profiles/contact/types/Workspace.xml
 msgid "Contacts"
 msgstr ""
 
@@ -74,6 +75,10 @@ msgstr ""
 #: ./ftw/workspace/configure.zcml:26
 #: ./ftw/workspace/profiles/default/types/Workspace.xml
 msgid "Workspace"
+msgstr ""
+
+#: ./ftw/workspace/configure.zcml:34
+msgid "Workspace witch contacts"
 msgstr ""
 
 #: ./ftw/workspace/browser/move_items.py:147
@@ -181,6 +186,10 @@ msgstr ""
 msgid "ftw.workspace"
 msgstr ""
 
+#: ./ftw/workspace/configure.zcml:34
+msgid "ftw.workspace with contacts"
+msgstr ""
+
 #. Default: "Move Items"
 #: ./ftw/workspace/browser/move_items.py:39
 msgid "heading_move_items"
@@ -231,23 +240,19 @@ msgstr ""
 msgid "label_yesterday"
 msgstr ""
 
-#. Default: "Creator"
-#: ./ftw/workspace/latex/templates/files_listing.pt:27
+#: ./ftw/workspace/latex/views.py:116
 msgid "latex_files_creator"
 msgstr ""
 
-#. Default: "Date"
-#: ./ftw/workspace/latex/templates/files_listing.pt:21
+#: ./ftw/workspace/latex/views.py:114
 msgid "latex_files_effective"
 msgstr ""
 
-#. Default: "Modified"
-#: ./ftw/workspace/latex/templates/files_listing.pt:24
+#: ./ftw/workspace/latex/views.py:115
 msgid "latex_files_modified"
 msgstr ""
 
-#. Default: "Title"
-#: ./ftw/workspace/latex/templates/files_listing.pt:18
+#: ./ftw/workspace/latex/views.py:113
 msgid "latex_files_title"
 msgstr ""
 
@@ -257,7 +262,7 @@ msgid "latex_label_description"
 msgstr ""
 
 #. Default: "Files"
-#: ./ftw/workspace/latex/views.py:101
+#: ./ftw/workspace/latex/views.py:102
 msgid "latex_label_files"
 msgstr ""
 
