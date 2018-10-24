@@ -57,6 +57,11 @@ msgstr ""
 msgid "workspace_content_workflow--ROLE--Reader"
 msgstr ""
 
+#. Default: "Offen"
+#: ftw/workspace/profiles/default/workflows/workspace_content_workflow/specification.de.txt
+msgid "workspace_content_workflow--STATUS--offen"
+msgstr ""
+
 #. Default: "Benutzer"
 #: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
 msgid "workspace_workflow--ROLE--Authenticated"
@@ -87,6 +92,11 @@ msgstr ""
 msgid "workspace_workflow--ROLE--Reader"
 msgstr ""
 
+#. Default: "Offen"
+#: ftw/workspace/profiles/default/workflows/workspace_workflow/specification.de.txt
+msgid "workspace_workflow--STATUS--offen"
+msgstr ""
+
 #. Default: "Benutzer"
 #: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
 msgid "workspaces_workflow--ROLE--Authenticated"
@@ -115,4 +125,9 @@ msgstr ""
 #. Default: "Arbeitsraum Ersteller"
 #: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
 msgid "workspaces_workflow--ROLE--Reviewer"
+msgstr ""
+
+#. Default: "Offen"
+#: ftw/workspace/profiles/default/workflows/workspaces_workflow/specification.de.txt
+msgid "workspaces_workflow--STATUS--offen"
 msgstr ""
