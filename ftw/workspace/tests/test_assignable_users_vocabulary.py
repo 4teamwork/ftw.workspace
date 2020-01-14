@@ -8,7 +8,7 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.uuid.interfaces import IUUID
 from Products.CMFPlone.interfaces.factory import IFactoryTool
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.schema.interfaces import IVocabularyFactory

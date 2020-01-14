@@ -7,7 +7,7 @@ from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from Products.CMFCore.utils import getToolByName
 from StringIO import StringIO
-from unittest2 import TestCase
+from unittest import TestCase
 from xlrd import open_workbook
 from zipfile import ZipFile
 import transaction

@@ -5,7 +5,7 @@ from ftw.workspace.testing import FTW_WORKSPACE_FUNCTIONAL_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import TEST_USER_ID
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestMoveItems(TestCase):
